@@ -1,0 +1,39 @@
+/* Keep scroll input responsive by suspending decorative CSS motion in motion. */
+html.is-scrolling *,
+html.is-scrolling *::before,
+html.is-scrolling *::after,
+.motion-paused,
+.motion-paused *,
+.motion-paused::before,
+.motion-paused::after,
+.motion-paused *::before,
+.motion-paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* Avoid extra blur compositing while the page is moving. */
+html.is-scrolling .hero-inquiry,
+html.is-scrolling .how-card,
+html.is-scrolling .why-service-card,
+html.is-scrolling .why-choose-stats,
+html.is-scrolling .about-floating-panel,
+html.is-scrolling .contact--home .contact-info-card,
+html.is-scrolling .contact--home .contact-form-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Keep the orbit decoration still on the two side cards; the active card keeps its gentle pulse. */
+.how-card:not(.how-card--active) .how-icon-orbit,
+.how-card:not(.how-card--active) .how-card-icon {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .how-card-icon,
+  .how-icon-orbit,
+  .how-it-works-atmosphere i {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,413 @@
+﻿/* =========================================================
+   RESPONSIVE OVERRIDES & SUBPAGES STYLING
+   ========================================================= */
+
+/* Subpage Hero Banner */
+.page-hero {
+  background-color: var(--color-dark);
+  background-image: linear-gradient(rgba(26, 25, 25, 0.8), rgba(26, 25, 25, 0.88)), url('/images/hero-bedroom.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0 80px;
+  text-align: center;
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.page-hero-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.page-hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 0.875rem;
+  color: #bbb;
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+}
+
+.breadcrumb span {
+  color: #777;
+}
+
+/* Subpage Content Section */
+.page-section {
+  padding: 90px 0;
+  background-color: var(--color-bg-white);
+}
+
+.page-section-alt {
+  background-color: var(--color-bg-light);
+}
+
+/* Philosophy / Approach / Values Grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 48px;
+}
+
+.value-card {
+  background: var(--color-bg-white);
+  padding: 36px 30px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+}
+
+.value-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(208, 158, 107, 0.12);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.value-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 14px;
+}
+
+.value-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-body);
+}
+
+/* 3D Scene Container */
+.three-scene-container {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #111111;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  margin: 40px 0;
+}
+
+.three-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.three-loading,
+.three-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-white);
+  background: #151515;
+  padding: 24px;
+  text-align: center;
+}
+
+.three-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.three-controls-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+/* Lightbox Modal */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.lightbox-close-btn:hover {
+  background: var(--color-primary);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --container-max-width: clamp(1200px, 80vw, 1440px);
+  }
+}
+
+@media (max-width: 900px) {
+  :root { --navbar-height: 92px; }
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1140px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .services-grid {
+    gap: 24px;
+  }
+  .team-grid {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-container {
+    gap: 40px;
+  }
+  .about-content .section-heading {
+    font-size: 2.1rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .contact-container {
+    gap: 30px;
+  }
+  .three-scene-container {
+    height: clamp(320px, 58vh, 480px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-hero {
+    padding: 70px 0 50px;
+  }
+  .three-scene-container {
+    height: clamp(280px, 55vh, 380px);
+  }
+  .about {
+    padding: 70px 0;
+  }
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-tilt-card {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .about-content {
+    padding-left: 0;
+    text-align: center;
+  }
+  .about-categories {
+    justify-content: center;
+  }
+  .about-actions {
+    justify-content: center;
+  }
+  .architecture-showcase {
+    padding: 0;
+  }
+  .team {
+    padding: 70px 0 80px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .contact {
+    padding: 70px 0 80px;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero-content {
+    padding: 30px 16px;
+  }
+  .hero-heading {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+  .hero-btn {
+    padding: 12px 30px;
+    font-size: 0.88rem;
+  }
+  .services {
+    padding: 60px 0 70px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 290px;
+    margin: 0 auto;
+    gap: 32px;
+  }
+  .contact-info-card,
+  .contact-form-card {
+    padding: 28px 20px;
+  }
+  .lightbox-backdrop { padding: 16px; }
+  .lightbox-content { max-width: 100%; max-height: calc(100dvh - 32px); }
+  .lightbox-image { max-height: calc(100dvh - 120px); }
+  .lightbox-close-btn { top: -42px; width: 36px; height: 36px; }
+  .lightbox-caption { margin-top: 10px; padding: 0 12px; font-size: 0.9rem; }
+  .footer-container {
+    padding-bottom: 36px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root { --navbar-height: 84px; }
+  .navbar-container {
+    padding: 10px 16px;
+  }
+  .navbar-logo-img {
+    height: 64px;
+  }
+  .hero-heading {
+    font-size: 1.75rem;
+  }
+  .about-tilt-card {
+    max-width: 280px;
+  }
+  .about-content .section-heading {
+    font-size: 1.65rem;
+  }
+  .contact-info-card,
+  .contact-form-card {
+    padding: 24px 16px;
+  }
+  .form-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

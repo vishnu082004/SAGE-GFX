@@ -1,0 +1,60 @@
+.sage-hero .sage-hero-primary,
+.sage-hero .sage-hero-secondary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sage-hero .sage-hero-primary::before {
+  position: absolute;
+  z-index: 1;
+  inset: -40% auto -40% -55%;
+  width: 38%;
+  content: "";
+  transform: skewX(-22deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent);
+  pointer-events: none;
+  transition: left 520ms cubic-bezier(.2,.8,.2,1);
+}
+
+.sage-hero .sage-hero-primary:hover {
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 10px 30px rgba(197,38,206,.34), 0 0 24px rgba(9,213,239,.2);
+}
+
+.sage-hero .sage-hero-primary:hover::before { left: 125%; }
+.sage-hero .sage-hero-primary span,
+.sage-hero .sage-hero-primary svg { position: relative; z-index: 2; }
+.sage-hero .sage-hero-primary svg { transition: transform 220ms ease; }
+.sage-hero .sage-hero-primary:hover svg { transform: translateX(4px); }
+
+.sage-hero .sage-hero-secondary:hover {
+  transform: translateY(-3px);
+  background-color: rgba(12,24,43,.9);
+}
+
+.sage-hero .sage-hero-secondary svg { transition: transform 220ms ease, color 220ms ease; }
+.sage-hero .sage-hero-secondary:hover svg { transform: scale(1.2); color: #63e8ff; }
+
+.sage-hero .sage-hero-primary:active,
+.sage-hero .sage-hero-secondary:active { transform: translateY(0) scale(.97); }
+
+.sage-hero .sage-hero-primary:focus-visible,
+.sage-hero .sage-hero-secondary:focus-visible {
+  outline: 2px solid #73eaff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sage-hero .sage-hero-primary,
+  .sage-hero .sage-hero-secondary,
+  .sage-hero .sage-hero-primary::before,
+  .sage-hero .sage-hero-primary svg,
+  .sage-hero .sage-hero-secondary svg { transition: none; }
+  .sage-hero .sage-hero-primary:hover,
+  .sage-hero .sage-hero-secondary:hover,
+  .sage-hero .sage-hero-primary:active,
+  .sage-hero .sage-hero-secondary:active { transform: none; }
+}

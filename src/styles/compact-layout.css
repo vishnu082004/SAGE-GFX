@@ -1,0 +1,120 @@
+/* Slightly tighter proportions across the homepage and the oversized footer cards. */
+.home-page .sage-hero{min-height:clamp(500px,88svh,700px)}
+.home-page .sage-hero-inner{width:min(1440px,100%);gap:clamp(24px,3.2vw,48px);padding:42px 16px 34px}
+.home-page .sage-hero h1{font-size:clamp(2.35rem,4vw,3.7rem);line-height:1}
+.home-page .sage-hero-description{max-width:370px;font-size:.76rem;line-height:1.5}
+.home-page .sage-hero-eyebrow{font-size:.6rem}
+.home-page .about--home .about-container{width:min(1120px,calc(100% - 64px));padding-top:clamp(62px,7vw,88px);padding-bottom:clamp(62px,7vw,88px)}
+.home-page .about--home .about-statement{font-size:clamp(2.3rem,4vw,3.9rem)}
+.home-page .home-services{min-height:clamp(650px,86svh,820px);padding-top:48px;padding-bottom:28px}
+.home-page .home-services-inner{width:min(1360px,calc(100% - 64px))}
+.home-page .home-services-stage{height:min(59vh,540px)}
+.home-page .home-service-card{width:clamp(270px,24vw,360px);min-height:clamp(350px,43vh,455px);padding:clamp(20px,2vw,28px)}
+.home-page .why-choose--orbit{padding-top:clamp(54px,6vw,82px);padding-bottom:clamp(48px,5.3vw,72px)}
+.home-page .why-choose-visual{min-height:540px}
+.home-page .why-orb{width:clamp(205px,18vw,265px)}
+.home-page .why-service-card{min-height:148px;padding:14px 13px}
+.home-page .how-it-works{padding-top:clamp(62px,6.5vw,88px);padding-bottom:64px}
+.home-page .how-it-works-heading{margin-bottom:34px}
+.home-page .how-card,.home-page .how-card--active{min-height:clamp(330px,34vw,410px);padding:22px 20px}
+.home-page .how-card-icon-wrap{height:104px}
+
+@media(min-width:1301px){
+  .footer-premium{padding-top:76px;padding-bottom:24px}
+  .footer-main-grid{grid-template-columns:minmax(260px,1.08fr) minmax(205px,.76fr) minmax(290px,1.08fr) minmax(260px,.92fr);gap:16px;padding-bottom:22px}
+  .footer-brand-panel{min-height:410px;padding-top:48px}
+  .footer-quick-panel{min-height:320px;margin-top:38px;padding:18px 16px}
+  .footer-services-panel{min-height:420px;margin-top:8px;padding:20px 19px 16px}
+  .footer-contact-col{min-height:380px;margin-top:48px}
+  .footer-quick-panel .footer-heading,.footer-services-panel .footer-heading{font-size:1.18rem;margin-bottom:13px}
+  .footer-quick-links a{min-height:36px;font-size:.78rem}
+  .footer-service-links a{min-height:32px;padding:4px 2px;font-size:.74rem}
+  .footer-quick-links a>svg:first-child,.footer-service-links a>svg:first-child{width:18px;height:18px}
+  .footer-explore-link{min-height:39px;margin-top:12px;padding:0 15px;font-size:.68rem}
+}
+
+@media(min-width:621px) and (max-width:1300px){
+  .footer-premium{padding-top:62px;padding-bottom:24px}
+  .footer-main-grid{gap:13px;padding-bottom:20px}
+  .footer-quick-panel,.footer-services-panel{padding:18px 16px}
+  .footer-quick-panel .footer-heading,.footer-services-panel .footer-heading{font-size:1.12rem;margin-bottom:12px}
+  .footer-quick-links a{min-height:36px;font-size:.79rem}
+  .footer-service-links a{min-height:32px;padding:4px 1px;font-size:.74rem}
+  .footer-explore-link{min-height:39px;margin-top:12px;font-size:.68rem}
+}
+
+@media(max-width:700px){
+  .home-page .sage-hero{min-height:0}
+  .home-page .sage-hero-inner{width:100%;gap:20px;padding:38px 20px 32px}
+  .home-page .sage-hero h1{font-size:clamp(2rem,7.4vw,2.6rem);line-height:1.02}
+  .home-page .sage-hero-description{font-size:.72rem}
+  .home-page .about--home .about-container{width:calc(100% - 36px);padding:58px 0}
+  .home-page .home-services{min-height:0;padding:64px 0 56px}
+  .home-page .home-services-inner{width:calc(100% - 36px)}
+  .home-page .home-services-stage{height:390px}
+  .home-page .home-service-card{min-height:350px;padding:20px}
+  .home-page .why-choose--orbit{padding:54px 0 48px}
+  .home-page .why-choose-visual{min-height:0}
+  .home-page .how-it-works{padding:56px 0 52px}
+  .home-page .how-card,.home-page .how-card--active{min-height:345px;padding:19px 16px}
+  .footer-premium{padding-top:46px;padding-bottom:22px}
+  .footer-main-grid{gap:12px;padding-bottom:20px}
+  .footer-quick-panel,.footer-services-panel{padding:17px 16px}
+  .footer-quick-links a{min-height:38px;padding:8px 1px;font-size:.82rem}
+  .footer-service-links a{min-height:34px;padding:6px 1px;font-size:.78rem}
+  .footer-explore-link{min-height:40px;margin-top:12px}
+}
+
+/* Keep the hero metrics in their own column between the copy and inquiry form. */
+.home-page .sage-hero-inner{width:min(1680px,100%);grid-template-columns:minmax(0,1.08fr) minmax(145px,.38fr) minmax(370px,.9fr);grid-template-areas:"copy stats form";align-items:center}
+.home-page .sage-hero-copy{grid-area:copy}
+.home-page .sage-hero-stats{grid-area:stats;display:flex;flex-direction:column;gap:11px;margin:0;padding:11px;border:1px solid rgba(91,143,213,.28);border-radius:15px;background:linear-gradient(150deg,rgba(9,19,44,.68),rgba(6,10,27,.55));box-shadow:0 12px 28px rgba(0,0,0,.16)}
+.home-page .sage-hero-stats div{min-width:0;width:100%;padding:9px 5px;border-right:0;border-bottom:1px solid rgba(150,182,220,.2)}
+.home-page .sage-hero-stats div:first-child{padding-left:5px}
+.home-page .sage-hero-stats div:last-child{border:0}
+.home-page .sage-hero-stats strong{font-size:1.05rem}
+.home-page .sage-hero-stats span{font-size:.54rem;line-height:1.35}
+.home-page .hero-inquiry{grid-area:form}
+
+@media(min-width:761px) and (max-width:1100px){
+  .home-page .sage-hero-inner{width:min(100%,1000px);grid-template-columns:minmax(0,1fr) minmax(330px,.95fr);grid-template-areas:"copy form" "stats form";gap:18px 26px;padding-inline:24px}
+  .home-page .sage-hero-stats{flex-direction:row;gap:0;padding:6px 4px}
+  .home-page .sage-hero-stats div{padding:7px 5px;border-right:1px solid rgba(150,182,220,.2);border-bottom:0}
+  .home-page .sage-hero-stats div:first-child{padding-left:5px}
+  .home-page .sage-hero-stats strong{font-size:.98rem}
+  .home-page .sage-hero-stats span{font-size:.48rem}
+}
+
+@media(max-width:760px){
+  .home-page .sage-hero-inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "stats" "form";gap:17px}
+  .home-page .sage-hero-stats{flex-direction:row;gap:0;width:min(100%,550px);margin:0 auto;padding:7px 4px}
+  .home-page .sage-hero-stats div{padding:7px 5px;border-right:1px solid rgba(150,182,220,.2);border-bottom:0}
+  .home-page .sage-hero-stats div:first-child{padding-left:5px}
+  .home-page .sage-hero-stats div:last-child{border:0}
+  .home-page .sage-hero-stats strong{font-size:.96rem}
+  .home-page .sage-hero-stats span{font-size:.47rem}
+}
+
+.home-page .sage-hero-stats .sage-hero-stat-value{display:flex;align-items:center;gap:8px;margin:0;color:inherit;font-size:inherit}
+.home-page .sage-hero-stats .sage-hero-stat-value i{display:grid;width:30px;height:30px;flex:none;place-items:center;border:1px solid rgba(33,211,239,.28);border-radius:10px;background:linear-gradient(145deg,rgba(10,199,229,.14),rgba(172,43,226,.15));box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 14px rgba(24,176,235,.08);font-size:15px;font-style:normal;line-height:1}
+.home-page .sage-hero-stats div:nth-child(2) .sage-hero-stat-value i{border-color:rgba(192,69,238,.34);background:linear-gradient(145deg,rgba(153,65,226,.18),rgba(16,189,228,.12))}
+.home-page .sage-hero-stats div:nth-child(3) .sage-hero-stat-value i{border-color:rgba(26,206,230,.32);background:linear-gradient(145deg,rgba(24,202,231,.16),rgba(43,105,224,.15))}
+.home-page .sage-hero-stats .sage-hero-stat-value strong{font-size:.96rem;line-height:1}
+.home-page .sage-hero-stats div>span:last-child{display:block;margin:6px 0 0 38px;color:#c2cde0;font-size:.5rem;line-height:1.3}
+.home-page .sage-hero-stats{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.home-page .sage-hero-stats div,.home-page .sage-hero-stats div:first-child,.home-page .sage-hero-stats div:last-child{width:min(100%,166px);margin-inline:auto;padding:10px 8px;border:1px solid rgba(67,151,218,.34);border-radius:13px;background:linear-gradient(145deg,rgba(8,23,52,.82),rgba(8,10,31,.76));box-shadow:0 9px 23px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.06);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.home-page .sage-hero-stats div:nth-child(2){border-color:rgba(182,70,232,.36)}
+.home-page .sage-hero-stats div:nth-child(3){border-color:rgba(31,200,226,.34)}
+.home-page .sage-hero-stats div:hover{transform:translateY(-3px);border-color:rgba(57,220,244,.72);box-shadow:0 12px 27px rgba(0,0,0,.26),0 0 17px rgba(20,191,231,.12)}
+.home-page .sage-hero-stats div{position:relative;overflow:hidden}
+.home-page .sage-hero-stats div::before{position:absolute;inset:0 auto 0 0;width:3px;border-radius:3px;content:"";background:linear-gradient(180deg,#12e1ef,#1688f7);box-shadow:0 0 12px rgba(18,208,239,.5)}
+.home-page .sage-hero-stats div:nth-child(2)::before{background:linear-gradient(180deg,#a64cff,#eb3fd1);box-shadow:0 0 12px rgba(183,61,231,.48)}
+.home-page .sage-hero-stats div:nth-child(3)::before{background:linear-gradient(180deg,#f13dbd,#8559ff);box-shadow:0 0 12px rgba(227,50,194,.45)}
+.home-page .sage-hero-stats div:nth-child(2) .sage-hero-stat-value i{border-color:rgba(193,72,240,.42);background:linear-gradient(145deg,rgba(161,66,235,.25),rgba(107,64,219,.15));box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 15px rgba(172,59,234,.13)}
+.home-page .sage-hero-stats div:nth-child(3) .sage-hero-stat-value i{border-color:rgba(233,62,190,.4);background:linear-gradient(145deg,rgba(225,52,183,.2),rgba(116,59,215,.15));box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 15px rgba(221,48,187,.12)}
+.home-page .sage-hero-stats div:nth-child(2) .sage-hero-stat-value strong{color:#cf8aff}
+.home-page .sage-hero-stats div:nth-child(3) .sage-hero-stat-value strong{color:#70dcff}
+.home-page .sage-hero-stats .sage-hero-stat-value{justify-content:center}
+.home-page .sage-hero-stats div>span:last-child{margin:5px 0 0;text-align:center}
+@media(min-width:761px) and (max-width:1100px){.home-page .sage-hero-stats{gap:7px}.home-page .sage-hero-stats .sage-hero-stat-value{gap:5px}.home-page .sage-hero-stats .sage-hero-stat-value i{width:25px;height:25px;font-size:13px}.home-page .sage-hero-stats div>span:last-child{margin:5px 0 0;font-size:.46rem;text-align:center}}
+@media(max-width:760px){.home-page .sage-hero-stats{gap:7px}.home-page .sage-hero-stats div,.home-page .sage-hero-stats div:first-child,.home-page .sage-hero-stats div:last-child{width:auto;min-width:0;flex:1;padding:10px 4px}.home-page .sage-hero-stats .sage-hero-stat-value{justify-content:center;gap:4px}.home-page .sage-hero-stats .sage-hero-stat-value i{width:25px;height:25px;border-radius:7px;font-size:13px}.home-page .sage-hero-stats .sage-hero-stat-value strong{font-size:.9rem}.home-page .sage-hero-stats div>span:last-child{margin:5px 0 0;font-size:.46rem;text-align:center}}

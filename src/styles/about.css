@@ -1,0 +1,251 @@
+/* =========================================================
+   ABOUT SECTION STYLING
+   ========================================================= */
+
+.about {
+  padding: 110px 0;
+  background-color: var(--color-bg-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.about--home { padding-bottom: 58px; }
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* 3D Tilt Image Wrapper */
+.about-image-column {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.about-tilt-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: box-shadow var(--transition-base);
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.about-tilt-card:hover .about-image {
+  transform: scale(1.03);
+}
+
+/* Subtle corner accent border */
+.about-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.about-zoom-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: rgba(26, 25, 25, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.about-tilt-card:hover .about-zoom-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Right Column Content */
+.about-content {
+  padding-left: 10px;
+}
+
+.about-content .section-eyebrow {
+  margin-bottom: 12px;
+}
+
+.about-content .section-heading {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  line-height: 1.24;
+  margin-bottom: 22px;
+  color: var(--color-heading);
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-body);
+  margin-bottom: 28px;
+}
+
+.about-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 34px;
+  font-family: var(--font-heading);
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-primary);
+}
+
+.about-category {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.about-divider {
+  margin-left: 10px;
+  color: #c5a078;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* =========================================================
+   ARCHITECTURE SHOWCASE (BANNER)
+   ========================================================= */
+
+.architecture-showcase {
+  position: relative;
+  width: 100%;
+  /* Keep the transition banner compact instead of making it a full viewport. */
+  height: clamp(240px, 24vw, 340px);
+  background-color: var(--color-bg-white);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Keep the fixed villa background anchored to the viewport while the section
+   fades in. A transformed ancestor makes background-attachment: fixed scroll. */
+.architecture-showcase.reveal-on-scroll,
+.architecture-showcase.reveal-on-scroll.is-revealed {
+  transform: none;
+}
+
+.architecture-showcase-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.architecture-showcase-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  background-image: none;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.architecture-showcase-btn.image-ready {
+  background-image: url('/images/showcase-villa.webp');
+}
+
+.architecture-showcase-image {
+  display: none;
+}
+
+.architecture-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 24px 30px;
+  color: var(--color-white);
+}
+
+.architecture-showcase-btn:hover .architecture-showcase-overlay {
+  opacity: 1;
+}
+
+.showcase-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.showcase-caption-sub {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 70px 0;
+  }
+  .about--home { padding-bottom: 42px; }
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-content {
+    padding-left: 0;
+  }
+  .architecture-showcase-image {
+    aspect-ratio: 16 / 10;
+  }
+  .architecture-showcase { height: clamp(210px, 42vw, 300px); }
+  .architecture-showcase-btn { background-attachment: scroll; }
+}

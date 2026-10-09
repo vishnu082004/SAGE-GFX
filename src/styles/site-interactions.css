@@ -1,0 +1,76 @@
+/* Quiet touch feedback for the site's primary call-to-action buttons. */
+.button{transition:transform .24s cubic-bezier(.2,.8,.2,1),box-shadow .24s ease,border-color .24s ease,filter .24s ease}
+.button:hover{transform:translateY(-3px) scale(1.015);filter:brightness(1.07)}
+.button:active{transform:translateY(0) scale(.975);filter:brightness(.98)}
+.button svg{transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+.button:hover svg{transform:translateX(3px)}
+button:not(:disabled):active{transform:translateY(1px) scale(.98);filter:brightness(.96)}
+
+/* Crisp tactile feedback across links styled as buttons and native controls. */
+.button:not([aria-disabled="true"]):active,
+button:not(:disabled):active,
+[role="button"]:active{animation:site-button-tap .34s cubic-bezier(.2,.82,.25,1) both;filter:brightness(1.08) saturate(1.08)}
+.button:active{box-shadow:0 0 0 3px rgba(61,204,239,.13),0 8px 25px rgba(45,112,224,.22)}
+button:not(:disabled):active svg,.button:active svg,[role="button"]:active svg{transform:scale(.88)}
+.button:not([aria-disabled="true"]),button:not(:disabled),[role="button"]{ -webkit-tap-highlight-color:transparent }
+@keyframes site-button-tap{0%{transform:translateY(0) scale(1)}38%{transform:translateY(1px) scale(.955)}72%{transform:translateY(-1px) scale(1.025)}100%{transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.button:active,button:not(:disabled):active,[role="button"]:active{animation:none!important;transform:scale(.98);filter:none}.button:active svg,button:not(:disabled):active svg,[role="button"]:active svg{transform:none}}
+
+@media(hover:hover) and (pointer:fine){
+  .button:hover:not(:active),button:not(:disabled):hover:not(:active),[role="button"]:hover:not(:active){animation:site-button-hover-glint .42s ease-out both}
+  @keyframes site-button-hover-glint{0%{filter:brightness(1)}45%{filter:brightness(1.18) drop-shadow(0 0 9px rgba(58,195,255,.32))}100%{filter:brightness(1.06) drop-shadow(0 0 4px rgba(112,93,255,.14))}}
+}
+@media(prefers-reduced-motion:reduce){.button:hover,button:not(:disabled):hover,[role="button"]:hover{animation:none!important}}
+
+/* About page identity hero: brand mark, three studio principles, no stock backdrop. */
+.about-page .page-hero--about{position:relative;isolation:isolate;min-height:clamp(380px,43vw,535px);overflow:hidden;padding:52px 0;background:radial-gradient(ellipse at 80% 52%,rgba(18,111,191,.18),transparent 31%),radial-gradient(ellipse at 75% 72%,rgba(203,33,190,.12),transparent 32%),linear-gradient(115deg,#050914 0%,#080d1b 62%,#0a0b1b 100%)}
+.about-page .page-hero--about::before{position:absolute;z-index:-1;inset:0;content:"";pointer-events:none;background:linear-gradient(145deg,transparent 46%,rgba(23,182,228,.12) 46.15%,transparent 46.4%),linear-gradient(28deg,transparent 67%,rgba(199,44,204,.11) 67.15%,transparent 67.4%);mask-image:linear-gradient(90deg,transparent,#000 45%,#000)}
+.about-page .page-hero--about .about-hero-layout{display:grid;width:min(1180px,100%);grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);align-items:center;gap:clamp(30px,6vw,84px);padding-inline:28px;text-align:left}
+.about-hero-copy{position:relative;z-index:2}
+.about-page .about-hero-copy .page-hero-eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:#b6cada;font-size:.62rem;letter-spacing:.16em}
+.about-hero-copy .page-hero-eyebrow i{width:25px;height:1px;background:linear-gradient(90deg,#ec20bd,#14d5ef)}
+.about-page .about-hero-copy .page-hero-title{padding:0;color:#f1f5ff;font-size:clamp(2.8rem,5.4vw,5rem);line-height:.99;letter-spacing:-.065em;text-shadow:none;animation-delay:.12s}
+.about-page .about-hero-copy .page-hero-title::after{display:none}
+.about-hero-deck{max-width:470px;margin:18px 0 23px;color:#b9c9dc;font-size:.88rem;line-height:1.7}
+.about-page .about-hero-copy .button{min-height:45px}
+.about-hero-stage{position:relative;display:grid;min-height:330px;place-items:center;isolation:isolate}
+.about-hero-stage::before{position:absolute;z-index:-1;width:220px;height:220px;border-radius:50%;content:"";background:radial-gradient(circle,rgba(12,161,239,.16),rgba(173,34,210,.08) 46%,transparent 72%);filter:blur(12px)}
+.about-hero-orbit{position:absolute;width:270px;height:108px;border:1px solid rgba(20,203,239,.56);border-radius:50%;box-shadow:0 0 24px rgba(10,183,238,.12),inset 0 0 17px rgba(191,46,224,.08);transform:rotate(-32deg) rotateX(58deg);animation:about-hero-orbit-turn 16s linear infinite}
+.about-hero-orbit--two{width:300px;height:130px;border-color:rgba(219,45,208,.5);transform:rotate(39deg) rotateX(58deg);animation-direction:reverse;animation-duration:21s}
+.about-hero-core{position:relative;display:flex;width:190px;height:190px;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(70,199,238,.65);border-radius:50%;background:radial-gradient(circle at 32% 24%,rgba(30,139,197,.34),rgba(8,15,36,.96) 61%,rgba(35,12,48,.96));box-shadow:inset 0 0 34px rgba(24,178,228,.1),0 17px 55px rgba(0,0,0,.4),0 0 35px rgba(17,176,232,.18);animation:about-hero-core-breathe 6s ease-in-out infinite}
+.about-hero-core .brand-mark{width:71px;height:48px;margin-bottom:7px;filter:drop-shadow(0 0 12px rgba(23,200,237,.34))}
+.about-hero-core>span{color:#f5f7ff;font:700 1.05rem var(--font-heading);letter-spacing:.03em}
+.about-hero-core>small{margin-top:4px;color:#a8bdd4;font-size:.43rem;letter-spacing:.16em}
+.about-hero-step{position:absolute;display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid rgba(87,148,199,.4);border-radius:10px;background:linear-gradient(135deg,rgba(12,24,46,.94),rgba(7,12,28,.94));box-shadow:0 10px 26px rgba(0,0,0,.28);color:#e5edf8;font-size:.66rem;animation:about-hero-step-float 5s ease-in-out infinite}
+.about-hero-step b{color:#20d0ee;font-size:.58rem;letter-spacing:.08em}
+.about-hero-step--strategy{top:30px;left:3%;animation-delay:-1s}.about-hero-step--design{top:45%;right:-1%;animation-delay:-2.3s}.about-hero-step--technology{bottom:22px;left:11%;animation-delay:-3.5s}
+.about-page .about--page{padding-top:62px}
+.about-page .principles-section--about{padding:35px 0 90px;background:radial-gradient(ellipse at 14% 20%,rgba(12,129,202,.09),transparent 36%),#070a12}
+.about-page .principles-section--about .principles-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.about-page .principles-section--about .principle-card,.about-page .principles-section--about .principle-card:nth-child(4),.about-page .principles-section--about .principle-card:nth-child(5){grid-column:span 2;padding:22px 20px;border:1px solid rgba(78,139,195,.24);border-radius:13px;background:linear-gradient(145deg,rgba(13,25,46,.92),rgba(6,11,22,.96));box-shadow:0 14px 35px rgba(0,0,0,.2);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.about-page .principles-section--about .principle-card{position:relative;overflow:hidden;transform:perspective(900px) rotateX(2deg);transform-style:preserve-3d;animation:about-card-arrive .65s}
+.about-page .principles-section--about .principle-card:nth-child(2){animation-delay:.08s}.about-page .principles-section--about .principle-card:nth-child(3){animation-delay:.16s}.about-page .principles-section--about .principle-card:nth-child(4){animation-delay:.24s}.about-page .principles-section--about .principle-card:nth-child(5){animation-delay:.32s}
+.about-page .principles-section--about .principle-card::before{position:absolute;top:-45px;right:-34px;width:112px;height:112px;border:1px solid rgba(27,198,235,.22);border-radius:50%;content:"";box-shadow:inset 0 0 30px rgba(26,179,230,.08),0 0 28px rgba(21,160,218,.08);pointer-events:none;transition:transform .4s,border-color .4s}
+.about-page .principles-section--about .principle-card:nth-child(2n)::before{border-color:rgba(213,45,205,.25);box-shadow:inset 0 0 30px rgba(213,45,205,.08),0 0 28px rgba(213,45,205,.08)}
+.about-page .principles-section--about .principle-card:hover{transform:perspective(750px) rotateX(4deg) rotateY(-3deg) translateY(-6px);border-color:rgba(24,198,234,.6);box-shadow:0 22px 46px rgba(0,0,0,.32),0 0 24px rgba(9,177,224,.1)}
+.about-page .principles-section--about .principle-card:hover::before{transform:scale(1.2) translate(-4px,5px);border-color:rgba(31,212,239,.55)}
+.about-page .principles-section--about .principle-title{display:block;margin-bottom:12px;color:#eaf2ff;font-size:.95rem}
+.about-page .principles-section--about .principle-points li{color:#aebed2;font-size:.67rem;line-height:1.55}
+.about-page .principles-section--about .principle-points svg{color:#20cfe9}
+@keyframes about-hero-orbit-turn{to{rotate:1turn}}
+@keyframes about-hero-core-breathe{0%,100%{transform:translateY(0);box-shadow:inset 0 0 34px rgba(24,178,228,.1),0 17px 55px rgba(0,0,0,.4),0 0 28px rgba(17,176,232,.14)}50%{transform:translateY(-5px);box-shadow:inset 0 0 34px rgba(24,178,228,.14),0 20px 58px rgba(0,0,0,.42),0 0 40px rgba(17,176,232,.24)}}
+@keyframes about-hero-step-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes about-card-arrive{from{opacity:0;transform:perspective(900px) translateY(16px) rotateX(8deg)}to{opacity:1;transform:perspective(900px) translateY(0) rotateX(2deg)}}
+.about-page .about--page .about-art:hover .about-floating-frame{box-shadow:0 38px 100px rgba(0,0,0,.53),0 0 52px rgba(14,163,228,.2)}
+.about-page .about--page .about-floating-panel{transform:translateZ(32px);animation:about-panel-drift 5s ease-in-out infinite}
+.about-page .about--page .about-floating-panel--bottom{animation-delay:-2.4s}
+@keyframes about-panel-drift{0%,100%{translate:0 0}50%{translate:0 -5px}}
+.about-page .about--page .about-metrics{perspective:900px;gap:12px}
+.about-page .about--page .about-metrics>div{position:relative;min-height:86px;overflow:hidden;padding:14px 12px;border:1px solid rgba(77,148,198,.27);border-top-color:rgba(77,196,226,.55);border-radius:11px;background:linear-gradient(145deg,rgba(17,34,58,.82),rgba(7,12,25,.85));box-shadow:0 12px 25px rgba(0,0,0,.2);transform:rotateX(3deg);transform-style:preserve-3d;transition:transform .3s,border-color .3s,box-shadow .3s;animation:about-card-arrive .6s}
+.about-page .about--page .about-metrics>div:nth-child(2){animation-delay:.1s}.about-page .about--page .about-metrics>div:nth-child(3){animation-delay:.2s}
+.about-page .about--page .about-metrics>div::after{position:absolute;top:-23px;right:-15px;width:56px;height:56px;border:1px solid rgba(28,202,235,.27);border-radius:50%;content:"";box-shadow:0 0 20px rgba(22,183,231,.12);pointer-events:none}
+.about-page .about--page .about-metrics>div:hover{transform:perspective(650px) rotateX(5deg) rotateY(-4deg) translateY(-4px);border-color:rgba(35,210,238,.7);box-shadow:0 18px 34px rgba(0,0,0,.3),0 0 20px rgba(15,187,228,.1)}
+.about-page .about--page .about-text{transform:perspective(900px) rotateY(-2deg);box-shadow:12px 18px 45px rgba(0,0,0,.23),inset 0 1px rgba(255,255,255,.035)}
+@media(max-width:760px){.about-page .page-hero--about{min-height:0;padding:72px 0 46px}.about-page .page-hero--about .about-hero-layout{grid-template-columns:1fr;gap:12px;padding-inline:22px}.about-page .about-hero-copy .page-hero-title{font-size:clamp(2.7rem,10vw,4rem)}.about-hero-deck{margin:14px 0 19px;font-size:.8rem}.about-hero-stage{min-height:265px}.about-hero-core{width:156px;height:156px}.about-hero-orbit{width:230px;height:91px}.about-hero-orbit--two{width:252px;height:112px}.about-hero-step{padding:8px 10px;font-size:.59rem}.about-hero-step--strategy{top:12px;left:2%}.about-hero-step--design{right:0}.about-hero-step--technology{bottom:10px;left:7%}.about-page .principles-section--about .principles-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.about-page .principles-section--about .principle-card,.about-page .principles-section--about .principle-card:nth-child(4),.about-page .principles-section--about .principle-card:nth-child(5){grid-column:auto;padding:17px 14px}.about-page .principles-section--about .principle-points li{font-size:.63rem}}
+@media(max-width:430px){.about-hero-stage{min-height:235px}.about-hero-core{width:138px;height:138px}.about-hero-orbit{width:194px;height:78px}.about-hero-orbit--two{width:214px;height:94px}.about-hero-step--design{right:-2%}.about-hero-step--strategy{left:-1%}.about-hero-step--technology{left:0}.about-page .principles-section--about .principles-grid{grid-template-columns:1fr}.about-page .principles-section--about .principle-card,.about-page .principles-section--about .principle-card:nth-child(4),.about-page .principles-section--about .principle-card:nth-child(5){grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.about-hero-orbit,.about-hero-core,.about-hero-step,.about-page .principles-section--about .principle-card,.about-page .about--page .about-floating-panel,.about-page .about--page .about-metrics>div{animation:none}.button,.button svg,.principle-card,.about-floating-frame,.about-page .about--page .about-metrics>div{transition:none!important}.about-page .principles-section--about .principle-card,.about-page .principles-section--about .principle-card:hover,.about-page .about--page .about-floating-frame,.about-page .about--page .about-art:hover .about-floating-frame,.about-page .about--page .about-metrics>div,.about-page .about--page .about-metrics>div:hover,.about-page .about--page .about-text{transform:none!important}}

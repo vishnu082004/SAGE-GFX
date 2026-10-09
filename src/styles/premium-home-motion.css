@@ -1,0 +1,47 @@
+/* Home page motion: restrained, scroll-led and static for reduced-motion users. */
+.how-it-works .how-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.how-it-works .how-card{position:relative;min-width:0;display:flex;min-height:300px;flex-direction:column;padding:27px;border:1px solid rgba(109,154,211,.2);border-radius:18px;background:linear-gradient(145deg,rgba(14,25,47,.94),rgba(7,13,29,.94));box-shadow:0 18px 46px rgba(0,0,0,.2);rotate:0deg;scale:1;translate:0 0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.how-it-works .how-card-top{display:flex;align-items:center;justify-content:space-between;color:#93a9c5;font-size:.78rem;letter-spacing:.12em}
+.how-it-works .how-card-top i{width:32px;height:1px;background:linear-gradient(90deg,#28d5eb,#b548e8)}
+.how-it-works .how-card-icon{display:grid;width:48px;height:48px;place-items:center;margin:31px 0 21px;border:1px solid rgba(42,197,232,.34);border-radius:14px;background:rgba(20,153,192,.1);color:#70e4f5;font-size:1.25rem;animation:none}
+.how-it-works .how-card-copy h3{color:#f0f5ff}
+.how-it-works .how-card-copy p{color:#aabbd1;line-height:1.7}
+.how-it-works .how-card-action{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;color:#c7eefa;text-decoration:none;font-size:.82rem}
+.how-it-works .how-card-action svg{transition:transform .2s ease}
+.how-it-works .how-card-action:hover svg{transform:translateX(4px)}
+.home-projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,42px);width:100%;max-width:none}
+.home-project-card{width:auto;min-width:0;animation:none}
+.home-project-card:focus-visible,.home-projects-all:focus-visible,.how-card-action:focus-visible{outline:2px solid #66e2f3;outline-offset:4px}
+.contact-home-map{position:relative;overflow:hidden;margin-top:24px;border:1px solid rgba(91,174,219,.24);border-radius:13px;background:#07101e}
+.contact-home-map iframe{display:block;width:100%;height:190px;border:0;filter:saturate(.76) contrast(1.04)}
+.contact-home-map>a{display:flex;align-items:center;gap:8px;padding:11px 13px;color:#ccebf5;text-decoration:none;font-size:.77rem}
+.contact-home-map>a svg:last-child{margin-left:auto;color:#59d9ef}
+.contact--home{padding-block:clamp(68px,8vw,110px)}
+.contact--home .contact-info-card,.contact--home .contact-form-card{border:1px solid rgba(92,151,202,.22);box-shadow:0 22px 60px rgba(0,0,0,.22)}
+.contact--home .form-input,.contact--home .form-textarea{transition:border-color .2s ease,box-shadow .2s ease}
+.contact--home .form-input:focus,.contact--home .form-textarea:focus{border-color:rgba(68,209,238,.72);box-shadow:0 0 0 3px rgba(37,178,215,.1);outline:0}
+.hero-inquiry-field select{width:100%;min-width:0;min-height:38px;padding:8px 10px;border:1px solid rgba(100,144,192,.34);border-radius:7px;outline:none;background:rgba(3,10,24,.82);color:#eaf4ff;font:500 .69rem var(--font-base);transition:border-color .22s,box-shadow .22s}
+.hero-inquiry-field select:focus{border-color:#23d3ed;box-shadow:0 0 0 3px rgba(24,200,234,.11)}
+.hero-inquiry-field select option{background:#07101f;color:#eaf4ff}
+/* Keep existing visual systems but remove idle motion; scroll and hover provide the movement. */
+.why-choose--orbit .why-orbit,.why-choose--orbit .why-service-card,.why-choose--orbit .why-particle,.why-choose--orbit .why-energy-node,.why-choose--orbit .why-orb-shine{animation:none!important}
+.why-choose--orbit .why-particle{opacity:.68}
+.reviews-energy-trails path,.reviews-card-orbit .review-card,.reviews-particle{animation:none!important}
+.reviews-particle{opacity:.65}
+.sage-hero-image{animation:none!important}
+@media(max-width:899px){
+  .home-projects-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .home-project-card:last-child{grid-column:1/-1;width:auto}
+}
+@media(max-width:700px){
+  .how-it-works .how-cards{grid-template-columns:1fr;gap:14px}
+  .how-it-works .how-card,.how-it-works .how-card:not(.how-card--active){display:flex!important;min-height:0;padding:22px}
+  .how-it-works .how-card-icon{margin:22px 0 14px}
+  .home-projects-grid{grid-template-columns:1fr;gap:25px}
+  .home-project-card:last-child{grid-column:auto;width:auto}
+  .contact--home .contact-container{gap:18px}
+  .contact-home-map iframe{height:165px}
+}
+@media(prefers-reduced-motion:reduce){
+  .how-it-works .how-card-action svg,.contact--home .form-input,.contact--home .form-textarea{transition:none}
+}

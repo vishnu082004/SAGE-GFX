@@ -1,0 +1,31 @@
+/node_modules/
+.npm/
+.vite/
+
+# Build output
+dist/
+dist-ssr/
+coverage/
+
+# Local environment files; keep the example template trackable
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Editor and operating-system files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

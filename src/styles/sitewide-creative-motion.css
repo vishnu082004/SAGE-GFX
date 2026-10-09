@@ -1,0 +1,228 @@
+/* One motion language across Sage GFX: deliberate, quick, and brand-led. */
+:root {
+  --sage-motion-ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    transform: translate3d(0, 20px, 0);
+    transition: opacity .68s ease, transform .72s var(--sage-motion-ease);
+  }
+
+  .button-gradient {
+    background-size: 190% 100%;
+    background-position: 0% 50%;
+    transition: transform .24s var(--sage-motion-ease), box-shadow .3s ease, background-position .5s var(--sage-motion-ease);
+  }
+
+  .button-gradient:hover,
+  .button-gradient:focus-visible { background-position: 100% 50%; }
+}
+
+.project-card,
+.blog-card { transform-style: preserve-3d; }
+
+.project-card .project-art-mark,
+.blog-card .blog-art strong { transition: transform .32s var(--sage-motion-ease), text-shadow .32s ease; }
+
+.project-card>a span,
+.blog-card>a span,
+.careers-hero-link svg { transition: translate .22s var(--sage-motion-ease), rotate .22s var(--sage-motion-ease); }
+
+.project-card>a:hover span,
+.blog-card>a:hover span,
+.careers-hero-link:hover svg { translate: 3px 0; }
+
+.sitemap-links a { transition: color .22s ease, border-color .22s ease, translate .22s var(--sage-motion-ease); }
+.sitemap-links a:hover,
+.sitemap-links a:focus-visible { translate: 4px 0; }
+
+.about--home .about-metrics-tabs {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
+
+.about--home .about-metrics-tabs button {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s var(--sage-motion-ease), background .25s ease, color .2s ease, box-shadow .25s ease;
+}
+
+.about--home .about-metrics-tabs button:active { transform: scale(.97); }
+.about--home .about-metrics-tabs button:focus-visible { outline-offset: -3px; }
+
+.about--home .about-actions .about-home-cta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 18px;
+  border: 1px solid rgba(89, 222, 244, .62);
+  border-radius: 999px;
+  background: linear-gradient(105deg, #e72abd 0%, #9541df 54%, #12bfe0 100%);
+  background-size: 190% 100%;
+  background-position: 0% 50%;
+  box-shadow: 0 8px 24px rgba(160, 52, 208, .24), inset 0 1px rgba(255,255,255,.24);
+  color: #fff;
+  font-size: .77rem;
+  font-weight: 700;
+  letter-spacing: .015em;
+  text-decoration: none;
+  transition: transform .24s var(--sage-motion-ease), background-position .45s var(--sage-motion-ease), box-shadow .25s ease, border-color .25s ease;
+}
+
+.about--home .about-actions .about-home-cta svg {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+  transition: transform .22s var(--sage-motion-ease);
+}
+
+.about--home .about-actions .about-home-cta:hover,
+.about--home .about-actions .about-home-cta:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(133, 243, 255, .9);
+  background-position: 100% 50%;
+  box-shadow: 0 12px 30px rgba(108, 72, 224, .32), 0 0 20px rgba(18, 191, 224, .16), inset 0 1px rgba(255,255,255,.3);
+}
+
+.about--home .about-actions .about-home-cta:hover svg,
+.about--home .about-actions .about-home-cta:focus-visible svg { transform: translateX(4px); }
+.about--home .about-actions .about-home-cta:active { transform: translateY(-1px) scale(.98); }
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover,
+  .blog-card:hover { transform: perspective(900px) translateY(-5px) rotateX(2deg); }
+
+  .project-card:hover .project-art-mark,
+  .blog-card:hover .blog-art strong { transform: translateZ(20px) scale(1.035); text-shadow: 0 0 26px rgba(44, 199, 239, .38); }
+}
+
+.home-page .home-project-art::before {
+  position: absolute;
+  z-index: 1;
+  inset: -70% -40%;
+  content: "";
+  transform: translateX(-65%) rotate(24deg);
+  background: linear-gradient(90deg, transparent 40%, rgba(105, 220, 255, .16) 50%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-page .home-project-card:hover .home-project-art::before,
+.home-page .home-project-card:focus-visible .home-project-art::before {
+  opacity: 1;
+  animation: sage-project-glint .8s var(--sage-motion-ease) both;
+}
+
+.home-page .home-project-card:hover .home-project-art--brand .home-project-brand-orbit,
+.home-page .home-project-card:focus-visible .home-project-art--brand .home-project-brand-orbit {
+  animation: sage-project-orbit 8s linear infinite;
+}
+
+.home-page .home-project-card:hover .home-project-chart>span,
+.home-page .home-project-card:focus-visible .home-project-chart>span {
+  animation: sage-chart-rise .45s var(--sage-motion-ease) both;
+}
+
+.home-page .home-project-chart>span:nth-child(2) { animation-delay: 35ms; }
+.home-page .home-project-chart>span:nth-child(3) { animation-delay: 70ms; }
+.home-page .home-project-chart>span:nth-child(4) { animation-delay: 105ms; }
+.home-page .home-project-chart>span:nth-child(5) { animation-delay: 140ms; }
+
+.contact-detail-icon {
+  transition: translate .25s var(--sage-motion-ease), rotate .25s var(--sage-motion-ease), box-shadow .25s ease;
+}
+
+.contact-detail-card:hover .contact-detail-icon,
+.contact-detail-card:focus-within .contact-detail-icon {
+  translate: 0 -3px;
+  rotate: 5deg;
+  box-shadow: 0 0 30px rgba(62, 162, 255, .35);
+}
+
+.home-page .home-service-card.is-active:hover .home-service-image img {
+  filter: brightness(.95) saturate(1.12);
+}
+
+.home-page .common-question-toggle svg {
+  transition: rotate .25s var(--sage-motion-ease), color .25s ease;
+}
+
+.home-page .common-question-toggle:hover svg,
+.home-page .common-question-toggle:focus-visible svg { color: #57e6f7; }
+
+.home-page .common-question.is-open .common-question-toggle svg { rotate: 180deg; }
+
+.home-page .home-projects-all svg,
+.home-page .home-service-link svg,
+.home-page .why-choose-cta svg,
+.home-page .reviews-cta svg,
+.home-page .about-actions .button svg {
+  transition: translate .22s var(--sage-motion-ease), rotate .22s var(--sage-motion-ease), color .22s ease;
+}
+
+.home-page .home-projects-all:hover svg,
+.home-page .home-projects-all:focus-visible svg,
+.home-page .home-service-link:hover svg,
+.home-page .home-service-link:focus-visible svg,
+.home-page .why-choose-cta:hover svg,
+.home-page .why-choose-cta:focus-visible svg,
+.home-page .reviews-cta:hover svg,
+.home-page .reviews-cta:focus-visible svg,
+.home-page .about-actions .button:hover svg,
+.home-page .about-actions .button:focus-visible svg { translate: 4px 0; }
+
+@keyframes sage-project-glint {
+  from { transform: translateX(-65%) rotate(24deg); }
+  to { transform: translateX(65%) rotate(24deg); }
+}
+
+@keyframes sage-project-orbit { to { rotate: 1turn; } }
+@keyframes sage-chart-rise { from { scale: 1 .55; transform-origin: bottom; } to { scale: 1 1; transform-origin: bottom; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .blog-card,
+  .project-card .project-art-mark,
+  .blog-card .blog-art strong,
+  .project-card>a span,
+  .blog-card>a span,
+  .careers-hero-link svg,
+  .sitemap-links a { transition: none !important; }
+
+  .project-card:hover,
+  .blog-card:hover,
+  .sitemap-links a:hover { transform: none !important; translate: none !important; }
+
+  .project-card:hover .project-art-mark,
+  .blog-card:hover .blog-art strong { transform: none !important; }
+
+  .home-page .home-project-card:hover .home-project-art::before,
+  .home-page .home-project-card:focus-visible .home-project-art::before,
+  .home-page .home-project-card:hover .home-project-art--brand .home-project-brand-orbit,
+  .home-page .home-project-card:focus-visible .home-project-art--brand .home-project-brand-orbit,
+  .home-page .home-project-card:hover .home-project-chart>span,
+  .home-page .home-project-card:focus-visible .home-project-chart>span { animation: none; }
+
+  .contact-detail-icon,
+  .home-page .home-projects-all svg,
+  .home-page .home-service-link svg,
+  .home-page .why-choose-cta svg,
+  .home-page .reviews-cta svg,
+  .home-page .about-actions .button svg,
+  .home-page .common-question-toggle svg,
+  .about--home .about-metrics-tabs button,
+  .about--home .about-actions .about-home-cta,
+  .about--home .about-actions .about-home-cta svg { transition: none !important; }
+
+  .about--home .about-metrics-tabs button:active,
+  .about--home .about-actions .about-home-cta:hover,
+  .about--home .about-actions .about-home-cta:focus-visible,
+  .about--home .about-actions .about-home-cta:active { transform: none; }
+}
