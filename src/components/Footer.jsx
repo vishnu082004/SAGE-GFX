@@ -13,16 +13,15 @@ const quickLinks = [
 function Footer() {
   return <footer className="footer footer-premium footer-minimal">
     <div className="footer-minimal-inner">
-      <Link to="/" className="oter-signature-display" aria-label="Sage GFX home">
+      <Link to="/" className="footer-signature-display" aria-label="Sage GFX home">
         <BrandMark className="footer-signature-logo" aria-hidden="true" />
         <span className="footer-signature-wordmark"><b>SAGE</b> <i>GFX</i></span>
       </Link>
-      <div className="footer-minimal-divider" />
+      <nav className="footer-minimal-links" aria-label="Quick links">
+        {quickLinks.map(([label, to, Icon]) => <Link key={label} to={to}><Icon aria-hidden="true"/><span>{label}</span><FiArrowRight aria-hidden="true"/></Link>)}
+      </nav>
       <div className="footer-minimal-bottom">
         <span className="footer-minimal-copyright">© {new Date().getFullYear()} Sage GFX</span>
-        <nav className="footer-minimal-links" aria-label="Quick links">
-          {quickLinks.map(([label, to, Icon]) => <Link key={label} to={to}><Icon aria-hidden="true"/><span>{label}</span><FiArrowRight aria-hidden="true"/></Link>)}
-        </nav>
         <Link className="footer-minimal-privacy" to="/privacy-policy">Privacy policy</Link>
       </div>
     </div>

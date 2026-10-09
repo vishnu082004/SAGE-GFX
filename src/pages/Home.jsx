@@ -5,8 +5,8 @@ import HomeProjects from '../components/HomeProjects'
 import WhyChoose from '../components/WhyChoose'
 import ClientReviews from '../components/ClientReviews'
 import CommonQuestions from '../components/CommonQuestions'
-import HowItWorks from '../components/HowItWorks'
 import HeroInquiryForm from '../components/HeroInquiryForm'
+import OurClients from '../components/OurClients'
 
 function Home({ openLightbox }) {
   return (
@@ -17,13 +17,13 @@ function Home({ openLightbox }) {
 
       {/* 2. About Section with 3D Mouse Tilt */}
       <About openLightbox={openLightbox} />
+      <OurClients />
 
       {/* Services Grid */}
       <HomeServicesCarousel />
 
       {/* Why Choose Us */}
       <WhyChoose />
-      <HowItWorks />
       <HomeProjects />
       <ClientReviews />
       <CommonQuestions />

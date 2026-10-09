@@ -12,6 +12,7 @@ import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import CareersPage from './pages/CareersPage'
+import PortfolioPage from './pages/PortfolioPage'
 import BlogPage from './pages/BlogPage'
 import TermsPage from './pages/TermsPage'
 import SitemapPage from './pages/SitemapPage'
@@ -76,7 +77,7 @@ function RouteDocumentTitle() {
       '/about': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
       '/about-us': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
       '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],
-      '/portfolio': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
+      '/portfolio': ['Our Projects | Sage GFX Digital Studio', 'Explore selected branding, web design and digital marketing projects by Sage GFX.'],
       '/careers': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
       '/blog': ['Studio Journal | Sage GFX Digital Studio', 'Ideas and practical notes on branding, technology and growing well online.'],
       '/contact': ['Contact | Sage GFX Digital Studio', 'Tell Sage GFX about your next idea and start a conversation with our digital studio.'],
@@ -162,7 +163,7 @@ function App() {
           <Route path="/about" element={<AboutPage openLightbox={openLightbox} />} />
           <Route path="/about-us" element={<AboutPage openLightbox={openLightbox} />} />
           <Route path="/services" element={<ServicesPage openLightbox={openLightbox} />} />
-          <Route path="/portfolio" element={<CareersPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />

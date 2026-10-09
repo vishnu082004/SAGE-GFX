@@ -52,7 +52,7 @@ function ContactPage() {
       </article>)}
     </section>
 
-    <section className="contact-main-grid" aria-label="Find us or send a message">
+    <section className="contact-form-section" aria-label="Find us or send a message">
       <div className="contact-map-panel">
         <iframe title="Map showing Sage GFX in Adambakkam, Chennai" src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=14&ie=UTF8&iwloc=B&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
         <a className="contact-map-link" href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`} target="_blank" rel="noreferrer"><FiMapPin aria-hidden="true"/> View on Google Maps <FiArrowRight aria-hidden="true"/></a>

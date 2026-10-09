@@ -1,11 +1,12 @@
-import About from '../components/About'
 import Principles from '../components/Principles'
 import ScrollCue from '../components/ScrollCue'
 import BrandMark from '../components/BrandMark'
 import { Link } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
+import AboutTeam from '../components/AboutTeam'
+import AboutJourney from '../components/AboutJourney'
 
-function AboutPage({ openLightbox }) {
+function AboutPage() {
   return (
     <div className="about-page">
       <section className="page-hero page-hero--about">
@@ -27,8 +28,8 @@ function AboutPage({ openLightbox }) {
         <ScrollCue target="page-end" label="the end of the page" durationMs={10500} page />
       </section>
 
-      <About openLightbox={openLightbox} pageVersion />
-
+      <AboutJourney />
+      <AboutTeam />
       <Principles variant="about" />
     </div>
   )

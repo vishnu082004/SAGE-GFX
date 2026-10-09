@@ -76,7 +76,7 @@ function About({ pageVersion = false }) {
     <div className="container about-container">
       {pageVersion && <FloatingAboutArtwork reduceMotion={reduceMotion} />}
       <div className="about-content">
-        <p className="eyebrow"><span/>{pageVersion ? 'A little about us' : 'WHO WE ARE'}</p>
+        <p className="eyebrow"><span/>{pageVersion ? 'OUR JOURNEY' : 'WHO WE ARE'}</p>
         <motion.h2 className="section-heading about-statement" initial={reduceMotion ? false : { opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .55 }} transition={{ duration: reduceMotion ? 0 : .45, ease: [.22, 1, .36, 1] }}>
           {pageVersion ? statement : <>Your Digital Future,<br/>Our Expertise:<br/><span>Sage GFX Excellence.</span></>}
         </motion.h2>

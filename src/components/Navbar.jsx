@@ -61,6 +61,7 @@ function Navbar() {
     { label: 'Home', path: '/', hash: '#home' },
     { label: 'About', path: '/about', hash: '#about' },
     { label: 'Services', path: '/services', hash: '#services' },
+    { label: 'Our Projects', path: '/portfolio' },
     { label: 'Careers', path: '/careers' },
     { label: 'Blog', path: '/blog' },
     { label: 'Contact', path: '/contact', hash: '#contact' },
