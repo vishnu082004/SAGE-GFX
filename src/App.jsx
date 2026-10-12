@@ -14,6 +14,8 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import CareersPage from './pages/CareersPage'
 import PortfolioPage from './pages/PortfolioPage'
 import BlogPage from './pages/BlogPage'
+import BlogArticlePage from './pages/BlogArticlePage'
+import blogArticles from './data/blogArticles'
 import TermsPage from './pages/TermsPage'
 import SitemapPage from './pages/SitemapPage'
 
@@ -50,6 +52,7 @@ import './styles/sitewide-creative-motion.css'
 import './styles/premium-home-motion.css'
 import './styles/footer-minimal.css'
 import './styles/careers-teams.css'
+import './styles/blog-pages.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -87,7 +90,10 @@ function RouteDocumentTitle() {
       '/terms-of-service': ['Terms of Service | Sage GFX Digital Studio', 'Review how project scope, delivery schedules and fees are agreed with Sage GFX clients.'],
       '/sitemap': ['Sitemap | Sage GFX Digital Studio', 'Browse all pages on the Sage GFX Digital Studio website.'],
     }
-    const [title, description] = pages[pathname] || ['Page not found | Sage GFX Digital Studio', pages['/'][1]]
+    const blogArticle = pathname.startsWith('/blog/') ? blogArticles.find((article) => pathname === `/blog/${article.slug}`) : null
+    const [title, description] = blogArticle
+      ? [`${blogArticle.title} | Sage GFX Journal`, blogArticle.summary]
+      : pages[pathname] || ['Page not found | Sage GFX Digital Studio', pages['/'][1]]
     document.title = title
     const meta = document.querySelector('meta[name="description"]')
     if (meta) meta.content = description
@@ -167,6 +173,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

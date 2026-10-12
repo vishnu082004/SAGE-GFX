@@ -1,0 +1,88 @@
+const blogArticles = [
+  {
+    slug: 'brand-people-remember',
+    category: 'Brand strategy',
+    title: 'A practical guide to building a brand people remember',
+    summary: 'Strong brands make a clear promise, show up consistently, and earn trust with every interaction.',
+    image: '/images/service-card-branding.jpg',
+    accent: '#e348d0',
+    readTime: '5 min read',
+    sections: [
+      { heading: 'Start with what makes you useful', paragraphs: ['A memorable brand begins with a useful, specific promise. Get clear about who you help, what problem you solve, and why your approach is worth choosing. The best positioning is easy for a customer to repeat in their own words.', 'Talk with customers and your team before you write a tagline. Listen for the phrases people already use to describe the value you bring.'] },
+      { heading: 'Build a system, not a one-off logo', paragraphs: ['A logo is one part of a brand system. Color, type, photography, layouts, and tone of voice should work together across your website, social channels, proposals, and campaigns.', 'Create a few practical rules and examples so the system stays recognizable as more people use it. Consistency comes from making good choices repeatable.'] },
+      { heading: 'Keep earning recognition', paragraphs: ['A brand becomes familiar through repeated, helpful experiences. Review the customer journey regularly and make sure each touchpoint delivers on the promise your marketing makes.', 'Measure whether people understand what you offer and remember you when they need it. Use that feedback to refine the work without losing what makes the brand distinct.'] },
+    ],
+  },
+  {
+    slug: 'business-website-converts',
+    category: 'Web design',
+    title: 'What makes a business website work harder?',
+    summary: 'A useful website pairs clear messaging with a fast, focused experience on every screen.',
+    image: '/images/service-card-web-app-development.jpg',
+    accent: '#328cff',
+    readTime: '6 min read',
+    sections: [
+      { heading: 'Answer the visitor’s first questions', paragraphs: ['Visitors should quickly understand what you do, who it is for, and what they can do next. Put the main value proposition and a clear action near the top of the page.', 'Use real customer questions to shape your navigation and page headings. A simple structure helps people find information without needing to learn your internal terminology.'] },
+      { heading: 'Make every screen feel considered', paragraphs: ['A responsive website is more than a desktop layout squeezed onto a phone. Make buttons comfortable to tap, keep forms short, and give important content room to breathe on smaller screens.', 'Compress images, reduce unnecessary scripts, and check the experience on a real mobile connection. Speed supports both usability and conversions.'] },
+      { heading: 'Improve with evidence', paragraphs: ['Set a clear goal for each important page, such as a qualified enquiry or a product demonstration request. Track whether visitors reach that action and where they leave.', 'Use analytics alongside customer feedback. A small, focused improvement to a confusing page can be more valuable than adding another feature.'] },
+    ],
+  },
+  {
+    slug: 'digital-marketing-that-converts',
+    category: 'Digital growth',
+    title: 'From clicks to customers: making digital marketing count',
+    summary: 'The best campaigns connect the right audience to a clear next step and keep learning.',
+    image: '/images/service-card-digital-marketing.jpg',
+    accent: '#a16bff',
+    readTime: '5 min read',
+    sections: [
+      { heading: 'Choose an outcome before a channel', paragraphs: ['Start with the business result you need: more qualified enquiries, repeat purchases, or awareness in a specific market. The goal helps determine which channels and messages make sense.', 'A channel is only useful when it reaches the audience you want and gives them a relevant next step. Avoid spreading a small budget across platforms without a clear reason.'] },
+      { heading: 'Connect the campaign to the landing page', paragraphs: ['Keep the promise consistent from the advertisement to the page it opens. Explain the offer, answer likely questions, and make the next action obvious.', 'A focused landing page gives you a clearer way to learn what is working than sending every campaign to a general homepage.'] },
+      { heading: 'Learn from quality, not only volume', paragraphs: ['Clicks and impressions can show reach, but they do not always show business impact. Track leads, sales, and the quality of the conversations those leads create.', 'Review results regularly, test one meaningful change at a time, and invest more in the messages that bring the right customers.'] },
+    ],
+  },
+  {
+    slug: 'social-content-with-purpose',
+    category: 'Social media',
+    title: 'A more thoughtful approach to social media content',
+    summary: 'Useful, recognizable content gives people a reason to stop, respond, and come back.',
+    image: '/images/service-card-social-media.jpg',
+    accent: '#ee58bc',
+    readTime: '4 min read',
+    sections: [
+      { heading: 'Give each post a clear job', paragraphs: ['A social post can teach, show how something works, share a customer story, or invite a conversation. Choosing one purpose keeps the message focused.', 'Build a short list of themes your audience cares about and your team can speak about with confidence. This makes planning easier and keeps content connected to the brand.'] },
+      { heading: 'Make consistency realistic', paragraphs: ['A sustainable schedule is better than a burst of posts followed by silence. Plan around the time and creative resources your team actually has.', 'Reuse strong ideas in different formats when it helps the audience. A useful article, for example, can become a short video, a carousel, and a set of practical tips.'] },
+      { heading: 'Treat replies as part of the work', paragraphs: ['Social media is a two-way channel. Respond clearly, learn from recurring questions, and make it easy for people to reach the right person when they need help.', 'Measure meaningful interactions and enquiries alongside reach. The goal is to build trust and useful relationships, not simply to fill a calendar.'] },
+    ],
+  },
+  {
+    slug: 'video-content-that-connects',
+    category: 'Video & content',
+    title: 'How to make short-form video feel more human',
+    summary: 'A clear idea, a natural voice, and a strong opening can make a small video memorable.',
+    image: '/images/service-card-video-production.jpg',
+    accent: '#ff9a53',
+    readTime: '5 min read',
+    sections: [
+      { heading: 'Begin with one useful idea', paragraphs: ['Before filming, write down the single thing a viewer should understand or remember. A focused idea is easier to explain and easier to edit into a short piece.', 'Open with the question, result, or moment that matters most. Give people a reason to stay before adding extra context.'] },
+      { heading: 'Let the real people and process show', paragraphs: ['Polished production helps, but clarity and authenticity matter more. A real demonstration, team perspective, or behind-the-scenes detail can make a business feel approachable.', 'Use natural language and add captions so the video works with the sound off. Keep text readable and make sure important information is not hidden by platform controls.'] },
+      { heading: 'Plan the next step', paragraphs: ['Decide where the video will appear and what the viewer can do after watching. A helpful link, a specific question, or a related resource gives the content a purpose.', 'Review watch time, saves, replies, and enquiries to learn which ideas deserve a follow-up.'] },
+    ],
+  },
+  {
+    slug: 'ui-ux-design-clearer-experiences',
+    category: 'UI/UX design',
+    title: 'Small UX decisions that make digital products easier to use',
+    summary: 'Clear labels, useful feedback, and fewer unnecessary steps build confidence in a product.',
+    image: '/images/service-card-graphic-design.jpg',
+    accent: '#47d6ae',
+    readTime: '6 min read',
+    sections: [
+      { heading: 'Use the language people already know', paragraphs: ['Interface labels should describe what happens in familiar words. Replace internal jargon with the language customers use when they ask for help or explain a task.', 'Keep buttons specific. “Send enquiry” tells someone more than “Submit,” especially when the action has a meaningful result.'] },
+      { heading: 'Show what the system is doing', paragraphs: ['People need feedback after they act. Confirm when a form is sent, explain what is required when something is missing, and make errors easy to correct.', 'Good feedback reduces uncertainty and helps users recover without starting over.'] },
+      { heading: 'Remove steps that do not help', paragraphs: ['Review important flows from the user’s point of view. Ask what information is truly needed, what can be deferred, and where a decision can be made simpler.', 'Test changes with real users where possible. Small, observed improvements often reveal more than assumptions made in a meeting.'] },
+    ],
+  },
+]
+
+export default blogArticles
