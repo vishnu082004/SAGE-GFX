@@ -49,6 +49,7 @@ import './styles/home-hero-visual.css'
 import './styles/sitewide-creative-motion.css'
 import './styles/premium-home-motion.css'
 import './styles/footer-minimal.css'
+import './styles/careers-teams.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {

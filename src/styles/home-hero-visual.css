@@ -34,6 +34,7 @@
   position: relative;
   grid-area: visual;
   min-width: 0;
+  translate:-50px 0;
   min-height: clamp(360px, 37vw, 480px);
   isolation: isolate;
   perspective: 1100px;
