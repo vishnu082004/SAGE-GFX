@@ -1,9 +1,6 @@
 function BrandMark({ className = '', variant = 'default', ...props }) {
   const footerMark = variant === 'footer'
-  const viewBox = footerMark ? '-8 -8 216 96' : '0 0 120 80'
-  const path = footerMark
-    ? 'M100 40C78 22 66 12 50 12A50 28 0 1 0 50 68C66 68 78 58 100 40C122 22 134 12 150 12A50 28 0 1 1 150 68C134 68 122 58 100 40Z'
-    : 'M60 40C43 20 34 12 24 12a28 28 0 1 0 0 56c12 0 21-10 36-28s24-28 36-28a28 28 0 1 1 0 56c-10 0-19-8-36-28Z'
+  const viewBox = footerMark ? '0 0 216 96' : '0 0 120 80'
 
   return (
     <svg
@@ -22,15 +19,17 @@ function BrandMark({ className = '', variant = 'default', ...props }) {
           <stop offset="100%" stopColor="#00d4f3" />
         </linearGradient>
       </defs>
-      <path
-        className="brand-mark-path"
-        d={path}
-        fill="none"
-        stroke="url(#sage-infinity-gradient)"
-        strokeWidth="12"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      {footerMark ? (
+        <>
+          <ellipse className="brand-mark-path" cx="70" cy="48" rx="45" ry="32" fill="none" stroke="url(#sage-infinity-gradient)" strokeWidth="25" />
+          <ellipse className="brand-mark-path" cx="146" cy="48" rx="45" ry="32" fill="none" stroke="url(#sage-infinity-gradient)" strokeWidth="25" />
+        </>
+      ) : (
+        <>
+          <circle className="brand-mark-path" cx="38" cy="40" r="27" fill="none" stroke="url(#sage-infinity-gradient)" strokeWidth="14" />
+          <circle className="brand-mark-path" cx="82" cy="40" r="27" fill="none" stroke="url(#sage-infinity-gradient)" strokeWidth="14" />
+        </>
+      )}
     </svg>
   )
 }

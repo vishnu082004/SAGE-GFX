@@ -1,7 +1,7 @@
 ﻿import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FiMenu, FiX, FiArrowRight } from 'react-icons/fi'
-import BrandMark from './BrandMark'
+import brandLogo from '../assets/images/sage-gfx-navbar.webp'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -77,7 +77,7 @@ function Navbar() {
       <div className="navbar-container">
         {/* Brand Logo */}
         <Link to="/" className="navbar-logo" onClick={closeMenu} aria-label="Sage GFX Digital Solutions Home">
-          <BrandMark className="brand-symbol"/><span className="brand-name">Sage GFX<small>Digital Solutions</small></span>
+          <img src={brandLogo} alt="Sage GFX Digital Solutions" className="navbar-brand-image" />
         </Link>
 
         {/* Desktop Navigation Links */}

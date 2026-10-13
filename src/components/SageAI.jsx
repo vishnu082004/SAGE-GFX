@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCpu, FiMaximize2, FiMinimize2, FiSend, FiVolume2, FiX, FiZap } from 'react-icons/fi'
 import { commonQuestions } from './CommonQuestions'
+import { contactEmail, contactPhone } from '../data/contactInfo'
 
 const suggestions = ['What services do you offer?', 'How do I get a quote?']
 
@@ -19,7 +20,7 @@ function getAnswer(question) {
   }
   if (/contact|email|phone|call|talk|reach/.test(text)) {
     return {
-      text: 'You can reach the team at hello@sagegfx.com or send a project inquiry. They usually reply within one business day.',
+      text: `You can reach the team at ${contactEmail} or ${contactPhone}, or send a project inquiry. They usually reply within one business day.`,
       link: '/contact',
       linkLabel: 'Open the contact page',
     }

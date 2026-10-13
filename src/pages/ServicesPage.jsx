@@ -1,23 +1,23 @@
-import Services from '../components/Services'
+import ServicesCatalog from '../components/ServicesCatalog'
 import Principles from '../components/Principles'
 import ScrollCue from '../components/ScrollCue'
+import { Link } from 'react-router-dom'
+import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
 
-function ServicesPage({ openLightbox }) {
+function ServicesPage() {
   return (
     <div className="services-page">
       <section className="page-hero page-hero--services">
         <div className="container">
-          <p className="page-hero-eyebrow">STRATEGY TO EXECUTION</p>
-          <h1 className="page-hero-title">Everything your brand needs<br/><span className="gradient-text">to grow online.</span></h1>
+          <p className="page-hero-eyebrow"><span /> DIGITAL SERVICES / BUILT AROUND YOU</p>
+          <h1 className="page-hero-title">The right work.<br/><span className="gradient-text">The right results.</span></h1>
+          <p className="page-hero-subtitle">From a sharper brand to a stronger digital presence, get the creative and technical support to move your business forward.</p>
+          <div className="services-hero-actions"><Link to="/contact" className="services-hero-secondary">Talk to our team <FiArrowUpRight aria-hidden="true"/></Link></div>
         </div>
         <ScrollCue target="page-end" label="the end of the page" durationMs={15500} page />
       </section>
 
-      <Services
-        openLightbox={openLightbox}
-        description="From the first idea to the final launch, we bring your brand a thoughtful mix of creative and technical expertise."
-        dragonVersion
-      />
+      <ServicesCatalog />
 
       <Principles variant="services" />
     </div>

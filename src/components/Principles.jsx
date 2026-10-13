@@ -44,20 +44,24 @@ const principles = [
 function Principles({ variant }) {
   return (
     <section className={'principles-section principles-section--' + variant} aria-label="Our principles">
-      <div className="container principles-grid">
-        {principles.map((item) => (
-          <article className="principle-card" key={item.title}>
-            <h2 className="principle-title">{item.title}</h2>
-            <ul className="principle-points">
-              {item.points.map((point) => (
-                <li key={point}>
-                  <FiCheck aria-hidden="true" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+      <div className="container">
+        {variant === 'services' && <header className="services-philosophy-heading"><p className="eyebrow"><span /> HOW WE WORK / 05 PRINCIPLES</p><h2>Good work starts<br/>with <span className="gradient-text">good thinking.</span></h2><p>Every project is shaped around people, purpose, and progress that lasts.</p></header>}
+        <div className="principles-grid">
+          {principles.map((item, index) => (
+            <article className="principle-card" key={item.title} style={{ '--principle-index': index }}>
+              {variant === 'services' && <span className="principle-index" aria-hidden="true">0{index + 1}</span>}
+              <h2 className="principle-title">{item.title}</h2>
+              <ul className="principle-points">
+                {item.points.map((point) => (
+                  <li key={point}>
+                    <FiCheck aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )

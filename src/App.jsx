@@ -26,7 +26,6 @@ import './styles/hero.css'
 import './styles/home-hero.css'
 import './styles/about.css'
 import './styles/services.css'
-import './styles/team.css'
 import './styles/contact.css'
 import './styles/footer.css'
 import './styles/responsive.css'
@@ -53,6 +52,9 @@ import './styles/premium-home-motion.css'
 import './styles/footer-minimal.css'
 import './styles/careers-teams.css'
 import './styles/blog-pages.css'
+import './styles/portfolio-page.css'
+import './styles/services-page.css'
+import './styles/mobile-polish.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {

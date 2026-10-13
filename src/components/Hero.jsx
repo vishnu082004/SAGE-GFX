@@ -54,15 +54,15 @@ function Hero() {
         <div className="sage-hero-visual-spark sage-hero-visual-spark--one" aria-hidden="true" />
         <div className="sage-hero-visual-spark sage-hero-visual-spark--two" aria-hidden="true" />
         <figure className="sage-hero-image sage-hero-image--main">
-          <img src="/images/service-card-graphic-design.jpg" alt="Colorful brand identity and graphic design work" fetchPriority="high" />
+          <img src="/images/service-card-graphic-design.webp" alt="Colorful brand identity and graphic design work" fetchPriority="high" />
           <figcaption><span>01</span> Brand identity</figcaption>
         </figure>
         <figure className="sage-hero-image sage-hero-image--growth">
-          <img src="/images/service-card-digital-marketing.jpg" alt="Digital campaign analytics and growth insights" loading="lazy" />
+          <img src="/images/service-card-digital-marketing.webp" alt="Digital campaign analytics and growth insights" loading="lazy" />
           <figcaption><span>02</span> Digital growth</figcaption>
         </figure>
         <figure className="sage-hero-image sage-hero-image--mobile">
-          <img src="/images/service-card-app-development.jpg" alt="Mobile app interface design" loading="lazy" />
+          <img src="/images/service-card-app-development.webp" alt="Mobile app interface design" loading="lazy" />
           <figcaption>Designed for people</figcaption>
         </figure>
         <div className="sage-hero-visual-note"><span /> Strategy meets imagination</div>

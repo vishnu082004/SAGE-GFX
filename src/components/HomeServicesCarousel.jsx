@@ -7,16 +7,16 @@ import {
 import '../styles/home-services-carousel.css'
 
 const services = [
-  { title: 'Digital Marketing', description: 'Strategic campaigns that connect your brand with the right audience and turn attention into measurable growth.', image: '/images/service-card-digital-marketing.jpg', Icon: FiBarChart2 },
-  { title: 'Website Development', description: 'High-performance websites designed to create strong digital experiences and meaningful business results.', image: '/images/service-card-website-development.jpg', Icon: FiGlobe },
-  { title: 'Web App Development', description: 'Powerful web applications combining functionality, innovation and seamless user experiences.', image: '/images/service-card-web-app-development.jpg', Icon: FiCode },
-  { title: 'Search Engine Optimization', description: 'Improve visibility, attract qualified traffic and build sustainable organic growth.', image: '/images/service-card-seo.jpg', Icon: FiCompass },
-  { title: 'Social Media Marketing', description: 'Build stronger communities and meaningful connections through creative social media strategies.', image: '/images/service-card-social-media.jpg', Icon: FiUsers },
-  { title: 'Branding & Identity', description: 'Build a memorable identity with a visual language that communicates your brandâ€™s personality and purpose.', image: '/images/service-card-branding.jpg', Icon: FiLayers },
-  { title: 'Graphic Design', description: 'Distinctive visual design that makes your brand easier to recognize and remember.', image: '/images/service-card-graphic-design.jpg', Icon: FiPenTool },
-  { title: 'Video Production', description: 'Cinematic visual content designed to communicate your story and capture attention.', image: '/images/service-card-video-production.jpg', Icon: FiFilm },
-  { title: 'Influencer Marketing', description: 'Connect your brand with influential voices to expand reach, trust and credibility.', image: '/images/service-card-influencer-marketing.jpg', Icon: FiHash },
-  { title: 'App Development', description: 'Modern mobile experiences built around usability, performance and your business goals.', image: '/images/service-card-app-development.jpg', Icon: FiSmartphone },
+  { title: 'Digital Marketing', description: 'Strategic campaigns that connect your brand with the right audience and turn attention into measurable growth.', image: '/images/service-card-digital-marketing.webp', Icon: FiBarChart2 },
+  { title: 'Website Development', description: 'High-performance websites designed to create strong digital experiences and meaningful business results.', image: '/images/service-card-website-development.webp', Icon: FiGlobe },
+  { title: 'Web App Development', description: 'Powerful web applications combining functionality, innovation and seamless user experiences.', image: '/images/service-card-web-app-development.webp', Icon: FiCode },
+  { title: 'Search Engine Optimization', description: 'Improve visibility, attract qualified traffic and build sustainable organic growth.', image: '/images/service-card-seo.webp', Icon: FiCompass },
+  { title: 'Social Media Marketing', description: 'Build stronger communities and meaningful connections through creative social media strategies.', image: '/images/service-card-social-media.webp', Icon: FiUsers },
+  { title: 'Branding & Identity', description: 'Build a memorable identity with a visual language that communicates your brandâ€™s personality and purpose.', image: '/images/service-card-branding.webp', Icon: FiLayers },
+  { title: 'Graphic Design', description: 'Distinctive visual design that makes your brand easier to recognize and remember.', image: '/images/service-card-graphic-design.webp', Icon: FiPenTool },
+  { title: 'Video Production', description: 'Cinematic visual content designed to communicate your story and capture attention.', image: '/images/service-card-video-production.webp', Icon: FiFilm },
+  { title: 'Influencer Marketing', description: 'Connect your brand with influential voices to expand reach, trust and credibility.', image: '/images/service-card-influencer-marketing.webp', Icon: FiHash },
+  { title: 'App Development', description: 'Modern mobile experiences built around usability, performance and your business goals.', image: '/images/service-card-app-development.webp', Icon: FiSmartphone },
 ]
 
 function wrapOffset(index, activeIndex) {

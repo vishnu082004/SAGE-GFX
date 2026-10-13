@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { FiArrowRight, FiCheckCircle, FiSend, FiX } from 'react-icons/fi'
-
-const recipient = 'hello@sagegfx.com'
+import { submitContactForm } from '../data/contactInfo'
 
 function HeroInquiryForm() {
   const [form, setForm] = useState({ name: '', email: '', mobile: '', service: '', message: '' })
@@ -35,15 +34,7 @@ function HeroInquiryForm() {
     setIsSubmitting(true)
     setStatus(null)
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...form, _subject: `Website inquiry from ${form.name}`, _replyto: form.email, _template: 'table' }),
-      })
-      const result = await response.json()
-      if (!response.ok || result.success === false || String(result.success).toLowerCase() === 'false') {
-        throw new Error(result.message || 'Your message could not be sent. Please try again.')
-      }
+      await submitContactForm({ ...form, _subject: `Website inquiry from ${form.name}`, _replyto: form.email, _template: 'table' })
       setStatus({ type: 'success', message: 'Thanks! Your project note is on its way.' })
       setForm({ name: '', email: '', mobile: '', service: '', message: '' })
     } catch (error) {

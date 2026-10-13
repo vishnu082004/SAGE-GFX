@@ -225,3 +225,12 @@
 @media(min-width:851px){.reviews-carousel-controls{right:auto;left:50%;transform:translateX(-50%)}}
 @media(max-width:850px){.reviews-carousel-controls{justify-self:center;align-self:center}}
 @media(max-width:850px){.reviews-carousel-controls{gap:7px;min-height:32px;padding:3px 8px}.reviews-carousel-controls>button{width:26px;height:26px}.reviews-carousel-controls .reviews-carousel-dot{width:7px;height:7px;min-height:7px}.reviews-carousel-controls .reviews-carousel-dot[aria-pressed="true"]{width:16px}}
+
+/* On phones, keep all five review cards together and pagination after them. */
+@media(max-width:600px){
+  .reviews-visual{display:flex;flex-direction:column;align-items:center;gap:10px;padding-bottom:0}
+  .reviews-rating-orb{order:0}
+  .reviews-card-orbit{order:1;display:grid;grid-template-columns:minmax(0,1fr);width:100%;gap:10px}
+  .reviews-card-orbit .review-card,.reviews-card-orbit .review-card--1,.reviews-card-orbit .review-card--2,.reviews-card-orbit .review-card--3,.reviews-card-orbit .review-card--4,.reviews-card-orbit .review-card--5{grid-column:auto!important;grid-row:auto!important;width:100%;margin:0}
+  .reviews-carousel-controls{order:2;grid-row:auto!important;margin-top:4px}
+}

@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { FiArrowRight, FiMail, FiMapPin, FiMessageSquare, FiPhone, FiSend, FiUser, FiLayers } from 'react-icons/fi'
-
-const address = 'No. 73, New NGGO Colony, 4th Cross Street, Adambakkam, Chennai - 600088'
-const mapQuery = encodeURIComponent(address)
+import { contactEmail, contactPhone, contactPhoneLink, submitContactForm, studioAddress, studioMapEmbedUrl, studioMapUrl } from '../data/contactInfo'
 
 const contactCards = [
-  { icon: FiMail, title: 'Email Address', value: 'hello@sagegfx.com', href: 'mailto:hello@sagegfx.com', detail: <>Do you have any project in mind?<br />Send us an email and we’ll get back<br className="contact-desktop-break" /> to you as soon as possible.</> },
-  { icon: FiPhone, title: 'Questions? Call Us!', value: '+91 98765 43210', href: 'tel:+919876543210', detail: <>Monday to Saturday<br />9:00 AM – 6:00 PM<br />Indian Standard Time (IST)</> },
-  { icon: FiMapPin, title: 'Our Location', value: <>No. 73, New NGGO Colony,<br />4th Cross Street, Adambakkam,<br />Chennai - 600088</>, detail: 'Please call us for your visit.' },
+  { icon: FiMail, title: 'Email Address', value: contactEmail, href: `mailto:${contactEmail}`, detail: <>Do you have any project in mind?<br />Send us an email and we’ll get back<br className="contact-desktop-break" /> to you as soon as possible.</> },
+  { icon: FiPhone, title: 'Questions? Call Us!', value: contactPhone, href: contactPhoneLink, detail: <>Monday to Saturday<br />9:00 AM – 6:00 PM<br />Indian Standard Time (IST)</> },
+  { icon: FiMapPin, title: 'Our Location', value: <>No: 160, 3rd Floor, Avila Towers,<br />Mudichur Rd, West Tambaram,<br />Tambaram, Chennai, Tamil Nadu 600045</>, detail: 'Please call us for your visit.' },
 ]
 
 function ContactPage() {
@@ -21,17 +19,12 @@ function ContactPage() {
     setStatus('')
     const data = Object.fromEntries(new FormData(form).entries())
     try {
-      const response = await fetch('https://formsubmit.co/ajax/hello@sagegfx.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...data, _subject: `Website inquiry from ${data.name}`, _replyto: data.email, _template: 'table' }),
-      })
-      const result = await response.json()
-      if (!response.ok || result.success === false || String(result.success).toLowerCase() === 'false') throw new Error()
+      await submitContactForm({ ...data, _subject: `Website inquiry from ${data.name}`, _replyto: data.email, _template: 'table' })
       form.reset()
       setStatus('Thanks for reaching out. We’ll be in touch soon.')
-    } catch {
-      setStatus('We couldn’t send your message right now. Please email hello@sagegfx.com or call +91 98765 43210.')
+    } catch (error) {
+      const reason = error.message && error.message !== 'Failed to fetch' ? ` (${error.message})` : ''
+      setStatus(`We couldn’t send your message right now${reason}. Please email ${contactEmail} or call ${contactPhone}.`)
     } finally { setBusy(false) }
   }
 
@@ -54,8 +47,8 @@ function ContactPage() {
 
     <section className="contact-form-section" aria-label="Find us or send a message">
       <div className="contact-map-panel">
-        <iframe title="Map showing Sage GFX in Adambakkam, Chennai" src={`https://maps.google.com/maps?hl=en&q=${mapQuery}&z=14&ie=UTF8&iwloc=B&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-        <a className="contact-map-link" href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`} target="_blank" rel="noreferrer"><FiMapPin aria-hidden="true"/> View on Google Maps <FiArrowRight aria-hidden="true"/></a>
+        <iframe title={`Map showing Sage GFX at ${studioAddress}`} src={studioMapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+        <a className="contact-map-link" href={studioMapUrl} target="_blank" rel="noreferrer"><FiMapPin aria-hidden="true"/> View on Google Maps <FiArrowRight aria-hidden="true"/></a>
       </div>
 
       <div className="contact-form-panel">

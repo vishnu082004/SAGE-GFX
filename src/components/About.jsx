@@ -20,7 +20,7 @@ const FloatingAboutArtwork = memo(function FloatingAboutArtwork({ reduceMotion }
   const inView = useInView(artRef, { margin: '100px' })
   return <motion.div ref={artRef} className="about-art about-art--floating about-page-image" aria-hidden="true" animate={{ y: !reduceMotion && inView ? [0, -5, 0] : 0 }} transition={{ duration: 8, repeat: !reduceMotion && inView ? Infinity : 0, ease: 'easeInOut' }}>
     <div className="about-floating-frame">
-      <img src="/images/sage-analytics-hero.jpeg" alt="" />
+      <img src="/images/sage-analytics-hero.webp" alt="" />
       <div className="about-floating-shade" />
       <span className="about-floating-caption"><i /> STRATEGY / DESIGN / DIGITAL</span>
     </div>

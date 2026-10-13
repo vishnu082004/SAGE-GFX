@@ -1,5 +1,5 @@
 .sage-hero{position:relative;isolation:isolate;min-height:clamp(520px,calc(100svh - 62px),760px);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(17,173,232,.62);background:radial-gradient(ellipse at 62% 49%,rgba(79,34,171,.28),transparent 34%),radial-gradient(ellipse at 20% 105%,rgba(187,22,168,.2),transparent 32%),#050914;color:#f5f7ff}
-.sage-hero-art{position:absolute;z-index:-2;inset:0 0 0 auto;width:min(76%,1120px);background:url('/images/hero-laptop-bg.png') 68% center/contain no-repeat;filter:saturate(1.12);}
+.sage-hero-art{position:absolute;z-index:-2;inset:0 0 0 auto;width:min(76%,1120px);background:url('/images/hero-laptop-bg.webp') 68% center/contain no-repeat;filter:saturate(1.12);}
 .sage-hero-glow{position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(90deg,#050914 0%,rgba(5,9,20,.98) 26%,rgba(5,9,20,.74) 43%,rgba(5,9,20,.05) 74%,rgba(5,9,20,.22) 100%),linear-gradient(0deg,rgba(5,9,20,.3),transparent 28%,rgba(5,9,20,.16))}
 .sage-hero-inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,.98fr);align-items:center;gap:clamp(28px,4vw,62px);width:min(1320px,100%);margin:0 auto;padding:52px 28px 42px}
 .sage-hero-copy{position:relative;width:100%;z-index:1}

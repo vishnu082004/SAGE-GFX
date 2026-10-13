@@ -4,7 +4,7 @@ const blogArticles = [
     category: 'Brand strategy',
     title: 'A practical guide to building a brand people remember',
     summary: 'Strong brands make a clear promise, show up consistently, and earn trust with every interaction.',
-    image: '/images/service-card-branding.jpg',
+    image: '/images/blog/crad-1.webp',
     accent: '#e348d0',
     readTime: '5 min read',
     sections: [
@@ -18,7 +18,7 @@ const blogArticles = [
     category: 'Web design',
     title: 'What makes a business website work harder?',
     summary: 'A useful website pairs clear messaging with a fast, focused experience on every screen.',
-    image: '/images/service-card-web-app-development.jpg',
+    image: '/images/blog/card-2.webp',
     accent: '#328cff',
     readTime: '6 min read',
     sections: [
@@ -32,7 +32,7 @@ const blogArticles = [
     category: 'Digital growth',
     title: 'From clicks to customers: making digital marketing count',
     summary: 'The best campaigns connect the right audience to a clear next step and keep learning.',
-    image: '/images/service-card-digital-marketing.jpg',
+    image: '/images/blog/card-3.webp',
     accent: '#a16bff',
     readTime: '5 min read',
     sections: [
@@ -46,7 +46,7 @@ const blogArticles = [
     category: 'Social media',
     title: 'A more thoughtful approach to social media content',
     summary: 'Useful, recognizable content gives people a reason to stop, respond, and come back.',
-    image: '/images/service-card-social-media.jpg',
+    image: '/images/blog/card-4.webp',
     accent: '#ee58bc',
     readTime: '4 min read',
     sections: [
@@ -60,7 +60,7 @@ const blogArticles = [
     category: 'Video & content',
     title: 'How to make short-form video feel more human',
     summary: 'A clear idea, a natural voice, and a strong opening can make a small video memorable.',
-    image: '/images/service-card-video-production.jpg',
+    image: '/images/blog/card-5.webp',
     accent: '#ff9a53',
     readTime: '5 min read',
     sections: [
@@ -74,7 +74,7 @@ const blogArticles = [
     category: 'UI/UX design',
     title: 'Small UX decisions that make digital products easier to use',
     summary: 'Clear labels, useful feedback, and fewer unnecessary steps build confidence in a product.',
-    image: '/images/service-card-graphic-design.jpg',
+    image: '/images/blog/card-6.webp',
     accent: '#47d6ae',
     readTime: '6 min read',
     sections: [
@@ -83,6 +83,36 @@ const blogArticles = [
       { heading: 'Remove steps that do not help', paragraphs: ['Review important flows from the user’s point of view. Ask what information is truly needed, what can be deferred, and where a decision can be made simpler.', 'Test changes with real users where possible. Small, observed improvements often reveal more than assumptions made in a meeting.'] },
     ],
   },
+  {
+    slug: 'seo-foundations-for-small-business', category: 'SEO', title: 'SEO foundations every small business can get right',
+    summary: 'A useful search strategy starts with a technically sound site, helpful pages, and a clear understanding of customer intent.',
+    image: '/images/blog/card-7.webp', accent: '#76a0ff', readTime: '7 min read',
+    sections: [
+      { heading: 'Make important pages easy to find', paragraphs: ['Organize your site around the questions customers bring to you. Use clear page titles, descriptive headings, and links that help people move naturally from an overview to the detail they need.', 'Give each page one clear purpose. When several pages target the same need, combine or distinguish them so visitors and search engines can understand which page is most useful.'] },
+      { heading: 'Help search engines access your site', paragraphs: ['Check that key pages load reliably, work well on phones, and can be crawled. Fix broken links, redirect retired URLs thoughtfully, and submit a sitemap so pages are easier to discover.', 'Resize and compress large images, limit unnecessary scripts, and test pages on mobile connections.'] },
+      { heading: 'Publish useful answers and keep them current', paragraphs: ['Start with real customer questions and answer them with specific, accurate guidance. First-hand examples and clear explanations are more valuable than pages written only to repeat a keyword.', 'Review important pages regularly. Update outdated details, improve confusing sections, and use search performance as a clue about what people still need.'] },
+    ],
+  },
+  {
+    slug: 'social-media-calendar-that-works', category: 'Social media', title: 'Plan a social media calendar your team can actually keep',
+    summary: 'A flexible rhythm, a few strong content themes, and a simple review process make consistent publishing manageable.',
+    image: '/images/blog/card-8.webp', accent: '#ed72bb', readTime: '5 min read',
+    sections: [
+      { heading: 'Choose a few repeatable themes', paragraphs: ['Build your calendar around subjects your audience cares about and your team can speak about with confidence. A useful mix might include practical advice, process stories, customer perspectives, and timely updates.', 'Themes create consistency without making every post feel the same. They also make it easier to generate ideas when planning time is short.'] },
+      { heading: 'Set a pace you can sustain', paragraphs: ['Choose a posting frequency that fits your available time and creative resources. A dependable schedule of strong posts builds more trust than an ambitious plan that quickly becomes difficult to maintain.', 'Batch simple tasks such as gathering photos or drafting captions, while leaving room to respond to conversations and timely opportunities.'] },
+      { heading: 'Learn from the response', paragraphs: ['Review saves, replies, shares, profile visits, and enquiries alongside reach. These signals help you understand which content is useful and which topics deserve another angle.', 'Repeat what works, improve what feels unclear, and retire formats that no longer serve your audience.'] },
+    ],
+  },
+  {
+    slug: 'website-refresh-priorities', category: 'Web strategy', title: 'Planning a website refresh? Start with these priorities',
+    summary: 'A focused refresh begins with customer needs and evidence, then improves the pages and journeys that matter most.',
+    image: '/images/blog/card-9.webp', accent: '#43c6dc', readTime: '6 min read',
+    sections: [
+      { heading: 'Find friction before changing visuals', paragraphs: ['Look at analytics, search terms, sales questions, and support requests to find where visitors struggle. Slow pages, unclear service details, and hidden contact options often matter more than a new visual effect.', 'Ask a few customers to complete a common task on the current site. Watching where they hesitate gives you concrete problems to solve.'] },
+      { heading: 'Prioritize high value journeys', paragraphs: ['Map the paths that lead to meaningful outcomes, such as understanding a service or sending an enquiry. Make each step clear and remove information that distracts from the decision.', 'Refresh the pages that support these journeys first. A focused set of improvements is easier to review than a rebuild without clear priorities.'] },
+      { heading: 'Protect what already works', paragraphs: ['Before launch, list pages people rely on, useful search rankings, and important links from other sites. Keep valuable content, redirect changed URLs, and check forms, tracking, and mobile layouts.', 'After launch, measure your goals and use customer feedback to guide the next improvements.'] },
+    ],
+  }
 ]
 
 export default blogArticles

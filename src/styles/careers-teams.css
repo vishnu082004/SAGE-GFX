@@ -74,3 +74,6 @@
 @media(prefers-reduced-motion:reduce){
   .careers-team-card,.careers-team-image,.careers-team-vertical-title,.careers-team-details,.careers-team-details a{transition:none!important}
 }
+.careers-team-card--development .careers-team-image{object-position:18% center;transform:scale(1.01)}
+.careers-team-card--development.is-expanded .careers-team-image{object-position:18% center;transform:scale(1.01)}
+.careers-team-card--development:hover .careers-team-image{transform:scale(1.02)}

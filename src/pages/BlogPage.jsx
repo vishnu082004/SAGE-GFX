@@ -8,7 +8,7 @@ function BlogPage() {
       <div className="container">
         <p className="page-hero-eyebrow">NOTES FROM THE STUDIO</p>
         <h1 className="page-hero-title">Ideas for your<br/><span className="gradient-text">next move.</span></h1>
-        <p className="page-hero-subtitle">Six practical perspectives on branding, design, technology, and growing well online.</p>
+        <p className="page-hero-subtitle">Nine practical perspectives on branding, design, technology, and growing well online.</p>
       </div>
     </section>
     <section className="blog-list-section" aria-label="Studio journal articles">

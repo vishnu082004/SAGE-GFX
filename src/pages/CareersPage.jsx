@@ -1,13 +1,20 @@
 import { useRef, useState } from 'react'
 import { FiArrowRight, FiBarChart2, FiBriefcase, FiCheckCircle, FiCode, FiLayers, FiMail, FiPenTool, FiPhone, FiSend, FiShare2, FiUser, FiVideo } from 'react-icons/fi'
+import { contactEmail, contactPhone, submitContactForm } from '../data/contactInfo'
+import designBrandingImage from '../assets/images/Crad_img/Crad_img/Design&branding.webp'
+import websiteAppImage from '../assets/images/Crad_img/Crad_img/webapp_dev.webp'
+import digitalMarketingImage from '../assets/images/Crad_img/Crad_img/digital-marketing.webp'
+import socialMediaImage from '../assets/images/Crad_img/Crad_img/digital_media-marketing.webp'
+import videoContentImage from '../assets/images/Crad_img/Crad_img/vdo-cont.webp'
+import uxDesignImage from '../assets/images/Crad_img/Crad_img/ui-ux.webp'
 
 const teams = [
-  { name: 'Design & Branding', description: 'Build memorable identities through thoughtful design, strategy, and visual systems.', image: '/images/service-card-branding.jpg', accent: '#16d8ea', Icon: FiPenTool },
-  { name: 'Web & App Development', description: 'Turn ambitious ideas into fast, accessible websites and useful digital products.', image: '/images/service-card-web-app-development.jpg', accent: '#4b9cff', Icon: FiCode },
-  { name: 'Digital Marketing', description: 'Connect brands with the right people through insight-led digital campaigns.', image: '/images/service-card-digital-marketing.jpg', accent: '#a56aff', Icon: FiBarChart2 },
-  { name: 'Social Media Management', description: 'Create social content and conversations that help communities grow.', image: '/images/service-card-social-media.jpg', accent: '#ed55ce', Icon: FiShare2 },
-  { name: 'Video & Content Creation', description: 'Tell clear, compelling stories through video, photography, and sharp copy.', image: '/images/service-card-video-production.jpg', accent: '#ff9b55', Icon: FiVideo },
-  { name: 'UI/UX Design', description: 'Shape intuitive product experiences around real people and their needs.', image: '/images/service-card-graphic-design.jpg', accent: '#54d6a8', Icon: FiLayers },
+  { name: 'Design & Branding', description: 'Build memorable identities through thoughtful design, strategy, and visual systems.', image: designBrandingImage, accent: '#16d8ea', Icon: FiPenTool },
+  { name: 'Web & App Development', description: 'Turn ambitious ideas into fast, accessible websites and useful digital products.', image: websiteAppImage, accent: '#4b9cff', Icon: FiCode },
+  { name: 'Digital Marketing', description: 'Connect brands with the right people through insight-led digital campaigns.', image: digitalMarketingImage, accent: '#a56aff', Icon: FiBarChart2 },
+  { name: 'Social Media Management', description: 'Create social content and conversations that help communities grow.', image: socialMediaImage, accent: '#ed55ce', Icon: FiShare2 },
+  { name: 'Video & Content Creation', description: 'Tell clear, compelling stories through video, photography, and sharp copy.', image: videoContentImage, accent: '#ff9b55', Icon: FiVideo },
+  { name: 'UI/UX Design', description: 'Shape intuitive product experiences around real people and their needs.', image: uxDesignImage, accent: '#54d6a8', Icon: FiLayers },
 ]
 
 function CareersPage() {
@@ -40,18 +47,12 @@ function CareersPage() {
     setSubmitting(true)
     setStatus('')
     try {
-      const response = await fetch('https://formsubmit.co/ajax/hello@sagegfx.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...data, _subject: `Career application: ${data.role}`, _replyto: data.email, _template: 'table' }),
-      })
-      const result = await response.json()
-      if (!response.ok || result.success === false || String(result.success).toLowerCase() === 'false') throw new Error()
+      await submitContactForm({ ...data, _subject: `Career application: ${data.role}`, _replyto: data.email, _template: 'table' })
       form.reset()
       setSelectedInterest('')
       setStatus('Application received. The Sage GFX team will be in touch if there’s a fit.')
     } catch {
-      setStatus('We couldn’t send your application. Please email hello@sagegfx.com and include your details.')
+      setStatus(`We couldn’t send your application. Please email ${contactEmail} or call ${contactPhone} and include your details.`)
     } finally { setSubmitting(false) }
   }
 
@@ -74,7 +75,7 @@ function CareersPage() {
             return <article
               key={name}
               ref={(node) => { teamRefs.current[index] = node }}
-              className={`careers-team-card${expanded ? ' is-expanded' : ''}${selectedTeam === index ? ' is-selected' : ''}`}
+              className={`careers-team-card${index === 1 ? ' careers-team-card--development' : ''}${expanded ? ' is-expanded' : ''}${selectedTeam === index ? ' is-selected' : ''}`}
               style={{ '--team-accent': accent, '--team-image': `url("${image}")` }}
               tabIndex={0}
               aria-label={`${name} team. Press Enter to select, or use arrow keys to explore teams.`}

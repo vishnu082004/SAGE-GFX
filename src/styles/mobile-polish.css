@@ -1,0 +1,205 @@
+/* Keep layouts, text, and media inside the viewport on narrow screens. */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-wrapper,
+  .main-content {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .container,
+  .container > * {
+    min-width: 0;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  .sage-hero-inner {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sage-hero-copy,
+  .sage-hero-visual {
+    min-width: 0;
+  }
+
+  /* The desktop parallax offset pushed the visual partly off small screens. */
+  .home-page .sage-hero-visual {
+    translate: 0 0;
+  }
+
+  .contact-form-section {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 0;
+  }
+
+  .contact-form-section > *,
+  .contact-form-panel {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .contact-detail-value,
+  .contact-detail-note,
+  .footer-minimal-bottom,
+  .website-project-meta h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea,
+  .form-input,
+  .form-textarea,
+  .careers-field input,
+  .careers-field select,
+  .careers-field textarea,
+  .hero-inquiry-field input,
+  .hero-inquiry-field select,
+  .hero-inquiry-field textarea {
+    min-width: 0;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sage-hero-inner {
+    padding-inline: 18px;
+  }
+
+  .sage-hero h1 {
+    font-size: clamp(2.3rem, 10.4vw, 3.1rem);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .sage-hero-description {
+    max-width: 48ch;
+    font-size: .88rem;
+    line-height: 1.6;
+  }
+
+  .sage-hero-actions {
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .sage-hero-actions > a {
+    min-height: 44px;
+    flex: 1 1 145px;
+    padding-inline: 12px;
+    white-space: nowrap;
+  }
+
+  .sage-hero-stats {
+    gap: 6px;
+  }
+
+  .sage-hero-stats div,
+  .sage-hero-stats div:first-child,
+  .sage-hero-stats div:last-child {
+    padding-inline: 5px;
+  }
+
+  .sage-hero-stats div > span:last-child {
+    font-size: .56rem;
+    line-height: 1.3;
+  }
+
+  .home-page .sage-hero-visual {
+    min-height: clamp(265px, 78vw, 350px);
+  }
+
+  .home-services-inner,
+  .home-projects-inner,
+  .client-reviews-inner {
+    width: calc(100% - 32px);
+  }
+
+  .contact-design {
+    padding-inline: 16px;
+  }
+
+  .contact-design-hero {
+    box-sizing: border-box;
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+  }
+
+  .contact-map-panel {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .website-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 460px);
+    margin-inline: auto;
+  }
+
+  .website-project-preview {
+    aspect-ratio: 1.55;
+  }
+
+  .services-catalog-card {
+    grid-template-columns: 38% minmax(0, 1fr);
+  }
+
+  .services-catalog-copy {
+    min-width: 0;
+    padding: 13px 12px;
+  }
+
+  .services-catalog-copy strong {
+    font-size: .94rem;
+    line-height: 1.3;
+  }
+
+  .services-catalog-copy > span:nth-child(2) {
+    font-size: .75rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-container {
+    padding-inline: 14px;
+  }
+
+  .navbar-logo .navbar-brand-image {
+    width: 98px;
+  }
+
+  .navbar-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sage-hero-inner {
+    padding-inline: 16px;
+  }
+
+  .sage-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .sage-hero-stats div > span:last-child {
+    font-size: .52rem;
+  }
+}

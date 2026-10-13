@@ -7,12 +7,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
-  { number: '01', type: 'BRAND SYSTEM', title: 'A sharper identity for a new generation', category: 'Branding', art: 'brand' },
-  { number: '02', type: 'DIGITAL EXPERIENCE', title: 'Turning curious visitors into loyal customers', category: 'Web design', art: 'web' },
-  { number: '03', type: 'GROWTH CAMPAIGN', title: 'Making every impression count', category: 'Digital marketing', art: 'growth' },
+  { number: '01', type: 'WEBSITE DESIGN', title: 'Digital experiences built to move business forward', category: 'Web design', art: 'website' },
+  { number: '02', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', art: 'seo' },
+  { number: '03', type: 'SOCIAL MEDIA MARKETING', title: 'Make every conversation count', category: 'Social media marketing', art: 'smm' },
 ]
 
+const seoLogos = ['/images/clients/seo/nexxora.webp', '/images/clients/seo/safe-science.webp', '/images/clients/seo/shape-wellness.webp', '/images/clients/seo/siddha-clinic.webp', '/images/clients/seo/optic-care.webp', '/images/clients/seo/rg-academy.webp']
+const smmLogos = ['/images/clients/smm/16d.webp', '/images/clients/smm/jeni.webp', '/images/clients/smm/kofeetek.webp', '/images/clients/smm/makon-solution.webp', '/images/clients/smm/optic-care.webp', '/images/clients/smm/peel.webp']
+
 function ProjectArtwork({ type }) {
+  if (type === 'website') return <div className="home-project-art home-project-art--image"><img src="/images/clients/websites/mareprints.webp" alt="Mare Prints website homepage" loading="lazy" /><span className="home-project-image-label">MARE PRINTS / WEBSITE</span></div>
+  if (type === 'seo' || type === 'smm') return <div className={`home-project-art home-project-art--logos home-project-art--${type}`} aria-label={`${type.toUpperCase()} client work`}>
+    {(type === 'seo' ? seoLogos : smmLogos).map((src) => <span className="home-project-logo" key={src}><img src={src} alt="" loading="lazy" /></span>)}
+  </div>
   if (type === 'brand') return <div className="home-project-art home-project-art--brand" aria-hidden="true">
     <span className="home-project-brand-orbit"/><span className="home-project-brand-mark">S<span>G</span></span>
     <span className="home-project-brand-caption">SAGE / GFX</span><i className="home-project-brand-swatch home-project-brand-swatch--one"/><i className="home-project-brand-swatch home-project-brand-swatch--two"/>
