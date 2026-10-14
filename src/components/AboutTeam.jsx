@@ -1,4 +1,4 @@
-import { FiAward, FiExternalLink } from 'react-icons/fi'
+import { FiAward, FiBriefcase, FiExternalLink } from 'react-icons/fi'
 import { FaLinkedinIn } from 'react-icons/fa'
 import founderPortrait from '../assets/images/team/founder.webp'
 import cofounderPortrait from '../assets/images/team/cofounder.webp'
@@ -25,8 +25,8 @@ const profile = (url) => url ? (url.startsWith('http') ? url : `https://${url}`)
 const leadership = [
   { name: 'Saagar', role: 'Founder', image: founderPortrait, profileUrl: profile('linkedin.com/in/saagar-u-sagegfxdigitalagency') },
   { name: 'Geeta', role: 'Co-Founder', image: cofounderPortrait, profileUrl: profile('linkedin.com/in/geeta-das-b098ba215') },
-  { name: 'Pavithra', role: 'Operations Manager', image: managerPortrait, profileUrl: profile('linkedin.com/in/pavivenkat') },
 ]
+const manager = { name: 'Pavithra', role: 'Operations Manager', image: managerPortrait, profileUrl: profile('linkedin.com/in/pavivenkat') }
 
 const teams = [
   {
@@ -38,7 +38,7 @@ const teams = [
     ],
   },
   {
-    name: 'Digital Marketing & Social Media Team', accent: 'magenta',
+    name: 'SMM Team', accent: 'magenta',
     members: [
       { name: 'Rajavel P', role:  'SMM Specialist', image: smmPortrait1, profileUrl: profile('linkedin.com/in/rajavel-p-889536352') },
       { name: 'Sameem Fathima M', role: 'Meta Ads Expert', image: smmPortrait2, profileUrl: profile('linkedin.com/in/sameemfathima27') },
@@ -46,7 +46,7 @@ const teams = [
     ],
   },
   {
-    name: 'Graphic Design Team', accent: 'magenta',
+    name: 'Designing Team', accent: 'magenta',
     members: [
       { name: 'Balasubramani', role: 'Graphic Designer & Video Editor', image: designPortrait1, profileUrl: profile('linkedin.com/in/vignesh--v25') },
       { name: 'Manikkam', role: 'Graphic Designer & Video Editor', image: designPortrait2, profileUrl: profile('linkedin.com/in/manikkam-r-212108321') },
@@ -54,7 +54,7 @@ const teams = [
     ],
   },
   {
-    name: 'Software Development Team', accent: 'cyan',
+    name: 'Web Development Team', accent: 'cyan',
     members: [
       { name: 'Podhumani', role: 'Software Developer', image: developerPortrait1, profileUrl: profile('linkedin.com/in/podhumani-murugaiya') },
       { name: 'Nisagar Selvarajan', role: 'Software Developer', image: developerPortrait2, profileUrl: profile('https://www.linkedin.com/in/nisagar13/') },
@@ -100,8 +100,12 @@ function AboutTeam() {
         </header>
 
         <div className="about-team__leadership" aria-label="Leadership">
-          <h3 className="about-team__leadership-title"><FiAward aria-hidden="true" /> Leadership <span>3 Members</span></h3>
+          <h3 className="about-team__leadership-title"><FiAward aria-hidden="true" /> Leadership <span>2 Members</span></h3>
           {leadership.map((member) => <MemberCard key={member.name} {...member} />)}
+        </div>
+        <div className="about-team__manager" aria-label="Management">
+          <h3 className="about-team__manager-title"><FiBriefcase aria-hidden="true" /> Manager</h3>
+          <MemberCard {...manager} />
         </div>
 
         {teams.map((team) => (

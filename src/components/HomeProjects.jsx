@@ -3,35 +3,20 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import websiteProjectImage from '../assets/images/our project/our project/website.jpeg'
+import smmProjectImage from '../assets/images/our project/our project/SMM.jpeg'
+import seoProjectImage from '../assets/images/our project/our project/SEO.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
-  { number: '01', type: 'WEBSITE DESIGN', title: 'Digital experiences built to move business forward', category: 'Web design', art: 'website' },
-  { number: '02', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', art: 'seo' },
-  { number: '03', type: 'SOCIAL MEDIA MARKETING', title: 'Make every conversation count', category: 'Social media marketing', art: 'smm' },
+  { number: '01', type: 'WEBSITE', title: 'Websites designed to move your business forward', category: 'Web design and development', image: websiteProjectImage, imageAlt: 'Website design illustration with homepage, content, design, and web hosting icons', destination: '/portfolio?category=websites#portfolio-work' },
+  { number: '02', type: 'SMM', title: 'Make every conversation count', category: 'Social media marketing', image: smmProjectImage, imageAlt: 'Social media marketing illustration with social platform icons', destination: '/portfolio?category=smm#portfolio-work' },
+  { number: '03', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', image: seoProjectImage, imageAlt: 'SEO illustration showing backlinks, analysis, traffic, indexing, and ranking', destination: '/portfolio?category=seo#portfolio-work' },
 ]
 
-const seoLogos = ['/images/clients/seo/nexxora.webp', '/images/clients/seo/safe-science.webp', '/images/clients/seo/shape-wellness.webp', '/images/clients/seo/siddha-clinic.webp', '/images/clients/seo/optic-care.webp', '/images/clients/seo/rg-academy.webp']
-const smmLogos = ['/images/clients/smm/16d.webp', '/images/clients/smm/jeni.webp', '/images/clients/smm/kofeetek.webp', '/images/clients/smm/makon-solution.webp', '/images/clients/smm/optic-care.webp', '/images/clients/smm/peel.webp']
-
-function ProjectArtwork({ type }) {
-  if (type === 'website') return <div className="home-project-art home-project-art--image"><img src="/images/clients/websites/mareprints.webp" alt="Mare Prints website homepage" loading="lazy" /><span className="home-project-image-label">MARE PRINTS / WEBSITE</span></div>
-  if (type === 'seo' || type === 'smm') return <div className={`home-project-art home-project-art--logos home-project-art--${type}`} aria-label={`${type.toUpperCase()} client work`}>
-    {(type === 'seo' ? seoLogos : smmLogos).map((src) => <span className="home-project-logo" key={src}><img src={src} alt="" loading="lazy" /></span>)}
-  </div>
-  if (type === 'brand') return <div className="home-project-art home-project-art--brand" aria-hidden="true">
-    <span className="home-project-brand-orbit"/><span className="home-project-brand-mark">S<span>G</span></span>
-    <span className="home-project-brand-caption">SAGE / GFX</span><i className="home-project-brand-swatch home-project-brand-swatch--one"/><i className="home-project-brand-swatch home-project-brand-swatch--two"/>
-  </div>
-  if (type === 'web') return <div className="home-project-art home-project-art--web" aria-hidden="true">
-    <div className="home-project-browser"><div className="home-project-browser-top"><i/><i/><i/><span/></div><div className="home-project-browser-body"><span className="home-project-browser-kicker"/><b/><b/><div/><i/><i/><i/></div></div>
-    <span className="home-project-web-glow"/>
-  </div>
-  return <div className="home-project-art home-project-art--growth" aria-hidden="true">
-    <div className="home-project-chart"><span/><span/><span/><span/><span/><svg viewBox="0 0 300 130" preserveAspectRatio="none"><path d="M8 112C51 96 65 101 93 79S140 91 168 59 210 70 239 37 272 37 292 10"/></svg></div>
-    <span className="home-project-chart-orb"/>
-  </div>
+function ProjectArtwork({ image, imageAlt, type }) {
+  return <div className="home-project-art home-project-art--image"><img src={image} alt={imageAlt} loading="lazy" /><span className="home-project-image-label">{type}</span></div>
 }
 
 function HomeProjects() {
@@ -62,8 +47,8 @@ function HomeProjects() {
         <Link className="home-projects-all" to="/portfolio">Explore all projects <FiArrowUpRight aria-hidden="true"/></Link>
       </header>
       <div className="home-projects-grid" ref={trackRef}>
-        {projects.map((project) => <Link className="home-project-card" to="/portfolio" key={project.number}>
-          <ProjectArtwork type={project.art}/>
+        {projects.map((project) => <Link className="home-project-card" to={project.destination} key={project.number}>
+          <ProjectArtwork image={project.image} imageAlt={project.imageAlt} type={project.type}/>
           <div className="home-project-meta"><span>{project.number} / {project.type}</span><FiArrowUpRight aria-hidden="true"/></div>
           <h3>{project.title}</h3>
           <span className="home-project-category">{project.category}</span>

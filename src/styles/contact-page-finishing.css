@@ -1,0 +1,52 @@
+/* Final spacing and distinctive panel treatment for the standard contact page. */
+.contact-page.contact-design .contact-main-grid{margin-bottom:44px}
+.contact-page.contact-design .contact-details-grid{margin-top:0;margin-bottom:24px}
+.contact-page.contact-design .contact-design-hero{box-sizing:border-box;width:min(1240px,100%);min-height:268px;grid-template-columns:minmax(0,1.12fr) minmax(250px,.88fr);margin:12px auto 25px;padding:28px clamp(22px,4vw,48px);overflow:hidden;border:1px solid rgba(37,181,240,.4);border-radius:23px;background:radial-gradient(ellipse at 76% 48%,rgba(64,44,207,.22),transparent 37%),radial-gradient(ellipse at 12% 100%,rgba(0,173,228,.12),transparent 40%),linear-gradient(112deg,rgba(7,20,47,.96),rgba(6,13,38,.94) 57%,rgba(22,10,49,.96));box-shadow:0 20px 54px rgba(0,0,0,.28),0 0 30px rgba(17,141,229,.09),inset 0 1px rgba(255,255,255,.07)}
+.contact-page.contact-design .contact-design-hero::after{position:absolute;right:33%;bottom:-80px;width:320px;height:180px;border:1px solid rgba(27,199,242,.18);border-radius:50%;content:"";pointer-events:none;transform:rotate(-24deg);box-shadow:0 0 0 20px rgba(39,116,225,.035),0 0 0 44px rgba(190,41,221,.03)}
+.contact-page.contact-design .contact-kicker{color:#d4e7fa}
+.contact-page.contact-design .contact-design-hero h1{background:linear-gradient(100deg,#f8fbff 18%,#b3eaff 60%,#e5a5ff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(38,153,243,.12)}
+.contact-page.contact-design .contact-hero-copy{max-width:470px;color:#c5d5e9}
+.contact-page.contact-design .contact-hero-art{z-index:1}
+.contact-page.contact-design .contact-hero-art::before{position:absolute;top:50%;left:50%;width:76%;height:75%;border-radius:50%;content:"";pointer-events:none;background:radial-gradient(circle,rgba(20,146,247,.18),rgba(164,38,226,.1) 50%,transparent 72%);filter:blur(12px);transform:translate(-50%,-50%)}
+.contact-page.contact-design .contact-hero-core{border-color:rgba(39,222,248,.82);background:linear-gradient(145deg,rgba(8,205,232,.25),rgba(99,59,227,.3) 58%,rgba(226,41,202,.23));box-shadow:0 0 0 9px rgba(15,172,243,.08),0 0 48px rgba(43,102,238,.38),inset 0 1px rgba(255,255,255,.24)}
+.contact-page.contact-design .contact-hero-chip{border-color:rgba(51,191,240,.48);background:rgba(6,17,42,.86);box-shadow:0 7px 20px rgba(0,0,0,.22);backdrop-filter:blur(8px)}
+.contact-page.contact-design .contact-hero-art-label{color:#b9cee5}
+@media(max-width:760px){.contact-page.contact-design .contact-main-grid{margin-bottom:32px}.contact-page.contact-design .contact-details-grid{margin-bottom:18px}.contact-page.contact-design .contact-design-hero{width:100%;min-height:230px;margin:8px auto 20px;padding:22px 20px;border-radius:19px}}
+@media(max-width:480px){.contact-page.contact-design .contact-main-grid{margin-bottom:27px}.contact-page.contact-design .contact-design-hero{min-height:0;margin:6px auto 18px;padding:20px 16px;border-radius:17px}.contact-page.contact-design .contact-details-grid{gap:12px}}
+@media(prefers-reduced-motion:reduce){.contact-page.contact-design .contact-hero-art,.contact-page.contact-design .contact-hero-orbit,.contact-page.contact-design .contact-hero-core{animation:none!important}}
+
+/* Let the Contact hero border span the full viewport, like the other page heroes. */
+.contact-page.contact-design .contact-design-hero{width:calc(100% + 48px);max-width:none;margin:0 -24px 25px;border-radius:0}
+@media(max-width:980px){.contact-page.contact-design .contact-design-hero{width:calc(100% + 44px);margin:0 -22px 24px}}
+@media(max-width:760px){.contact-page.contact-design .contact-design-hero{width:calc(100% + 36px);min-height:230px;margin:8px -18px 20px;padding:22px 20px;border-radius:0}}
+@media(max-width:480px){.contact-page.contact-design .contact-design-hero{width:calc(100% + 28px);min-height:0;margin:6px -14px 18px;padding:20px 16px;border-radius:0}}
+
+/* Compact, full-bleed Contact hero with a single bottom divider and dimensional artwork. */
+.contact-page.contact-design .contact-design-hero{min-height:238px;margin-top:0;margin-bottom:20px;padding-block:20px;border:0;border-bottom:1px solid transparent;border-image:linear-gradient(90deg,rgba(12,213,240,.7),rgba(103,95,255,.48),rgba(226,45,203,.7)) 1;background:radial-gradient(ellipse at 76% 48%,rgba(64,44,207,.25),transparent 37%),radial-gradient(ellipse at 12% 100%,rgba(0,173,228,.12),transparent 40%),linear-gradient(112deg,rgba(7,20,47,.97),rgba(6,13,38,.95) 57%,rgba(22,10,49,.97));box-shadow:0 18px 48px rgba(0,0,0,.23),inset 0 -14px 30px rgba(10,116,193,.035)}
+.contact-page.contact-design .contact-design-hero{padding-inline:max(24px,calc((100% - 1120px)/2))}
+.contact-page.contact-design .contact-design-hero h1{font-size:clamp(2.65rem,4.6vw,3.8rem);text-shadow:0 8px 28px rgba(31,156,242,.18)}
+.contact-page.contact-design .contact-hero-bridge{position:absolute;z-index:4;top:50%;left:52%;display:grid;width:92px;height:128px;place-items:center;pointer-events:none;transform:translate(-50%,-50%);perspective:500px}
+.contact-page.contact-design .contact-hero-bridge::before{position:absolute;inset:14px 4px;border:1px solid rgba(31,205,244,.18);border-radius:50%;content:"";transform:rotateY(62deg) rotateZ(-20deg);box-shadow:0 0 22px rgba(39,108,242,.12),inset 0 0 18px rgba(193,48,230,.08)}
+.contact-page.contact-design .contact-hero-bridge-orbit{position:absolute;width:74px;height:46px;border:1px solid rgba(191,77,244,.55);border-radius:50%;transform:rotate(-32deg) rotateX(58deg);animation:contact-bridge-orbit 9s linear infinite}
+.contact-page.contact-design .contact-hero-bridge-core{position:relative;display:grid;width:39px;height:39px;place-items:center;border:1px solid rgba(85,235,255,.8);border-radius:13px;background:linear-gradient(145deg,rgba(11,206,239,.35),rgba(94,72,236,.44) 60%,rgba(215,45,209,.34));box-shadow:0 0 0 5px rgba(33,173,240,.08),0 0 25px rgba(38,174,244,.48),inset 0 1px rgba(255,255,255,.45);transform:rotate(-12deg) rotateY(18deg) translateZ(20px);animation:contact-bridge-breathe 3.8s ease-in-out infinite}
+.contact-page.contact-design .contact-hero-bridge-core svg{width:18px;height:18px;color:#e8ffff;filter:drop-shadow(0 0 6px rgba(61,224,255,.8))}
+.contact-page.contact-design .contact-hero-bridge small{position:absolute;bottom:3px;display:flex;align-items:center;gap:6px;color:#bdd5ec;font-size:.43rem;font-weight:700;letter-spacing:.14em;white-space:nowrap;text-shadow:0 0 12px rgba(22,199,239,.5)}
+.contact-page.contact-design .contact-hero-bridge small i{width:13px;height:1px;background:linear-gradient(90deg,#23d8f2,#d638d7)}
+.contact-page.contact-design .contact-hero-bridge::after{position:absolute;top:50%;left:-31px;width:154px;height:1px;content:"";background:linear-gradient(90deg,transparent,rgba(18,206,240,.35),rgba(182,64,233,.4),transparent);filter:drop-shadow(0 0 5px rgba(22,195,243,.45));transform:translateY(-50%);z-index:-1}
+@keyframes contact-bridge-orbit{to{rotate:1turn}}
+@keyframes contact-bridge-breathe{0%,100%{translate:0 1px;scale:.96}50%{translate:0 -4px;scale:1.04}}
+.contact-page.contact-design .contact-hero-art{height:205px;filter:drop-shadow(0 15px 22px rgba(34,27,126,.22))}
+.contact-page.contact-design .contact-hero-core{transform:rotate(-9deg) rotateY(-20deg) translateZ(28px);transform-style:preserve-3d}
+.contact-page.contact-design .contact-hero-chip--one{animation:contact-chip-float 5.2s ease-in-out infinite}
+.contact-page.contact-design .contact-hero-chip--two{animation:contact-chip-float 6s ease-in-out -1.2s infinite reverse}
+@keyframes contact-chip-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@media(max-width:760px){.contact-page.contact-design .contact-design-hero{min-height:205px;margin-top:0;margin-bottom:18px;padding-block:17px}.contact-page.contact-design .contact-hero-art{height:165px}}
+@media(max-width:480px){.contact-page.contact-design .contact-design-hero{min-height:0;margin-top:0;margin-bottom:16px;padding-block:17px}.contact-page.contact-design .contact-hero-art{display:block;height:118px;max-width:220px;margin:0 auto}.contact-page.contact-design .contact-hero-core{width:66px;height:66px;border-radius:20px}.contact-page.contact-design .contact-hero-core svg{width:28px;height:28px}.contact-page.contact-design .contact-hero-chip{font-size:.48rem;padding:5px 7px}}
+.contact-page.contact-design .sage-ai-widget{right:20px;bottom:20px;width:70px;height:70px}
+.contact-page.contact-design .sage-ai-launcher{width:62px;height:62px;min-height:62px}
+@media(max-width:900px){.contact-page.contact-design .contact-main-grid{grid-template-columns:1fr;width:min(700px,100%);padding:0;gap:16px}.contact-page.contact-design .contact-map-panel{min-height:300px}}
+@media(max-width:1040px){.contact-page.contact-design .contact-hero-bridge{display:none}}
+@media(max-width:760px){.contact-page.contact-design .contact-design-hero{padding-inline:20px}.contact-page.contact-design .sage-ai-widget{right:14px;bottom:16px;width:62px;height:62px}.contact-page.contact-design .sage-ai-launcher{width:56px;height:56px;min-height:56px}}
+@media(max-width:480px){.contact-page.contact-design .contact-design-hero{padding-inline:16px}.contact-page.contact-design .contact-main-grid{gap:13px}.contact-page.contact-design .contact-map-panel{min-height:250px}}
+@media(prefers-reduced-motion:reduce){.contact-page.contact-design .contact-hero-chip--one,.contact-page.contact-design .contact-hero-chip--two{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.contact-page.contact-design .contact-hero-bridge-orbit,.contact-page.contact-design .contact-hero-bridge-core{animation:none!important}}

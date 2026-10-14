@@ -55,6 +55,8 @@ import './styles/blog-pages.css'
 import './styles/portfolio-page.css'
 import './styles/services-page.css'
 import './styles/mobile-polish.css'
+import './styles/contact-page-finishing.css'
+import './styles/scroll-reveal-motion.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -79,7 +81,7 @@ function RouteDocumentTitle() {
 
   useEffect(() => {
     const pages = {
-      '/': ['Sage GFX Digital Studio | Digital Experiences That Move People', 'Sage GFX is a digital creative studio specializing in web development, UI/UX design, branding, digital marketing and creative digital experiences.'],
+      '/': ['Sage GFX Digital Studio | Web Design, SEO & Digital Marketing in Chennai', 'Sage GFX is a Chennai digital studio for website development, SEO, branding and digital marketing. Build a stronger online presence with a team in Tambaram, Chennai.'],
       '/about': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
       '/about-us': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
       '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],

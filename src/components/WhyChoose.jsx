@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiArrowUpRight, FiCode, FiPenTool, FiBarChart2, FiUsers, FiTarget, FiLayers, FiTrendingUp } from 'react-icons/fi'
-import BrandMark from './BrandMark'
+import brandLogo from '../assets/images/sage-gfx-navbar.webp'
 
 const benefits = [
   { title: 'Design & Branding', description: 'Create a strong visual identity that makes your brand memorable and impactful.', Icon: FiPenTool, color: 'cyan', position: 'top-left' },
@@ -112,7 +112,7 @@ function WhyChoose() {
         <svg className="why-energy-trails" viewBox="0 0 900 650" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="why-energy-gradient" x1="0" x2="1"><stop stopColor="#11d9f2" stopOpacity="0"/><stop offset=".35" stopColor="#12d4f0"/><stop offset=".7" stopColor="#a443f5"/><stop offset="1" stopColor="#ef35cb" stopOpacity="0"/></linearGradient></defs><path d="M15 400C140 410 185 276 300 302s180 135 294 109 173-179 292-158"/><path d="M50 500C180 385 250 505 345 432s184-190 284-158 158 150 239 138"/><path d="M160 150C270 220 340 120 435 185s168 136 258 92 110-22 165 8"/></svg>
         <div className="why-orbit why-orbit--one why-depth" data-depth="17" aria-hidden="true"/><div className="why-orbit why-orbit--two why-depth" data-depth="12" aria-hidden="true"/><div className="why-orbit why-orbit--three why-depth" data-depth="8" aria-hidden="true"/>
         <div className="why-orb-halo why-depth" data-depth="10" aria-hidden="true"/>
-        <div className="why-orb why-depth" data-depth="14"><BrandMark className="why-orb-mark"/><strong>SAGE GFX</strong><small>IDEAS / DESIGN / IMPACT</small><span className="why-orb-shine" aria-hidden="true"/></div>
+        <div className="why-orb why-depth" data-depth="14"><img className="why-orb-mark" src={brandLogo} alt="Sage GFX Digital Solutions"/><small>IDEAS / DESIGN / IMPACT</small><span className="why-orb-shine" aria-hidden="true"/></div>
         <div className="why-particles" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} className={`why-particle why-particle--${index + 1} why-depth`} data-depth={5 + (index % 5) * 2}/>)}</div>
         <div className="why-energy-node why-energy-node--one why-depth" data-depth="15" aria-hidden="true"/><div className="why-energy-node why-energy-node--two why-depth" data-depth="12" aria-hidden="true"/><div className="why-energy-node why-energy-node--three why-depth" data-depth="9" aria-hidden="true"/><div className="why-energy-node why-energy-node--four why-depth" data-depth="14" aria-hidden="true"/>
         <div className="why-service-cards">{benefits.map(({ title, description, Icon, color, position }, index) => <Link key={title} to="/services" className={`why-service-card why-service-card--${position} why-service-card--${color} why-depth`} data-depth={20 + index * 2} style={{ '--card-index': index }}><span className="why-service-icon"><Icon aria-hidden="true"/></span><span className="why-service-content"><small>0{index + 1} / SAGE GFX</small><strong>{title}</strong><p>{description}</p></span><span className="why-service-arrow"><FiArrowUpRight aria-hidden="true"/></span></Link>)}</div>

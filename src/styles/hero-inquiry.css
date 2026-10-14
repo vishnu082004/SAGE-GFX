@@ -142,6 +142,13 @@
 .sage-ai-form{display:flex;gap:7px;margin:0 11px;padding:6px;border:1px solid rgba(91,147,195,.32);border-radius:11px;background:rgba(2,8,20,.78)}
 .sage-ai-form input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#f4f7ff;font:500 .65rem var(--font-base)}.sage-ai-form input::placeholder{color:#71859f}
 .sage-ai-form button{display:grid;width:31px;height:31px;flex:none;place-items:center;border:0;border-radius:8px;background:linear-gradient(130deg,#d72ac3,#168fef);color:white;cursor:pointer}.sage-ai-form button:disabled{opacity:.45;cursor:default}.sage-ai-form button svg{width:14px;height:14px}
+.sage-ai-form .sage-ai-mic{border:1px solid rgba(255,194,72,.45);background:rgba(255,194,72,.1);color:#ffe2a1}
+.sage-ai-form .sage-ai-mic:hover{border-color:rgba(255,194,72,.8);background:rgba(255,194,72,.2)}
+.sage-ai-form .sage-ai-mic.is-listening{border-color:#ffbf48;background:rgba(255,126,46,.24);box-shadow:0 0 13px rgba(255,174,58,.38);animation:sage-ai-mic-pulse 1.3s ease-in-out infinite}
+.sage-ai-voice-status{margin:7px 12px 0;color:#ffe0a0;font-size:.58rem;line-height:1.4}
+.sage-ai-voice-status.is-active{color:#b8f4dc}
+@keyframes sage-ai-mic-pulse{50%{box-shadow:0 0 19px rgba(255,174,58,.62)}}
+@media(prefers-reduced-motion:reduce){.sage-ai-form .sage-ai-mic.is-listening{animation:none}}
 .sage-ai-note{margin:7px 12px 10px;color:#70839e;font-size:.49rem;line-height:1.4}
 @keyframes sage-ai-panel-in{from{opacity:0;transform:translateY(7px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:760px){.sage-ai-widget{margin-top:14px}.sage-ai-panel{left:0;max-height:min(390px,calc(100svh - 110px))}}

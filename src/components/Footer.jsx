@@ -21,7 +21,7 @@ function Footer() {
         {quickLinks.map(([label, to, Icon]) => <Link key={label} to={to}><Icon aria-hidden="true"/><span>{label}</span><FiArrowRight aria-hidden="true"/></Link>)}
       </nav>
       <div className="footer-minimal-bottom">
-        <span className="footer-minimal-copyright">© {new Date().getFullYear()} Sage GFX</span>
+        <span className="footer-minimal-copyright">© {new Date().getFullYear()} Sage GFX Digital Studio</span>
         <Link className="footer-minimal-privacy" to="/privacy-policy">Privacy policy</Link>
         <nav className="footer-minimal-socials" aria-label="Social media">
           <a href="https://www.instagram.com/sagegfxdigi?xtok=YTNiMXg2ZmZ5YnJs" target="_blank" rel="noreferrer" aria-label="Sage GFX on Instagram"><FiInstagram aria-hidden="true" /></a>

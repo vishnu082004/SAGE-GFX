@@ -1,0 +1,26 @@
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-motion {
+    opacity: 0;
+    transition: opacity .72s ease, transform .82s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: var(--scroll-motion-delay, 0ms);
+  }
+
+  .scroll-motion--bottom { transform: translate3d(0, 30px, 0); }
+  .scroll-motion--top { transform: translate3d(0, -22px, 0); }
+  .scroll-motion--left { transform: translate3d(-30px, 0, 0); }
+  .scroll-motion--right { transform: translate3d(30px, 0, 0); }
+
+  .scroll-motion.scroll-motion-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-motion,
+  .scroll-motion.scroll-motion-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

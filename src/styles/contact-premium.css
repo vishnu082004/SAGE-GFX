@@ -148,7 +148,6 @@ body:has(.contact-design) .mobile-menu{background:#071027;color:#fff}body:has(.c
 .contact-design .contact-map-card p{font-size:.8rem;line-height:1.43}
 .contact-design .contact-map-card a{font-size:.8rem}
 .contact-design .contact-map-tag{margin-bottom:8px;padding:5px 9px;font-size:.76rem}
-body:has(.contact-design) .sage-ai-widget{display:none!important}
 .contact-details-grid{width:min(1120px,100%);gap:14px;margin-bottom:20px}
 .contact-detail-card{min-height:155px;padding:16px 18px;border-radius:15px}
 .contact-detail-card:nth-child(1) .contact-detail-icon{border-radius:19px;background:linear-gradient(145deg,#05cde9,#2879fa);}

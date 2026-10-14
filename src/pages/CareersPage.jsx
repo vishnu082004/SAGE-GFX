@@ -14,7 +14,7 @@ const teams = [
   { name: 'Digital Marketing', description: 'Connect brands with the right people through insight-led digital campaigns.', image: digitalMarketingImage, accent: '#a56aff', Icon: FiBarChart2 },
   { name: 'Social Media Management', description: 'Create social content and conversations that help communities grow.', image: socialMediaImage, accent: '#ed55ce', Icon: FiShare2 },
   { name: 'Video & Content Creation', description: 'Tell clear, compelling stories through video, photography, and sharp copy.', image: videoContentImage, accent: '#ff9b55', Icon: FiVideo },
-  { name: 'UI/UX Design', description: 'Shape intuitive product experiences around real people and their needs.', image: uxDesignImage, accent: '#54d6a8', Icon: FiLayers },
+  { name: 'Search Engine Optimization', description: 'SEO helps websites rank higher on Google, attract organic traffic, reach target audiences, and increase business visibility and growth.', image: uxDesignImage, accent: '#54d6a8', Icon: FiLayers },
 ]
 
 function CareersPage() {
@@ -62,7 +62,7 @@ function CareersPage() {
       <p className="careers-eyebrow"><span /> GROW WITH SAGE GFX <span /></p>
       <h1 id="careers-title">Make good work.<br/><span>With good people.</span></h1>
       <p className="careers-hero-copy">Bring your ideas, craft, and curiosity. Let’s make thoughtful digital experiences that move businesses forward.</p>
-      <a className="careers-hero-link" href="#apply">Explore opportunities <FiArrowRight aria-hidden="true" /></a>
+      {/* <a className="careers-hero-link" href="#apply">Explore opportunities <FiArrowRight aria-hidden="true" /></a> */}
     </section>
     <section className="careers-content" aria-label="Careers at Sage GFX">
       <section className="careers-teams" aria-labelledby="careers-teams-title">

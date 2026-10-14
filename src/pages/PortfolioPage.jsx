@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { FiArrowUpRight } from 'react-icons/fi'
 import kofeetekLogo from '../assets/images/logo (2)/3.webp'
@@ -11,7 +11,7 @@ const categories = [
   { id: 'seo', label: 'SEO' },
 ]
 
-const seoClientLogos = [
+export const seoClientLogos = [
   '/images/clients/seo/nexxora.webp',
   '/images/clients/seo/safe-science.webp',
   '/images/clients/seo/shape-wellness.webp',
@@ -23,7 +23,7 @@ const seoClientLogos = [
   '/images/clients/seo/tuber-buddy.webp',
 ]
 
-const smmClientLogos = [
+export const smmClientLogos = [
   '/images/clients/smm/16d.webp',
   '/images/clients/smm/jeni.webp',
   '/images/clients/smm/kofeetek.webp',
@@ -37,7 +37,7 @@ const smmClientLogos = [
   '/images/clients/smm/twc.webp',
 ]
 
-const websiteProjects = [
+export const websiteProjects = [
   ['mareprints.com', 'https://mareprints.com', 'mareprints'],
   ['kvhomecare.com', 'https://kvhomecare.com', 'kvhomecare'],
   ['baitambaram.com', 'https://baitambaram.com', 'baitambaram'],
@@ -77,7 +77,13 @@ const categoryContent = {
 }
 
 function PortfolioPage() {
-  const [activeCategory, setActiveCategory] = useState('websites')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const requestedCategory = searchParams.get('category')
+  const activeCategory = categories.some(({ id }) => id === requestedCategory) ? requestedCategory : 'websites'
+
+  const selectCategory = (category) => {
+    setSearchParams({ category })
+  }
 
   return (
     <main className="portfolio-page">
@@ -91,7 +97,7 @@ function PortfolioPage() {
         <div className="portfolio-hero-orbit" aria-hidden="true"><span>SG</span><i /><i /><i /></div>
       </section>
 
-      <section className="portfolio-work" aria-label="Explore our work">
+      <section className="portfolio-work" id="portfolio-work" aria-label="Explore our work">
         <div className="container">
           <div className="portfolio-work-heading">
             <div><p className="portfolio-kicker">A CLOSER LOOK</p><h2>Work that works.</h2></div>
@@ -107,7 +113,7 @@ function PortfolioPage() {
                 role="tab"
                 aria-selected={activeCategory === id}
                 aria-controls="portfolio-panel"
-                onClick={() => setActiveCategory(id)}
+                onClick={() => selectCategory(id)}
               >{label}</button>
             ))}
           </div>

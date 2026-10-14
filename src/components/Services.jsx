@@ -3,19 +3,9 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiArrowUpRight } from 'react-icons/fi'
 import ServiceCard from './ServiceCard'
+import servicesData from '../data/services'
 
-export const servicesData = [
-  { id: 1, title: 'Digital Marketing', description: 'Reach the right audience, boost engagement and drive sales.', image: '/images/service-card-digital-marketing.webp' },
-  { id: 2, title: 'Website Development', description: 'Modern, fast and responsive websites for your business.', image: '/images/service-card-website-development.webp' },
-  { id: 3, title: 'Web App Development', description: 'Custom web applications designed to scale with you.', image: '/images/service-card-web-app-development.webp' },
-  { id: 4, title: 'SEO', description: 'Rank higher, get found and grow organically.', image: '/images/service-card-seo.webp' },
-  { id: 5, title: 'Social Media Marketing', description: 'Build your brand and engage your audience.', image: '/images/service-card-social-media.webp' },
-  { id: 6, title: 'Branding & Identity', description: 'Create a lasting impression with a strong brand.', image: '/images/service-card-branding.webp' },
-  { id: 7, title: 'Graphic Design', description: 'Visually stunning designs that speak your brand.', image: '/images/service-card-graphic-design.webp' },
-  { id: 8, title: 'Video Production', description: 'Tell your story with powerful video.', image: '/images/service-card-video-production.webp' },
-  { id: 9, title: 'Influencer Marketing', description: 'Partner with creators and expand your reach.', image: '/images/service-card-influencer-marketing.webp' },
-  { id: 10, title: 'App Development', description: 'Powerful mobile apps for your ideas.', image: '/images/service-card-app-development.webp' },
-]
+export { servicesData }
 
 function Services({ description, homeVersion = false, servicesPageVersion = false }) {
   const [activeService, setActiveService] = useState(0)

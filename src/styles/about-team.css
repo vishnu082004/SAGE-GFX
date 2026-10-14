@@ -85,6 +85,54 @@
   max-width: 690px;
 }
 
+.about-team__manager {
+  position: relative;
+  display: grid;
+  width: min(100%, 690px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px auto 0;
+  padding-top: 22px;
+}
+
+.about-team__manager::before {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(49, 209, 238, .72) 25%, rgba(211, 72, 226, .72) 75%, transparent);
+  box-shadow: 0 0 12px rgba(83, 170, 255, .25);
+}
+
+.about-team__manager-title {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 0 2px;
+  color: #9eeafa;
+  font: 700 1.13rem/1.2 var(--font-heading);
+  text-align: center;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.about-team__manager-title svg {
+  width: 17px;
+  height: 17px;
+  color: #d56af0;
+}
+
+.about-team__manager .about-team-card {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 20px) / 2);
+  --team-accent: #9927fa;
+}
+
 .about-team__leadership-title {
   grid-column: 1 / -1;
   display: flex;
@@ -154,12 +202,6 @@
 
 .about-team__leadership .about-team-card {
   --team-accent: #9927fa;
-}
-
-.about-team__leadership .about-team-card:last-child {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc((100% - 20px) / 2);
 }
 
 .about-team-card__portrait {
@@ -394,17 +436,20 @@
   }
 
   .about-team__leadership,
+  .about-team__manager,
   .about-team__grid,
   .about-team__grid--two {
-    grid-template-columns: 1fr;
     max-width: 380px;
   }
 
-  .about-team__leadership .about-team-card:last-child {
-    grid-column: auto;
-    width: 100%;
-  }
+  .about-team__leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .about-team__leadership-title { gap: 6px; font-size: .78rem; }
+  .about-team__leadership-title span { font-size: .53rem; }
+  .about-team__manager { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+  .about-team__manager .about-team-card { width: 100%; }
+
+  .about-team__grid,
   .about-team__grid--two { grid-template-columns: 1fr; }
 }
 

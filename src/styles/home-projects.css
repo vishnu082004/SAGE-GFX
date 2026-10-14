@@ -14,7 +14,8 @@
 .home-project-card:nth-child(1){--project-delay:0ms}.home-project-card:nth-child(2){--project-delay:100ms}.home-project-card:nth-child(3){--project-delay:200ms}
 .home-project-art{position:relative;display:grid;aspect-ratio:1.52;place-items:center;overflow:hidden;border:1px solid rgba(91,143,205,.25);border-radius:15px;background:#0a1227;box-shadow:0 17px 40px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.06);transition:transform .35s,border-color .35s,box-shadow .35s}
 .home-project-art--image{display:block;background:#101a2c}
-.home-project-art--image>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .3s}
+.home-project-art--image>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .3s}
+.home-project-card:nth-child(2) .home-project-art--image>img{object-position:center 62%}
 .home-project-card:hover .home-project-art--image>img{filter:brightness(.9)}
 .home-project-image-label{position:absolute;left:14px;bottom:13px;padding:7px 9px;border:1px solid rgba(255,255,255,.2);border-radius:5px;background:rgba(6,11,20,.78);color:#eff7ff;font-size:.58rem;font-weight:750;letter-spacing:.12em;backdrop-filter:blur(8px)}
 .home-project-art--logos{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;padding:clamp(18px,3vw,30px);background:radial-gradient(ellipse at 50% 0,rgba(36,131,255,.2),transparent 70%),linear-gradient(145deg,#0b1832,#080d1d)}

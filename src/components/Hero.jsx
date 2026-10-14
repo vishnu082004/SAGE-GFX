@@ -13,12 +13,12 @@ function Hero() {
     <div className="sage-hero-glow" aria-hidden="true" />
     <div className="sage-hero-inner">
       <div className="sage-hero-copy">
-        <p className="sage-hero-eyebrow"><span /> WELCOME TO SAGE GFX · IDEAS / DESIGN / IMPACT</p>
+        <p className="sage-hero-eyebrow"><span /> CHENNAI DIGITAL STUDIO · IDEAS / DESIGN / IMPACT</p>
         <h1 id="home-heading">Design that gets<br/>noticed. Digital that<br/><span>drives growth.</span></h1>
-        <p className="sage-hero-description">We bring brand strategy, standout design, high-performing websites, and digital marketing together to help you reach the right people and grow with confidence.</p>
+        <p className="sage-hero-description">Sage GFX is a digital marketing and web design studio in Chennai. We build distinctive brands, fast websites and practical SEO strategies that help businesses reach the right people and grow online.</p>
         <div className="sage-hero-actions">
           <Link to="/contact" className="sage-hero-primary"><span>Let’s build something</span><FiArrowRight aria-hidden="true" /></Link>
-          <Link to="/services" className="sage-hero-secondary"><FiPlay aria-hidden="true" /> Our services</Link>
+          <Link to="/services" className="sage-hero-secondary"><FiPlay aria-hidden="true" /> Explore our services</Link>
         </div>
         <div className="sage-hero-stats" aria-label="Sage GFX in numbers">
           {stats.map(([emoji, value, label]) => <div key={label}><span className="sage-hero-stat-value"><i aria-hidden="true">{emoji}</i><strong>{value}</strong></span><span>{label}</span></div>)}

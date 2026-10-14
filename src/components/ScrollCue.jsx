@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
 
-function ScrollCue({ target, label = 'next section', page = false, durationMs = 7000 }) {
+function ScrollCue({ target, label = 'next section', page = false, floating = false, durationMs = 7000 }) {
   const frameRef = useRef(0)
   const cancelRef = useRef(() => {})
 
@@ -71,9 +71,10 @@ function ScrollCue({ target, label = 'next section', page = false, durationMs = 
   return (
     <button
       type="button"
-      className={`hero-scroll-indicator scroll-cue ${page ? 'scroll-cue--page' : ''}`}
+      className={`hero-scroll-indicator scroll-cue ${page ? 'scroll-cue--page' : ''}${floating ? ' scroll-cue--floating' : ''}`}
       onClick={startScroll}
-      aria-label={`Scroll slowly to ${label}`}
+      aria-label={`Scroll to ${label}`}
+      title={`Scroll to ${label}`}
     >
       <span>Scroll</span>
       <FiChevronDown aria-hidden="true" />
