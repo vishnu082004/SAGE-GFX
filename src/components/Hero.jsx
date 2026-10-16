@@ -1,5 +1,6 @@
 ﻿import { Link } from 'react-router-dom'
 import { FiArrowRight, FiPlay } from 'react-icons/fi'
+import heroVideo from '../assets/images/home hero video.mp4'
 
 const stats = [
   ['😊', '100+', 'Happy clients'],
@@ -30,8 +31,8 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="sage-hero-boy-wrap" role="img" aria-label="Sage GFX mascot">
-        <img src="/assets/images/sage-boy.webp" alt="" fetchPriority="high" />
+      <div className="sage-hero-boy-wrap" aria-hidden="true">
+        <video src={heroVideo} autoPlay muted playsInline preload="auto" />
       </div>
     </section>
   )

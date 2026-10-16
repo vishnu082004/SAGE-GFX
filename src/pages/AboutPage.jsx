@@ -10,7 +10,7 @@ function AboutPage() {
       <section className="page-hero page-hero--about">
         <div className="container about-hero-layout">
           <div className="about-hero-copy">
-          <h1 className="page-hero-title">ABOUT <span className="gradient-text">US.</span></h1>
+          <h1 className="page-hero-title">About <span className="gradient-text"> Us.</span></h1>
             {/* <h1 className="">About <span >Us.</span></h1> */}
             {/* <p className="about-hero-deck">We are a Chennai-based creative digital agency helping brands grow through thoughtful design, clear strategy, and effective digital marketing.</p> */}
             <Link to="/contact" className="button button-gradient">Let's build your brand <FiArrowRight aria-hidden="true"/></Link>
