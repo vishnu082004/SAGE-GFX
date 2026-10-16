@@ -220,3 +220,28 @@
 @media(max-width:1100px) and (min-width:761px){.common-questions-intro{grid-template-columns:minmax(95px,.7fr) minmax(0,1.3fr)}.common-questions-art{width:100%;height:185px}}
 @media(max-width:760px){.common-questions-intro{grid-template-columns:1fr;gap:0}.common-questions-art{width:min(220px,60vw);height:140px;margin:-2px auto -20px;order:1}.common-questions-art-orbit--three{height:88%}}
 @media(prefers-reduced-motion:reduce){.common-questions-art,.common-questions-art-orbit,.common-questions-art-core{animation:none!important}}
+
+/* Place the FAQ intro centered beneath the five question boxes. */
+.common-questions{
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:"questions" "intro";
+  align-items:center;
+  gap:clamp(24px,3vw,40px);
+}
+.common-questions-list{grid-area:questions;width:min(100%,1050px);justify-self:center}
+.common-questions-intro{grid-area:intro;display:grid;width:min(100%,700px);grid-template-columns:minmax(120px,190px) minmax(0,1fr);justify-self:center;justify-content:center;gap:clamp(14px,2vw,28px)}
+.common-questions-heading{text-align:center}
+.common-questions-eyebrow{justify-content:center}
+.common-questions-heading h2,.common-questions-hint{max-width:none;margin-inline:auto;text-align:center}
+@media(max-width:760px){
+  .common-questions{grid-template-columns:minmax(0,1fr);grid-template-areas:"questions" "intro";gap:22px}
+  .common-questions-intro{grid-template-columns:minmax(0,1fr);gap:0}
+  .common-questions-heading{order:-1;text-align:center}
+  .common-questions-heading h2,.common-questions-hint{margin-inline:auto;text-align:center}
+}
+
+/* Keep the centered FAQ text first, with the five questions below it. */
+.common-questions{grid-template-areas:"intro" "questions"}
+@media(max-width:760px){
+  .common-questions{grid-template-areas:"intro" "questions"}
+}

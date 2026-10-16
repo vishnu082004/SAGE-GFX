@@ -249,3 +249,6 @@
   .architecture-showcase { height: clamp(210px, 42vw, 300px); }
   .architecture-showcase-btn { background-attachment: scroll; }
 }
+
+/* Center the Home About section's WHO WE ARE label. */
+.about--home .about-content > .eyebrow{justify-content:center}

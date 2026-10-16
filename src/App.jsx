@@ -57,6 +57,10 @@ import './styles/services-page.css'
 import './styles/mobile-polish.css'
 import './styles/contact-page-finishing.css'
 import './styles/scroll-reveal-motion.css'
+import './styles/hero-brightness.css'
+import './styles/hero-height-tuning.css'
+import './styles/home-hero-background.css'
+import './styles/mobile-audit.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -82,10 +86,10 @@ function RouteDocumentTitle() {
   useEffect(() => {
     const pages = {
       '/': ['Sage GFX Digital Studio | Web Design, SEO & Digital Marketing in Chennai', 'Sage GFX is a Chennai digital studio for website development, SEO, branding and digital marketing. Build a stronger online presence with a team in Tambaram, Chennai.'],
-      '/about': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
-      '/about-us': ['About | Sage GFX Digital Studio', 'Meet Sage GFX, a digital creative studio combining strategy, design and technology to help ambitious brands grow.'],
+      '/about': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
+      '/about-us': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
       '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],
-      '/portfolio': ['Our Projects | Sage GFX Digital Studio', 'Explore selected branding, web design and digital marketing projects by Sage GFX.'],
+      '/portfolio': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
       '/careers': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
       '/blog': ['Studio Journal | Sage GFX Digital Studio', 'Ideas and practical notes on branding, technology and growing well online.'],
       '/contact': ['Contact | Sage GFX Digital Studio', 'Tell Sage GFX about your next idea and start a conversation with our digital studio.'],

@@ -25,6 +25,25 @@
 .portfolio-work{position:relative;background:linear-gradient(180deg,#080d17 0%,#080d17 110px,#060a11 390px)}
 .portfolio-work::before{position:absolute;top:0;left:50%;width:min(78vw,920px);height:1px;content:"";background:linear-gradient(90deg,transparent,rgba(41,198,228,.38),rgba(187,65,207,.24),transparent);transform:translateX(-50%)}
 @media(max-width:760px){.portfolio-hero::after{height:56px}.portfolio-work{background:linear-gradient(180deg,#080d17 0%,#080d17 80px,#060a11 300px)}}
+
+/* Full-width, image-led Projects hero. */
+.portfolio-hero{display:flex;min-height:clamp(560px,calc(100svh - 105px),790px);align-items:center;overflow:hidden;padding:72px 0;background:#060a13}
+.portfolio-hero::before{z-index:1;opacity:.25;background-image:radial-gradient(rgba(146,183,227,.34) .8px,transparent .8px),linear-gradient(145deg,transparent 46%,rgba(23,182,228,.12) 46.15%,transparent 46.4%),linear-gradient(28deg,transparent 67%,rgba(199,44,204,.09) 67.15%,transparent 67.4%);background-size:20px 20px,auto,auto;mask-image:linear-gradient(90deg,#000,transparent 56%)}
+.portfolio-hero::after{z-index:1;inset:0;width:auto;height:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,#060a13 0%,rgba(6,10,19,.98) 31%,rgba(6,10,19,.82) 43%,rgba(6,10,19,.2) 59%,transparent 72%),linear-gradient(0deg,rgba(6,10,19,.35),transparent 28%);pointer-events:none}
+.portfolio-hero-visual{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none}
+.portfolio-hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.portfolio-hero-content{position:relative;z-index:2;width:min(760px,51%);max-width:none;margin:0 0 0 max(32px,calc((100vw - 1800px)/2 + 24px));padding:0}
+.portfolio-hero .page-hero-eyebrow{margin-bottom:24px;color:#d2dbea}
+.portfolio-hero .page-hero-title{max-width:760px;color:#f2f6ff;font-size:clamp(3.7rem,6.4vw,6.4rem);line-height:.96;letter-spacing:-.075em}
+.portfolio-hero .page-hero-title .gradient-text{background:linear-gradient(100deg,#f019b6 0%,#a52ff1 48%,#12bde9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.portfolio-hero .page-hero-subtitle{max-width:540px;margin-top:23px;color:#d0d9e7;font-size:1rem;line-height:1.72}
+.portfolio-hero-link{gap:14px;margin-top:27px;font-size:.83rem;letter-spacing:0;text-transform:none;transition:color .2s}
+.portfolio-hero-link span{width:38px;height:38px;border-color:rgba(22,205,231,.7);background:rgba(3,19,31,.55);transition:transform .2s,background .2s}
+.portfolio-hero-link:hover{color:#fff}
+.portfolio-hero-link:hover span{transform:translateX(3px);background:rgba(13,126,160,.26)}
+@media(max-width:900px){.portfolio-hero{min-height:clamp(530px,70vw,690px)}.portfolio-hero::after{background:linear-gradient(90deg,#060a13 0%,rgba(6,10,19,.97) 34%,rgba(6,10,19,.73) 52%,rgba(6,10,19,.12) 78%,transparent 100%),linear-gradient(0deg,rgba(6,10,19,.32),transparent 35%)}.portfolio-hero-content{width:min(690px,65%)}.portfolio-hero .page-hero-title{font-size:clamp(3.3rem,7.4vw,5.5rem)}}
+@media(max-width:650px){.portfolio-hero{display:flex;min-height:0;flex-direction:column;align-items:stretch;padding:76px 0 0}.portfolio-hero-content{width:auto;margin:0;padding:0 22px 35px}.portfolio-hero .page-hero-eyebrow{margin-bottom:18px;font-size:.59rem;letter-spacing:.13em}.portfolio-hero .page-hero-title{font-size:clamp(3.05rem,12vw,4.6rem)}.portfolio-hero .page-hero-subtitle{max-width:500px;margin-top:17px;font-size:.92rem;line-height:1.65}.portfolio-hero-link{margin-top:21px}.portfolio-hero-visual{position:relative;inset:auto;width:100%;height:clamp(250px,67vw,390px);flex:none}.portfolio-hero-visual img{object-position:center 54%}.portfolio-hero::after{inset:0 0 auto;height:calc(100% - 205px);background:linear-gradient(180deg,rgba(6,10,19,.05) 0%,rgba(6,10,19,.08) 75%,#060a13 100%)}.portfolio-hero::before{mask-image:linear-gradient(180deg,#000,transparent 60%)}}
+@media(prefers-reduced-motion:reduce){.portfolio-hero-link,.portfolio-hero-link span{transition:none}}
 /* Clear visual break between the portfolio intro and its project controls. */
 .portfolio-work{padding-top:53px}
 .portfolio-work::before{top:0;height:2px;box-shadow:0 0 16px rgba(41,198,228,.25)}

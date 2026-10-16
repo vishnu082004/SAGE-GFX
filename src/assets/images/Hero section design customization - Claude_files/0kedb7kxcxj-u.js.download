@@ -1,0 +1,513 @@
+(()=>{"use strict";(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,780934,e=>{var t=e.i(843476),r=e.i(271645);function a(e,t){if("function"==typeof e)return e(t);"object"==typeof e&&null!==e&&"current"in e&&(e.current=t)}var n=e.i(582458),n=n,o=e.i(884981),o=o,s=e.i(798031),s=s,l=e.i(698875),i=e.i(747500),c=e.i(656464),d=e.i(208319);let u=({name:e})=>"first-contentful-paint"===e;function h(e,t){try{let r=e.contentWindow?.performance,a=(t??r?.getEntriesByType("paint"))?.find(u);if(!r||!a)return null;let n=performance.now(),o=a.startTime+(n-r.now());return Number.isFinite(o)?Math.min(o,n):null}catch{return null}}function p(e){return e.length<=1e4?e:e.slice(0,1e4).replace(/[\ud800-\udbff]$/,"")+"…"}let f=new WeakSet;function g(){return(0,t.jsx)(l.T,{"aria-label":"Resize console messages",className:"group relative z-10 h-px w-full bg-[hsl(50_5.9%_28%)] outline-none focus-visible:outline-hidden after:absolute after:inset-x-0 after:top-1/2 after:h-3 after:-translate-y-1/2",children:(0,t.jsx)("div",{"aria-hidden":!0,className:"absolute left-1/2 top-1/2 h-[3px] w-full max-w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(48_4.8%_59.2%)] opacity-0 transition-opacity delay-200 duration-200 group-focus-visible:max-w-none group-focus-visible:bg-[hsl(210_70.9%_51.6%)] group-focus-visible:opacity-100 group-focus-visible:delay-0 group-data-[resize-handle-state=drag]:bg-[hsl(47_8.4%_79%)] group-data-[resize-handle-state=drag]:opacity-100 group-data-[resize-handle-state=drag]:delay-0 group-hover:opacity-100 motion-reduce:transition-none"})})}let m="rgb(128 128 128 / 50%) transparent",w=`<style id="claude-scrollbar">@layer claude-scrollbar{*{scrollbar-width:thin}html{scrollbar-color:${m}}}</style>`;function b(e){let t=e.currentTarget,r=t.contentDocument,a=r?.defaultView;if(!r||!a)return;let n=a.getComputedStyle(r.documentElement),o="rgba(0, 0, 0, 0)"===n.backgroundColor&&("none"===n.backgroundImage||""===n.backgroundImage)&&r.body?a.getComputedStyle(r.body):n,s=o.backgroundColor,l=("none"===o.backgroundImage||""===o.backgroundImage)&&!s.startsWith("rgba(")&&!s.includes("/");t.style.backgroundColor=l?s:""}let y=r.forwardRef((e,l)=>{let{content:y,onScreenshot:v,chartTheme:k,hostMessage:E,onRenderTiming:x,padBottomSafeArea:M}=e,[I,T]=(0,r.useState)([]),A=(0,r.useRef)(null),j=function(...e){return(0,r.useCallback)(function(...e){let t=new Map;return r=>{if(e.forEach(e=>{let n=a(e,r);n&&t.set(e,n)}),t.size>0)return()=>{e.forEach(e=>{let r=t.get(e);r?r():a(e,null)}),t.clear()}}}(...e),e)}(A,l),R=(0,d.d)(y,x);(0,r.useLayoutEffect)(()=>{let e,t,r=A.current;if(!r)return;let a=0,n=null,o=0,s=performance.now(),l=()=>{cancelAnimationFrame(a),clearTimeout(e),t?.disconnect(),r.removeEventListener("load",d)},i=e=>{l(),R(h(r,e)??o)},c=()=>{let e=h(r);if(null!==e){l(),R(e);return}if(null!==n){if((n+=1)>6)return void i()}else if(performance.now()-s>6e4)return void l();a=requestAnimationFrame(c)};function d(){if(null===n){o=performance.now(),n=0,e=setTimeout(i,200);try{let e=r.contentWindow?.PerformanceObserver;e&&(t=new e(e=>{let t=e.getEntries();t.some(u)&&i(t)})).observe({type:"paint",buffered:!0})}catch{t=void 0}}}return r.addEventListener("load",d),a=requestAnimationFrame(c),l},[y,R]);let C=(0,r.useRef)(k);(0,r.useEffect)(()=>{let e=A.current,t=()=>{let t=e?.contentDocument;if(!t)return;let r=t.getElementById("claude-chart-theme");if(!k)return void r?.remove();let a=r;a||((a=t.createElement("style")).id="claude-chart-theme",(t.head??t.documentElement).appendChild(a)),a.textContent=`:root {
+${(0,c.F)(k)} }`};return t(),e?.addEventListener("load",t),()=>e?.removeEventListener("load",t)},[k,y]),(0,r.useEffect)(()=>{if(!E)return;let e=A.current,t=()=>{e?.contentWindow?.postMessage({type:"hostMessage",data:E},window.location.origin)};return t(),e?.addEventListener("load",t),()=>e?.removeEventListener("load",t)},[E,y]),(0,r.useEffect)(()=>{let e=A.current?.contentWindow;e&&f.add(e)},[y]),(0,r.useEffect)(()=>{let e=e=>{if(!e.source||!f.has(e.source))return;if(e.source!==A.current?.contentWindow){let t=e.data,r=t&&"object"==typeof t?t.type:void 0;if("console"!==r&&"screenshotData"!==r&&"screenshotError"!==r)return}if(e.origin!==window.location.origin)return;let t=e.data;if(t&&"screenshotData"===t.type&&v?.({success:!0,screenshot:t.data,nonce:t.nonce}),t&&"screenshotError"===t.type&&v?.({success:!1,error:t.error,nonce:t.nonce}),t&&"console"===t.type&&null!==t.message&&void 0!==t.message){let e=function(e){try{if("string"==typeof e)return e;if(null===e||"object"!=typeof e)return p(String(e));if(ArrayBuffer.isView(e)&&e.byteLength>1e4)return p(Object.prototype.toString.call(e));let t=1e4,r=JSON.stringify(e,(e,r)=>{if((t-=e.length+1)<0)throw Error("budget");if(ArrayBuffer.isView(r)&&r.byteLength>1e4){let e=p(Object.prototype.toString.call(r));if((t-=e.length+1)<0)throw Error("budget");return e}if("string"==typeof r&&(t-=r.length),t<0)throw Error("budget");return r});return p(r??Object.prototype.toString.call(e))}catch{try{return p(Object.prototype.toString.call(e))}catch{return"[unserializable]"}}}(t.message);""!==e&&T(t=>[...t,e])}if(t&&"claudeComplete"===t.type&&window.claude.complete(t.prompt).then(e=>{A.current?.contentWindow?.postMessage({type:"claudeComplete",completion:e,id:t.id},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"claudeComplete",error:e instanceof Error?e.message:String(e),id:t.id},window.location.origin)}),t&&"openExternal"===t.type&&window.claude.openExternal(t.href),t&&"downloadFile"===t.type&&window.claude.downloadFile(t),t&&"proxyFetch"===t.type){let{channelId:e}=t;fetch(t.url,t.init).then(async r=>{if(A.current?.contentWindow?.postMessage({type:"proxyFetchResponse",id:t.id,headers:Object.fromEntries(r.headers.entries()),status:r.status,statusText:r.statusText},window.location.origin),r.body&&e){let t=r.body.getReader();try{let r=!1;for(;!r;){let a=await t.read();(r=a.done)?A.current?.contentWindow?.postMessage({type:"proxyFetchStream",channelId:e,done:!0},window.location.origin):a.value&&A.current?.contentWindow?.postMessage({type:"proxyFetchStream",channelId:e,chunk:a.value.buffer},window.location.origin,[a.value.buffer])}}catch(t){A.current?.contentWindow?.postMessage({type:"proxyFetchStream",channelId:e,error:t instanceof Error?t.message:String(t)},window.location.origin)}finally{t.releaseLock()}}else!r.body&&e&&A.current?.contentWindow?.postMessage({type:"proxyFetchStream",channelId:e,done:!0},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"proxyFetchResponse",id:t.id,error:e instanceof Error?e.message:String(e)},window.location.origin)})}t&&"storageGet"===t.type?window.storage.get(t.key,t.shared).then(e=>{A.current?.contentWindow?.postMessage({type:"storageGet",result:e,id:t.id},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"storageGet",error:e instanceof Error?e.message:String(e),id:t.id},window.location.origin)}):t&&"storageSet"===t.type?window.storage.set(t.key,t.value,t.shared).then(e=>{A.current?.contentWindow?.postMessage({type:"storageSet",result:e,id:t.id},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"storageSet",error:e instanceof Error?e.message:String(e),id:t.id},window.location.origin)}):t&&"storageDelete"===t.type?window.storage.delete(t.key,t.shared).then(e=>{A.current?.contentWindow?.postMessage({type:"storageDelete",result:e,id:t.id},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"storageDelete",error:e instanceof Error?e.message:String(e),id:t.id},window.location.origin)}):t&&"storageList"===t.type&&window.storage.list(t.prefix,t.shared).then(e=>{A.current?.contentWindow?.postMessage({type:"storageList",result:e,id:t.id},window.location.origin)}).catch(e=>{A.current?.contentWindow?.postMessage({type:"storageList",error:e instanceof Error?e.message:String(e),id:t.id},window.location.origin)})};return window.addEventListener("message",e),()=>window.removeEventListener("message",e)},[v]);let S=`
+    <script>
+      (function() {
+        // Capture host references before any artifact code runs: Window.parent
+        // is [Replaceable] (a top-level \`var parent\` in artifact code would
+        // replace the accessor with a data property), and a top-level
+        // \`const crypto\` would shadow the global — either would otherwise
+        // silently break the bridge for artifacts that worked before.
+        const realParent = window.parent;
+        const cryptoObj = window.crypto;
+        const RealURL = URL;
+        const realDecodeURIComponent = decodeURIComponent;
+        const RealTextEncoder = TextEncoder;
+        const realAtob = atob;
+        // html-to-image is only used by takeScreenshot: fetched on first use, not as a
+        // parser-blocking tag. Native fetch, captured before the proxy override below.
+        const realFetch = typeof window.fetch === 'function' ? window.fetch.bind(window) : null;
+        const HTML_TO_IMAGE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.13/html-to-image.min.js";
+        const HTML_TO_IMAGE_INTEGRITY = "sha512-iZ2ORl595Wx6miw+GuadDet4WQbdSWS3JLMoNfY8cRGoEFy6oT3G9IbcrBeL6AfkgpA51ETt/faX6yLV+/gFJg==";
+        let htmlToImageLoad = null;
+        const loadHtmlToImage = () => {
+          if (!htmlToImageLoad) {
+            htmlToImageLoad = (realFetch
+              ? realFetch(HTML_TO_IMAGE_SRC, { integrity: HTML_TO_IMAGE_INTEGRITY, credentials: 'omit', referrerPolicy: 'no-referrer' })
+              : Promise.reject(new Error('fetch unavailable'))
+            )
+              .then((res) => {
+                if (!res.ok) throw new Error('html-to-image failed to load (' + res.status + ')');
+                return res.text();
+              })
+              .then((source) => {
+                // UMD bundle: hide the artifact's AMD/CommonJS globals so it takes the
+                // window-global branch; inline script text runs synchronously on insert.
+                const hidden = ['define', 'module', 'exports'].map((k) => {
+                  const entry = { k, own: Object.prototype.hasOwnProperty.call(window, k), v: window[k] };
+                  try { window[k] = undefined; } catch (e) {}
+                  return entry;
+                });
+                try {
+                  const el = document.createElement('script');
+                  el.text = source;
+                  (document.head || document.documentElement).appendChild(el);
+                } finally {
+                  hidden.forEach(({ k, own, v }) => {
+                    try { if (own) { window[k] = v; } else { delete window[k]; } } catch (e) {}
+                  });
+                }
+                if (!window.htmlToImage) throw new Error('html-to-image unavailable after load');
+                return window.htmlToImage;
+              });
+            // A failed load may be transient; let the next screenshot retry.
+            htmlToImageLoad.catch(() => { htmlToImageLoad = null; });
+          }
+          return htmlToImageLoad;
+        };
+        // crypto.randomUUID exists only in Secure Contexts; fall back to a
+        // unique non-crypto id elsewhere (http://LAN-IP dev flows) —
+        // uniqueness is what the bridge needs, unpredictability is
+        // defense-in-depth on top of the source guards.
+        const newRequestId =
+          cryptoObj && typeof cryptoObj.randomUUID === "function"
+            ? function () { return cryptoObj.randomUUID(); }
+            : function () { return Date.now() + "-" + Math.random(); };
+        const originalConsole = window.console;
+        window.console = {
+          log: (...args) => {
+            originalConsole.log(...args);
+            realParent.postMessage({ type: 'console', message: args.join(' ') }, '*');
+          },
+          error: (...args) => {
+            originalConsole.error(...args);
+            realParent.postMessage({ type: 'console', message: 'Error: ' + args.join(' ') }, '*');
+          },
+          warn: (...args) => {
+            originalConsole.warn(...args);
+            realParent.postMessage({ type: 'console', message: 'Warning: ' + args.join(' ') }, '*');
+          }
+        };
+
+        // Bridge request ids are crypto-random (not sequential) so they
+        // cannot be predicted by other frames in the tab.
+        let callbacksMap = new Map();
+        let streamControllers = new Map();
+        
+        window.claude = {
+          complete: (prompt) => {
+            return new Promise((resolve, reject) => {
+              const id = newRequestId();
+              callbacksMap.set(id, { resolve, reject });
+              realParent.postMessage({ type: 'claudeComplete', id, prompt }, '*');
+            });
+          }
+        };
+
+        window.storage = {
+          get: (key, shared = false) => {
+            return new Promise((resolve, reject) => {
+              const id = newRequestId();
+              callbacksMap.set(id, { resolve, reject });
+              realParent.postMessage({ type: 'storageGet', id, key, shared }, '*');
+            });
+          },
+          set: (key, value, shared = false) => {
+            return new Promise((resolve, reject) => {
+              const id = newRequestId();
+              callbacksMap.set(id, { resolve, reject });
+              realParent.postMessage({ type: 'storageSet', id, key, value, shared }, '*');
+            });
+          },
+          delete: (key, shared = false) => {
+            return new Promise((resolve, reject) => {
+              const id = newRequestId();
+              callbacksMap.set(id, { resolve, reject });
+              realParent.postMessage({ type: 'storageDelete', id, key, shared }, '*');
+            });
+          },
+          list: (prefix, shared = false) => {
+            return new Promise((resolve, reject) => {
+              const id = newRequestId();
+              callbacksMap.set(id, { resolve, reject });
+              realParent.postMessage({ type: 'storageList', id, prefix, shared }, '*');
+            });
+          }
+        };
+
+        let pendingBlobs = new Map();
+        URL.createObjectURL = (blob) => {
+          // Store the blob and create an ID and URL for it
+          const blobId = \`blob-$\{Date.now()}-$\{Math.random()}\`;
+          pendingBlobs.set(blobId, blob);
+          return \`blob-request://$\{blobId}\`;
+        };
+
+        URL.revokeObjectURL = (url) => {
+          // Remove the blob from our store
+          const blobId = url.replace("blob-request://", "");
+          pendingBlobs.delete(blobId);
+        };
+
+        const getBlobFromURL = (url) => {
+          const blobId = url.replace("blob-request://", "");
+          return pendingBlobs.get(blobId);
+        };
+
+        // Override global fetch with streaming support
+        window.fetch = (url, init = {}) => {
+          return new Promise((resolve, reject) => {
+            const id = newRequestId();
+            const channelId = \`fetch-$\{id}-$\{Date.now()}\`;
+            
+            callbacksMap.set(id, { 
+              resolve: (response) => {
+                // Null-body statuses: Response(stream, {status: 204}) throws
+                // per the Fetch spec, which would escape this resolver and
+                // hang the artifact's await forever.
+                if (response.status === 204 || response.status === 205 || response.status === 304) {
+                  try {
+                    resolve(new Response(null, {
+                      status: response.status,
+                      statusText: response.statusText,
+                      headers: response.headers
+                    }));
+                  } catch (err) {
+                    // Invalid statusText/header bytes can throw here too.
+                    reject(new TypeError(
+                      'Bridge fetch: unconstructable response (status ' + response.status + ')'
+                    ));
+                  }
+                  return;
+                }
+                // Create a ReadableStream for the response body
+                const stream = new ReadableStream({
+                  start(controller) {
+                    streamControllers.set(channelId, controller);
+                  },
+                  cancel() {
+                    streamControllers.delete(channelId);
+                  }
+                });
+                
+                // Create and return the Response with the stream. Response()
+                // requires status in [200, 599]; an opaque/no-cors fetch
+                // forwards status 0, which would throw here and escape the
+                // resolver, hanging the artifact's await. Surface it as a
+                // network-error-shaped rejection instead.
+                try {
+                  resolve(new Response(stream, {
+                    status: response.status,
+                    statusText: response.statusText,
+                    headers: response.headers
+                  }));
+                } catch (err) {
+                  streamControllers.delete(channelId);
+                  reject(new TypeError(
+                    'Bridge fetch: unconstructable response (status ' + response.status + ')'
+                  ));
+                }
+              },
+              reject,
+              channelId
+            });
+            
+            realParent.postMessage({
+              type: 'proxyFetch',
+              id,
+              url,
+              init,
+              channelId
+            }, '*');
+          });
+        };
+
+        window.addEventListener('message', async (event) => {
+          // Only the embedding parent may drive the bridge — sibling and
+          // nested frames can also postMessage into this window.
+          if (event.source !== realParent) return;
+          if (event.data.type === 'takeScreenshot') {
+            // Echo the request's nonce so the requester can correlate the
+            // reply to ITS request — a reply without the expected nonce
+            // (e.g. from a stale pre-remount artifact) is ignored upstream.
+            const screenshotNonce = event.data.nonce;
+            const rootElement = document.getElementById('artifacts-component-root-html');
+            if (!rootElement) {
+              realParent.postMessage({
+                type: 'screenshotError',
+                nonce: screenshotNonce,
+                error: new Error('Root element not found'),
+              }, '*');
+              return;
+            }
+            // Catch CDN load failures and toPng errors so the parent always
+            // gets a response instead of hanging forever.
+            try {
+              const htmlToImage = await loadHtmlToImage();
+              const screenshot = await htmlToImage.toPng(rootElement, {
+                imagePlaceholder:
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjePDgwX8ACOQDoNsk0PMAAAAASUVORK5CYII=",
+              });
+              realParent.postMessage({
+                type: 'screenshotData',
+                nonce: screenshotNonce,
+                data: screenshot,
+              }, '*');
+            } catch (err) {
+              realParent.postMessage({
+                type: 'screenshotError',
+                nonce: screenshotNonce,
+                error: err instanceof Error ? err : new Error(String(err)),
+              }, '*');
+            }
+          } else if (event.data.type === 'claudeComplete') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.completion);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'proxyFetchResponse') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+              callbacksMap.delete(event.data.id);
+            } else {
+              // Initial response with headers, status, etc.
+              callback.resolve({
+                status: event.data.status,
+                statusText: event.data.statusText,
+                headers: event.data.headers
+              });
+              // Don't delete the callback yet if streaming
+              if (!event.data.body) {
+                callbacksMap.delete(event.data.id);
+              }
+            }
+          } else if (event.data.type === 'proxyFetchStream') {
+            // Handle streaming data chunks
+            const controller = streamControllers.get(event.data.channelId);
+            if (controller) {
+              if (event.data.error) {
+                controller.error(new Error(event.data.error));
+                streamControllers.delete(event.data.channelId);
+              } else if (event.data.done) {
+                controller.close();
+                streamControllers.delete(event.data.channelId);
+                // Clean up the callback
+                const callback = Array.from(callbacksMap.entries()).find(
+                  ([_, value]) => value.channelId === event.data.channelId
+                );
+                if (callback) {
+                  callbacksMap.delete(callback[0]);
+                }
+              } else if (event.data.chunk) {
+                controller.enqueue(new Uint8Array(event.data.chunk));
+              }
+            }
+          } else if (event.data.type === 'storageGet') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageSet') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageDelete') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          } else if (event.data.type === 'storageList') {
+            const callback = callbacksMap.get(event.data.id);
+            if (!callback) return;
+            if (event.data.error) {
+              callback.reject(new Error(event.data.error));
+            } else {
+              callback.resolve(event.data.result);
+            }
+            callbacksMap.delete(event.data.id);
+          }
+        });
+
+        // An SVG <a> exposes href as an SVGAnimatedString; its baseVal is the attribute
+        // as written, so resolve it against the base URL as the browser does for an HTML <a>.
+        const resolvedHref = (linkEl) => {
+          if (typeof linkEl.href === "string") return linkEl.href;
+          const written = linkEl.href?.baseVal;
+          // A same-document SVG link, such as one that begins an animation, stays with the browser.
+          if (!written || written.trim().startsWith("#")) return "";
+          try {
+            return new RealURL(written, linkEl.baseURI).href;
+          } catch (error) {
+            return written;
+          }
+        };
+
+        // This frame's URL is about:srcdoc, so the browser resolves "#id" against the renderer
+        // page and would load that page in the frame instead of scrolling.
+        const sameDocumentFragment = (linkEl) => {
+          const written = linkEl.getAttribute("href")?.trim();
+          if (!written?.startsWith("#") || document.querySelector("base[href]")) return null;
+          return written.slice(1);
+        };
+
+        const scrollToFragment = (fragment) => {
+          let decoded = fragment;
+          try {
+            decoded = realDecodeURIComponent(fragment);
+          } catch (error) {}
+          let target = document.getElementById(fragment) ?? document.getElementById(decoded);
+          for (const named of target ? [] : document.getElementsByName(decoded)) {
+            if (named.localName === "a") {
+              target = named;
+              break;
+            }
+          }
+          if (target) {
+            target.scrollIntoView();
+          } else if (decoded.toLowerCase() === "top") {
+            window.scrollTo(0, 0);
+          } else {
+            return false;
+          }
+          return true;
+        };
+
+        // Same decoder as dataUrlFile in app/page.tsx; change both together.
+        const hexPair = /^[0-9a-f]{2}$/i;
+        const dataUrlFile = (href) => {
+          const hash = href.indexOf("#");
+          const url = hash === -1 ? href : href.slice(0, hash);
+          const comma = url.indexOf(",");
+          if (comma === -1) return null;
+          const header = url.slice(0, comma);
+          const payload = url.slice(comma + 1);
+          const mimeMatch = header.match(/data:([^;]+)/);
+          const mimeType = mimeMatch ? mimeMatch[1] : "application/octet-stream";
+          const declaredBase64 = header
+            .split(";")
+            .slice(1)
+            .some((param) => param.trim().toLowerCase() === "base64");
+          const type = mimeMatch ? mimeMatch[1].trim().toLowerCase() : "";
+          const binaryType = type !== "" && !type.startsWith("text/");
+          if (declaredBase64 || (binaryType && !payload.includes("%"))) {
+            let binary = null;
+            try {
+              binary = realAtob(
+                payload.replace(/%([0-9a-f]{2})/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16))),
+              );
+            } catch (error) {
+              if (declaredBase64) return null;
+            }
+            if (binary !== null) {
+              const bytes = new Uint8Array(binary.length);
+              for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+              }
+              return { mimeType, data: bytes.buffer };
+            }
+          }
+          const input = new RealTextEncoder().encode(payload);
+          const bytes = new Uint8Array(input.length);
+          let length = 0;
+          for (let i = 0; i < input.length; i++) {
+            if (input[i] === 0x25 && i + 2 < input.length) {
+              const pair = String.fromCharCode(input[i + 1], input[i + 2]);
+              if (hexPair.test(pair)) {
+                bytes[length++] = parseInt(pair, 16);
+                i += 2;
+                continue;
+              }
+            }
+            bytes[length++] = input[i];
+          }
+          return { mimeType, data: bytes.slice(0, length).buffer };
+        };
+
+        window.addEventListener('click', (event) => {
+          // Not instanceof Element: an artifact's own top-level class Element shadows the global.
+          if (typeof event.target?.closest !== "function") return;
+    
+          const linkEl = event.target.closest("a");
+          const href = linkEl && resolvedHref(linkEl);
+          if (!href) return;
+
+          const fragment = sameDocumentFragment(linkEl);
+          if (fragment !== null) {
+            const handledByArtifact = event.defaultPrevented;
+            event.preventDefault();
+            if (handledByArtifact || fragment === "" || scrollToFragment(fragment)) return;
+            // A fragment that names nothing in the artifact may name something in the host,
+            // such as a project thread. The artifact's own listeners still see the click.
+            realParent.postMessage({ type: 'openExternal', href }, '*');
+            return;
+          }
+          const filename = linkEl.getAttribute("download") ?? "";
+    
+          event.preventDefault();
+          event.stopImmediatePropagation();
+    
+          if (href.startsWith("blob-request:")) {
+            const blob = getBlobFromURL(href);
+            if (!blob) return;
+            void blob.arrayBuffer().then((data) => {
+              realParent.postMessage({
+                type: "downloadFile",
+                filename,
+                data,
+                mimeType: blob.type || "application/octet-stream",
+              });
+            });
+          } else if (href.startsWith("data:")) {
+            const file = dataUrlFile(href);
+            if (!file) return;
+            realParent.postMessage({
+              type: "downloadFile",
+              filename,
+              data: file.data,
+              mimeType: file.mimeType,
+            });
+          } else {
+            let linkUrl;
+            try {
+              linkUrl = new URL(href);
+            } catch (error) {
+              return;
+            }
+    
+            if (linkUrl.hostname === window.location.hostname) return;
+      
+            realParent.postMessage({
+              type: 'openExternal',
+              href,
+            }, '*');
+          }
+      });
+
+        const originalOpen = window.open;
+        window.open = function (url) {
+          realParent.postMessage({
+            type: "openExternal",
+            href: url,
+          }, "*");
+        };
+
+        window.addEventListener('error', (event) => {
+          realParent.postMessage({ type: 'console', message: 'Uncaught Error: ' + event.message }, '*');
+        });
+      })();
+    </script>
+  `,L=C.current,P=L?`
+    <style id="claude-chart-theme">
+      :root {
+${(0,c.F)(L)}
+      }
+    </style>
+  `:"",U=y.includes("::-webkit-scrollbar")?"":w,F=M&&!y.includes("safe-area-inset-bottom")?'<style id="claude-safe-area">body{border-bottom:env(safe-area-inset-bottom,0px) solid transparent}</style>':"",W=/<head(\s[^>]*)?>/i,D=`${S}${U}${F}${P}`,N=W.test(y)?y.replace(W,e=>`${e}${D}`):`${D}${y}`;return N=N.replace(/<body(\s[^>]*)?>/i,e=>{let t=e.slice(5,-1);return`<body${t} id="artifacts-component-root-html">`}),(0,t.jsxs)(i.ResizablePanelGroup,{direction:"vertical",className:"h-screen",children:[(0,t.jsx)(i.ResizablePanel,{defaultSize:I.length>0?80:100,children:(0,t.jsx)("iframe",{ref:j,className:"h-full w-full",title:"Rendered HTML content",sandbox:"allow-scripts allow-same-origin",allow:"clipboard-write",srcDoc:N,onLoad:b},y)}),I.length>0&&(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(g,{}),(0,t.jsx)(i.ResizablePanel,{defaultSize:20,children:(0,t.jsxs)("div",{className:"h-full overflow-auto p-4",style:{scrollbarWidth:"thin",scrollbarColor:m,backgroundColor:"hsl(60 1.8% 22%)",backgroundImage:"linear-gradient(hsl(60 3.3% 17.8%), hsl(45 4.9% 16.1%))",paddingBottom:M?"calc(1rem + env(safe-area-inset-bottom, 0px))":void 0},children:[(0,t.jsxs)("div",{className:"mb-2 inline-flex items-center gap-2 rounded-lg border px-2 py-1",style:{borderColor:"hsl(50 5.9% 40%)",color:"hsl(47 8.4% 79%)"},children:[(0,t.jsx)(o.f,{size:12}),(0,t.jsx)("h2",{className:"gap-2 font-ui text-xs",children:"Console Messages"})]}),I.map((e,r)=>{let a=null,o={},l={color:"hsl(50 23.1% 94.9%)"};return e.startsWith("Error:")||e.startsWith("Uncaught Error:")?(a=(0,t.jsx)(s.f,{size:12,className:"mt-1 shrink-0 text-red-500"}),o={backgroundColor:"rgba(255, 0, 0, 0.1)"},l.color="hsl(5 69.4% 72.9%)"):e.startsWith("Warning:")&&(a=(0,t.jsx)(n.f,{size:12,className:"mt-1 shrink-0 text-yellow-500"}),o={backgroundColor:"rgba(255, 255, 0, 0.1)"},l.color="hsl(18 50.4% 47.5%)"),(0,t.jsxs)("div",{className:"mb-0.5 flex items-start gap-2 rounded-lg px-2 py-1",style:o,children:[(0,t.jsx)(t.Fragment,{children:a}),(0,t.jsx)("pre",{className:"flex-grow text-wrap font-mono text-sm",style:l,children:e})]},r)})]})})]})]})});y.displayName="UnsafeHtmlRenderer";let v=r.memo(y);e.s(["L",0,v,"G",0,function(e,t){return!!e&&t.nonce===e.nonce&&(e.resolve(t),!0)}],780934)},798031,e=>{let t=(0,e.i(475254).f)("CircleX",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m15 9-6 6",key:"1uzhvr"}],["path",{d:"m9 9 6 6",key:"z0biqf"}]]);e.s(["f",0,t])},884981,e=>{let t=(0,e.i(475254).f)("SquareTerminal",[["path",{d:"m7 11 2-2-2-2",key:"1lz0vl"}],["path",{d:"M11 13h4",key:"1p7l4v"}],["rect",{width:"18",height:"18",x:"3",y:"3",rx:"2",ry:"2",key:"1m3agn"}]]);e.s(["f",0,t])},582458,e=>{let t=(0,e.i(475254).f)("TriangleAlert",[["path",{d:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",key:"wmoenq"}],["path",{d:"M12 9v4",key:"juzpu7"}],["path",{d:"M12 17h.01",key:"p32p05"}]]);e.s(["f",0,t])}])})();

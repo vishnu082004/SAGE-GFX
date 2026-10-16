@@ -52,3 +52,18 @@
 .blog-page .blog-card--interactive .blog-art img{clip-path:none!important;object-fit:cover}
 @media(max-width:900px){.blog-page .blog-card--interactive .blog-art{aspect-ratio:1/1;min-height:0}}
 @media(max-width:600px){.blog-page .blog-card--interactive .blog-art{aspect-ratio:1/1;min-height:0;height:auto}}
+
+/* Distinct Studio Journal hero: bold editorial copy with a neon timepiece. */
+.blog-page .blog-hero{position:relative;isolation:isolate;display:flex;width:100%;min-height:clamp(600px,calc(100svh - 100px),900px);align-items:stretch;overflow:hidden;padding:0;border:0;background:radial-gradient(ellipse at 75% 58%,rgba(23,93,189,.18),transparent 39%),radial-gradient(ellipse at 82% 92%,rgba(203,23,185,.12),transparent 38%),linear-gradient(112deg,#071128 0%,#081027 54%,#050a17 100%)}
+.blog-page .blog-hero::before{position:absolute;z-index:1;inset:0;content:"";pointer-events:none;background-image:radial-gradient(rgba(114,160,226,.27) .8px,transparent .8px),linear-gradient(145deg,transparent 40%,rgba(30,177,230,.1) 40.15%,transparent 40.38%);background-size:22px 22px,auto;mask-image:linear-gradient(90deg,#000,transparent 72%);opacity:.3}
+.blog-page .blog-hero::after{z-index:1;inset:0;width:auto;height:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(6,13,31,.99) 0%,rgba(6,13,31,.95) 35%,rgba(6,13,31,.67) 52%,rgba(6,13,31,.1) 75%,transparent 100%),linear-gradient(0deg,rgba(5,9,22,.2),transparent 32%);pointer-events:none}
+.blog-hero-art{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none}
+.blog-hero-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 32%}
+.blog-page .blog-hero .container{position:relative;z-index:2;display:flex;width:100%;max-width:none;min-height:inherit;flex-direction:column;align-items:flex-start;justify-content:center;margin:0;padding:70px clamp(32px,11vw,220px);text-align:left}
+.blog-page .blog-hero .page-hero-eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 17px;color:#dce8fa;font-size:.7rem;font-weight:700;letter-spacing:.16em}
+.blog-page .blog-hero .page-hero-eyebrow span{display:block;width:34px;height:2px;background:linear-gradient(90deg,#f51bbe,#00d9ee)}
+.blog-page .blog-hero .page-hero-title{max-width:670px;color:#f7f8ff;font-size:clamp(3.7rem,6.4vw,6.25rem);font-weight:700;line-height:.98;letter-spacing:-.075em}
+.blog-page .blog-hero .page-hero-title .gradient-text{background:linear-gradient(100deg,#f51bbe 0%,#8753f2 52%,#08d7ee 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.blog-page .blog-hero .page-hero-subtitle{max-width:420px;margin:16px 0 0;color:#c1cce0;font-size:1rem;line-height:1.5}
+@media(max-width:850px){.blog-page .blog-hero{min-height:620px}.blog-page .blog-hero .container{padding-inline:7vw}.blog-page .blog-hero .page-hero-title{font-size:clamp(3.4rem,8vw,5.3rem)}}
+@media(max-width:600px){.blog-page .blog-hero{min-height:630px}.blog-hero-art img{object-position:74% center}.blog-page .blog-hero::after{background:linear-gradient(90deg,rgba(6,13,31,.9),rgba(6,13,31,.62) 68%,rgba(6,13,31,.32)),linear-gradient(180deg,rgba(6,13,31,.62),rgba(6,13,31,.15) 58%,rgba(6,13,31,.32))}.blog-page .blog-hero .container{justify-content:flex-start;padding:77px 24px 300px}.blog-page .blog-hero .page-hero-eyebrow{font-size:.64rem;letter-spacing:.14em}.blog-page .blog-hero .page-hero-title{font-size:clamp(3.15rem,12vw,4.5rem)}.blog-page .blog-hero .page-hero-subtitle{max-width:360px;font-size:.93rem}}

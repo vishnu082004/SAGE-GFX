@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 import AboutTeam from '../components/AboutTeam'
 import AboutJourney from '../components/AboutJourney'
-import brandLogo from '../assets/images/sage-gfx-navbar.webp'
 
 function AboutPage() {
   return (
@@ -11,17 +10,19 @@ function AboutPage() {
       <section className="page-hero page-hero--about">
         <div className="container about-hero-layout">
           <div className="about-hero-copy">
-            <p className="page-hero-eyebrow">ABOUT SAGE GFX <i/> IDEAS / DESIGN / IMPACT</p>
-            <h1 className="page-hero-title">We turn clear ideas<br/><span className="gradient-text">into digital impact.</span></h1>
-            <p className="about-hero-deck">A creative studio bringing strategy, design and technology together to help ambitious brands grow.</p>
-            <Link to="/contact" className="button button-gradient">Meet your next move <FiArrowRight aria-hidden="true"/></Link>
+          <h1 className="page-hero-title">ABOUT <span className="gradient-text">US.</span></h1>
+            {/* <h1 className="">About <span >Us.</span></h1> */}
+            {/* <p className="about-hero-deck">We are a Chennai-based creative digital agency helping brands grow through thoughtful design, clear strategy, and effective digital marketing.</p> */}
+            <Link to="/contact" className="button button-gradient">Let's build your brand <FiArrowRight aria-hidden="true"/></Link>
           </div>
-          <div className="about-hero-stage" aria-hidden="true">
-            <div className="about-hero-orbit about-hero-orbit--one"/><div className="about-hero-orbit about-hero-orbit--two"/>
-            <div className="about-hero-core"><img className="about-hero-core-logo" src={brandLogo} alt="Sage GFX Digital Solutions"/><small>CREATIVE DIGITAL STUDIO</small></div>
-            <div className="about-hero-step about-hero-step--strategy"><b>01</b> Strategy</div>
-            <div className="about-hero-step about-hero-step--design"><b>02</b> Design</div>
-            <div className="about-hero-step about-hero-step--technology"><b>03</b> Technology</div>
+          {/* <ul className="about-hero-services" aria-label="Our core services">
+            <li><b>01</b><span>Branding &amp; Design<small>Identify. Create. Stand out.</small></span></li>
+            <li><b>02</b><span>SEO Services<small>Rank higher. Grow faster.</small></span></li>
+            <li><b>03</b><span>Social Media Marketing<small>Engage. Build. Convert.</small></span></li>
+            <li><b>04</b><span>Web Design &amp; Development<small>Modern. Fast. Responsive.</small></span></li>
+          </ul> */}
+          <div className="about-hero-stage">
+            <img className="about-hero-photo" src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
           </div>
         </div>
       </section>

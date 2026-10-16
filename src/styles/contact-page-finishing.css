@@ -49,4 +49,10 @@
 @media(max-width:760px){.contact-page.contact-design .contact-design-hero{padding-inline:20px}.contact-page.contact-design .sage-ai-widget{right:14px;bottom:16px;width:62px;height:62px}.contact-page.contact-design .sage-ai-launcher{width:56px;height:56px;min-height:56px}}
 @media(max-width:480px){.contact-page.contact-design .contact-design-hero{padding-inline:16px}.contact-page.contact-design .contact-main-grid{gap:13px}.contact-page.contact-design .contact-map-panel{min-height:250px}}
 @media(prefers-reduced-motion:reduce){.contact-page.contact-design .contact-hero-chip--one,.contact-page.contact-design .contact-hero-chip--two{animation:none!important}}
+
+/* Match the tall, full-screen hero scale used on the other landing pages. */
+.contact-page.contact-design .contact-design-hero{min-height:clamp(620px,calc(100svh - 105px),760px);align-content:center}
+@media(max-width:980px){.contact-page.contact-design .contact-design-hero{min-height:clamp(570px,72svh,690px)}}
+@media(max-width:760px){.contact-page.contact-design .contact-design-hero{min-height:clamp(560px,calc(100svh - 85px),680px);align-content:center}}
+@media(max-width:480px){.contact-page.contact-design .contact-design-hero{min-height:clamp(540px,calc(100svh - 80px),650px)}}
 @media(prefers-reduced-motion:reduce){.contact-page.contact-design .contact-hero-bridge-orbit,.contact-page.contact-design .contact-hero-bridge-core{animation:none!important}}

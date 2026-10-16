@@ -234,3 +234,65 @@
   .reviews-card-orbit .review-card,.reviews-card-orbit .review-card--1,.reviews-card-orbit .review-card--2,.reviews-card-orbit .review-card--3,.reviews-card-orbit .review-card--4,.reviews-card-orbit .review-card--5{grid-column:auto!important;grid-row:auto!important;width:100%;margin:0}
   .reviews-carousel-controls{order:2;grid-row:auto!important;margin-top:4px}
 }
+
+/* Keep review copy and its visual centered when the section stacks responsively. */
+@media(max-width:850px){
+  .reviews-copy{display:flex;flex-direction:column;align-items:center;margin-inline:auto;text-align:center}
+  .reviews-eyebrow{justify-content:center}
+  .reviews-description{max-width:620px;margin-inline:auto}
+  .reviews-stats{width:min(100%,520px);margin-inline:auto}
+  .reviews-cta-block{align-items:center;text-align:center}
+  .reviews-business-info{align-items:center}
+  .reviews-visual{width:100%;max-width:680px;margin-inline:auto;align-items:center}
+}
+
+/* Match the centered, stacked Why Choose layout at every screen size. */
+.client-reviews-inner{display:flex;flex-direction:column;align-items:center;gap:clamp(26px,4vw,46px);width:min(1180px,calc(100% - 48px))}
+.reviews-copy{display:flex;width:100%;max-width:900px;flex-direction:column;align-items:center;margin-inline:auto;text-align:center}
+.reviews-eyebrow{justify-content:center}
+.reviews-copy h2,.reviews-description{width:100%;text-align:center}
+.reviews-description{max-width:760px;margin-inline:auto}
+.reviews-stats{width:min(100%,620px);margin-inline:auto}
+.reviews-business-info{align-items:center}
+.reviews-cta-block{align-items:center;margin-inline:auto;text-align:center}
+.reviews-visual{width:100%;max-width:1180px;margin-inline:auto;align-self:center}
+@media(max-width:850px){
+  .client-reviews-inner{width:min(720px,calc(100% - 40px))}
+  .reviews-visual{max-width:680px}
+}
+
+/* Bring the Home review cards in toward the centered rating orb. */
+@media(min-width:851px){
+  .client-reviews .review-card--1,.client-reviews .review-card--3{left:12%;right:auto}
+  .client-reviews .review-card--2,.client-reviews .review-card--4{right:12%;left:auto}
+}
+
+/* Keep the Google Review action with its heading; reserve the orbit controls for pagination. */
+.reviews-cta-block{display:flex;flex-direction:column;align-items:center;gap:12px;margin:18px auto 0}
+.reviews-cta-label{margin:0;text-align:center}
+.reviews-cta{width:max-content;max-width:100%;justify-content:center}
+.reviews-carousel-controls{width:max-content;max-width:calc(100% - 16px);flex-wrap:nowrap}
+
+/* Separate the five desktop cards around the rating orb and align both actions below. */
+@media(min-width:851px){
+  .reviews-visual{min-height:700px;padding:0}
+  .reviews-card-orbit{inset:0 0 78px}
+  .reviews-rating-orb{top:50%;width:250px;min-height:250px}
+  .reviews-card-orbit .review-card--1{top:20%;left:5%;right:auto;bottom:auto}
+  .reviews-card-orbit .review-card--2{top:20%;right:5%;left:auto;bottom:auto}
+  .reviews-card-orbit .review-card--3{top:57%;left:5%;right:auto;bottom:auto}
+  .reviews-card-orbit .review-card--4{top:57%;right:5%;left:auto;bottom:auto}
+  .reviews-card-orbit .review-card--5{top:0;right:auto;bottom:auto;left:calc(50% - 122px)}
+  .client-reviews .reviews-visual--last-page .review-card--3{top:57%;left:5%;right:auto;bottom:auto;width:clamp(190px,17vw,245px)}
+  .reviews-bottom-actions{position:absolute;z-index:10;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;gap:22px;min-height:62px}
+  .reviews-carousel-controls{position:relative;inset:auto;transform:none}
+  .reviews-cta{min-height:54px;padding-inline:20px}
+}
+@media(max-width:850px){
+  .reviews-bottom-actions{position:relative;display:flex;align-items:center;justify-content:center;gap:18px;width:100%;flex-wrap:wrap;margin-top:6px}
+  .reviews-carousel-controls{position:relative;inset:auto;transform:none}
+}
+@media(max-width:600px){
+  .reviews-bottom-actions{flex-direction:column;gap:14px}
+  .reviews-cta{min-height:50px;padding-inline:16px;font-size:.78rem}
+}

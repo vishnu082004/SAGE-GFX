@@ -88,13 +88,15 @@ function PortfolioPage() {
   return (
     <main className="portfolio-page">
       <section className="portfolio-hero">
-        <div className="container portfolio-hero-content">
-          <p className="page-hero-eyebrow"><span /> OUR WORK / SELECTED PROJECTS</p>
-          <h1 className="page-hero-title">Good ideas,<br /><span className="gradient-text">made visible.</span></h1>
-          <p className="page-hero-subtitle">Digital work that helps ambitious brands connect, grow, and stand out.</p>
+        <div className="portfolio-hero-visual">
+          <img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
+        </div>
+        <div className="portfolio-hero-content">
+          {/* <p className="page-hero-eyebrow"><span /> OUR PROJECTS / SELECTED WORK</p> */}
+          <h1 className="page-hero-title">Our <span className="gradient-text">Projects.</span></h1>
+          {/* <p className="page-hero-subtitle">See how we bring brands to life with thoughtful design, digital marketing, and modern web experiences.</p> */}
           <Link to="/contact" className="portfolio-hero-link">Start a project <span><FiArrowUpRight aria-hidden="true" /></span></Link>
         </div>
-        <div className="portfolio-hero-orbit" aria-hidden="true"><span>SG</span><i /><i /><i /></div>
       </section>
 
       <section className="portfolio-work" id="portfolio-work" aria-label="Explore our work">
@@ -152,3 +154,4 @@ function PortfolioPage() {
 }
 
 export default PortfolioPage
+

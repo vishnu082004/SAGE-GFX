@@ -124,15 +124,14 @@ function ClientReviews() {
       <div className="reviews-copy">
         <p className="reviews-eyebrow"><i/> Client reviews</p>
         <h2 id="client-reviews-heading">Why Clients Trust<br/><span>Sage GFX</span></h2>
-        <p className="reviews-description">Our success is built on the trust and satisfaction of our clients. See what they have to say about their experience working with Sage GFX. We take pride in delivering creative, reliable, and result-driven solutions that make a real impact.</p>
-        <div className="reviews-stats" aria-label="Sage GFX Google review summary">
+        {/* <p className="reviews-description">Our success is built on the trust and satisfaction of our clients. See what they have to say about their experience working with Sage GFX. We take pride in delivering creative, reliable, and result-driven solutions that make a real impact.</p> */}
+        {/* <div className="reviews-stats" aria-label="Sage GFX Google review summary">
           {metrics.map(({ value, label, Icon }) => <div className="reviews-stat" key={label}><Icon aria-hidden="true"/><strong>{value}</strong><span>{label}</span></div>)}
-        </div>
+        </div> */}
 
         <div className="reviews-cta-block">
           <p className="reviews-cta-label">Loved working with us?</p>
-          <a className="reviews-cta" href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer"><GoogleMark/> Leave us a Google Review <FiArrowRight aria-hidden="true"/></a>
-          <p className="reviews-cta-note">Your feedback helps us grow and serve you better!</p>
+          {/* <p className="reviews-cta-note">Your feedback helps us grow and serve you better!</p> */}
         </div>
       </div>
 
@@ -148,11 +147,14 @@ function ClientReviews() {
           <span className="reviews-orb-count">23 reviews</span>
         </div>
         <div className="reviews-card-orbit" key={reviewPage} aria-live="off">{reviews.slice(reviewPage * reviewsPerPage, (reviewPage + 1) * reviewsPerPage).map((review, index) => <ReviewCard key={`${review.name}-${reviewPage}`} review={review} index={index}/>)}</div>
-        <div className="reviews-carousel-controls" aria-label="Review pages">
-          <button type="button" onClick={() => setReviewPage((page) => (page - 1 + reviewPageCount) % reviewPageCount)} aria-label="Show previous reviews"><FiChevronLeft aria-hidden="true"/></button>
-          <span>{reviewPage + 1} / {reviewPageCount}</span>
-          {Array.from({ length: reviewPageCount }, (_, index) => <button className="reviews-carousel-dot" key={index} type="button" onClick={() => setReviewPage(index)} aria-label={`Show review group ${index + 1}`} aria-pressed={reviewPage === index}/>) }
-          <button type="button" onClick={() => setReviewPage((page) => (page + 1) % reviewPageCount)} aria-label="Show next reviews"><FiChevronRight aria-hidden="true"/></button>
+        <div className="reviews-bottom-actions">
+          <div className="reviews-carousel-controls" aria-label="Review pages">
+            <button type="button" onClick={() => setReviewPage((page) => (page - 1 + reviewPageCount) % reviewPageCount)} aria-label="Show previous reviews"><FiChevronLeft aria-hidden="true"/></button>
+            <span>{reviewPage + 1} / {reviewPageCount}</span>
+            {Array.from({ length: reviewPageCount }, (_, index) => <button className="reviews-carousel-dot" key={index} type="button" onClick={() => setReviewPage(index)} aria-label={`Show review group ${index + 1}`} aria-pressed={reviewPage === index}/>) }
+            <button type="button" onClick={() => setReviewPage((page) => (page + 1) % reviewPageCount)} aria-label="Show next reviews"><FiChevronRight aria-hidden="true"/></button>
+          </div>
+          <a className="reviews-cta" href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer"><GoogleMark/> Leave us a Google Review <FiArrowRight aria-hidden="true"/></a>
         </div>
       </div>
     </div>

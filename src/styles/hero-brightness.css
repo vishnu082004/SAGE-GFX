@@ -1,0 +1,58 @@
+/* Give image-backed page heroes a little more light while retaining text contrast. */
+.hero-slide{filter:brightness(1.12) saturate(1.06)}
+.hero-overlay{background:linear-gradient(90deg,rgba(16,18,22,.38),rgba(16,18,22,.26) 55%,rgba(16,18,22,.36))}
+.sage-hero-image img{filter:brightness(1.12) saturate(1.06)}
+.sage-hero-image::after{background:linear-gradient(180deg,transparent,rgba(4,9,22,.72))}
+.about-hero-photo{filter:brightness(1.12) saturate(1.06)}
+.services-hero-stage img{filter:brightness(1.14) saturate(1.08)}
+.portfolio-hero-visual img{filter:brightness(1.13) saturate(1.07)}
+.careers-hero-background img{filter:brightness(1.12) saturate(1.06)}
+.blog-hero-art img{filter:brightness(1.14) saturate(1.08)}
+.blog-article-cover img{opacity:.88;filter:brightness(1.1) saturate(1.06)}
+.privacy-page .page-hero{background-image:linear-gradient(rgba(14,19,31,.55),rgba(14,19,31,.61)),url('/images/service-3d.webp')}
+.contact-page.contact-design .contact-design-hero{position:relative;isolation:isolate}
+.contact-page.contact-design .contact-hero-image{position:absolute;z-index:0;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none}
+.contact-page.contact-design .contact-hero-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 47%;filter:brightness(1.1) saturate(1.08)}
+.contact-page.contact-design .contact-hero-image::after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,rgba(7,16,39,.92),rgba(7,16,39,.2) 34%,transparent 68%),linear-gradient(0deg,rgba(7,16,39,.12),transparent 45%);pointer-events:none}
+@media(max-width:760px){.contact-page.contact-design .contact-hero-image img{object-position:61% center}.contact-page.contact-design .contact-hero-image::after{background:linear-gradient(90deg,rgba(7,16,39,.82),rgba(7,16,39,.36) 60%,rgba(7,16,39,.14)),linear-gradient(0deg,rgba(7,16,39,.28),transparent 54%)}}
+@media(max-width:480px){.contact-page.contact-design .contact-hero-image img{object-position:65% center}.contact-page.contact-design .contact-hero-image::after{background:linear-gradient(90deg,rgba(7,16,39,.82),rgba(7,16,39,.4) 72%,rgba(7,16,39,.2)),linear-gradient(0deg,rgba(7,16,39,.25),transparent 55%)}}
+
+/* Keep hero copy on a deep left side and let the artwork glow on the right. */
+.contact-page.contact-design .contact-hero-image::after{
+  background:
+    linear-gradient(90deg,#071027 0%,rgba(7,16,39,.98) 30%,rgba(7,16,39,.78) 47%,rgba(7,16,39,.12) 72%,rgba(7,16,39,.02) 100%),
+    radial-gradient(ellipse at 84% 42%,rgba(0,174,255,.25),transparent 43%),
+    radial-gradient(ellipse at 78% 82%,rgba(202,38,221,.2),transparent 42%);
+}
+.portfolio-hero::after{
+  background:
+    linear-gradient(90deg,#04060d 0%,rgba(4,6,13,.99) 34%,rgba(4,6,13,.9) 50%,rgba(4,6,13,.18) 74%,rgba(4,6,13,.02) 100%),
+    radial-gradient(ellipse at 84% 42%,rgba(0,174,255,.3),transparent 43%),
+    radial-gradient(ellipse at 78% 82%,rgba(202,38,221,.24),transparent 42%),
+    linear-gradient(0deg,rgba(6,10,19,.35),transparent 28%);
+}
+.portfolio-hero-visual::after{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  content:"";
+  background:linear-gradient(90deg,#03050b 0%,rgba(3,5,11,.99) 34%,rgba(3,5,11,.92) 51%,rgba(3,5,11,.45) 67%,rgba(3,5,11,.04) 86%);
+  pointer-events:none;
+}
+.portfolio-hero .page-hero-title{
+  line-height:1.04;
+  letter-spacing:-.065em;
+  word-spacing:.025em;
+  text-shadow:0 3px 24px rgba(0,0,0,.48);
+}
+.portfolio-hero .page-hero-subtitle{
+  line-height:1.85;
+  text-wrap:pretty;
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
+}
+@media(max-width:760px){
+  .contact-page.contact-design .contact-hero-image::after{background:linear-gradient(90deg,rgba(7,16,39,.92),rgba(7,16,39,.58) 52%,rgba(7,16,39,.18) 100%),radial-gradient(ellipse at 86% 48%,rgba(0,174,255,.2),transparent 52%),radial-gradient(ellipse at 78% 82%,rgba(202,38,221,.16),transparent 48%)}
+  .portfolio-hero::after{background:linear-gradient(180deg,rgba(6,10,19,.08) 0%,rgba(6,10,19,.14) 52%,#060a13 100%),linear-gradient(90deg,rgba(6,10,19,.86),rgba(6,10,19,.32) 68%,rgba(6,10,19,.12)),radial-gradient(ellipse at 84% 46%,rgba(0,174,255,.22),transparent 55%),radial-gradient(ellipse at 78% 80%,rgba(202,38,221,.16),transparent 50%)}
+}
+
+@media(prefers-reduced-motion:reduce){.hero-slide{filter:brightness(1.12) saturate(1.06)}}

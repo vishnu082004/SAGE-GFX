@@ -50,8 +50,8 @@ function CommonQuestions() {
     <div className="common-questions-intro">
       <FAQArtwork />
       <div className="common-questions-heading">
-        <p className="common-questions-eyebrow">COMMON QUESTIONS</p>
-        <h2>Most Popular<br/><span>Questions</span></h2>
+        {/* <p className="common-questions-eyebrow"> Frequently Asked Questions</p> */}
+        <h2>Frequently Asked <br/><span>Questions</span></h2>
         <p className="common-questions-hint">Tap a question to hear the answer, or ask Sage AI for more.</p>
       </div>
     </div>

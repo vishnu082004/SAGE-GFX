@@ -62,3 +62,38 @@
 @media(prefers-reduced-motion:reduce){.why-choose--orbit *, .why-choose--orbit *::before,.why-choose--orbit *::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.why-choose--orbit .why-orb,.why-choose--orbit .why-service-card,.why-choose--orbit .why-choose-copy>*,.why-choose--orbit .why-choose-stats{opacity:1!important;transform:none!important;scale:1!important}.why-choose--orbit .why-orbit,.why-choose--orbit .why-particle,.why-choose--orbit .why-energy-node,.why-choose--orbit .why-energy-trails path{animation:none!important}}
 @media(min-width:901px){.why-choose--orbit{padding-top:clamp(58px,6.5vw,92px);padding-bottom:clamp(54px,5.8vw,82px)}.why-choose-visual{min-height:600px}.why-orb{width:clamp(210px,20vw,292px)}.why-service-card{min-height:162px;padding:16px 14px}.why-service-icon{width:66px;height:66px}.why-choose-description{margin-top:19px;margin-bottom:23px}}
 @media(min-width:901px) and (max-width:1200px){.why-choose-visual{min-height:535px}.why-orb{width:clamp(195px,21vw,255px)}.why-service-card{min-height:145px;padding:13px 10px}.why-service-icon{width:50px;height:50px}}
+
+/* Center the stacked Why Choose layout on tablet and phone screens. */
+@media(max-width:900px){
+  .why-choose-copy{display:flex;flex-direction:column;align-items:center;margin-inline:auto;text-align:center}
+  .why-choose-eyebrow{justify-content:center}
+  .why-choose-description{margin-inline:auto}
+  .why-choose-stats{width:min(100%,620px);margin-inline:auto}
+  .why-choose-visual{margin-inline:auto}
+}
+@media(max-width:620px){
+  .why-choose-stats{max-width:390px}
+}
+
+/* Keep the section copy above a centered, full-width visual at every viewport. */
+.why-choose-layout{display:flex;flex-direction:column;align-items:center;gap:30px}
+.why-choose-copy{width:100%;max-width:1000px;margin-inline:auto;text-align:center}
+.why-choose-eyebrow{justify-content:center}
+.why-choose-description{margin-inline:auto}
+.why-choose-visual{width:100%;max-width:1500px;margin-inline:auto}
+.why-choose-stats{width:min(100%,720px);margin:0 auto}
+@media(max-width:900px){
+  .why-choose-layout{gap:26px}
+  .why-choose-copy{max-width:680px}
+}
+@media(max-width:620px){
+  .why-choose-layout{gap:22px}
+}
+
+/* Pull the four desktop service cards inward toward the Sage GFX orb. */
+@media(min-width:901px){
+  .why-choose-visual .why-service-card--top-left{top:13%;left:11%}
+  .why-choose-visual .why-service-card--top-right{top:13%;right:11%}
+  .why-choose-visual .why-service-card--bottom-left{bottom:13%;left:10%}
+  .why-choose-visual .why-service-card--bottom-right{right:10%;bottom:12%}
+}

@@ -5,10 +5,13 @@ import blogArticles from '../data/blogArticles'
 function BlogPage() {
   return <div className="blog-page">
     <section className="page-hero blog-hero">
+      <div className="blog-hero-art" aria-hidden="true">
+        <img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
+      </div>
       <div className="container">
-        <p className="page-hero-eyebrow">NOTES FROM THE STUDIO</p>
-        <h1 className="page-hero-title">Ideas for your<br/><span className="gradient-text">next move.</span></h1>
-        <p className="page-hero-subtitle">Nine practical perspectives on branding, design, technology, and growing well online.</p>
+        {/* <p className="page-hero-eyebrow"><span aria-hidden="true" /> OUR BLOG / NOTES FROM THE STUDIO</p> */}
+        <h1 className="page-hero-title">Our <span className="gradient-text">Blog.</span></h1>
+        {/* <p className="page-hero-subtitle">Find practical ideas on branding, design, technology, and growing your business online.</p> */}
       </div>
     </section>
     <section className="blog-list-section" aria-label="Studio journal articles">
@@ -39,3 +42,4 @@ function BlogPage() {
 }
 
 export default BlogPage
+

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiArrowUpRight, FiCode, FiPenTool, FiBarChart2, FiUsers, FiTarget, FiLayers, FiTrendingUp } from 'react-icons/fi'
+import { FiArrowUpRight, FiCode, FiPenTool, FiBarChart2, FiUsers } from 'react-icons/fi'
 import brandLogo from '../assets/images/sage-gfx-navbar.webp'
 
 const benefits = [
@@ -10,17 +10,10 @@ const benefits = [
   { title: 'Social Media Management', description: 'Grow your brand across social platforms with meaningful connections.', Icon: FiUsers, color: 'pink', position: 'bottom-right' },
 ]
 
-const metrics = [
-  { value: 98, suffix: '%', label: 'Client Satisfaction', Icon: FiTarget },
-  { value: 250, suffix: '+', label: 'Projects Delivered', Icon: FiBarChart2 },
-  { value: 100, suffix: '+', label: 'Happy Clients', Icon: FiUsers },
-]
-
 function WhyChoose() {
   const sectionRef = useRef(null)
   const visualRef = useRef(null)
   const frameRef = useRef(0)
-  const metricRefs = useRef([])
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -35,30 +28,6 @@ function WhyChoose() {
     observer.observe(section)
     return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    if (!isVisible) return undefined
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const nodes = metricRefs.current.filter(Boolean)
-    if (reducedMotion) {
-      nodes.forEach((node, index) => { node.textContent = `${metrics[index].value}${metrics[index].suffix}` })
-      return undefined
-    }
-    let frame = 0
-    const start = performance.now()
-    const duration = 1500
-    const tick = (now) => {
-      const progress = Math.min(1, (now - start) / duration)
-      const eased = 1 - Math.pow(1 - progress, 4)
-      nodes.forEach((node, index) => {
-        const value = Math.round(metrics[index].value * eased)
-        node.textContent = `${value}${progress === 1 ? metrics[index].suffix : ''}`
-      })
-      if (progress < 1) frame = requestAnimationFrame(tick)
-    }
-    frame = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(frame)
-  }, [isVisible])
 
   useEffect(() => {
     const visual = visualRef.current
@@ -104,8 +73,6 @@ function WhyChoose() {
       <div className="why-choose-copy">
         <p className="why-choose-eyebrow"><i/> WHY CHOOSE US <i/></p>
         <h2 id="why-choose-title">Why Choose<br/>Sage GFX as Your<br/><span className="why-gradient-digital">Digital Marketing</span> <span className="why-gradient-agency">Agency?</span></h2>
-        <p className="why-choose-description">At Sage GFX, we combine expertise, innovation, and a client-centric approach to deliver exceptional digital marketing solutions tailored to your business needs. Our data-driven strategies help you achieve measurable results, enhance your online presence, and drive growth in a competitive digital landscape.</p>
-        <Link className="why-choose-cta" to="/services">Explore Our Services <FiArrowRight aria-hidden="true"/></Link>
       </div>
 
       <div ref={visualRef} className="why-choose-visual" role="group" aria-label="Sage GFX services orbit">
@@ -116,9 +83,6 @@ function WhyChoose() {
         <div className="why-particles" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} className={`why-particle why-particle--${index + 1} why-depth`} data-depth={5 + (index % 5) * 2}/>)}</div>
         <div className="why-energy-node why-energy-node--one why-depth" data-depth="15" aria-hidden="true"/><div className="why-energy-node why-energy-node--two why-depth" data-depth="12" aria-hidden="true"/><div className="why-energy-node why-energy-node--three why-depth" data-depth="9" aria-hidden="true"/><div className="why-energy-node why-energy-node--four why-depth" data-depth="14" aria-hidden="true"/>
         <div className="why-service-cards">{benefits.map(({ title, description, Icon, color, position }, index) => <Link key={title} to="/services" className={`why-service-card why-service-card--${position} why-service-card--${color} why-depth`} data-depth={20 + index * 2} style={{ '--card-index': index }}><span className="why-service-icon"><Icon aria-hidden="true"/></span><span className="why-service-content"><small>0{index + 1} / SAGE GFX</small><strong>{title}</strong><p>{description}</p></span><span className="why-service-arrow"><FiArrowUpRight aria-hidden="true"/></span></Link>)}</div>
-      </div>
-      <div className="why-choose-stats" aria-label="Sage GFX results">
-          {metrics.map(({ label, Icon }, index) => <div className="why-stat" key={label}><Icon aria-hidden="true"/><span><strong ref={(node) => { metricRefs.current[index] = node }}>0</strong><small>{label}</small></span></div>)}
       </div>
     </div>
   </section>

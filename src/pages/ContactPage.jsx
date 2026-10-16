@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiArrowRight, FiLayers, FiMail, FiMapPin, FiMessageSquare, FiPhone, FiSend, FiUser, FiZap } from 'react-icons/fi'
+import { FiArrowRight, FiLayers, FiMail, FiMapPin, FiMessageSquare, FiPhone, FiSend, FiUser } from 'react-icons/fi'
 import { contactEmail, contactPhone, contactPhoneLink, submitContactForm, studioAddress, studioMapEmbedUrl, studioMapUrl } from '../data/contactInfo'
 import services from '../data/services'
 
@@ -55,19 +55,11 @@ function ContactPage() {
       <div className="contact-design-glow" aria-hidden="true" />
       <section className="contact-design-hero" aria-labelledby="contact-title">
         <p className="contact-kicker"><span />GET IN TOUCH<span /></p>
-        <h1 id="contact-title">Contact</h1>
-        <p className="contact-hero-copy">A good project starts with a conversation. Tell us what you’re planning and we’ll help you find the right next step.</p>
-        <nav className="contact-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><FiArrowRight aria-hidden="true"/><span aria-current="page">Contact</span></nav>
-        <div className="contact-hero-art" aria-hidden="true">
-          <span className="contact-hero-orbit contact-hero-orbit--one"/><span className="contact-hero-orbit contact-hero-orbit--two"/>
-          <span className="contact-hero-core"><FiSend/><i/></span>
-          <span className="contact-hero-chip contact-hero-chip--one">A new idea</span><span className="contact-hero-chip contact-hero-chip--two">Let’s build</span>
-          <span className="contact-hero-art-label">IDEAS / DESIGN / IMPACT</span>
-        </div>
-        <div className="contact-hero-bridge" aria-hidden="true">
-          <span className="contact-hero-bridge-orbit" />
-          <span className="contact-hero-bridge-core"><FiZap /></span>
-          <small>IDEA <i /> IMPACT</small>
+        {/* <h1 id="contact-title">Contact</h1> */}
+        {/* <p className="contact-hero-copy">A good project starts with a conversation. Tell us what you’re planning and we’ll help you find the right next step.</p> */}
+        <nav className="contact-breadcrumb" aria-label="Breadcrumb"><h2 id="contact-title"><a href="/">Home</a><FiArrowRight aria-hidden="true"/>Contact</h2></nav>
+        <div className="contact-hero-image" aria-hidden="true">
+          <img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
         </div>
       </section>
 

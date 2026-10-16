@@ -1,0 +1,45 @@
+/* Keep the page heroes bold while avoiding oversized first screens. */
+.runner-hero{min-height:clamp(390px,52svh,500px)}
+.about-page .page-hero--about{min-height:clamp(390px,52svh,500px)}
+.services-page .page-hero--services{min-height:clamp(390px,52svh,500px)}
+.portfolio-hero{min-height:clamp(390px,52svh,500px)}
+.careers-hero{min-height:clamp(390px,52svh,500px)}
+.blog-page .blog-hero{min-height:clamp(390px,52svh,500px)}
+.contact-page.contact-design .contact-design-hero{min-height:clamp(390px,52svh,500px)}
+.contact-page.contact-design .contact-design-hero h1{font-size:clamp(3.5rem,6vw,5rem)}
+
+@media(max-width:980px){
+  .about-page .page-hero--about{min-height:clamp(380px,55svh,480px)}
+  .services-page .page-hero--services{min-height:clamp(380px,55svh,480px)}
+  .portfolio-hero{min-height:clamp(380px,55svh,480px)}
+  .careers-hero{min-height:clamp(380px,55svh,480px)}
+  .blog-page .blog-hero{min-height:clamp(380px,55svh,480px)}
+  .contact-page.contact-design .contact-design-hero{min-height:clamp(380px,55svh,480px)}
+  .contact-page.contact-design .contact-design-hero h1{font-size:clamp(3.2rem,7vw,4.5rem)}
+}
+
+@media(max-width:760px){
+  .runner-hero{min-height:clamp(360px,58svh,450px);padding-top:52px;padding-bottom:24px}
+  .about-page .page-hero--about{min-height:clamp(360px,58svh,450px)}
+  .about-page .page-hero--about .about-hero-layout{padding-top:54px;padding-bottom:28px;gap:18px}
+  .about-hero-stage{height:clamp(230px,58vw,340px)}
+  .services-page .page-hero--services{min-height:clamp(360px,58svh,450px);padding-top:55px;padding-bottom:36px}
+  .portfolio-hero{min-height:clamp(360px,58svh,450px);padding-top:62px}
+  .portfolio-hero-visual{height:clamp(220px,58vw,330px)}
+  .careers-hero{min-height:clamp(360px,58svh,450px)}
+  .blog-page .blog-hero{min-height:clamp(360px,58svh,450px)}
+  .contact-page.contact-design .contact-design-hero{min-height:clamp(360px,58svh,450px)}
+  .contact-page.contact-design .contact-design-hero h1{font-size:clamp(3.1rem,10vw,4.2rem)}
+}
+
+@media(max-width:600px){
+  .careers-hero{min-height:clamp(350px,57svh,430px)}
+  .blog-page .blog-hero{min-height:clamp(350px,57svh,430px)}
+}
+
+@media(max-width:480px){
+  .careers-hero{min-height:clamp(340px,56svh,420px)}
+  .blog-page .blog-hero{min-height:clamp(340px,56svh,420px)}
+  .contact-page.contact-design .contact-design-hero{min-height:clamp(340px,56svh,420px)}
+  .contact-page.contact-design .contact-design-hero h1{font-size:clamp(3rem,12vw,3.8rem)}
+}

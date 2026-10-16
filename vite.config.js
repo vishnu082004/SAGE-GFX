@@ -1,9 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import careersHandler from './api/careers.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), {
+    name: 'careers-api-dev',
+    configureServer(server) {
+      server.middlewares.use('/api/careers', (req, res, next) => {
+        if (req.method !== 'POST') return next()
+        careersHandler(req, res)
+      })
+    },
+  }],
   build: {
     rollupOptions: {
       output: {
