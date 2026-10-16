@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import websiteProjectImage from '../assets/images/our project/our project/website.jpeg'
-import smmProjectImage from '../assets/images/our project/our project/SMM.jpeg'
-import seoProjectImage from '../assets/images/our project/our project/SEO.jpeg'
+import websiteProjectImage from '../assets/images/our project/our project/website.webp'
+import smmProjectImage from '../assets/images/our project/our project/SMM.webp'
+import seoProjectImage from '../assets/images/our project/our project/SEO.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 

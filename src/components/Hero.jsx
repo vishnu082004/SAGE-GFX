@@ -31,7 +31,7 @@ function Hero() {
         </div>
       </div>
       <div className="sage-hero-boy-wrap" role="img" aria-label="Sage GFX mascot">
-        <img src="/assets/images/sage-boy.png" alt="" fetchPriority="high" />
+        <img src="/assets/images/sage-boy.webp" alt="" fetchPriority="high" />
       </div>
     </section>
   )
