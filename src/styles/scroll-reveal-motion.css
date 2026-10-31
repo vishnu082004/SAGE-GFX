@@ -1,26 +1,86 @@
 @media (prefers-reduced-motion: no-preference) {
   .scroll-motion {
     opacity: 0;
-    transition: opacity .72s ease, transform .82s cubic-bezier(.2, .8, .2, 1);
+    clip-path: inset(0 0 0 0);
+    transition:
+      opacity .32s ease,
+      translate .42s cubic-bezier(.2, .8, .2, 1),
+      scale .42s cubic-bezier(.2, .8, .2, 1),
+      clip-path .46s cubic-bezier(.22, .75, .25, 1);
     transition-delay: var(--scroll-motion-delay, 0ms);
   }
 
-  .scroll-motion--bottom { transform: translate3d(0, 30px, 0); }
-  .scroll-motion--top { transform: translate3d(0, -22px, 0); }
-  .scroll-motion--left { transform: translate3d(-30px, 0, 0); }
-  .scroll-motion--right { transform: translate3d(30px, 0, 0); }
-
-  .scroll-motion.scroll-motion-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  .scroll-motion--left {
+    clip-path: inset(0 100% 0 0);
+    translate: -18px 0;
   }
+
+  .scroll-motion--right {
+    clip-path: inset(0 0 0 100%);
+    translate: 18px 0;
+  }
+
+  .scroll-motion--bottom {
+    clip-path: inset(100% 0 0 0);
+    translate: 0 18px;
+  }
+
+  .scroll-motion--top {
+    clip-path: inset(0 0 100% 0);
+    translate: 0 -14px;
+  }
+
+  .scroll-motion--scale {
+    clip-path: none;
+    scale: .92;
+  }
+
+  .scroll-motion.scroll-motion-visible,
+  .scroll-motion:focus-within {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    translate: 0 0;
+    scale: 1;
+  }
+
+  .scroll-motion--scale.scroll-motion-visible {
+    clip-path: none;
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .scroll-motion--left { translate: -10px 0; }
+  .scroll-motion--right { translate: 10px 0; }
+  .scroll-motion--bottom { translate: 0 12px; }
+  .scroll-motion--top { translate: 0 -9px; }
+  .scroll-motion { transition-duration: .28s, .36s, .36s, .4s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-motion,
-  .scroll-motion.scroll-motion-visible {
+  .scroll-motion.scroll-motion-visible,
+  .scroll-motion:focus-within {
     opacity: 1;
-    transform: none;
+    clip-path: none;
+    translate: none;
+    scale: none;
     transition: none;
   }
+}
+
+/* Fail open: reveal effects must never leave copy or sections hidden. */
+.reveal-on-scroll,
+.reveal-on-scroll.is-revealed {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.scroll-motion,
+.scroll-motion.scroll-motion-visible,
+.scroll-motion:focus-within {
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
 }

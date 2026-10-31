@@ -1,0 +1,197 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Footer.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c0bf90ad"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=c0bf90ad";
+import { FiArrowRight, FiBookOpen, FiBriefcase, FiFacebook, FiGrid, FiHome, FiInstagram, FiLinkedin, FiMail, FiMapPin, FiShield, FiUser, FiYoutube } from "/node_modules/.vite/deps/react-icons_fi.js?v=c0bf90ad";
+import { studioAddress, studioMapUrl } from "/src/data/contactInfo.js";
+import footerVideo from "/src/assets/images/footer video.mp4?import";
+const quickLinks = [
+  ["Home", "/", FiHome],
+  ["About", "/about", FiUser],
+  ["Services", "/services", FiGrid],
+  ["Our Projects", "/portfolio", FiBriefcase],
+  ["Our Clients", "/clients", FiBriefcase],
+  ["Blog", "/blog", FiBookOpen],
+  ["Careers", "/careers", FiBriefcase],
+  ["Contact", "/contact", FiMail]
+];
+function Footer() {
+  return /* @__PURE__ */ jsxDEV("footer", { className: "footer footer-premium footer-minimal", children: [
+    /* @__PURE__ */ jsxDEV("video", { className: "footer-background-video", autoPlay: true, muted: true, loop: true, playsInline: true, preload: "metadata", "aria-hidden": "true", tabIndex: -1, children: /* @__PURE__ */ jsxDEV("source", { src: footerVideo, type: "video/mp4" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+      lineNumber: 39,
+      columnNumber: 7
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+      lineNumber: 38,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "footer-minimal-inner", children: [
+      /* @__PURE__ */ jsxDEV(Link, { to: "/", className: "footer-signature-display", "aria-label": "Sage GFX home", children: [
+        /* @__PURE__ */ jsxDEV("img", { src: "/images/sage-gfx-infinity-watermark.webp", className: "footer-signature-logo", alt: "", "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 43,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "footer-signature-wordmark", children: [
+          /* @__PURE__ */ jsxDEV("b", { children: "SAGE" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 44,
+            columnNumber: 53
+          }, this),
+          " ",
+          /* @__PURE__ */ jsxDEV("i", { children: "GFX" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 44,
+            columnNumber: 65
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 44,
+          columnNumber: 9
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+        lineNumber: 42,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("nav", { className: "footer-minimal-links", "aria-label": "Quick links", children: quickLinks.map(([label, to, Icon]) => /* @__PURE__ */ jsxDEV(Link, { to, children: [
+        /* @__PURE__ */ jsxDEV(Icon, { "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 47,
+          columnNumber: 74
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: label }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 47,
+          columnNumber: 101
+        }, this),
+        /* @__PURE__ */ jsxDEV(FiArrowRight, { "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 47,
+          columnNumber: 121
+        }, this)
+      ] }, label, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+        lineNumber: 47,
+        columnNumber: 48
+      }, this)) }, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+        lineNumber: 46,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-minimal-bottom", children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "footer-minimal-copyright", children: [
+          "© ",
+          (/* @__PURE__ */ new Date()).getFullYear(),
+          " Sage GFX Digital Studio"
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 50,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV(Link, { className: "footer-minimal-privacy", to: "/privacy-policy", children: "Privacy policy" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 51,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("nav", { className: "footer-minimal-socials", "aria-label": "Social media", children: [
+          /* @__PURE__ */ jsxDEV("a", { href: "https://www.instagram.com/sagegfxdigi?xtok=YTNiMXg2ZmZ5YnJs", target: "_blank", rel: "noreferrer", "aria-label": "Sage GFX on Instagram", children: /* @__PURE__ */ jsxDEV(FiInstagram, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 53,
+            columnNumber: 149
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 53,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { href: "https://www.linkedin.com/company/sage-gfx-digital-solutions/", target: "_blank", rel: "noreferrer", "aria-label": "Sage GFX on LinkedIn", children: /* @__PURE__ */ jsxDEV(FiLinkedin, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 54,
+            columnNumber: 149
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 54,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { href: "https://www.facebook.com/share/1H4qBACQgL/", target: "_blank", rel: "noreferrer", "aria-label": "Sage GFX on Facebook", children: /* @__PURE__ */ jsxDEV(FiFacebook, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 55,
+            columnNumber: 131
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 55,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { href: "https://youtube.com/@sagegfxdigi?si=sNysBzNMVeGizr1V", target: "_blank", rel: "noreferrer", "aria-label": "Sage GFX on YouTube", children: /* @__PURE__ */ jsxDEV(FiYoutube, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 56,
+            columnNumber: 140
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 56,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { href: studioMapUrl, target: "_blank", rel: "noreferrer", "aria-label": `Sage GFX office location: ${studioAddress}`, children: /* @__PURE__ */ jsxDEV(FiMapPin, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 57,
+            columnNumber: 125
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+            lineNumber: 57,
+            columnNumber: 11
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+          lineNumber: 52,
+          columnNumber: 9
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+        lineNumber: 49,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+      lineNumber: 41,
+      columnNumber: 5
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx",
+    lineNumber: 37,
+    columnNumber: 10
+  }, this);
+}
+_c = Footer;
+export default Footer;
+var _c;
+$RefreshReg$(_c, "Footer");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Footer.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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aHQiLCJGaUJvb2tPcGVuIiwiRmlCcmllZmNhc2UiLCJGaUZhY2Vib29rIiwiRmlHcmlkIiwiRmlIb21lIiwiRmlJbnN0YWdyYW0iLCJGaUxpbmtlZGluIiwiRmlNYWlsIiwiRmlNYXBQaW4iLCJGaVNoaWVsZCIsIkZpVXNlciIsIkZpWW91dHViZSIsInN0dWRpb0FkZHJlc3MiLCJzdHVkaW9NYXBVcmwiLCJmb290ZXJWaWRlbyIsInF1aWNrTGlua3MiLCJGb290ZXIiLCJtYXAiLCJsYWJlbCIsInRvIiwiSWNvbiIsIkRhdGUiLCJnZXRGdWxsWWVhciIsIl9jIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkZvb3Rlci5qc3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTGluayB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nXHJcbmltcG9ydCB7IEZpQXJyb3dSaWdodCwgRmlCb29rT3BlbiwgRmlCcmllZmNhc2UsIEZpRmFjZWJvb2ssIEZpR3JpZCwgRmlIb21lLCBGaUluc3RhZ3JhbSwgRmlMaW5rZWRpbiwgRmlNYWlsLCBGaU1hcFBpbiwgRmlTaGllbGQsIEZpVXNlciwgRmlZb3V0dWJlIH0gZnJvbSAncmVhY3QtaWNvbnMvZmknXHJcbmltcG9ydCB7IHN0dWRpb0FkZHJlc3MsIHN0dWRpb01hcFVybCB9IGZyb20gJy4uL2RhdGEvY29udGFjdEluZm8nXHJcbmltcG9ydCBmb290ZXJWaWRlbyBmcm9tICcuLi9hc3NldHMvaW1hZ2VzL2Zvb3RlciB2aWRlby5tcDQnXHJcblxyXG5jb25zdCBxdWlja0xpbmtzID0gW1xyXG4gIFsnSG9tZScsICcvJywgRmlIb21lXSxcclxuICBbJ0Fib3V0JywgJy9hYm91dCcsIEZpVXNlcl0sXHJcbiAgWydTZXJ2aWNlcycsICcvc2VydmljZXMnLCBGaUdyaWRdLFxyXG4gIFsnT3VyIFByb2plY3RzJywgJy9wb3J0Zm9saW8nLCBGaUJyaWVmY2FzZV0sXHJcbiAgWydPdXIgQ2xpZW50cycsICcvY2xpZW50cycsIEZpQnJpZWZjYXNlXSxcclxuICBbJ0Jsb2cnLCAnL2Jsb2cnLCBGaUJvb2tPcGVuXSxcclxuICBbJ0NhcmVlcnMnLCAnL2NhcmVlcnMnLCBGaUJyaWVmY2FzZV0sXHJcbiAgWydDb250YWN0JywgJy9jb250YWN0JywgRmlNYWlsXSxcclxuXVxyXG5cclxuZnVuY3Rpb24gRm9vdGVyKCkge1xyXG4gIHJldHVybiA8Zm9vdGVyIGNsYXNzTmFtZT1cImZvb3RlciBmb290ZXItcHJlbWl1bSBmb290ZXItbWluaW1hbFwiPlxyXG4gICAgPHZpZGVvIGNsYXNzTmFtZT1cImZvb3Rlci1iYWNrZ3JvdW5kLXZpZGVvXCIgYXV0b1BsYXkgbXV0ZWQgbG9vcCBwbGF5c0lubGluZSBwcmVsb2FkPVwibWV0YWRhdGFcIiBhcmlhLWhpZGRlbj1cInRydWVcIiB0YWJJbmRleD17LTF9PlxyXG4gICAgICA8c291cmNlIHNyYz17Zm9vdGVyVmlkZW99IHR5cGU9XCJ2aWRlby9tcDRcIiAvPlxyXG4gICAgPC92aWRlbz5cclxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9vdGVyLW1pbmltYWwtaW5uZXJcIj5cclxuICAgICAgPExpbmsgdG89XCIvXCIgY2xhc3NOYW1lPVwiZm9vdGVyLXNpZ25hdHVyZS1kaXNwbGF5XCIgYXJpYS1sYWJlbD1cIlNhZ2UgR0ZYIGhvbWVcIj5cclxuICAgICAgICA8aW1nIHNyYz1cIi9pbWFnZXMvc2FnZS1nZngtaW5maW5pdHktd2F0ZXJtYXJrLndlYnBcIiBjbGFzc05hbWU9XCJmb290ZXItc2lnbmF0dXJlLWxvZ29cIiBhbHQ9XCJcIiBhcmlhLWhpZGRlbj1cInRydWVcIiAvPlxyXG4gICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZvb3Rlci1zaWduYXR1cmUtd29yZG1hcmtcIj48Yj5TQUdFPC9iPiA8aT5HRlg8L2k+PC9zcGFuPlxyXG4gICAgICA8L0xpbms+XHJcbiAgICAgIDxuYXYgY2xhc3NOYW1lPVwiZm9vdGVyLW1pbmltYWwtbGlua3NcIiBhcmlhLWxhYmVsPVwiUXVpY2sgbGlua3NcIj5cclxuICAgICAgICB7cXVpY2tMaW5rcy5tYXAoKFtsYWJlbCwgdG8sIEljb25dKSA9PiA8TGluayBrZXk9e2xhYmVsfSB0bz17dG99PjxJY29uIGFyaWEtaGlkZGVuPVwidHJ1ZVwiLz48c3Bhbj57bGFiZWx9PC9zcGFuPjxGaUFycm93UmlnaHQgYXJpYS1oaWRkZW49XCJ0cnVlXCIvPjwvTGluaz4pfVxyXG4gICAgICA8L25hdj5cclxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXItbWluaW1hbC1ib3R0b21cIj5cclxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb290ZXItbWluaW1hbC1jb3B5cmlnaHRcIj7CqSB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfSBTYWdlIEdGWCBEaWdpdGFsIFN0dWRpbzwvc3Bhbj5cclxuICAgICAgICA8TGluayBjbGFzc05hbWU9XCJmb290ZXItbWluaW1hbC1wcml2YWN5XCIgdG89XCIvcHJpdmFjeS1wb2xpY3lcIj5Qcml2YWN5IHBvbGljeTwvTGluaz5cclxuICAgICAgICA8bmF2IGNsYXNzTmFtZT1cImZvb3Rlci1taW5pbWFsLXNvY2lhbHNcIiBhcmlhLWxhYmVsPVwiU29jaWFsIG1lZGlhXCI+XHJcbiAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zYWdlZ2Z4ZGlnaT94dG9rPVlUTmlNWGcyWm1aNVluSnNcIiB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub3JlZmVycmVyXCIgYXJpYS1sYWJlbD1cIlNhZ2UgR0ZYIG9uIEluc3RhZ3JhbVwiPjxGaUluc3RhZ3JhbSBhcmlhLWhpZGRlbj1cInRydWVcIiAvPjwvYT5cclxuICAgICAgICAgIDxhIGhyZWY9XCJodHRwczovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9zYWdlLWdmeC1kaWdpdGFsLXNvbHV0aW9ucy9cIiB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub3JlZmVycmVyXCIgYXJpYS1sYWJlbD1cIlNhZ2UgR0ZYIG9uIExpbmtlZEluXCI+PEZpTGlua2VkaW4gYXJpYS1oaWRkZW49XCJ0cnVlXCIgLz48L2E+XHJcbiAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlLzFINHFCQUNRZ0wvXCIgdGFyZ2V0PVwiX2JsYW5rXCIgcmVsPVwibm9yZWZlcnJlclwiIGFyaWEtbGFiZWw9XCJTYWdlIEdGWCBvbiBGYWNlYm9va1wiPjxGaUZhY2Vib29rIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIC8+PC9hPlxyXG4gICAgICAgICAgPGEgaHJlZj1cImh0dHBzOi8veW91dHViZS5jb20vQHNhZ2VnZnhkaWdpP3NpPXNOeXNCek5NVmVHaXpyMVZcIiB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub3JlZmVycmVyXCIgYXJpYS1sYWJlbD1cIlNhZ2UgR0ZYIG9uIFlvdVR1YmVcIj48RmlZb3V0dWJlIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIC8+PC9hPlxyXG4gICAgICAgICAgPGEgaHJlZj17c3R1ZGlvTWFwVXJsfSB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub3JlZmVycmVyXCIgYXJpYS1sYWJlbD17YFNhZ2UgR0ZYIG9mZmljZSBsb2NhdGlvbjogJHtzdHVkaW9BZGRyZXNzfWB9PjxGaU1hcFBpbiBhcmlhLWhpZGRlbj1cInRydWVcIiAvPjwvYT5cclxuICAgICAgICA8L25hdj5cclxuICAgICAgPC9kaXY+XHJcbiAgICA8L2Rpdj5cclxuICA8L2Zvb3Rlcj5cclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgRm9vdGVyXHJcbiJdLCJmaWxlIjoiQzovVXNlcnMvdmlzaG4vT25lRHJpdmUvRGVza3RvcC9zYWdlIGdmeGRpZ2l0YWwgc3R1ZGlvL3NyYy9jb21wb25lbnRzL0Zvb3Rlci5qc3gifQ==

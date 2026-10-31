@@ -1,0 +1,374 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/HeroInquiryForm.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c0bf90ad"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=c0bf90ad"; const useEffect = __vite__cjsImport3_react["useEffect"]; const useRef = __vite__cjsImport3_react["useRef"]; const useState = __vite__cjsImport3_react["useState"];
+import __vite__cjsImport4_reactDom from "/node_modules/.vite/deps/react-dom.js?v=c0bf90ad"; const createPortal = __vite__cjsImport4_reactDom["createPortal"];
+import { FiArrowRight, FiCheckCircle, FiSend, FiX } from "/node_modules/.vite/deps/react-icons_fi.js?v=c0bf90ad";
+import { submitContactForm } from "/src/data/contactInfo.js";
+function HeroInquiryForm({ videoReady }) {
+  _s();
+  const [form, setForm] = useState({ name: "", email: "", mobile: "", service: "", message: "" });
+  const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const dialogRef = useRef(null);
+  useEffect(() => {
+    if (!videoReady) return void 0;
+    const timer = window.setTimeout(() => setPopupOpen(true), 3e3);
+    return () => window.clearTimeout(timer);
+  }, [videoReady]);
+  useEffect(() => {
+    if (!popupOpen) return void 0;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    dialogRef.current?.querySelector("input")?.focus();
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setPopupOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [popupOpen]);
+  const update = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  const submit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+    try {
+      await submitContactForm({ ...form, _subject: `Website inquiry from ${form.name}`, _replyto: form.email, _template: "table" });
+      setStatus({ type: "success", message: "Thanks! Your project note is on its way." });
+      setForm({ name: "", email: "", mobile: "", service: "", message: "" });
+    } catch (error) {
+      setStatus({ type: "error", message: error.message || "We could not send your message. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  const formCard = /* @__PURE__ */ jsxDEV("aside", { className: "hero-inquiry", "aria-labelledby": "hero-inquiry-heading", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-orbit", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 68,
+        columnNumber: 60
+      }, this),
+      /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 68,
+        columnNumber: 65
+      }, this),
+      /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 68,
+        columnNumber: 70
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+      lineNumber: 68,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-head", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "hero-inquiry-kicker", children: [
+        /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 70,
+          columnNumber: 45
+        }, this),
+        " START A PROJECT ",
+        /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 70,
+          columnNumber: 67
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 70,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("h2", { id: "hero-inquiry-heading", children: [
+        "Let's build",
+        /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 71,
+          columnNumber: 53
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: "something bold." }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 71,
+          columnNumber: 59
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 71,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { children: "Tell us a little about your idea. We'll help you find the right next step." }, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 72,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+      lineNumber: 69,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("form", { className: "hero-inquiry-form", onSubmit: submit, children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-fields", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-field", children: [
+          /* @__PURE__ */ jsxDEV("label", { htmlFor: "hero-inquiry-name", children: "Your name" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 76,
+            columnNumber: 45
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { id: "hero-inquiry-name", name: "name", value: form.name, onChange: update, placeholder: "Full name", autoComplete: "name", required: true }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 76,
+            columnNumber: 97
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 76,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-field", children: [
+          /* @__PURE__ */ jsxDEV("label", { htmlFor: "hero-inquiry-email", children: "Email address" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 77,
+            columnNumber: 45
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { id: "hero-inquiry-email", name: "email", type: "email", value: form.email, onChange: update, placeholder: "Email address", autoComplete: "email", required: true }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 77,
+            columnNumber: 102
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 77,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-field hero-inquiry-field--phone", children: [
+          /* @__PURE__ */ jsxDEV("label", { htmlFor: "hero-inquiry-mobile", children: "Phone number" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 78,
+            columnNumber: 71
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { id: "hero-inquiry-mobile", name: "mobile", type: "tel", value: form.mobile, onChange: update, placeholder: "+91 98765 43210", autoComplete: "tel" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 78,
+            columnNumber: 128
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 78,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-field hero-inquiry-field--services", children: [
+          /* @__PURE__ */ jsxDEV("label", { htmlFor: "hero-inquiry-service", children: "Our services" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 79,
+            columnNumber: 74
+          }, this),
+          /* @__PURE__ */ jsxDEV("select", { id: "hero-inquiry-service", name: "service", value: form.service, onChange: update, required: true, "aria-label": "Choose the service", children: [
+            /* @__PURE__ */ jsxDEV("option", { value: "", disabled: true, children: "Choose the service" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 261
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Digital Marketing" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 314
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Website Development" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 348
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Web App Development" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 384
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Search Engine Optimization" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 420
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Social Media Marketing" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 463
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Branding & Identity" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 502
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Graphic Design" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 542
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Video Production" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 573
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "Influencer Marketing" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 606
+            }, this),
+            /* @__PURE__ */ jsxDEV("option", { children: "App Development" }, void 0, false, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+              lineNumber: 79,
+              columnNumber: 643
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 79,
+            columnNumber: 132
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 79,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-field hero-inquiry-field--message", children: [
+          /* @__PURE__ */ jsxDEV("label", { htmlFor: "hero-inquiry-message", children: "What are you looking to create?" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 80,
+            columnNumber: 73
+          }, this),
+          /* @__PURE__ */ jsxDEV("textarea", { id: "hero-inquiry-message", name: "message", value: form.message, onChange: update, placeholder: "A website, campaign, new brand…", rows: "3", required: true }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+            lineNumber: 80,
+            columnNumber: 150
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 80,
+          columnNumber: 9
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 75,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("button", { type: "submit", disabled: isSubmitting, className: "hero-inquiry-submit", children: [
+        /* @__PURE__ */ jsxDEV("span", { children: isSubmitting ? "Sending your idea…" : "Send an inquiry" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 83,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("i", { children: /* @__PURE__ */ jsxDEV(FiArrowRight, { "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 83,
+          columnNumber: 82
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 83,
+          columnNumber: 79
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 82,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-response", "aria-live": "polite", children: status ? /* @__PURE__ */ jsxDEV("span", { className: `hero-inquiry-status hero-inquiry-status--${status.type}`, children: [
+        status.type === "success" && /* @__PURE__ */ jsxDEV(FiCheckCircle, { "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 86,
+          columnNumber: 125
+        }, this),
+        status.message
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 86,
+        columnNumber: 19
+      }, this) : /* @__PURE__ */ jsxDEV("span", { children: [
+        /* @__PURE__ */ jsxDEV(FiSend, { "aria-hidden": "true" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+          lineNumber: 86,
+          columnNumber: 194
+        }, this),
+        " Usually replies within one business day"
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 86,
+        columnNumber: 188
+      }, this) }, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+        lineNumber: 85,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+      lineNumber: 74,
+      columnNumber: 5
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+    lineNumber: 67,
+    columnNumber: 20
+  }, this);
+  if (!popupOpen) return null;
+  return createPortal(/* @__PURE__ */ jsxDEV("div", { className: "hero-inquiry-modal", role: "presentation", onMouseDown: (event) => {
+    if (event.target === event.currentTarget) setPopupOpen(false);
+  }, children: /* @__PURE__ */ jsxDEV("div", { ref: dialogRef, className: "hero-inquiry-modal-dialog", role: "dialog", "aria-modal": "true", "aria-labelledby": "hero-inquiry-heading", children: [
+    /* @__PURE__ */ jsxDEV("button", { className: "hero-inquiry-modal-close", type: "button", onClick: () => setPopupOpen(false), "aria-label": "Close inquiry form", children: /* @__PURE__ */ jsxDEV(FiX, {}, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+      lineNumber: 94,
+      columnNumber: 134
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+      lineNumber: 94,
+      columnNumber: 7
+    }, this),
+    formCard
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+    lineNumber: 93,
+    columnNumber: 5
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx",
+    lineNumber: 92,
+    columnNumber: 23
+  }, this), document.body);
+}
+_s(HeroInquiryForm, "L3S6puSZ1E5ZoeZRtCcGp1AHCzg=");
+_c = HeroInquiryForm;
+export default HeroInquiryForm;
+var _c;
+$RefreshReg$(_c, "HeroInquiryForm");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/HeroInquiryForm.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBO0FBQUEsV0FBSSxLQUFuSTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQXFJO0FBQUEsSUFDcEk4QjtBQUFBQSxPQUZIO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FHQSxLQUprQjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBS3BCLEdBQVF0QixTQUFTQyxJQUFJO0FBQ3ZCO0FBQUN0QixHQXpFUUYsaUJBQWU7QUFBQSxLQUFmQTtBQTJFVCxlQUFlQTtBQUFlLElBQUErQztBQUFBLGFBQUFBLElBQUEiLCJuYW1lcyI6WyJ1c2VFZmZlY3QiLCJ1c2VSZWYiLCJ1c2VTdGF0ZSIsImNyZWF0ZVBvcnRhbCIsIkZpQXJyb3dSaWdodCIsIkZpQ2hlY2tDaXJjbGUiLCJGaVNlbmQiLCJGaVgiLCJzdWJtaXRDb250YWN0Rm9ybSIsIkhlcm9JbnF1aXJ5Rm9ybSIsInZpZGVvUmVhZHkiLCJfcyIsImZvcm0iLCJzZXRGb3JtIiwibmFtZSIsImVtYWlsIiwibW9iaWxlIiwic2VydmljZSIsIm1lc3NhZ2UiLCJzdGF0dXMiLCJzZXRTdGF0dXMiLCJpc1N1Ym1pdHRpbmciLCJzZXRJc1N1Ym1pdHRpbmciLCJwb3B1cE9wZW4iLCJzZXRQb3B1cE9wZW4iLCJkaWFsb2dSZWYiLCJ1bmRlZmluZWQiLCJ0aW1lciIsIndpbmRvdyIsInNldFRpbWVvdXQiLCJjbGVhclRpbWVvdXQiLCJwcmV2aW91c092ZXJmbG93IiwiZG9jdW1lbnQiLCJib2R5Iiwic3R5bGUiLCJvdmVyZmxvdyIsImN1cnJlbnQiLCJxdWVyeVNlbGVjdG9yIiwiZm9jdXMiLCJjbG9zZU9uRXNjYXBlIiwiZXZlbnQiLCJrZXkiLCJhZGRFdmVudExpc3RlbmVyIiwicmVtb3ZlRXZlbnRMaXN0ZW5lciIsInVwZGF0ZSIsInRhcmdldCIsInZhbHVlIiwic3VibWl0IiwicHJldmVudERlZmF1bHQiLCJfc3ViamVjdCIsIl9yZXBseXRvIiwiX3RlbXBsYXRlIiwidHlwZSIsImVycm9yIiwiZm9ybUNhcmQiLCJjdXJyZW50VGFyZ2V0IiwiX2MiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiSGVyb0lucXVpcnlGb3JtLmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VFZmZlY3QsIHVzZVJlZiwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7IGNyZWF0ZVBvcnRhbCB9IGZyb20gJ3JlYWN0LWRvbSdcbmltcG9ydCB7IEZpQXJyb3dSaWdodCwgRmlDaGVja0NpcmNsZSwgRmlTZW5kLCBGaVggfSBmcm9tICdyZWFjdC1pY29ucy9maSdcbmltcG9ydCB7IHN1Ym1pdENvbnRhY3RGb3JtIH0gZnJvbSAnLi4vZGF0YS9jb250YWN0SW5mbydcblxuZnVuY3Rpb24gSGVyb0lucXVpcnlGb3JtKHsgdmlkZW9SZWFkeSB9KSB7XG4gIGNvbnN0IFtmb3JtLCBzZXRGb3JtXSA9IHVzZVN0YXRlKHsgbmFtZTogJycsIGVtYWlsOiAnJywgbW9iaWxlOiAnJywgc2VydmljZTogJycsIG1lc3NhZ2U6ICcnIH0pXG4gIGNvbnN0IFtzdGF0dXMsIHNldFN0YXR1c10gPSB1c2VTdGF0ZShudWxsKVxuICBjb25zdCBbaXNTdWJtaXR0aW5nLCBzZXRJc1N1Ym1pdHRpbmddID0gdXNlU3RhdGUoZmFsc2UpXG4gIGNvbnN0IFtwb3B1cE9wZW4sIHNldFBvcHVwT3Blbl0gPSB1c2VTdGF0ZShmYWxzZSlcbiAgY29uc3QgZGlhbG9nUmVmID0gdXNlUmVmKG51bGwpXG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBpZiAoIXZpZGVvUmVhZHkpIHJldHVybiB1bmRlZmluZWRcclxuICAgIGNvbnN0IHRpbWVyID0gd2luZG93LnNldFRpbWVvdXQoKCkgPT4gc2V0UG9wdXBPcGVuKHRydWUpLCAzMDAwKVxuICAgIHJldHVybiAoKSA9PiB3aW5kb3cuY2xlYXJUaW1lb3V0KHRpbWVyKVxuICB9LCBbdmlkZW9SZWFkeV0pXG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBpZiAoIXBvcHVwT3BlbikgcmV0dXJuIHVuZGVmaW5lZFxuICAgIGNvbnN0IHByZXZpb3VzT3ZlcmZsb3cgPSBkb2N1bWVudC5ib2R5LnN0eWxlLm92ZXJmbG93XG4gICAgZG9jdW1lbnQuYm9keS5zdHlsZS5vdmVyZmxvdyA9ICdoaWRkZW4nXG4gICAgZGlhbG9nUmVmLmN1cnJlbnQ/LnF1ZXJ5U2VsZWN0b3IoJ2lucHV0Jyk/LmZvY3VzKClcbiAgICBjb25zdCBjbG9zZU9uRXNjYXBlID0gKGV2ZW50KSA9PiB7IGlmIChldmVudC5rZXkgPT09ICdFc2NhcGUnKSBzZXRQb3B1cE9wZW4oZmFsc2UpIH1cbiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgY2xvc2VPbkVzY2FwZSlcbiAgICByZXR1cm4gKCkgPT4ge1xuICAgICAgZG9jdW1lbnQucmVtb3ZlRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsIGNsb3NlT25Fc2NhcGUpXG4gICAgICBkb2N1bWVudC5ib2R5LnN0eWxlLm92ZXJmbG93ID0gcHJldmlvdXNPdmVyZmxvd1xuICAgIH1cbiAgfSwgW3BvcHVwT3Blbl0pXG5cbiAgY29uc3QgdXBkYXRlID0gKGV2ZW50KSA9PiBzZXRGb3JtKChjdXJyZW50KSA9PiAoeyAuLi5jdXJyZW50LCBbZXZlbnQudGFyZ2V0Lm5hbWVdOiBldmVudC50YXJnZXQudmFsdWUgfSkpXG4gIGNvbnN0IHN1Ym1pdCA9IGFzeW5jIChldmVudCkgPT4ge1xuICAgIGV2ZW50LnByZXZlbnREZWZhdWx0KClcbiAgICBzZXRJc1N1Ym1pdHRpbmcodHJ1ZSlcbiAgICBzZXRTdGF0dXMobnVsbClcbiAgICB0cnkge1xuICAgICAgYXdhaXQgc3VibWl0Q29udGFjdEZvcm0oeyAuLi5mb3JtLCBfc3ViamVjdDogYFdlYnNpdGUgaW5xdWlyeSBmcm9tICR7Zm9ybS5uYW1lfWAsIF9yZXBseXRvOiBmb3JtLmVtYWlsLCBfdGVtcGxhdGU6ICd0YWJsZScgfSlcbiAgICAgIHNldFN0YXR1cyh7IHR5cGU6ICdzdWNjZXNzJywgbWVzc2FnZTogJ1RoYW5rcyEgWW91ciBwcm9qZWN0IG5vdGUgaXMgb24gaXRzIHdheS4nIH0pXG4gICAgICBzZXRGb3JtKHsgbmFtZTogJycsIGVtYWlsOiAnJywgbW9iaWxlOiAnJywgc2VydmljZTogJycsIG1lc3NhZ2U6ICcnIH0pXG4gICAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICAgIHNldFN0YXR1cyh7IHR5cGU6ICdlcnJvcicsIG1lc3NhZ2U6IGVycm9yLm1lc3NhZ2UgfHwgJ1dlIGNvdWxkIG5vdCBzZW5kIHlvdXIgbWVzc2FnZS4gUGxlYXNlIHRyeSBhZ2Fpbi4nIH0pXG4gICAgfSBmaW5hbGx5IHtcbiAgICAgIHNldElzU3VibWl0dGluZyhmYWxzZSlcbiAgICB9XG4gIH1cblxuICBjb25zdCBmb3JtQ2FyZCA9IDxhc2lkZSBjbGFzc05hbWU9XCJoZXJvLWlucXVpcnlcIiBhcmlhLWxhYmVsbGVkYnk9XCJoZXJvLWlucXVpcnktaGVhZGluZ1wiPlxuICAgIDxkaXYgY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LW9yYml0XCIgYXJpYS1oaWRkZW49XCJ0cnVlXCI+PGkvPjxpLz48aS8+PC9kaXY+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJoZXJvLWlucXVpcnktaGVhZFwiPlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LWtpY2tlclwiPjxpLz4gU1RBUlQgQSBQUk9KRUNUIDxpLz48L3NwYW4+XG4gICAgICA8aDIgaWQ9XCJoZXJvLWlucXVpcnktaGVhZGluZ1wiPkxldCZhcG9zO3MgYnVpbGQ8YnIvPjxzcGFuPnNvbWV0aGluZyBib2xkLjwvc3Bhbj48L2gyPlxuICAgICAgPHA+VGVsbCB1cyBhIGxpdHRsZSBhYm91dCB5b3VyIGlkZWEuIFdlJmFwb3M7bGwgaGVscCB5b3UgZmluZCB0aGUgcmlnaHQgbmV4dCBzdGVwLjwvcD5cbiAgICA8L2Rpdj5cbiAgICA8Zm9ybSBjbGFzc05hbWU9XCJoZXJvLWlucXVpcnktZm9ybVwiIG9uU3VibWl0PXtzdWJtaXR9PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJoZXJvLWlucXVpcnktZmllbGRzXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LWZpZWxkXCI+PGxhYmVsIGh0bWxGb3I9XCJoZXJvLWlucXVpcnktbmFtZVwiPllvdXIgbmFtZTwvbGFiZWw+PGlucHV0IGlkPVwiaGVyby1pbnF1aXJ5LW5hbWVcIiBuYW1lPVwibmFtZVwiIHZhbHVlPXtmb3JtLm5hbWV9IG9uQ2hhbmdlPXt1cGRhdGV9IHBsYWNlaG9sZGVyPVwiRnVsbCBuYW1lXCIgYXV0b0NvbXBsZXRlPVwibmFtZVwiIHJlcXVpcmVkIC8+PC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LWZpZWxkXCI+PGxhYmVsIGh0bWxGb3I9XCJoZXJvLWlucXVpcnktZW1haWxcIj5FbWFpbCBhZGRyZXNzPC9sYWJlbD48aW5wdXQgaWQ9XCJoZXJvLWlucXVpcnktZW1haWxcIiBuYW1lPVwiZW1haWxcIiB0eXBlPVwiZW1haWxcIiB2YWx1ZT17Zm9ybS5lbWFpbH0gb25DaGFuZ2U9e3VwZGF0ZX0gcGxhY2Vob2xkZXI9XCJFbWFpbCBhZGRyZXNzXCIgYXV0b0NvbXBsZXRlPVwiZW1haWxcIiByZXF1aXJlZCAvPjwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlcm8taW5xdWlyeS1maWVsZCBoZXJvLWlucXVpcnktZmllbGQtLXBob25lXCI+PGxhYmVsIGh0bWxGb3I9XCJoZXJvLWlucXVpcnktbW9iaWxlXCI+UGhvbmUgbnVtYmVyPC9sYWJlbD48aW5wdXQgaWQ9XCJoZXJvLWlucXVpcnktbW9iaWxlXCIgbmFtZT1cIm1vYmlsZVwiIHR5cGU9XCJ0ZWxcIiB2YWx1ZT17Zm9ybS5tb2JpbGV9IG9uQ2hhbmdlPXt1cGRhdGV9IHBsYWNlaG9sZGVyPVwiKzkxIDk4NzY1IDQzMjEwXCIgYXV0b0NvbXBsZXRlPVwidGVsXCIgLz48L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoZXJvLWlucXVpcnktZmllbGQgaGVyby1pbnF1aXJ5LWZpZWxkLS1zZXJ2aWNlc1wiPjxsYWJlbCBodG1sRm9yPVwiaGVyby1pbnF1aXJ5LXNlcnZpY2VcIj5PdXIgc2VydmljZXM8L2xhYmVsPjxzZWxlY3QgaWQ9XCJoZXJvLWlucXVpcnktc2VydmljZVwiIG5hbWU9XCJzZXJ2aWNlXCIgdmFsdWU9e2Zvcm0uc2VydmljZX0gb25DaGFuZ2U9e3VwZGF0ZX0gcmVxdWlyZWQgYXJpYS1sYWJlbD1cIkNob29zZSB0aGUgc2VydmljZVwiPjxvcHRpb24gdmFsdWU9XCJcIiBkaXNhYmxlZD5DaG9vc2UgdGhlIHNlcnZpY2U8L29wdGlvbj48b3B0aW9uPkRpZ2l0YWwgTWFya2V0aW5nPC9vcHRpb24+PG9wdGlvbj5XZWJzaXRlIERldmVsb3BtZW50PC9vcHRpb24+PG9wdGlvbj5XZWIgQXBwIERldmVsb3BtZW50PC9vcHRpb24+PG9wdGlvbj5TZWFyY2ggRW5naW5lIE9wdGltaXphdGlvbjwvb3B0aW9uPjxvcHRpb24+U29jaWFsIE1lZGlhIE1hcmtldGluZzwvb3B0aW9uPjxvcHRpb24+QnJhbmRpbmcgJmFtcDsgSWRlbnRpdHk8L29wdGlvbj48b3B0aW9uPkdyYXBoaWMgRGVzaWduPC9vcHRpb24+PG9wdGlvbj5WaWRlbyBQcm9kdWN0aW9uPC9vcHRpb24+PG9wdGlvbj5JbmZsdWVuY2VyIE1hcmtldGluZzwvb3B0aW9uPjxvcHRpb24+QXBwIERldmVsb3BtZW50PC9vcHRpb24+PC9zZWxlY3Q+PC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LWZpZWxkIGhlcm8taW5xdWlyeS1maWVsZC0tbWVzc2FnZVwiPjxsYWJlbCBodG1sRm9yPVwiaGVyby1pbnF1aXJ5LW1lc3NhZ2VcIj5XaGF0IGFyZSB5b3UgbG9va2luZyB0byBjcmVhdGU/PC9sYWJlbD48dGV4dGFyZWEgaWQ9XCJoZXJvLWlucXVpcnktbWVzc2FnZVwiIG5hbWU9XCJtZXNzYWdlXCIgdmFsdWU9e2Zvcm0ubWVzc2FnZX0gb25DaGFuZ2U9e3VwZGF0ZX0gcGxhY2Vob2xkZXI9XCJBIHdlYnNpdGUsIGNhbXBhaWduLCBuZXcgYnJhbmTigKZcIiByb3dzPVwiM1wiIHJlcXVpcmVkIC8+PC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiIGRpc2FibGVkPXtpc1N1Ym1pdHRpbmd9IGNsYXNzTmFtZT1cImhlcm8taW5xdWlyeS1zdWJtaXRcIj5cbiAgICAgICAgPHNwYW4+e2lzU3VibWl0dGluZyA/ICdTZW5kaW5nIHlvdXIgaWRlYeKApicgOiAnU2VuZCBhbiBpbnF1aXJ5J308L3NwYW4+PGk+PEZpQXJyb3dSaWdodCBhcmlhLWhpZGRlbj1cInRydWVcIi8+PC9pPlxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlcm8taW5xdWlyeS1yZXNwb25zZVwiIGFyaWEtbGl2ZT1cInBvbGl0ZVwiPlxuICAgICAgICB7c3RhdHVzID8gPHNwYW4gY2xhc3NOYW1lPXtgaGVyby1pbnF1aXJ5LXN0YXR1cyBoZXJvLWlucXVpcnktc3RhdHVzLS0ke3N0YXR1cy50eXBlfWB9PntzdGF0dXMudHlwZSA9PT0gJ3N1Y2Nlc3MnICYmIDxGaUNoZWNrQ2lyY2xlIGFyaWEtaGlkZGVuPVwidHJ1ZVwiLz59e3N0YXR1cy5tZXNzYWdlfTwvc3Bhbj4gOiA8c3Bhbj48RmlTZW5kIGFyaWEtaGlkZGVuPVwidHJ1ZVwiLz4gVXN1YWxseSByZXBsaWVzIHdpdGhpbiBvbmUgYnVzaW5lc3MgZGF5PC9zcGFuPn1cbiAgICAgIDwvZGl2PlxuICAgIDwvZm9ybT5cbiAgPC9hc2lkZT5cblxuICBpZiAoIXBvcHVwT3BlbikgcmV0dXJuIG51bGxcbiAgcmV0dXJuIGNyZWF0ZVBvcnRhbCg8ZGl2IGNsYXNzTmFtZT1cImhlcm8taW5xdWlyeS1tb2RhbFwiIHJvbGU9XCJwcmVzZW50YXRpb25cIiBvbk1vdXNlRG93bj17KGV2ZW50KSA9PiB7IGlmIChldmVudC50YXJnZXQgPT09IGV2ZW50LmN1cnJlbnRUYXJnZXQpIHNldFBvcHVwT3BlbihmYWxzZSkgfX0+XG4gICAgPGRpdiByZWY9e2RpYWxvZ1JlZn0gY2xhc3NOYW1lPVwiaGVyby1pbnF1aXJ5LW1vZGFsLWRpYWxvZ1wiIHJvbGU9XCJkaWFsb2dcIiBhcmlhLW1vZGFsPVwidHJ1ZVwiIGFyaWEtbGFiZWxsZWRieT1cImhlcm8taW5xdWlyeS1oZWFkaW5nXCI+XG4gICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImhlcm8taW5xdWlyeS1tb2RhbC1jbG9zZVwiIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXsoKSA9PiBzZXRQb3B1cE9wZW4oZmFsc2UpfSBhcmlhLWxhYmVsPVwiQ2xvc2UgaW5xdWlyeSBmb3JtXCI+PEZpWC8+PC9idXR0b24+XG4gICAgICB7Zm9ybUNhcmR9XG4gICAgPC9kaXY+XG4gIDwvZGl2PiwgZG9jdW1lbnQuYm9keSlcbn1cblxuZXhwb3J0IGRlZmF1bHQgSGVyb0lucXVpcnlGb3JtXG4iXSwiZmlsZSI6IkM6L1VzZXJzL3Zpc2huL09uZURyaXZlL0Rlc2t0b3Avc2FnZSBnZnhkaWdpdGFsIHN0dWRpby9zcmMvY29tcG9uZW50cy9IZXJvSW5xdWlyeUZvcm0uanN4In0=

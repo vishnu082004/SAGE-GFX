@@ -18,6 +18,7 @@ import developerPortrait3 from '../assets/images/team/developer 3.webp'
 import developerPortrait4 from '../assets/images/team/developer-4.webp'
 import developerPortrait5 from '../assets/images/team/developer-5.webp'
 import developerPortrait6 from '../assets/images/team/developer-6.webp'
+import cameraPortrait1 from '../assets/images/team/camera team 1.png'
 import '../styles/about-team.css'
 
 const profile = (url) => url ? (url.startsWith('http') ? url : `https://${url}`) : undefined
@@ -32,7 +33,7 @@ const teams = [
   {
     name: 'SEO Team', accent: 'cyan',
     members: [
-      { name: 'Vignesh', role: 'SEO Specialist & Team Lead', image: seoPortrait1, profileUrl: profile('linkedin.com/in/vignesh-g2202') },
+      { name: 'Vignesh G', role: 'SEO Specialist & Team Lead', image: seoPortrait1, profileUrl: profile('linkedin.com/in/vignesh-g2202') },
       { name: 'S. Kousalyadevi', role: 'SEO Specialist', image: seoPortrait2, profileUrl: profile('linkedin.com/in/kousalyasuresh2528') },
       { name: 'P. Prabha', role: 'SEO Trainee', image: seoPortrait3, profileUrl: profile('linkedin.com/in/prabha-p-64a228295') },
     ],
@@ -54,6 +55,12 @@ const teams = [
     ],
   },
   {
+    name: 'Camera Team', accent: 'magenta',
+    members: [
+      { name: 'Ranjith kumar', role: 'video Grapher', image: cameraPortrait1, profileUrl: profile('https://www.linkedin.com/in/ranjithkumar-a-951165376') },
+    ],
+  },
+  {
     name: 'Web Development Team', accent: 'cyan',
     members: [
       { name: 'Podhumani', role: 'Software Developer', image: developerPortrait1, profileUrl: profile('linkedin.com/in/podhumani-murugaiya') },
@@ -72,7 +79,7 @@ function MemberCard({ name, role, image, profileUrl }) {
   return (
     <article tabIndex={0} className="about-team-card">
       <div className="about-team-card__portrait">
-        <img src={image} alt={`${name}, ${role} at Sage GFX`} loading="lazy" />
+        <img src={image} alt={`${name}, ${role} at Sage GFX`} loading="lazy" decoding="async" />
       </div>
       <div className="about-team-card__details">
         <span className="about-team-card__name">{name}</span>
@@ -94,13 +101,13 @@ function AboutTeam() {
     <section className="about-team" aria-labelledby="about-team-title">
       <div className="about-team__inner">
         <header className="about-team__header">
-          <span className="about-team__eyebrow">The people behind Sage GFX</span>
-          <h2 id="about-team-title">Meet Our <span>Team</span></h2>
-          <p>Creative minds. A shared vision. A stronger tomorrow.</p>
+          {/* <span className="about-team__eyebrow">The people behind Sage GFX</span> */}
+          <h2 id="about-team-title">The Team Behind Your <span>Digital Growth</span></h2>
+          {/* <p>Creative minds. A shared vision. A stronger tomorrow.</p> */}
         </header>
 
         <div className="about-team__leadership" aria-label="Leadership">
-          <h3 className="about-team__leadership-title"><FiAward aria-hidden="true" /> Leadership <span>2 Members</span></h3>
+          <h3 className="about-team__leadership-title"><FiAward aria-hidden="true" /> Leadership </h3>
           {leadership.map((member) => <MemberCard key={member.name} {...member} />)}
         </div>
         <div className="about-team__manager" aria-label="Management">
@@ -109,7 +116,7 @@ function AboutTeam() {
         </div>
 
         {teams.map((team) => (
-          <section className={`about-team__group about-team__group--${team.accent}`} key={team.name} aria-label={team.name}>
+          <section className={`about-team__group about-team__group--${team.accent}${team.name === 'Camera Team' ? ' about-team__group--camera' : ''}`} key={team.name} aria-label={team.name}>
             <h3><span>{team.name}</span></h3>
             <div className="about-team__grid">
               {team.members.map((member) => <MemberCard key={member.name} {...member} />)}

@@ -3,24 +3,24 @@ import { FiChevronDown, FiCpu, FiVolume2 } from 'react-icons/fi'
 
 export const commonQuestions = [
   {
-    question: 'What services does Sage GFX provide?',
-    answer: 'Sage GFX offers digital marketing, SEO, social media and content marketing, PPC advertising, website development, app development, branding and creative services. Our goal is to strengthen your online presence and support business growth.',
+    question: 'What kind of digital marketing services are offered by Sage GFX?',
+    answer: 'At Sage GFX, we have a full suite of digital marketing services that include SEO, AEO, GEO, social media marketing, performance marketing, website design, graphic design, and video editing/videography. Instead of adopting a cookie-cutter approach to these services, we customize them depending on your business requirements and goals.',
   },
   {
-    question: 'How does Sage GFX improve search engine rankings?',
-    answer: 'We use SEO strategy, technical improvements, useful content and ongoing optimization to help your website become easier to find in search. Results depend on your goals, market and starting point.',
+    question: 'In what way can Sage GFX assist in improving my company’s online presence?',
+    answer: 'We create a digital strategy focusing on where your customers search and how they decide. Our strategy is a blend of SEO, content creation, social media, paid ads and website optimization for visibility and customer acquisition.',
   },
   {
-    question: 'What are the benefits of Social Media Marketing with Sage GFX?',
-    answer: 'Social media marketing can help your brand reach the right audience, share engaging content and build stronger relationships with customers. We shape the approach around your business and audience.',
+    question: 'Does Sage GFX offer SEO, AEO and GEO for AI-driven search optimization?',
+    answer: 'Yes. Sage GFX operates in the area of SEO as well as in innovative search optimization such as AEO and GEO. We develop valuable content that will help search engines and AI-based systems understand more about your brand and business.',
   },
   {
-    question: 'Does Sage GFX offer website development?',
-    answer: 'Yes. Sage GFX designs and develops websites with a focus on clear messaging, polished visuals and useful experiences across screen sizes.',
+    question: 'What are the steps in developing a digital marketing strategy for each business?',
+    answer: 'We begin with the knowledge of your company, customers, competitors, present digital marketing position and objectives. Then we conduct the research, analyze the results and create a strategy based on our findings and continually optimize it according to its success rate. Each individual strategy is created taking into account the specifics of the business.',
   },
   {
-    question: 'Can Sage GFX handle content creation?',
-    answer: 'Yes. We can help create content for digital campaigns and social channels, including creative assets and video. Get in touch to discuss the content your project needs.',
+    question: 'Will Sage GFX be able to generate leads via Google and Meta Ads?',
+    answer: 'Yes. This will be done by leveraging Google Ads, social media ads, search engine optimization, and website and content optimization. It is about doing much more than getting traffic; it is about reaching the right audience and having them become actual business leads.',
   },
 ]
 
@@ -42,7 +42,7 @@ function FAQArtwork() {
   </div>
 }
 function CommonQuestions() {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(-1)
 
   const askAI = (question) => window.dispatchEvent(new CustomEvent('sage-ai-ask', { detail: { question } }))
 
@@ -50,7 +50,7 @@ function CommonQuestions() {
     <div className="common-questions-intro">
       <FAQArtwork />
       <div className="common-questions-heading">
-        {/* <p className="common-questions-eyebrow"> Frequently Asked Questions</p> */}
+        <p className="common-questions-eyebrow">FAQ</p>
         <h2>Frequently Asked <br/><span>Questions</span></h2>
         <p className="common-questions-hint">Tap a question to hear the answer, or ask Sage AI for more.</p>
       </div>

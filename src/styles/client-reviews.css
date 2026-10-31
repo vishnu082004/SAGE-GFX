@@ -271,6 +271,9 @@
 .reviews-cta-block{display:flex;flex-direction:column;align-items:center;gap:12px;margin:18px auto 0}
 .reviews-cta-label{margin:0;text-align:center}
 .reviews-cta{width:max-content;max-width:100%;justify-content:center}
+.client-reviews .reviews-cta{min-height:44px;gap:10px;padding-inline:15px;font-size:.82rem}
+.client-reviews .reviews-cta>svg{width:16px;height:16px}
+.client-reviews .reviews-cta .reviews-google-mark{width:24px;height:24px;font-size:1.45rem}
 .reviews-carousel-controls{width:max-content;max-width:calc(100% - 16px);flex-wrap:nowrap}
 
 /* Separate the five desktop cards around the rating orb and align both actions below. */
@@ -294,5 +297,17 @@
 }
 @media(max-width:600px){
   .reviews-bottom-actions{flex-direction:column;gap:14px}
-  .reviews-cta{min-height:50px;padding-inline:16px;font-size:.78rem}
+  .client-reviews .reviews-cta{min-height:42px;gap:8px;padding-inline:12px;font-size:.7rem}
+  .client-reviews .reviews-cta .reviews-google-mark{width:22px;height:22px;font-size:1.3rem}
+}
+
+/* Bring the lower orbit cards closer to the rating circle while they float. */
+@media(min-width:851px){
+  .reviews-card-orbit .review-card--3{top:51%;left:12%;right:auto}
+  .reviews-card-orbit .review-card--4{top:51%;right:12%;left:auto}
+}
+
+/* On the home page, keep review pagination and the review link after the cards on phones. */
+@media(max-width:600px){
+  .client-reviews .reviews-bottom-actions{order:2;display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;margin-top:8px}
 }

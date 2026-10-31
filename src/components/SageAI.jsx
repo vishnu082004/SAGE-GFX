@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
-import { FiArrowRight, FiCpu, FiMaximize2, FiMic, FiMicOff, FiMinimize2, FiSend, FiVolume2, FiX, FiZap } from 'react-icons/fi'
+import sageGfxLogo from '../assets/images/sage-gfx-navbar.webp'
+import { FiArrowRight, FiGlobe, FiMic, FiMicOff, FiPhone, FiSend, FiSettings, FiVolume2, FiVolumeX, FiType, FiX } from 'react-icons/fi'
 import { commonQuestions } from './CommonQuestions'
 import services from '../data/services'
 import blogArticles from '../data/blogArticles'
-import { contactEmail, contactPhone, studioAddress } from '../data/contactInfo'
-import { websiteProjects, seoClientLogos, smmClientLogos } from '../pages/PortfolioPage'
+import { contactEmail, contactPhone, contactPhoneLink, studioAddress } from '../data/contactInfo'
+import { websiteProjects, seoClientLogos, smmClientLogos } from '../data/portfolio'
 
 const suggestions = [
   'Show me all 8 services',
@@ -39,6 +41,10 @@ function getAnswer(question) {
 
   if (/^(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(text)) {
     return { text: 'Welcome to Sage GFX! I’m Sage, your website guide. I can help you explore our services, projects, careers, and journal, or connect you with the team. What are you hoping to do today?' }
+  }
+
+  if (/human|person|team member|speak to someone|talk to someone|connect me to (the )?team/.test(text)) {
+    return { text: `Of course. You can call our team at ${contactPhone} or use the Contact page to send us a message.`, page: contactPage }
   }
 
   if (/not sure|help me choose|what should i choose|recommend|where (do|should) i start|help growing|grow my business/.test(text) && !service) {
@@ -98,7 +104,7 @@ function getAnswer(question) {
     }
   }
 
-  if (/contact|email|phone|call|reach|address|location|where are you|office/.test(text)) {
+  if (/contact|email|phone|call|reach|address|location|where are you|office|human|person|team member|speak to someone|talk to someone/.test(text)) {
     return {
       text: `You can contact Sage GFX at ${contactEmail} or ${contactPhone}. The studio address is ${studioAddress}.`,
       page: contactPage,
@@ -154,14 +160,29 @@ function getAnswer(question) {
   }
 }
 
+function getTamilAnswer(question, answer) {
+  const path = answer.page?.path
+  if (/வணக்கம்|ஹாய்|ஹலோ/.test(question) || /^(hi|hello|hey)\b/i.test(question)) return 'வணக்கம்! நான் சேஜ், Sage GFX இணையதள உதவியாளர். எங்கள் சேவைகள், திட்டங்கள், வேலைவாய்ப்புகள் மற்றும் கட்டுரைகள் பற்றி உதவுவேன். எதைத் தெரிந்துகொள்ள விரும்புகிறீர்கள்?'
+  if (/சேவை|எஸ்இஓ|வலைதளம்|டிசைன்/.test(question) || path === '/services') return 'Sage GFX தற்போது எட்டு டிஜிட்டல் சேவைகளை வழங்குகிறது: பிராண்டிங், கிராஃபிக் டிசைன், வலைத்தள மேம்பாடு, SEO, சமூக ஊடக மார்க்கெட்டிங், சமூக ஊடக மேலாண்மை, வீடியோ எடிட்டிங், மற்றும் சைனேஜ் & டிஜிட்டல் பிரிண்ட். உங்கள் தேவையைச் சொல்லுங்கள்; பொருத்தமான சேவையைப் பகிர்கிறேன்.'
+  if (/வேலை|வேலைவாய்ப்பு|விண்ணப்ப/.test(question) || path === '/careers') return 'வேலைவாய்ப்பு அல்லது விண்ணப்ப விவரங்களுக்கு Careers பக்கத்தைப் பாருங்கள். வடிவமைப்பு, வலை மற்றும் செயலி மேம்பாடு, டிஜிட்டல் மார்க்கெட்டிங், சமூக ஊடகம், வீடியோ மற்றும் UI/UX ஆகிய துறைகளில் உங்கள் ஆர்வத்தை அங்கே தெரிவிக்கலாம்.'
+  if (/திட்டம்|போர்ட்ஃபோலியோ|வாடிக்கையாளர்/.test(question) || path === '/portfolio') return 'எங்கள் வலைத்தள, SEO மற்றும் சமூக ஊடக திட்டங்களை Portfolio பக்கத்தில் பார்க்கலாம். திட்டத்தைப் பற்றி மேலும் அறிய தொடர்பு பக்கத்தில் எங்கள் குழுவை அணுகுங்கள்.'
+  if (/கட்டுரை|வலைப்பதிவு|படிக்க/.test(question) || path === '/blog') return 'Sage GFX Studio Journal-ல் ' + blogArticles.length + ' கட்டுரைகள் உள்ளன. தலைப்புகள் மற்றும் முழு கட்டுரைகளை Blog பக்கத்தில் படிக்கலாம்.'
+  if (/தொடர்பு|அழை|மின்னஞ்சல்|முகவரி/.test(question) || path === '/contact') return 'Sage GFX-ஐ ' + contactPhone + ' என்ற எண்ணில் அழைக்கலாம் அல்லது ' + contactEmail + ' என்ற முகவரிக்கு மின்னஞ்சல் அனுப்பலாம். எங்கள் முகவரி: ' + studioAddress + '.'
+  if (path === '/about') return 'Sage GFX என்பது சென்னை தாம்பரத்தில் உள்ள படைப்பாற்றல் மிக்க டிஜிட்டல் ஸ்டுடியோ. பிராண்டிங், வடிவமைப்பு, மார்க்கெட்டிங், வலைத்தளம் மற்றும் SEO சேவைகள் மூலம் வணிக வளர்ச்சிக்கு உதவுகிறோம்.'
+  return 'இந்தக் கேள்விக்கான விவரம் இணையதளத்தில் தற்போது இல்லை; ஊகமாக பதிலளிக்க விரும்பவில்லை. சேவைகள், திட்டங்கள், வேலைவாய்ப்புகள், கட்டுரைகள் அல்லது தொடர்பு விவரங்கள் பற்றி கேளுங்கள்.'
+}
+
 function SageAI() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
   const [messages, setMessages] = useState([])
-  const [fullScreen, setFullScreen] = useState(false)
   const [voiceMode, setVoiceMode] = useState(false)
+  const [language, setLanguage] = useState('en-IN')
   const [voiceStatus, setVoiceStatus] = useState('')
+  const [autoSpeak, setAutoSpeak] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [speechRate, setSpeechRate] = useState(1)
   const messageId = useRef(0)
   const messageListRef = useRef(null)
   const inputRef = useRef(null)
@@ -180,17 +201,17 @@ function SageAI() {
   useEffect(() => {
     const handleQuestion = (event) => {
       setOpen(true)
-      setFullScreen(true)
       window.setTimeout(() => ask(event.detail?.question || ''), 0)
     }
     window.addEventListener('sage-ai-ask', handleQuestion)
     return () => window.removeEventListener('sage-ai-ask', handleQuestion)
   }, [])
 
-  const ask = (value, { speakResponse = voiceModeRef.current } = {}) => {
+  const ask = (value, { speakResponse = voiceModeRef.current || autoSpeak } = {}) => {
     const cleanQuestion = value.trim()
     if (!cleanQuestion) return
-    const answer = getAnswer(cleanQuestion)
+    const englishAnswer = getAnswer(cleanQuestion)
+    const answer = language === 'ta-IN' ? { ...englishAnswer, text: getTamilAnswer(cleanQuestion, englishAnswer) } : englishAnswer
     const id = messageId.current++
     setMessages((current) => [...current, { role: 'user', text: cleanQuestion, id: `user-${id}` }, { role: 'assistant', ...answer, id: `assistant-${id}` }])
     setQuestion('')
@@ -198,7 +219,8 @@ function SageAI() {
       window.speechSynthesis.cancel()
       const spokenAnswer = `${answer.text}${answer.page ? ` Would you like me to open ${answer.page.label}? Please choose Yes, open it or Stay here on screen.` : ''}`
       const utterance = new SpeechSynthesisUtterance(spokenAnswer)
-      utterance.lang = 'en-IN'
+      utterance.lang = language
+      utterance.rate = speechRate
       speakingRef.current = true
       setVoiceStatus('Sage AI is replying…')
       utterance.onend = () => {
@@ -206,6 +228,7 @@ function SageAI() {
         if (voiceModeRef.current) {
           setVoiceStatus('Listening… say “stop” to end voice chat.')
           window.setTimeout(() => {
+            if (!voiceModeRef.current || speakingRef.current) return
             try { recognitionRef.current?.start() } catch { /* The microphone may already be listening. */ }
           }, 250)
         }
@@ -241,7 +264,7 @@ function SageAI() {
     }
 
     const recognition = new Recognition()
-    recognition.lang = 'en-IN'
+    recognition.lang = language
     recognition.continuous = false
     recognition.interimResults = false
     recognitionRef.current = recognition
@@ -270,6 +293,7 @@ function SageAI() {
       if (!voiceModeRef.current || speakingRef.current) return
       setVoiceStatus('Listening… say “stop” to end voice chat.')
       window.setTimeout(() => {
+        if (!voiceModeRef.current || speakingRef.current) return
         try { recognitionRef.current?.start() } catch { /* The microphone may already be listening. */ }
       }, 250)
     }
@@ -277,6 +301,11 @@ function SageAI() {
       setVoiceStatus('Could not start the microphone. Please try again.')
       endVoiceChat()
     }
+  }
+
+  const toggleLanguage = () => {
+    endVoiceChat()
+    setLanguage((current) => current === 'en-IN' ? 'ta-IN' : 'en-IN')
   }
 
   useEffect(() => () => {
@@ -294,45 +323,68 @@ function SageAI() {
     setMessages((current) => current.map((message) => message.id === id ? { ...message, navResolved: accepted ? 'opened' : 'stayed' } : message))
   }
 
-  return <div className={`sage-ai-widget${open ? ' is-open' : ''}`}>
-    {open && <>
+  return <>
+    <div className={`sage-ai-widget${open ? ' is-open' : ''}`}>
+    {open && createPortal(<div className="sage-ai-overlay-root">
       <button className="sage-ai-backdrop" type="button" aria-label="Close Sage AI" onClick={() => setOpen(false)} />
-      <section className={`sage-ai-panel sage-ai-panel--centered${fullScreen ? ' sage-ai-panel--fullscreen' : ''}`} role="dialog" aria-modal="true" aria-label="Sage AI assistant">
+      <section className="sage-ai-panel sage-ai-panel--centered" role="dialog" aria-modal="true" aria-label="Sage AI assistant">
       <header className="sage-ai-header">
-        <span className="sage-ai-avatar"><FiZap aria-hidden="true"/></span>
-        <span className="sage-ai-title"><strong>Sage AI</strong><small>Website guide · voice chat</small></span>
-        <button className="sage-ai-close" type="button" onClick={() => setFullScreen((value) => !value)} aria-label={fullScreen ? 'Exit full screen' : 'Expand Sage AI'}>{fullScreen ? <FiMinimize2/> : <FiMaximize2/>}</button>
-        <button className="sage-ai-close" type="button" onClick={() => setOpen(false)} aria-label="Close Sage AI"><FiX/></button>
+        <div className="sage-ai-identity">
+          <span className="sage-ai-avatar"><img src={sageGfxLogo} alt="Sage GFX" /></span>
+          <span className="sage-ai-title"><strong>Sage AI</strong><small>{language === 'ta-IN' ? 'உங்கள் Sage GFX வழிகாட்டி' : 'Your Sage GFX guide'}</small></span>
+        </div>
+        <button className="sage-ai-call-header" type="button" onClick={startVoiceChat} title="Start a voice conversation with Sage AI"><FiMic aria-hidden="true"/><span>Talk with Sage</span><FiArrowRight aria-hidden="true"/></button>
       </header>
+      <div className="sage-ai-toolbar">
+        <label className="sage-ai-language">{language === 'ta-IN' ? 'மொழி' : 'Language'}
+          <select value={language} onChange={(event) => { endVoiceChat(); setLanguage(event.target.value) }} aria-label="Choose assistant language">
+            <option value="en-IN">English</option><option value="ta-IN">தமிழ்</option>
+          </select>
+        </label>
+      </div>
+      <div className="sage-ai-tools" aria-label="Assistant tools">
+        <button type="button" className={voiceMode ? 'is-selected' : ''} aria-pressed={voiceMode} onClick={startVoiceChat} aria-label="Start voice input" title="Voice input"><FiMic/><span>Voice</span></button>
+        <button type="button" className={!voiceMode ? 'is-selected' : ''} onClick={() => { endVoiceChat(); inputRef.current?.focus() }} aria-label="Write a text message" title="Text"><FiType/><span>Text</span></button>
+        <button type="button" onClick={toggleLanguage} aria-label={language === 'ta-IN' ? 'Switch to English' : 'Switch to Tamil'} title="Translate replies"><FiGlobe/><span>{language === 'ta-IN' ? 'தமிழ்' : 'Translate'}</span></button>
+        <button type="button" className={settingsOpen ? 'is-selected' : ''} onClick={() => setSettingsOpen((value) => !value)} aria-expanded={settingsOpen} aria-label="Voice settings" title="Settings"><FiSettings/><span>Settings</span></button>
+        <button type="button" className={autoSpeak ? 'is-selected' : ''} onClick={() => setAutoSpeak((value) => !value)} aria-pressed={autoSpeak} aria-label={autoSpeak ? 'Turn off spoken replies' : 'Turn on spoken replies'} title="Spoken replies">{autoSpeak ? <FiVolume2/> : <FiVolumeX/>}<span>{autoSpeak ? 'Sound on' : 'Sound'}</span></button>
+      </div>
+      {settingsOpen && <div className="sage-ai-settings" role="group" aria-label="Voice settings">
+        <label htmlFor="sage-ai-speech-rate">Reply speed <strong>{speechRate.toFixed(1)}×</strong></label>
+        <input id="sage-ai-speech-rate" type="range" min="0.8" max="1.2" step="0.1" value={speechRate} onChange={(event) => setSpeechRate(Number(event.target.value))}/>
+      </div>}
       <div className="sage-ai-messages" ref={messageListRef} aria-live="polite">
-        <div className="sage-ai-message sage-ai-message--assistant"><p>Welcome to Sage GFX! I’m Sage, your website guide. I can help you explore our services, projects, careers, and journal, or connect you with the team. What are you hoping to do today? I’ll always ask before opening another page.</p></div>
+        <div className="sage-ai-message sage-ai-message--assistant"><img className="sage-ai-message-avatar" src={sageGfxLogo} alt="Sage GFX logo"/><p>{language === 'ta-IN' ? 'வணக்கம்! நான் சேஜ். இன்று உங்களுக்கு எப்படி உதவலாம்?' : 'Hi, I’m Sage. How can I help you today?'}</p></div>
         {messages.map((message) => <div className={`sage-ai-message sage-ai-message--${message.role}`} key={message.id}>
+          {message.role === 'assistant' && <img className="sage-ai-message-avatar" src={sageGfxLogo} alt="Sage GFX logo"/>}
           <p>{message.text}</p>
           {message.role === 'assistant' && <>
-            <button className="sage-ai-read" type="button" onClick={() => { if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance(message.text)) } }}><FiVolume2 aria-hidden="true"/> Read aloud</button>
+            <button className="sage-ai-read" type="button" onClick={() => { if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(message.text); utterance.lang = language; utterance.rate = speechRate; window.speechSynthesis.speak(utterance) } }}><FiVolume2 aria-hidden="true"/> Read aloud</button>
             {message.page && !message.navResolved && <div className="sage-ai-navigation-prompt">
               <span>Would you like me to open {message.page.label}?</span>
               <button type="button" onClick={() => resolveNavigation(message.id, true)}>Yes, open it <FiArrowRight aria-hidden="true"/></button>
               <button type="button" onClick={() => resolveNavigation(message.id, false)}>Stay here</button>
             </div>}
+            {message.page?.path === '/contact' && <a className="sage-ai-team-call" href={contactPhoneLink}><FiPhone aria-hidden="true"/> Call the Sage GFX team <span>{contactPhone}</span></a>}
             {message.navResolved === 'stayed' && <span className="sage-ai-nav-confirmation">No problem. We can keep chatting here.</span>}
           </>}
         </div>)}
       </div>
       {voiceStatus && <p className={`sage-ai-voice-status${voiceMode ? ' is-active' : ''}`} role="status">{voiceStatus}</p>}
-      {messages.length === 0 && <div className="sage-ai-suggestions">{suggestions.map((suggestion) => <button type="button" key={suggestion} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}
+      {messages.length === 0 && <div className="sage-ai-suggestions">{(language === 'ta-IN' ? ['எங்கள் சேவைகள் என்ன?', 'திட்டங்களைப் பார்க்கவும்', 'வேலைக்கு விண்ணப்பிப்பது எப்படி?', 'தொடர்பு விவரங்கள்'] : suggestions).map((suggestion) => <button type="button" key={suggestion} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}
       <form className="sage-ai-form" onSubmit={(event) => { event.preventDefault(); ask(question) }}>
-        <input ref={inputRef} value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask about Sage GFX…" aria-label="Ask Sage AI a question" />
+        <input ref={inputRef} value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={language === 'ta-IN' ? 'உங்கள் கேள்வியை எழுதுங்கள்…' : 'Ask about Sage GFX…'} aria-label="Ask Sage AI a question" />
         <button className={`sage-ai-mic${voiceMode ? ' is-listening' : ''}`} type="button" onClick={startVoiceChat} aria-label={voiceMode ? 'End voice chat' : 'Start voice chat'} title={voiceMode ? 'End voice chat' : 'Start voice chat'}>{voiceMode ? <FiMicOff/> : <FiMic/>}</button>
         <button type="submit" disabled={!question.trim()} aria-label="Send question"><FiSend/></button>
       </form>
-      <p className="sage-ai-note">Answers use information currently published on this site. Tap the mic for voice chat. Unlisted services and future plans are not confirmed.</p>
+      <p className="sage-ai-note">{language === 'ta-IN' ? 'இந்த தளத்தில் வெளியிடப்பட்ட தகவல்களின் அடிப்படையில் பதில்கள் வழங்கப்படுகின்றன.' : 'Answers use information currently published on this site. Voice recognition needs microphone permission.'}</p>
       </section>
-    </>}
+    </div>, document.body)}
     <button className="sage-ai-launcher" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-haspopup="dialog">
-      {open ? <FiX aria-hidden="true"/> : <FiCpu aria-hidden="true"/>}<span>{open ? 'Close Sage AI' : 'Sage AI'}</span><i aria-hidden="true"/>
+      {open ? <FiX aria-hidden="true"/> : <img src={sageGfxLogo} alt="Sage GFX logo"/>}<span>{open ? 'Close Sage AI' : 'Sage AI'}</span><i aria-hidden="true"/>
     </button>
-  </div>
+    </div>
+  </>
 }
 
 export default SageAI

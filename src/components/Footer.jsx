@@ -1,17 +1,24 @@
 import { Link } from 'react-router-dom'
-import { FiArrowRight, FiBriefcase, FiFacebook, FiGrid, FiHome, FiInstagram, FiLinkedin, FiMail, FiMapPin, FiShield, FiUser, FiYoutube } from 'react-icons/fi'
+import { FiArrowRight, FiBookOpen, FiBriefcase, FiFacebook, FiGrid, FiHome, FiInstagram, FiLinkedin, FiMail, FiMapPin, FiShield, FiUser, FiYoutube } from 'react-icons/fi'
 import { studioAddress, studioMapUrl } from '../data/contactInfo'
+import footerVideo from '../assets/images/footer video.mp4'
 
 const quickLinks = [
   ['Home', '/', FiHome],
   ['About', '/about', FiUser],
   ['Services', '/services', FiGrid],
+  ['Our Projects', '/portfolio', FiBriefcase],
+  ['Case Studies', '/case-studies', FiBriefcase],
+  ['Blog', '/blog', FiBookOpen],
   ['Careers', '/careers', FiBriefcase],
   ['Contact', '/contact', FiMail],
 ]
 
 function Footer() {
   return <footer className="footer footer-premium footer-minimal">
+    <video className="footer-background-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1}>
+      <source src={footerVideo} type="video/mp4" />
+    </video>
     <div className="footer-minimal-inner">
       <Link to="/" className="footer-signature-display" aria-label="Sage GFX home">
         <img src="/images/sage-gfx-infinity-watermark.webp" className="footer-signature-logo" alt="" aria-hidden="true" />

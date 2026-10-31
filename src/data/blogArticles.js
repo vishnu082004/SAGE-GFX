@@ -1,46 +1,14 @@
+﻿import blogImageOne from '../assets/images/blog-img/blog-img/blogs 1.jpeg'
+import blogImageTwo from '../assets/images/blog-img/blog-img/blogs 2.jpeg'
+import blogImageThree from '../assets/images/blog-img/blog-img/blogs 3.jpeg'
+import localSeoBlog from './localSeoBlog'
+import seoTambaramBlog from './seoTambaramBlog'
+import videoMarketingBlog from './videoMarketingBlog'
+
 const blogArticles = [
-  {
-    slug: 'brand-people-remember',
-    category: 'Brand strategy',
-    title: 'A practical guide to building a brand people remember',
-    summary: 'Strong brands make a clear promise, show up consistently, and earn trust with every interaction.',
-    image: '/images/blog/crad-1.webp',
-    accent: '#e348d0',
-    readTime: '5 min read',
-    sections: [
-      { heading: 'Start with what makes you useful', paragraphs: ['A memorable brand begins with a useful, specific promise. Get clear about who you help, what problem you solve, and why your approach is worth choosing. The best positioning is easy for a customer to repeat in their own words.', 'Talk with customers and your team before you write a tagline. Listen for the phrases people already use to describe the value you bring.'] },
-      { heading: 'Build a system, not a one-off logo', paragraphs: ['A logo is one part of a brand system. Color, type, photography, layouts, and tone of voice should work together across your website, social channels, proposals, and campaigns.', 'Create a few practical rules and examples so the system stays recognizable as more people use it. Consistency comes from making good choices repeatable.'] },
-      { heading: 'Keep earning recognition', paragraphs: ['A brand becomes familiar through repeated, helpful experiences. Review the customer journey regularly and make sure each touchpoint delivers on the promise your marketing makes.', 'Measure whether people understand what you offer and remember you when they need it. Use that feedback to refine the work without losing what makes the brand distinct.'] },
-    ],
-  },
-  {
-    slug: 'business-website-converts',
-    category: 'Web design',
-    title: 'What makes a business website work harder?',
-    summary: 'A useful website pairs clear messaging with a fast, focused experience on every screen.',
-    image: '/images/blog/card-2.webp',
-    accent: '#328cff',
-    readTime: '6 min read',
-    sections: [
-      { heading: 'Answer the visitor’s first questions', paragraphs: ['Visitors should quickly understand what you do, who it is for, and what they can do next. Put the main value proposition and a clear action near the top of the page.', 'Use real customer questions to shape your navigation and page headings. A simple structure helps people find information without needing to learn your internal terminology.'] },
-      { heading: 'Make every screen feel considered', paragraphs: ['A responsive website is more than a desktop layout squeezed onto a phone. Make buttons comfortable to tap, keep forms short, and give important content room to breathe on smaller screens.', 'Compress images, reduce unnecessary scripts, and check the experience on a real mobile connection. Speed supports both usability and conversions.'] },
-      { heading: 'Improve with evidence', paragraphs: ['Set a clear goal for each important page, such as a qualified enquiry or a product demonstration request. Track whether visitors reach that action and where they leave.', 'Use analytics alongside customer feedback. A small, focused improvement to a confusing page can be more valuable than adding another feature.'] },
-    ],
-  },
-  {
-    slug: 'digital-marketing-that-converts',
-    category: 'Digital growth',
-    title: 'From clicks to customers: making digital marketing count',
-    summary: 'The best campaigns connect the right audience to a clear next step and keep learning.',
-    image: '/images/blog/card-3.webp',
-    accent: '#a16bff',
-    readTime: '5 min read',
-    sections: [
-      { heading: 'Choose an outcome before a channel', paragraphs: ['Start with the business result you need: more qualified enquiries, repeat purchases, or awareness in a specific market. The goal helps determine which channels and messages make sense.', 'A channel is only useful when it reaches the audience you want and gives them a relevant next step. Avoid spreading a small budget across platforms without a clear reason.'] },
-      { heading: 'Connect the campaign to the landing page', paragraphs: ['Keep the promise consistent from the advertisement to the page it opens. Explain the offer, answer likely questions, and make the next action obvious.', 'A focused landing page gives you a clearer way to learn what is working than sending every campaign to a general homepage.'] },
-      { heading: 'Learn from quality, not only volume', paragraphs: ['Clicks and impressions can show reach, but they do not always show business impact. Track leads, sales, and the quality of the conversations those leads create.', 'Review results regularly, test one meaningful change at a time, and invest more in the messages that bring the right customers.'] },
-    ],
-  },
+  localSeoBlog,
+  seoTambaramBlog,
+  videoMarketingBlog,
   {
     slug: 'social-content-with-purpose',
     category: 'Social media',
@@ -78,9 +46,9 @@ const blogArticles = [
     accent: '#47d6ae',
     readTime: '6 min read',
     sections: [
-      { heading: 'Use the language people already know', paragraphs: ['Interface labels should describe what happens in familiar words. Replace internal jargon with the language customers use when they ask for help or explain a task.', 'Keep buttons specific. “Send enquiry” tells someone more than “Submit,” especially when the action has a meaningful result.'] },
+      { heading: 'Use the language people already know', paragraphs: ['Interface labels should describe what happens in familiar words. Replace internal jargon with the language customers use when they ask for help or explain a task.', 'Keep buttons specific. â€œSend enquiryâ€ tells someone more than â€œSubmit,â€ especially when the action has a meaningful result.'] },
       { heading: 'Show what the system is doing', paragraphs: ['People need feedback after they act. Confirm when a form is sent, explain what is required when something is missing, and make errors easy to correct.', 'Good feedback reduces uncertainty and helps users recover without starting over.'] },
-      { heading: 'Remove steps that do not help', paragraphs: ['Review important flows from the user’s point of view. Ask what information is truly needed, what can be deferred, and where a decision can be made simpler.', 'Test changes with real users where possible. Small, observed improvements often reveal more than assumptions made in a meeting.'] },
+      { heading: 'Remove steps that do not help', paragraphs: ['Review important flows from the userâ€™s point of view. Ask what information is truly needed, what can be deferred, and where a decision can be made simpler.', 'Test changes with real users where possible. Small, observed improvements often reveal more than assumptions made in a meeting.'] },
     ],
   },
   {
@@ -116,3 +84,6 @@ const blogArticles = [
 ]
 
 export default blogArticles
+
+
+

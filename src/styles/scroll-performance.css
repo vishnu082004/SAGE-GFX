@@ -1,7 +1,4 @@
-/* Keep scroll input responsive by suspending decorative CSS motion in motion. */
-html.is-scrolling *,
-html.is-scrolling *::before,
-html.is-scrolling *::after,
+/* Pause animations only in sections outside the viewport, not across the whole page. */
 .motion-paused,
 .motion-paused *,
 .motion-paused::before,

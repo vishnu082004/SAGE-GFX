@@ -1,0 +1,83 @@
+/* Shared icon feedback across the site's card components. */
+:is(.home-service-card, .home-process-card, .how-card, .why-service-card, .home-stat,
+    .about-journey__step, .about-journey__metric, .services-catalog-card,
+    .service-card, .service-index-row, .services-page-card, .principle-card, .contact-detail-card, .contact-info-card,
+    .wea-card, .wea-milestone, .wea-strategy-card, .wea-result-card,
+    .wea-highlight-card, .wea-success-card, .home-journal-card, .home-project-card,
+    .website-project-card, .blog-card, .careers-ref-job)
+:is(.home-service-icon, .home-process-icon, .how-card-icon, .why-service-icon,
+    .home-stat-icon, .about-journey__icon, .about-journey__metric > svg,
+    .services-catalog-arrow, .service-card-icon, .service-index-arrow, .services-page-card-arrow, .principle-points svg,
+    .contact-detail-icon, .contact-item-icon, .wea-icon, .wea-overview-icon,
+    .wea-success-core > svg, .home-journal-card svg, .home-project-card svg,
+    .website-project-card svg, .blog-card svg, .careers-ref-visual-icon) {
+  transition: color .28s ease, border-color .28s ease, background-color .28s ease,
+    box-shadow .28s ease, filter .28s ease, transform .28s ease;
+}
+
+:is(.home-service-card, .home-process-card, .how-card, .why-service-card, .home-stat,
+    .about-journey__step, .about-journey__metric, .services-catalog-card,
+    .service-card, .service-index-row, .services-page-card, .principle-card, .contact-detail-card, .contact-info-card,
+    .wea-card, .wea-milestone, .wea-strategy-card, .wea-result-card,
+    .wea-highlight-card, .wea-success-card, .home-journal-card, .home-project-card,
+    .website-project-card, .blog-card, .careers-ref-job)
+:is(:hover, :focus-within)
+:is(.home-service-icon, .home-process-icon, .how-card-icon, .why-service-icon,
+    .home-stat-icon, .about-journey__icon, .about-journey__metric > svg,
+    .services-catalog-arrow, .service-card-icon, .service-index-arrow, .services-page-card-arrow, .principle-points svg,
+    .contact-detail-icon, .contact-item-icon, .wea-icon, .wea-overview-icon,
+    .wea-success-core > svg, .home-journal-card svg, .home-project-card svg,
+    .website-project-card svg, .blog-card svg, .careers-ref-visual-icon) {
+  color: #f05bdc;
+  border-color: rgba(240, 91, 220, .72);
+  filter: drop-shadow(0 0 8px rgba(126, 104, 255, .34));
+  transform: translateY(-2px) scale(1.06);
+}
+
+.services-catalog-card:is(:hover, :focus-within) .services-catalog-arrow,
+.services-catalog-card:is(:hover, :focus-within) .services-catalog-link svg {
+  color: #f05bdc;
+}
+
+.careers-ref-job:is(:hover, :focus-within) .careers-ref-visual-icon {
+  color: #f05bdc;
+  border-color: rgba(240, 91, 220, .8);
+}
+
+.contact-body-guide-card .contact-body-guide-icon { transition: color .28s ease, filter .28s ease, transform .28s ease; }
+.contact-body-guide-card:is(:hover, :focus-within) .contact-body-guide-icon {
+  color: #f05bdc;
+  filter: drop-shadow(0 0 8px rgba(126, 104, 255, .34));
+  transform: translateY(-2px) scale(1.06);
+}
+
+@media (hover: none) {
+  :is(.home-service-card, .home-process-card, .how-card, .why-service-card, .home-stat,
+      .about-journey__step, .about-journey__metric, .services-catalog-card,
+    .service-card, .service-index-row, .services-page-card, .principle-card, .contact-detail-card, .contact-info-card,
+      .wea-card, .wea-milestone, .wea-strategy-card, .wea-result-card,
+      .wea-highlight-card, .wea-success-card, .home-journal-card, .home-project-card,
+      .website-project-card, .blog-card, .careers-ref-job):active
+  :is(.home-service-icon, .home-process-icon, .how-card-icon, .why-service-icon,
+      .home-stat-icon, .about-journey__icon, .about-journey__metric > svg,
+      .services-catalog-arrow, .service-card-icon, .service-index-arrow, .services-page-card-arrow, .principle-points svg,
+      .contact-detail-icon, .contact-item-icon, .wea-icon, .wea-overview-icon,
+      .wea-success-core > svg, .home-journal-card svg, .home-project-card svg,
+      .website-project-card svg, .blog-card svg, .careers-ref-visual-icon) {
+    color: #f05bdc;
+    filter: drop-shadow(0 0 8px rgba(126, 104, 255, .34));
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.home-service-icon, .home-process-icon, .how-card-icon, .why-service-icon,
+      .home-stat-icon, .about-journey__icon, .about-journey__metric > svg,
+      .services-catalog-arrow, .service-card-icon, .service-index-arrow, .services-page-card-arrow, .principle-points svg,
+      .contact-detail-icon, .contact-item-icon, .wea-icon, .wea-overview-icon,
+      .wea-success-core > svg, .home-journal-card svg, .home-project-card svg,
+      .website-project-card svg, .blog-card svg, .careers-ref-visual-icon) {
+    transition: none;
+  }
+  .contact-body-guide-card .contact-body-guide-icon { transition: none; }
+}

@@ -199,3 +199,20 @@
 .sage-ai-launcher>svg{color:#ffe4a8;filter:drop-shadow(0 0 9px rgba(255,191,72,.92))}
 .sage-ai-launcher>i{background:#ffc454;box-shadow:0 0 10px rgba(255,191,72,.95)}
 .sage-ai-launcher>span{border-color:rgba(255,190,86,.58);background:linear-gradient(100deg,#261b18,#30202a);color:#fff5dd}
+
+/* Sage AI mascot, language selector, and quick conversation modes. */
+.sage-ai-launcher>img{width:calc(100% - 12px);height:auto;max-height:48px;border-radius:0;object-fit:contain;object-position:center}
+.sage-ai-header .sage-ai-avatar{width:76px;height:42px;flex:none;overflow:hidden;border:1px solid rgba(41,212,240,.38);border-radius:9px;background:#090e1d}
+.sage-ai-header .sage-ai-avatar img{width:100%;height:100%;object-fit:contain}
+.sage-ai-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid rgba(103,153,205,.14);background:rgba(6,13,29,.58)}
+.sage-ai-language{display:flex;align-items:center;gap:7px;color:#9badc4;font-size:.58rem}
+.sage-ai-language select{max-width:118px;padding:6px 22px 6px 9px;border:1px solid rgba(91,147,195,.38);border-radius:8px;background:#111c31;color:#edf6ff;font:600 .62rem var(--font-base);cursor:pointer}
+.sage-ai-mode{display:flex;align-items:center;gap:4px}
+.sage-ai-mode button,.sage-ai-mode a{display:inline-flex;min-height:29px;align-items:center;justify-content:center;gap:5px;padding:0 9px;border:1px solid rgba(91,147,195,.26);border-radius:8px;background:rgba(8,18,36,.72);color:#b8c8dc;font:600 .58rem var(--font-base);text-decoration:none;cursor:pointer}
+.sage-ai-mode button svg,.sage-ai-mode a svg{width:12px;height:12px}
+.sage-ai-mode button:hover,.sage-ai-mode a:hover,.sage-ai-mode .is-selected{border-color:rgba(40,213,235,.68);background:linear-gradient(115deg,rgba(0,190,230,.17),rgba(197,42,215,.16));color:#f2fbff}
+.sage-ai-message--assistant{position:relative;padding-left:36px}
+.sage-ai-message-avatar{position:absolute;top:8px;left:7px;width:23px;height:23px;border:1px solid rgba(40,213,235,.42);border-radius:50%;background:#080d1b;object-fit:contain}
+.sage-ai-panel--fullscreen .sage-ai-toolbar{padding:12px 18px}
+.sage-ai-panel--fullscreen .sage-ai-messages{padding:18px}
+@media(max-width:420px){.sage-ai-toolbar{align-items:flex-start;flex-direction:column}.sage-ai-mode{width:100%}.sage-ai-mode button,.sage-ai-mode a{flex:1}}

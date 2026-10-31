@@ -32,23 +32,22 @@ import clientLogo30 from '../assets/images/logo (2)/54.webp'
 import clientLogo31 from '../assets/images/logo (2)/56.webp'
 import clientLogo32 from '../assets/images/logo (2)/57.webp'
 import clientLogo33 from '../assets/images/logo (2)/58.webp'
-import clientLogo34 from '../assets/images/logo (2)/94.webp'
-import clientLogo35 from '../assets/images/logo (2)/100.webp'
-import clientLogo36 from '../assets/images/logo (2)/7f83cd09-398d-46d3-9b93-df2a8bdbbf33-removebg-preview_bq3mkg_zvi7xf.webp'
-import clientLogo37 from '../assets/images/logo (2)/d1704569-bc91-4950-9bec-78595aa8e264.webp'
-import clientLogo38 from '../assets/images/logo (2)/httpstulirdesignstudio.com-2-V1eGVhAL.webp'
-import clientLogo39 from '../assets/images/logo (2)/JE-logo-03-scaled-DbNL23Ej.webp'
-import clientLogo40 from '../assets/images/logo (2)/logo-2-copy-Copy-480.webp'
-import clientLogo41 from '../assets/images/logo (2)/logo-CLKh9ebl.webp'
-import clientLogo42 from '../assets/images/logo (2)/logo-DRX6OWIG.webp'
-import clientLogo43 from '../assets/images/logo (2)/logo.webp'
-import clientLogo44 from '../assets/images/logo (2)/Nexxora.webp'
-import clientLogo45 from '../assets/images/logo (2)/Safe Science.webp'
-import clientLogo46 from '../assets/images/logo (2)/Shape wellness Logo.webp'
-import clientLogo47 from '../assets/images/logo (2)/SV.webp'
-import clientLogo48 from '../assets/images/logo (2)/Thangam Dental.webp'
+import clientLogo34 from '../assets/images/logo (2)/tbwact-logo.webp'
+import clientLogo35 from '../assets/images/logo (2)/7f83cd09-398d-46d3-9b93-df2a8bdbbf33-removebg-preview_bq3mkg_zvi7xf.webp'
+import clientLogo36 from '../assets/images/logo (2)/d1704569-bc91-4950-9bec-78595aa8e264.webp'
+import clientLogo37 from '../assets/images/logo (2)/httpstulirdesignstudio.com-2-V1eGVhAL.webp'
+import clientLogo38 from '../assets/images/logo (2)/JE-logo-03-scaled-DbNL23Ej.webp'
+import clientLogo39 from '../assets/images/logo (2)/logo-2-copy-Copy-480.webp'
+import clientLogo40 from '../assets/images/logo (2)/logo-CLKh9ebl.webp'
+import clientLogo41 from '../assets/images/logo (2)/logo-DRX6OWIG.webp'
+import clientLogo42 from '../assets/images/logo (2)/logo.webp'
+import clientLogo43 from '../assets/images/logo (2)/Nexxora.webp'
+import clientLogo44 from '../assets/images/logo (2)/Safe Science.webp'
+import clientLogo45 from '../assets/images/logo (2)/Shape wellness Logo.webp'
+import clientLogo46 from '../assets/images/logo (2)/SV.webp'
+import clientLogo47 from '../assets/images/logo (2)/Thangam Dental.webp'
 
-const clientLogoFiles = [
+export const clientLogoFiles = [
   clientLogo01,
   clientLogo02,
   clientLogo03,
@@ -96,7 +95,6 @@ const clientLogoFiles = [
   clientLogo45,
   clientLogo46,
   clientLogo47,
-  clientLogo48,
 ]
 const firstLogoRow = clientLogoFiles.slice(0, 24)
 const secondLogoRow = clientLogoFiles.slice(24, 48)
@@ -109,7 +107,7 @@ function LogoMarquee({ logos, direction, label }) {
       <div className="our-clients__track" aria-hidden="true">
         {repeatedLogos.map((src, index) => (
           <div className="our-clients__logo" key={`${src}-${index}`}>
-            <img src={src} alt="" loading="lazy" />
+            <img src={src} alt="" loading="lazy" decoding="async" />
           </div>
         ))}
       </div>
@@ -126,11 +124,11 @@ function OurClients() {
           <h2 id="our-clients-title">Good work grows <span>together.</span></h2>
           <p>Trusted by ambitious brands across industries.</p>
         </header>
-        <div className="our-clients__logo-rows" aria-label="48 client logos in two animated rows">
+        <div className="our-clients__logo-rows" aria-label="47 client logos in two animated rows">
           <LogoMarquee logos={firstLogoRow} direction="right" label="First row of 24 client logos moving right" />
-          <LogoMarquee logos={secondLogoRow} direction="left" label="Second row of 24 client logos moving left" />
+          <LogoMarquee logos={secondLogoRow} direction="left" label="Second row of 23 client logos moving left" />
         </div>
-        <p className="our-clients__sr-only">A collection of 48 client logos.</p>
+        <p className="our-clients__sr-only">A collection of 47 client logos.</p>
       </div>
     </section>
   )

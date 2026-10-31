@@ -1,0 +1,245 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/CommonQuestions.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c0bf90ad"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=c0bf90ad"; const useState = __vite__cjsImport3_react["useState"];
+import { FiChevronDown, FiCpu, FiVolume2 } from "/node_modules/.vite/deps/react-icons_fi.js?v=c0bf90ad";
+export const commonQuestions = [
+  {
+    question: "What kind of digital marketing services are offered by Sage GFX?",
+    answer: "At Sage GFX, we have a full suite of digital marketing services that include SEO, AEO, GEO, social media marketing, performance marketing, website design, graphic design, and video editing/videography. Instead of adopting a cookie-cutter approach to these services, we customize them depending on your business requirements and goals."
+  },
+  {
+    question: "How does Sage GFX improve search engine rankings?",
+    answer: "We use SEO strategy, technical improvements, useful content and ongoing optimization to help your website become easier to find in search. Results depend on your goals, market and starting point."
+  },
+  {
+    question: "What are the benefits of Social Media Marketing with Sage GFX?",
+    answer: "Social media marketing can help your brand reach the right audience, share engaging content and build stronger relationships with customers. We shape the approach around your business and audience."
+  },
+  {
+    question: "Does Sage GFX offer website development?",
+    answer: "Yes. Sage GFX designs and develops websites with a focus on clear messaging, polished visuals and useful experiences across screen sizes."
+  },
+  {
+    question: "Can Sage GFX handle content creation?",
+    answer: "Yes. We can help create content for digital campaigns and social channels, including creative assets and video. Get in touch to discuss the content your project needs."
+  }
+];
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+}
+function FAQArtwork() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "common-questions-art", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-orbit common-questions-art-orbit--one" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 54,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-orbit common-questions-art-orbit--two" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 55,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-orbit common-questions-art-orbit--three" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 56,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-core", children: /* @__PURE__ */ jsxDEV("i", {}, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 57,
+      columnNumber: 49
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 57,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-node common-questions-art-node--one" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 58,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-node common-questions-art-node--two" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 59,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "common-questions-art-node common-questions-art-node--three" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 60,
+      columnNumber: 5
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+    lineNumber: 53,
+    columnNumber: 10
+  }, this);
+}
+_c = FAQArtwork;
+function CommonQuestions() {
+  _s();
+  const [active, setActive] = useState(0);
+  const askAI = (question) => window.dispatchEvent(new CustomEvent("sage-ai-ask", { detail: { question } }));
+  return /* @__PURE__ */ jsxDEV("section", { className: "common-questions", id: "common-questions", "data-active": active >= 0, children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "common-questions-intro", children: [
+      /* @__PURE__ */ jsxDEV(FAQArtwork, {}, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+        lineNumber: 70,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "common-questions-heading", children: [
+        /* @__PURE__ */ jsxDEV("p", { className: "common-questions-eyebrow", children: "Frequently asked questions" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 72,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("h2", { children: [
+          "Frequently Asked ",
+          /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 73,
+            columnNumber: 30
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Questions" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 73,
+            columnNumber: 36
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 73,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { className: "common-questions-hint", children: "Tap a question to hear the answer, or ask Sage AI for more." }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 74,
+          columnNumber: 9
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+        lineNumber: 71,
+        columnNumber: 7
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 69,
+      columnNumber: 5
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "common-questions-list", children: commonQuestions.map(({ question, answer }, index) => {
+      const expanded = active === index;
+      return /* @__PURE__ */ jsxDEV("article", { className: `common-question${expanded ? " is-open" : ""}`, children: [
+        /* @__PURE__ */ jsxDEV("button", { className: "common-question-toggle", id: `common-question-toggle-${index}`, type: "button", "aria-controls": `common-question-answer-${index}`, "aria-expanded": expanded, onClick: () => setActive(expanded ? -1 : index), children: [
+          /* @__PURE__ */ jsxDEV("span", { children: question }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 82,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FiChevronDown, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 82,
+            columnNumber: 36
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 81,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "common-question-answer", id: `common-question-answer-${index}`, role: "region", "aria-labelledby": `common-question-toggle-${index}`, "aria-hidden": !expanded, children: /* @__PURE__ */ jsxDEV("div", { className: "common-question-answer-inner", children: [
+          /* @__PURE__ */ jsxDEV("p", { children: answer }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 86,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV("div", { className: "common-question-actions", children: [
+            /* @__PURE__ */ jsxDEV("button", { type: "button", tabIndex: expanded ? 0 : -1, onClick: () => speak(`${question}. ${answer}`), children: [
+              /* @__PURE__ */ jsxDEV(FiVolume2, { "aria-hidden": "true" }, void 0, false, {
+                fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+                lineNumber: 88,
+                columnNumber: 116
+              }, this),
+              " Read answer"
+            ] }, void 0, true, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+              lineNumber: 88,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV("button", { type: "button", tabIndex: expanded ? 0 : -1, onClick: () => askAI(question), children: [
+              /* @__PURE__ */ jsxDEV(FiCpu, { "aria-hidden": "true" }, void 0, false, {
+                fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+                lineNumber: 89,
+                columnNumber: 100
+              }, this),
+              " Ask Sage AI"
+            ] }, void 0, true, {
+              fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+              lineNumber: 89,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+            lineNumber: 87,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 85,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+          lineNumber: 84,
+          columnNumber: 11
+        }, this)
+      ] }, question, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+        lineNumber: 80,
+        columnNumber: 16
+      }, this);
+    }) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+      lineNumber: 77,
+      columnNumber: 5
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx",
+    lineNumber: 68,
+    columnNumber: 10
+  }, this);
+}
+_s(CommonQuestions, "LYMHw6xE17pbh6ai9qaw76OM0Ms=");
+_c2 = CommonQuestions;
+export default CommonQuestions;
+var _c, _c2;
+$RefreshReg$(_c, "FAQArtwork");
+$RefreshReg$(_c2, "CommonQuestions");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/CommonQuestions.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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TUFBTU4sTUFBTWQsUUFBUSxHQUFHO0FBQUEscUNBQUMsU0FBTSxlQUFZLFVBQW5CO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQXlCO0FBQUEsY0FBRTtBQUFBLGlCQUE5RztBQUFBO0FBQUE7QUFBQTtBQUFBLG1CQUEwSDtBQUFBLGVBRjVIO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBR0E7QUFBQSxhQUxGO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFNQSxLQVBGO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFRQTtBQUFBLFdBWjhFQSxVQUF6RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBYVA7QUFBQSxJQUNGLENBQUMsS0FqQkg7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQWtCQTtBQUFBLE9BM0JLO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0E0QlA7QUFDRjtBQUFDVyxHQWxDUUQsaUJBQWU7QUFBQSxNQUFmQTtBQW9DVCxlQUFlQTtBQUFlLElBQUFELElBQUFZO0FBQUEsYUFBQVosSUFBQTtBQUFBLGFBQUFZLEtBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIkZpQ2hldnJvbkRvd24iLCJGaUNwdSIsIkZpVm9sdW1lMiIsImNvbW1vblF1ZXN0aW9ucyIsInF1ZXN0aW9uIiwiYW5zd2VyIiwic3BlYWsiLCJ0ZXh0Iiwid2luZG93Iiwic3BlZWNoU3ludGhlc2lzIiwiY2FuY2VsIiwiU3BlZWNoU3ludGhlc2lzVXR0ZXJhbmNlIiwiRkFRQXJ0d29yayIsIl9jIiwiQ29tbW9uUXVlc3Rpb25zIiwiX3MiLCJhY3RpdmUiLCJzZXRBY3RpdmUiLCJhc2tBSSIsImRpc3BhdGNoRXZlbnQiLCJDdXN0b21FdmVudCIsImRldGFpbCIsIm1hcCIsImluZGV4IiwiZXhwYW5kZWQiLCJfYzIiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiQ29tbW9uUXVlc3Rpb25zLmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgRmlDaGV2cm9uRG93biwgRmlDcHUsIEZpVm9sdW1lMiB9IGZyb20gJ3JlYWN0LWljb25zL2ZpJ1xuXG5leHBvcnQgY29uc3QgY29tbW9uUXVlc3Rpb25zID0gW1xuICB7XG4gICAgcXVlc3Rpb246ICdXaGF0IGtpbmQgb2YgZGlnaXRhbCBtYXJrZXRpbmcgc2VydmljZXMgYXJlIG9mZmVyZWQgYnkgU2FnZSBHRlg/JyxcbiAgICBhbnN3ZXI6ICdBdCBTYWdlIEdGWCwgd2UgaGF2ZSBhIGZ1bGwgc3VpdGUgb2YgZGlnaXRhbCBtYXJrZXRpbmcgc2VydmljZXMgdGhhdCBpbmNsdWRlIFNFTywgQUVPLCBHRU8sIHNvY2lhbCBtZWRpYSBtYXJrZXRpbmcsIHBlcmZvcm1hbmNlIG1hcmtldGluZywgd2Vic2l0ZSBkZXNpZ24sIGdyYXBoaWMgZGVzaWduLCBhbmQgdmlkZW8gZWRpdGluZy92aWRlb2dyYXBoeS4gSW5zdGVhZCBvZiBhZG9wdGluZyBhIGNvb2tpZS1jdXR0ZXIgYXBwcm9hY2ggdG8gdGhlc2Ugc2VydmljZXMsIHdlIGN1c3RvbWl6ZSB0aGVtIGRlcGVuZGluZyBvbiB5b3VyIGJ1c2luZXNzIHJlcXVpcmVtZW50cyBhbmQgZ29hbHMuJyxcbiAgfSxcbiAge1xuICAgIHF1ZXN0aW9uOiAnSG93IGRvZXMgU2FnZSBHRlggaW1wcm92ZSBzZWFyY2ggZW5naW5lIHJhbmtpbmdzPycsXG4gICAgYW5zd2VyOiAnV2UgdXNlIFNFTyBzdHJhdGVneSwgdGVjaG5pY2FsIGltcHJvdmVtZW50cywgdXNlZnVsIGNvbnRlbnQgYW5kIG9uZ29pbmcgb3B0aW1pemF0aW9uIHRvIGhlbHAgeW91ciB3ZWJzaXRlIGJlY29tZSBlYXNpZXIgdG8gZmluZCBpbiBzZWFyY2guIFJlc3VsdHMgZGVwZW5kIG9uIHlvdXIgZ29hbHMsIG1hcmtldCBhbmQgc3RhcnRpbmcgcG9pbnQuJyxcbiAgfSxcbiAge1xuICAgIHF1ZXN0aW9uOiAnV2hhdCBhcmUgdGhlIGJlbmVmaXRzIG9mIFNvY2lhbCBNZWRpYSBNYXJrZXRpbmcgd2l0aCBTYWdlIEdGWD8nLFxuICAgIGFuc3dlcjogJ1NvY2lhbCBtZWRpYSBtYXJrZXRpbmcgY2FuIGhlbHAgeW91ciBicmFuZCByZWFjaCB0aGUgcmlnaHQgYXVkaWVuY2UsIHNoYXJlIGVuZ2FnaW5nIGNvbnRlbnQgYW5kIGJ1aWxkIHN0cm9uZ2VyIHJlbGF0aW9uc2hpcHMgd2l0aCBjdXN0b21lcnMuIFdlIHNoYXBlIHRoZSBhcHByb2FjaCBhcm91bmQgeW91ciBidXNpbmVzcyBhbmQgYXVkaWVuY2UuJyxcbiAgfSxcbiAge1xuICAgIHF1ZXN0aW9uOiAnRG9lcyBTYWdlIEdGWCBvZmZlciB3ZWJzaXRlIGRldmVsb3BtZW50PycsXG4gICAgYW5zd2VyOiAnWWVzLiBTYWdlIEdGWCBkZXNpZ25zIGFuZCBkZXZlbG9wcyB3ZWJzaXRlcyB3aXRoIGEgZm9jdXMgb24gY2xlYXIgbWVzc2FnaW5nLCBwb2xpc2hlZCB2aXN1YWxzIGFuZCB1c2VmdWwgZXhwZXJpZW5jZXMgYWNyb3NzIHNjcmVlbiBzaXplcy4nLFxuICB9LFxuICB7XG4gICAgcXVlc3Rpb246ICdDYW4gU2FnZSBHRlggaGFuZGxlIGNvbnRlbnQgY3JlYXRpb24/JyxcbiAgICBhbnN3ZXI6ICdZZXMuIFdlIGNhbiBoZWxwIGNyZWF0ZSBjb250ZW50IGZvciBkaWdpdGFsIGNhbXBhaWducyBhbmQgc29jaWFsIGNoYW5uZWxzLCBpbmNsdWRpbmcgY3JlYXRpdmUgYXNzZXRzIGFuZCB2aWRlby4gR2V0IGluIHRvdWNoIHRvIGRpc2N1c3MgdGhlIGNvbnRlbnQgeW91ciBwcm9qZWN0IG5lZWRzLicsXG4gIH0sXG5dXG5cbmZ1bmN0aW9uIHNwZWFrKHRleHQpIHtcbiAgaWYgKCEoJ3NwZWVjaFN5bnRoZXNpcycgaW4gd2luZG93KSkgcmV0dXJuXG4gIHdpbmRvdy5zcGVlY2hTeW50aGVzaXMuY2FuY2VsKClcbiAgd2luZG93LnNwZWVjaFN5bnRoZXNpcy5zcGVhayhuZXcgU3BlZWNoU3ludGhlc2lzVXR0ZXJhbmNlKHRleHQpKVxufVxuXG5mdW5jdGlvbiBGQVFBcnR3b3JrKCkge1xuICByZXR1cm4gPGRpdiBjbGFzc05hbWU9XCJjb21tb24tcXVlc3Rpb25zLWFydFwiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiPlxuICAgIDxzcGFuIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0IGNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0LS1vbmVcIiAvPlxuICAgIDxzcGFuIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0IGNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0LS10d29cIiAvPlxuICAgIDxzcGFuIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0IGNvbW1vbi1xdWVzdGlvbnMtYXJ0LW9yYml0LS10aHJlZVwiIC8+XG4gICAgPHNwYW4gY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9ucy1hcnQtY29yZVwiPjxpIC8+PC9zcGFuPlxuICAgIDxzcGFuIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnMtYXJ0LW5vZGUgY29tbW9uLXF1ZXN0aW9ucy1hcnQtbm9kZS0tb25lXCIgLz5cbiAgICA8c3BhbiBjbGFzc05hbWU9XCJjb21tb24tcXVlc3Rpb25zLWFydC1ub2RlIGNvbW1vbi1xdWVzdGlvbnMtYXJ0LW5vZGUtLXR3b1wiIC8+XG4gICAgPHNwYW4gY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9ucy1hcnQtbm9kZSBjb21tb24tcXVlc3Rpb25zLWFydC1ub2RlLS10aHJlZVwiIC8+XG4gIDwvZGl2PlxufVxuZnVuY3Rpb24gQ29tbW9uUXVlc3Rpb25zKCkge1xuICBjb25zdCBbYWN0aXZlLCBzZXRBY3RpdmVdID0gdXNlU3RhdGUoMClcblxuICBjb25zdCBhc2tBSSA9IChxdWVzdGlvbikgPT4gd2luZG93LmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KCdzYWdlLWFpLWFzaycsIHsgZGV0YWlsOiB7IHF1ZXN0aW9uIH0gfSkpXG5cbiAgcmV0dXJuIDxzZWN0aW9uIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnNcIiBpZD1cImNvbW1vbi1xdWVzdGlvbnNcIiBkYXRhLWFjdGl2ZT17YWN0aXZlID49IDB9PlxuICAgIDxkaXYgY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9ucy1pbnRyb1wiPlxuICAgICAgPEZBUUFydHdvcmsgLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9ucy1oZWFkaW5nXCI+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbnMtZXllYnJvd1wiPkZyZXF1ZW50bHkgYXNrZWQgcXVlc3Rpb25zPC9wPlxuICAgICAgICA8aDI+RnJlcXVlbnRseSBBc2tlZCA8YnIvPjxzcGFuPlF1ZXN0aW9uczwvc3Bhbj48L2gyPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJjb21tb24tcXVlc3Rpb25zLWhpbnRcIj5UYXAgYSBxdWVzdGlvbiB0byBoZWFyIHRoZSBhbnN3ZXIsIG9yIGFzayBTYWdlIEFJIGZvciBtb3JlLjwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICAgIDxkaXYgY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9ucy1saXN0XCI+XG4gICAgICB7Y29tbW9uUXVlc3Rpb25zLm1hcCgoeyBxdWVzdGlvbiwgYW5zd2VyIH0sIGluZGV4KSA9PiB7XG4gICAgICAgIGNvbnN0IGV4cGFuZGVkID0gYWN0aXZlID09PSBpbmRleFxuICAgICAgICByZXR1cm4gPGFydGljbGUgY2xhc3NOYW1lPXtgY29tbW9uLXF1ZXN0aW9uJHtleHBhbmRlZCA/ICcgaXMtb3BlbicgOiAnJ31gfSBrZXk9e3F1ZXN0aW9ufT5cbiAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbi10b2dnbGVcIiBpZD17YGNvbW1vbi1xdWVzdGlvbi10b2dnbGUtJHtpbmRleH1gfSB0eXBlPVwiYnV0dG9uXCIgYXJpYS1jb250cm9scz17YGNvbW1vbi1xdWVzdGlvbi1hbnN3ZXItJHtpbmRleH1gfSBhcmlhLWV4cGFuZGVkPXtleHBhbmRlZH0gb25DbGljaz17KCkgPT4gc2V0QWN0aXZlKGV4cGFuZGVkID8gLTEgOiBpbmRleCl9PlxuICAgICAgICAgICAgPHNwYW4+e3F1ZXN0aW9ufTwvc3Bhbj48RmlDaGV2cm9uRG93biBhcmlhLWhpZGRlbj1cInRydWVcIiAvPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9uLWFuc3dlclwiIGlkPXtgY29tbW9uLXF1ZXN0aW9uLWFuc3dlci0ke2luZGV4fWB9IHJvbGU9XCJyZWdpb25cIiBhcmlhLWxhYmVsbGVkYnk9e2Bjb21tb24tcXVlc3Rpb24tdG9nZ2xlLSR7aW5kZXh9YH0gYXJpYS1oaWRkZW49eyFleHBhbmRlZH0+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbW1vbi1xdWVzdGlvbi1hbnN3ZXItaW5uZXJcIj5cbiAgICAgICAgICAgICAgPHA+e2Fuc3dlcn08L3A+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29tbW9uLXF1ZXN0aW9uLWFjdGlvbnNcIj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiB0YWJJbmRleD17ZXhwYW5kZWQgPyAwIDogLTF9IG9uQ2xpY2s9eygpID0+IHNwZWFrKGAke3F1ZXN0aW9ufS4gJHthbnN3ZXJ9YCl9PjxGaVZvbHVtZTIgYXJpYS1oaWRkZW49XCJ0cnVlXCIvPiBSZWFkIGFuc3dlcjwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiIHRhYkluZGV4PXtleHBhbmRlZCA/IDAgOiAtMX0gb25DbGljaz17KCkgPT4gYXNrQUkocXVlc3Rpb24pfT48RmlDcHUgYXJpYS1oaWRkZW49XCJ0cnVlXCIvPiBBc2sgU2FnZSBBSTwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2FydGljbGU+XG4gICAgICB9KX1cbiAgICA8L2Rpdj5cbiAgPC9zZWN0aW9uPlxufVxuXG5leHBvcnQgZGVmYXVsdCBDb21tb25RdWVzdGlvbnNcbiJdLCJmaWxlIjoiQzovVXNlcnMvdmlzaG4vT25lRHJpdmUvRGVza3RvcC9zYWdlIGdmeGRpZ2l0YWwgc3R1ZGlvL3NyYy9jb21wb25lbnRzL0NvbW1vblF1ZXN0aW9ucy5qc3gifQ==

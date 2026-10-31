@@ -24,7 +24,7 @@ function BlogPage() {
           aria-label={`Read article: ${article.title}`}
         >
           <div className="blog-art">
-            <img src={article.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} />
+            <img src={article.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
             <span>SAGE GFX / JOURNAL</span>
             <strong>{String(index + 1).padStart(2, '0')}</strong>
             <i aria-hidden="true" />

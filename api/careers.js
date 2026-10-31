@@ -5,7 +5,7 @@ export const config = { api: { bodyParser: false } }
 const MAX_RESUME_BYTES = 5 * 1024 * 1024
 const MAX_REQUEST_BYTES = MAX_RESUME_BYTES + 128 * 1024
 const departments = {
-  'Design & Branding': ['Graphic Designer', 'UI/UX Designer', 'Brand Identity Designer'],
+  'Design & Branding': ['Graphic Designer', 'UI/UX Designer', 'Brand Identity Designer', 'Graphic Designer & Video Editor'],
   'Web & App Development': ['React Developer', 'Frontend Developer', 'Full-Stack Developer', 'UI Developer'],
   'Digital Marketing': ['Digital Marketing Executive', 'Performance Marketing Specialist', 'Google Ads Specialist'],
   'Social Media Management': ['Social Media Manager', 'Social Media Executive', 'Social Media Strategist'],

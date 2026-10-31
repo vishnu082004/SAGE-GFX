@@ -1,32 +1,36 @@
+import { useState } from 'react'
 import Hero from '../components/Hero'
 import About from '../components/About'
 import HomeServicesCarousel from '../components/HomeServicesCarousel'
-import HomeProjects from '../components/HomeProjects'
+import HomeStats from '../components/HomeStats'
 import WhyChoose from '../components/WhyChoose'
 import ClientReviews from '../components/ClientReviews'
 import CommonQuestions from '../components/CommonQuestions'
 import HeroInquiryForm from '../components/HeroInquiryForm'
 import OurClients from '../components/OurClients'
+import HomeHowWeWork from '../components/HomeHowWeWork'
+import HomeBlog from '../components/HomeBlog'
+import HomeContact from '../components/HomeContact'
 
 function Home({ openLightbox }) {
+  const [heroVideoReady, setHeroVideoReady] = useState(false)
   return (
     <div className="home-page">
       {/* 1. Hero Section */}
-      <Hero />
-      <HeroInquiryForm />
+      <Hero onVideoReady={() => setHeroVideoReady(true)} />
+      <HeroInquiryForm videoReady={heroVideoReady} />
 
-      {/* 2. About Section with 3D Mouse Tilt */}
-      <About openLightbox={openLightbox} />
+      {/* Homepage sections follow the visitor journey. */}
       <OurClients />
-
-      {/* Services Grid */}
+      <About openLightbox={openLightbox} />
       <HomeServicesCarousel />
-
-      {/* Why Choose Us */}
+      <HomeStats />
+      <HomeHowWeWork />
       <WhyChoose />
-      <HomeProjects />
       <ClientReviews />
       <CommonQuestions />
+      <HomeBlog />
+      <HomeContact />
     </div>
   )
 }

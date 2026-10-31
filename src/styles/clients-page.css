@@ -1,0 +1,29 @@
+.clients-page{min-height:60vh;color:#edf5ff;background:#060b15}
+.clients-page-hero{position:relative;display:flex;min-height:clamp(440px,55vw,650px);align-items:center;overflow:hidden;border-bottom:1px solid rgba(86,157,210,.16);background:radial-gradient(ellipse at 76% 38%,rgba(94,42,186,.22),transparent 36%),radial-gradient(ellipse at 90% 80%,rgba(0,175,221,.13),transparent 35%),linear-gradient(135deg,#070b17,#0b1020 55%,#080c18)}
+.clients-page-hero::before{position:absolute;inset:0;content:"";pointer-events:none;background:linear-gradient(115deg,transparent 0 57%,rgba(50,129,190,.055) 57.1%,transparent 57.3%),linear-gradient(65deg,transparent 0 72%,rgba(180,70,207,.07) 72.1%,transparent 72.3%);mask-image:linear-gradient(90deg,transparent,#000 60%)}
+.clients-page-hero-inner{position:relative;padding-block:90px}
+.clients-page-hero .page-hero-eyebrow{margin-bottom:22px;color:#a9c1d7}
+.clients-page-hero .page-hero-title{max-width:850px;font-size:clamp(3.3rem,8vw,7.5rem);line-height:.96;letter-spacing:-.075em}
+.clients-page-hero .gradient-text{background:linear-gradient(100deg,#f019b6,#a52ff1 50%,#12bde9);background-clip:text;-webkit-background-clip:text;color:transparent}
+.clients-page-hero .page-hero-subtitle{max-width:560px;margin-top:24px;color:#b2bfd1;font-size:1rem;line-height:1.75}
+.clients-page-hero-link{display:inline-flex;align-items:center;gap:11px;margin-top:28px;color:#d8f6ff;font-size:.82rem;font-weight:700;text-decoration:none}
+.clients-page-hero-link svg{color:#40d5ee;transition:transform .2s ease}.clients-page-hero-link:hover svg{transform:translateX(4px)}
+.clients-page-gallery{padding:clamp(60px,8vw,100px) 0;background:linear-gradient(180deg,#080d18,#070b13)}
+.clients-page-gallery-heading{max-width:670px;margin:0 auto 42px;text-align:center}
+.clients-page-kicker{display:flex;align-items:center;gap:8px;margin:0 0 12px;color:#a9c4d8;font-size:.66rem;font-weight:750;letter-spacing:.15em;text-transform:uppercase}
+.clients-page-gallery-heading .clients-page-kicker{justify-content:center}
+.clients-page-kicker svg{color:#38cce8}
+.clients-page-gallery-heading h2,.clients-page-cta h2{margin:0;color:#f2f6ff;font:700 clamp(1.8rem,4vw,3rem)/1.1 var(--font-heading);letter-spacing:-.05em}
+.clients-page-gallery-heading>p:last-child{max-width:540px;margin:14px auto 0;color:#9eafc3;font-size:.9rem;line-height:1.7}
+.clients-page-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.clients-page-logo{display:grid;min-height:clamp(120px,14vw,170px);place-items:center;overflow:hidden;padding:17px;border:1px solid rgba(142,169,203,.15);border-radius:10px;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(235,242,250,.96));box-shadow:0 12px 30px rgba(0,0,0,.17);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.clients-page-logo:hover{transform:translateY(-4px);border-color:rgba(47,203,231,.58);box-shadow:0 17px 38px rgba(0,0,0,.24),0 0 24px rgba(47,203,231,.08)}
+.clients-page-logo img{display:block;width:100%;height:100%;max-height:118px;object-fit:contain}
+.clients-page-cta{padding:clamp(55px,7vw,84px) 0;border-top:1px solid rgba(86,157,210,.15);background:radial-gradient(ellipse at 80% 50%,rgba(37,86,166,.17),transparent 45%),#080d18}
+.clients-page-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.clients-page-cta .clients-page-kicker{margin-bottom:13px}
+.clients-page-cta .gradient-text{background:linear-gradient(100deg,#e34bdc,#40cdec);background-clip:text;-webkit-background-clip:text;color:transparent}
+.clients-page-cta .button{display:inline-flex;align-items:center;gap:10px;flex:none}
+@media(max-width:900px){.clients-page-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}}
+@media(max-width:620px){.clients-page-hero{min-height:0}.clients-page-hero-inner{padding-block:100px 64px}.clients-page-hero .page-hero-eyebrow{margin-bottom:17px}.clients-page-hero .page-hero-title{font-size:clamp(3.1rem,13vw,5rem)}.clients-page-hero .page-hero-subtitle{margin-top:18px;font-size:.93rem}.clients-page-gallery{padding-block:58px}.clients-page-gallery-heading{margin-bottom:30px}.clients-page-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.clients-page-logo{min-height:clamp(100px,34vw,145px);padding:13px;border-radius:8px}.clients-page-logo img{max-height:100px}.clients-page-cta-inner{align-items:flex-start;flex-direction:column}.clients-page-cta .button{min-height:46px}}
+@media(prefers-reduced-motion:reduce){.clients-page-logo,.clients-page-hero-link svg{transition:none}}

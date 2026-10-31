@@ -7,7 +7,60 @@
   min-height: clamp(340px, 44svh, 460px);
 }
 
+.sage-hero-mobile-break { display: none; }
+
+
 @media (max-width: 760px) {
+  /* Center hero copy consistently across standard and custom page heroes. */
+  .page-hero,
+  .page-hero > .container,
+  .home-page .sage-hero-copy,
+  .about-page .about-hero-copy,
+  .services-page .services-hero-copy,
+  .portfolio-hero-content,
+  .careers-page .careers-hero-inner,
+  .blog-page .blog-hero .container,
+  .contact-page.contact-design .contact-design-hero {
+    text-align: center;
+  }
+
+  .home-page .sage-hero-copy,
+  .about-page .about-hero-copy,
+  .services-page .services-hero-copy,
+  .portfolio-hero-content,
+  .careers-page .careers-hero-inner,
+  .blog-page .blog-hero .container > * {
+    margin-inline: auto;
+  }
+
+  .home-page .sage-hero-eyebrow,
+  .services-page .page-hero--services .page-hero-eyebrow,
+  .careers-page .careers-hero .careers-eyebrow {
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .home-page .sage-hero-description,
+  .services-page .page-hero--services .page-hero-subtitle,
+  .portfolio-hero .page-hero-subtitle,
+  .careers-page .careers-hero-copy,
+  .blog-page .blog-hero .page-hero-subtitle {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .home-page .sage-hero-actions,
+  .home-page .sage-hero-stats,
+  .services-page .services-hero-actions {
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .careers-page .careers-hero-link,
+  .portfolio-hero-link {
+    justify-content: center;
+  }
+
   .about-page .page-hero--about,
   .portfolio-page .portfolio-hero,
   .careers-page .careers-hero,
@@ -52,31 +105,22 @@
   .home-page .sage-hero h1 {
     width: 100%;
     max-width: 100%;
-    font-size: clamp(2.05rem, 9.2vw, 2.8rem);
-    line-height: 1.06;
+    font-size: clamp(1.8rem, 8.2vw, 2.3rem);
+    line-height: 1.12;
     letter-spacing: -.05em;
     overflow-wrap: normal;
     word-break: normal;
-    text-wrap: pretty;
+    text-wrap: balance;
   }
   .home-page .sage-hero h1 br { display: none; }
+  .home-page .sage-hero h1 .sage-hero-mobile-break { display: initial; }
   .home-page .sage-hero h1 .sage-hero-heading-nowrap { white-space: normal; }
   .home-page .sage-hero-description {
-    max-width: 56ch;
-    font-size: clamp(.9rem, 3.8vw, 1rem);
-    line-height: 1.6;
-  }
-  .home-page .sage-hero-actions {
-    display: grid;
-    width: min(100%, 360px);
-    grid-template-columns: minmax(0, 1fr);
-    align-items: stretch;
-  }
-  .home-page .sage-hero-actions > a {
-    width: 100%;
-    min-width: 0;
-    min-height: 46px;
-    white-space: normal;
+    max-width: 620px;
+    margin: 15px auto 18px;
+    font-size: clamp(.8125rem, 3.55vw, .875rem);
+    line-height: 1.65;
+    text-align: center;
   }
   .home-page .sage-hero-stats {
     display: grid;
@@ -93,24 +137,10 @@
   .home-page .sage-hero-stats .sage-hero-stat-value strong { font-size: clamp(.82rem, 3.8vw, 1rem); }
   .home-page .sage-hero-stats .sage-hero-stat > span:last-child {
     margin: 5px 0 0;
-    font-size: clamp(.5rem, 2.3vw, .62rem);
+    font-size: clamp(.61rem, 2.65vw, .72rem);
     line-height: 1.3;
     text-align: center;
   }
-  .home-page .sage-hero-boy-wrap {
-    z-index: 0;
-    right: -9%;
-    width: 78%;
-    height: 44%;
-    opacity: .34;
-  }
-  .home-page .sage-hero-boy-wrap img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
   .page-hero-title,
   .about-page .about-hero-copy .page-hero-title,
   .services-page .page-hero--services .page-hero-title,
@@ -239,6 +269,7 @@
     min-height: 0;
   }
 }
+
 
 @media (max-width: 380px) {
   .navbar-container { padding-inline: 14px; }
@@ -525,23 +556,23 @@
   .home-page .sage-hero-actions {
     display: flex;
     width: 100%;
-    max-width: 420px;
+    max-width: 620px;
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .home-page .sage-hero-actions > a {
     display: inline-flex;
     width: auto;
     min-width: 0;
     min-height: 44px;
-    flex: 1 1 0;
+    flex: 1 1 160px;
     justify-content: center;
-    gap: 5px;
-    padding: 8px 6px;
-    overflow: hidden;
+    gap: 8px;
+    padding: 8px 14px;
+    overflow: visible;
     white-space: nowrap;
-    font-size: clamp(.48rem, 2.3vw, .68rem);
+    font-size: .78rem;
     line-height: 1.1;
   }
   .home-page .sage-hero-primary span { white-space: nowrap; }
@@ -568,7 +599,7 @@
   .contact-page.contact-design .contact-design-hero > .contact-breadcrumb { padding-inline: 18px; }
 
   .about-page .page-hero--about .about-hero-copy { padding-inline: 18px; }
-  .home-page .sage-hero-actions > a { font-size: clamp(.46rem, 2.25vw, .61rem); }
+  .home-page .sage-hero-actions > a { font-size: .72rem; }
 }
 
 @media (max-width: 760px) {
@@ -615,5 +646,1709 @@
     width: min(100%, 400px);
     height: clamp(165px, 53vw, 220px);
     margin-top: 0;
+  }
+}
+
+/* Reveal the hero video only after it can play; keep its reserved space stable on mobile. */
+@media(max-width:760px){.home-page .sage-hero-boy-wrap:not(.is-ready){opacity:0;transform:translate3d(18px,10px,0) scale(.97)}.home-page .sage-hero-boy-wrap.is-ready{opacity:1;transform:translate3d(0,0,0) scale(1);transition:opacity .65s ease,transform .8s cubic-bezier(.2,.8,.2,1)}}
+@media(prefers-reduced-motion:reduce){.sage-hero-boy-wrap,.sage-hero-boy-wrap.is-ready{transition:none!important;transform:none!important}}
+
+/* Final home services carousel sizing and spacing overrides. */
+.home-services{min-height:0;align-items:flex-start;padding:132px 0 52px}
+.home-services-header{margin-bottom:20px}
+.home-services-stage{height:430px}
+.home-service-card{box-sizing:border-box;width:clamp(285px,24vw,350px);height:340px;min-height:0;padding:20px}
+.home-service-icon{width:78px;height:78px;margin:13px 0 16px}
+.home-service-icon svg{width:42px;height:42px}
+.home-service-card h3{font-size:clamp(1.28rem,1.8vw,1.55rem)}
+.home-service-card p{margin:10px 0 14px;color:#e0e8f6;font-size:.84rem;line-height:1.5}
+.home-service-image img,.home-service-card.is-active .home-service-image img{opacity:.55;filter:brightness(.42) saturate(.78)}
+.home-service-image::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(3,8,22,.56),rgba(3,8,22,.42) 52%,rgba(3,8,22,.78))}
+.home-services-controls{margin-top:12px}
+.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:-215px}
+@media(max-width:1000px){.home-services{padding-top:116px}.home-services-stage{height:370px}.home-service-card{width:clamp(270px,34vw,330px);height:320px}.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:-185px}}
+@media(max-width:700px){.home-services{padding:86px 0 48px}.home-services-header{margin-bottom:18px}.home-services-header h2{font-size:clamp(2rem,8.5vw,2.8rem)}.home-services-stage{height:330px}.home-service-card{width:min(78vw,320px);height:300px;padding:16px}.home-service-icon{width:58px;height:58px;margin:8px 0 10px}.home-service-icon svg{width:33px;height:33px}.home-service-card h3{font-size:1.16rem}.home-service-card p{margin:7px 0 8px;font-size:.75rem;line-height:1.38}.home-service-link{padding:7px 11px;font-size:.63rem}.home-services-controls{margin-top:10px}.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:auto}}
+@media(max-width:380px){.home-services{padding-top:78px}.home-services-stage{height:305px}.home-service-card{width:min(82vw,290px);height:275px;padding:14px}}
+
+/* The active center card stays compact, with centered copy and clear space for the dots. */
+.home-services-header{position:relative;z-index:2;opacity:1;transform:none}
+.home-services.is-entered .home-services-header{opacity:1;transform:none}
+.home-services-stage{height:345px}
+.home-service-card{height:300px;align-items:center;padding:18px;text-align:center}
+.home-service-icon{width:64px;height:64px;margin:8px 0 10px}
+.home-service-icon svg{width:36px;height:36px}
+.home-service-card h3{max-width:100%;text-align:center}
+.home-service-card p{max-width:34ch;text-align:center}
+.home-services-controls{margin-top:14px}
+.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:-217px}
+@media(max-width:1000px){.home-services-stage{height:330px}.home-service-card{height:285px}.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:-179px}}
+@media(max-width:700px){.home-services-stage{height:300px}.home-service-card{height:260px;width:min(78vw,320px);padding:14px}.home-service-icon{width:54px;height:54px;margin:6px 0 8px}.home-service-icon svg{width:31px;height:31px}.home-service-card h3{font-size:1.12rem}.home-service-card p{margin:6px 0 7px;font-size:.73rem;line-height:1.35}.home-service-link{padding:6px 10px}.home-services-controls{margin-top:12px}.home-services-controls>.home-services-prev,.home-services-controls>.home-services-next{top:auto}}
+@media(max-width:380px){.home-services-stage{height:280px}.home-service-card{height:245px;width:min(82vw,290px);padding:12px}.home-service-icon{width:48px;height:48px;margin:5px 0 6px}.home-service-icon svg{width:28px;height:28px}.home-service-card h3{font-size:1.03rem}.home-service-card p{font-size:.69rem;line-height:1.3}.home-service-link{padding:5px 9px;font-size:.6rem}}
+
+/* Subpage hero copy is centered on phones; the home hero keeps its own layout. */
+@media (max-width: 700px) {
+  .page-hero:not(.sage-hero),
+  .page-hero:not(.sage-hero) > .container,
+  .about-page .about-hero-copy,
+  .services-page .services-hero-copy,
+  .portfolio-page .portfolio-hero-content,
+  .blog-page .blog-hero .container,
+  .careers-page .careers-hero-inner,
+  .contact-page.contact-design .contact-design-hero {
+    text-align: center;
+  }
+
+  .about-page .about-hero-copy,
+  .services-page .services-hero-copy,
+  .portfolio-page .portfolio-hero-content,
+  .blog-page .blog-hero .container,
+  .careers-page .careers-hero-inner {
+    margin-inline: auto;
+  }
+
+  .about-page .about-hero-copy .button,
+  .services-page .services-hero-actions,
+  .portfolio-page .portfolio-hero-link {
+    justify-content: center;
+  }
+
+  .page-hero-eyebrow,
+  .page-hero-subtitle,
+  .careers-hero-copy,
+  .contact-page .contact-hero-copy {
+    margin-inline: auto;
+  }
+
+  /* Darken image-led cards and lift their copy for legibility on small screens. */
+  .service-card .service-image,
+  .services-catalog-image img,
+  .services-page-card-art img,
+  .home-service-image img,
+  .home-project-card img,
+  .project-card img,
+  .website-project-preview > img,
+  .blog-card--interactive .blog-art img,
+  .portfolio-project-art img,
+  .about-team-card img,
+  .about-journey__image img,
+  .career-role-card img,
+  .careers-team-card img {
+    filter: brightness(.62) saturate(.82);
+  }
+
+  .service-card,
+  .services-catalog-card,
+  .services-page-card,
+  .home-project-card,
+  .project-card,
+  .blog-card--interactive,
+  .portfolio-project,
+  .about-team-card,
+  .about-journey__step,
+  .career-role-card,
+  .careers-team-card,
+  .principle-card,
+  .review-card,
+  .contact-detail-card {
+    color: #f4f7ff;
+  }
+
+  .service-card p,
+  .services-catalog-copy > span:nth-child(2),
+  .services-page-card-copy > span,
+  .home-project-card p,
+  .project-card p,
+  .blog-card-summary,
+  .portfolio-project-copy > p:not(.portfolio-kicker),
+  .about-team-card p,
+  .career-role-card p,
+  .careers-team-card p {
+    color: #d5deec;
+  }
+}
+
+/* Give every home service the same card footprint at each viewport size. */
+.home-service-card {
+  box-sizing: border-box;
+  height: clamp(410px, 34vw, 510px);
+  min-height: 0;
+}
+
+@media (max-width: 1000px) {
+  .home-service-card { height: 400px; }
+}
+
+@media (max-width: 700px) {
+  .home-service-card { height: 370px; }
+}
+
+@media (max-width: 380px) {
+  .home-service-card { height: 315px; }
+}
+
+/* Compact mobile card grids and navigation controls. */
+@media (max-width: 700px) {
+  .blog-page .blog-grid,
+  .services-page .services-page-grid,
+  .services-page .services-catalog-grid,
+  .home-page .home-projects-grid,
+  .portfolio-page .website-project-grid {
+    gap: 18px;
+  }
+
+  .blog-page .blog-card--interactive,
+  .services-page .services-page-card,
+  .home-page .home-project-card,
+  .portfolio-page .website-project-card {
+    width: min(100%, 440px);
+    justify-self: center;
+  }
+
+  .blog-page .blog-card--interactive .blog-art {
+    aspect-ratio: 1.35;
+    min-height: 0;
+  }
+
+  .blog-page .blog-card-copy { padding: 16px; }
+  .blog-page .blog-card--interactive h2 { font-size: 1.15rem; }
+  .blog-page .blog-card-summary { font-size: .82rem; line-height: 1.55; }
+
+  .services-page .services-catalog-image { aspect-ratio: 1.65; }
+  .home-page .home-project-art { aspect-ratio: 1.7; }
+
+  .portfolio-page .portfolio-tabs,
+  .reviews-carousel-controls {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .portfolio-page .portfolio-tabs a,
+  .reviews-carousel-controls > button {
+    min-width: 0;
+    min-height: 38px;
+    padding-inline: 9px;
+    font-size: .68rem;
+  }
+
+  .portfolio-page .website-project-preview { aspect-ratio: 1.65; }
+
+  .services-catalog-image img,
+  .services-page-card-art img,
+  .home-service-image img,
+  .home-project-card img,
+  .project-card img,
+  .website-project-preview > img,
+  .blog-card--interactive .blog-art img,
+  .portfolio-project-art img,
+  .about-team-card img,
+  .about-journey__image img,
+  .career-role-card img,
+  .careers-team-card img {
+    filter: brightness(.48) saturate(.76);
+  }
+}
+
+/* Keep careers teams and their application form in a clear mobile sequence. */
+@media(max-width:760px){
+  .careers-page .careers-content{display:flex;flex-direction:column;align-items:stretch;gap:30px}
+  .careers-page .careers-teams{order:0;width:100%;margin:0}
+  .careers-page .careers-team-carousel{height:auto;overflow:visible}
+  .careers-page .careers-application{order:1;position:relative;z-index:1;align-self:stretch;width:100%;max-width:none;margin:18px 0 0;padding:24px 20px;border:1px solid rgba(61,203,231,.38);border-radius:18px;background:radial-gradient(ellipse at 100% 0,rgba(64,103,217,.16),transparent 42%),linear-gradient(145deg,rgba(10,22,45,.98),rgba(6,12,28,.99));box-shadow:0 18px 44px rgba(0,0,0,.28),0 0 26px rgba(28,166,216,.1),inset 0 1px rgba(255,255,255,.06)}
+  .careers-page .careers-benefits{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:17px 0 25px}
+  .careers-page .careers-benefits article{display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 5px;text-align:center}
+  .careers-page .careers-benefits article>svg{width:15px;height:15px;flex:none}
+  .careers-page .careers-benefits h3{margin:0;font-size:.62rem;line-height:1.2}
+  .careers-page .careers-benefits p{font-size:.53rem;line-height:1.25}
+}
+
+@media(max-width:380px){
+  .careers-page .careers-benefits{gap:5px}
+  .careers-page .careers-benefits article{padding:9px 3px}
+  .careers-page .careers-benefits h3{font-size:.57rem}
+  .careers-page .careers-benefits p{font-size:.49rem}
+  .careers-page .careers-application{padding:21px 15px}
+}
+
+@media(max-width:760px){
+  .careers-page .careers-teams>.careers-section-label,
+  .careers-page .careers-teams>h2,
+  .careers-page .careers-teams-intro,
+  .careers-page .careers-team-heading{text-align:center}
+  .careers-page .careers-teams>.careers-section-label,
+  .careers-page .careers-team-heading .careers-section-label{justify-content:center}
+  .careers-page .careers-teams>h2{max-width:none;margin-inline:auto;font-size:clamp(1.85rem,7.5vw,2.25rem);line-height:1.12;letter-spacing:-.045em}
+  .careers-page .careers-teams-intro{max-width:52ch;margin:12px auto 18px;font-size:.83rem;line-height:1.58;letter-spacing:.005em}
+  .careers-page .careers-team-heading{margin-bottom:14px}
+  .careers-page .careers-team-heading h2{line-height:1.15;letter-spacing:-.035em}
+}
+
+@media(max-width:380px){
+  .careers-page .careers-teams>h2{font-size:1.82rem;line-height:1.14}
+  .careers-page .careers-teams-intro{margin-top:10px;font-size:.79rem;line-height:1.55}
+}
+
+/* Mobile home intro: play the Sage boy video as a full-screen opening, then reveal the hero. */
+@media(max-width:760px){
+  html.mobile-sage-intro-active,
+  html.mobile-sage-intro-active body,
+  html.mobile-sage-intro-active #root,
+  html.mobile-sage-intro-active .site-wrapper,
+  html.mobile-sage-intro-active .main-content{overflow:visible!important}
+  .home-page .sage-hero--mobile-intro{position:fixed!important;z-index:2147483000;inset:0;width:100vw;height:100vh;height:100dvh;min-height:0;margin:0;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden!important;background:#050914!important}
+  .home-page .sage-hero{background:#050914!important}
+  .home-page .sage-hero-orbit{display:none}
+  .home-page .sage-hero--mobile-intro .sage-hero-inner{display:none}
+  .home-page .sage-hero-boy-wrap.is-intro{position:absolute!important;z-index:1;inset:0!important;width:100%;height:100%;margin:0;align-items:center;justify-content:center;overflow:hidden;background:#050914;opacity:1!important;transform:none!important;pointer-events:auto}
+  .home-page .sage-hero-boy-wrap.is-intro video{width:min(100%,56.25dvh);height:auto;max-height:100%;max-width:none;aspect-ratio:9/16;object-fit:cover;object-position:center;opacity:1;mix-blend-mode:screen;-webkit-mask-image:none;mask-image:none;animation:none;transform:scale(.9)}
+  .home-page .sage-hero-boy-wrap:not(.is-intro){position:absolute!important;z-index:0;inset:0!important;width:100%;height:100%;margin:0;align-items:center;justify-content:center;overflow:hidden;background:#050914}
+  .home-page .sage-hero-boy-wrap:not(.is-intro)::after{position:absolute;z-index:1;inset:0;content:"";pointer-events:none;background:linear-gradient(180deg,rgba(3,6,16,.45),rgba(3,6,16,.62))}
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video{position:relative;z-index:0;width:min(100%,56.25dvh);height:auto;max-height:100%;max-width:none;aspect-ratio:9/16;object-fit:cover;object-position:center;opacity:.72;mix-blend-mode:screen;filter:brightness(.72) saturate(.82);-webkit-mask-image:none;mask-image:none;animation:none;transform:scale(.94)}
+  .home-page .sage-hero-inner{position:relative;z-index:2}
+}
+
+/* Center the page hero copy on mobile, above its existing full-bleed artwork. */
+@media(max-width:760px){
+  .about-page .page-hero--about .about-hero-copy,
+  .portfolio-page .portfolio-hero .portfolio-hero-content,
+  .careers-page .careers-hero .careers-hero-inner,
+  .contact-page.contact-design .contact-design-hero > .contact-kicker,
+  .contact-page.contact-design .contact-design-hero > .contact-breadcrumb{
+    align-items:center;
+    justify-content:center;
+    margin-inline:auto;
+    text-align:center;
+  }
+
+  .about-page .page-hero--about .about-hero-copy,
+  .portfolio-page .portfolio-hero .portfolio-hero-content,
+  .careers-page .careers-hero .careers-hero-inner{
+    width:100%;
+    max-width:100%;
+    padding-inline:18px;
+  }
+
+  .about-page .page-hero--about .about-hero-copy .button,
+  .portfolio-page .portfolio-hero .portfolio-hero-link{
+    align-self:center;
+    justify-content:center;
+    margin-inline:auto;
+  }
+
+  .careers-page .careers-hero h1,
+  .portfolio-page .portfolio-hero .page-hero-title,
+  .about-page .page-hero--about .page-hero-title{
+    margin-inline:auto;
+    text-align:center;
+  }
+
+  .contact-page.contact-design .contact-design-hero{
+    align-items:center;
+    text-align:center;
+  }
+
+  .contact-page.contact-design .contact-design-hero > .contact-kicker,
+  .contact-page.contact-design .contact-design-hero > .contact-breadcrumb{
+    width:100%;
+    max-width:100%;
+    padding-inline:18px;
+  }
+
+  .contact-page.contact-design .contact-design-hero > .contact-kicker{
+    padding-block:0 8px;
+  }
+
+  .contact-page.contact-design .contact-design-hero > .contact-breadcrumb{
+    padding-block:0 20px;
+  }
+
+  .contact-page.contact-design .contact-breadcrumb h2{
+    justify-content:center;
+    text-align:center;
+  }
+}
+
+/* Use exactly one accent rule on each side of every Home section eyebrow. */
+.home-page .about--home .about-content>.eyebrow,
+.home-page .our-clients__eyebrow,
+.home-page .home-services-header>.eyebrow,
+.home-page .why-choose-eyebrow,
+.home-page .home-projects-eyebrow,
+.home-page .reviews-eyebrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.home-page .about--home .about-content>.eyebrow>span,
+.home-page .our-clients__eyebrow>span,
+.home-page .home-services-header>.eyebrow>span,
+.home-page .why-choose-eyebrow>i,
+.home-page .home-projects-eyebrow>i,
+.home-page .reviews-eyebrow>i{
+  display:none!important;
+}
+
+.home-page .about--home .about-content>.eyebrow::before,
+.home-page .about--home .about-content>.eyebrow::after,
+.home-page .our-clients__eyebrow::before,
+.home-page .our-clients__eyebrow::after,
+.home-page .home-services-header>.eyebrow::before,
+.home-page .home-services-header>.eyebrow::after,
+.home-page .why-choose-eyebrow::before,
+.home-page .why-choose-eyebrow::after,
+.home-page .home-projects-eyebrow::before,
+.home-page .home-projects-eyebrow::after,
+.home-page .reviews-eyebrow::before,
+.home-page .reviews-eyebrow::after{
+  display:block;
+  width:24px;
+  height:1px;
+  flex:0 0 24px;
+  content:"";
+  background:linear-gradient(90deg,#17d8ed,#ad43e7,#ee39c6);
+  box-shadow:0 0 8px rgba(64,190,245,.35);
+}
+
+/* Keep every Home service card's artwork subdued beneath readable copy. */
+.home-page .home-services .home-service-card{
+  background:linear-gradient(145deg,#050b18 0%,#030713 68%,#090718 100%);
+}
+.home-page .home-services .home-service-card .home-service-image img{
+  opacity:.34;
+  filter:brightness(.5) saturate(.68) contrast(1.04);
+}
+.home-page .home-services .home-service-card.is-active .home-service-image img{
+  opacity:.4;
+  filter:brightness(.56) saturate(.76) contrast(1.05);
+}
+.home-page .home-services .home-service-card.is-active:hover .home-service-image img{
+  opacity:.44;
+  filter:brightness(.6) saturate(.8) contrast(1.05);
+}
+.home-page .home-services .home-service-card.is-active .home-service-number{
+  color:#d5e5fb;
+}
+.home-page .home-services .home-service-card.is-active h3{
+  color:#fff;
+  text-shadow:0 1px 14px rgba(106,202,255,.18);
+}
+.home-page .home-services .home-service-card.is-active p{
+  color:#e0eafb;
+}
+.home-page .home-services .home-service-card.is-active .home-service-link{
+  color:#fff;
+  background:linear-gradient(100deg,#00e6f5 0%,#3278ff 52%,#e12fe6 100%);
+  box-shadow:0 0 22px rgba(22,196,255,.48),0 0 28px rgba(207,39,229,.28);
+  text-shadow:0 1px 5px rgba(0,0,0,.28);
+}
+.home-page .home-services .home-service-card.is-active .home-service-link:hover,
+.home-page .home-services .home-service-card.is-active .home-service-link:focus-visible{
+  filter:brightness(1.16);
+  box-shadow:0 0 28px rgba(22,196,255,.6),0 0 34px rgba(207,39,229,.38);
+}
+.home-page .home-services .home-service-card::after{
+  z-index:1;
+  background:linear-gradient(180deg,rgba(2,6,16,.24),rgba(2,6,16,.54)),radial-gradient(280px circle at 72% 22%,rgba(48,64,155,.1),transparent 68%);
+}
+
+/* Mobile finishing pass for the Home page content and service carousel. */
+@media(max-width:760px){
+  .home-page .about--home{
+    padding:58px 0 48px;
+  }
+  .home-page .about--home .about-container{
+    display:block;
+    width:calc(100% - 36px);
+  }
+  .home-page .about--home .about-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:0;
+    text-align:center;
+  }
+  .home-page .about--home .about-content>.eyebrow{
+    justify-content:center;
+    margin:0 auto 12px;
+  }
+  .home-page .about--home .about-statement{
+    max-width:17ch;
+    margin:0 auto 18px;
+    font-size:clamp(1.9rem,8vw,2.5rem);
+    line-height:1.08;
+    text-align:center;
+    text-wrap:balance;
+  }
+  .home-page .about--home .about-home-visual{
+    width:100%;
+    margin:0 auto 18px;
+  }
+  .home-page .about--home .about-home-visual img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:1.55;
+    object-fit:cover;
+  }
+  .home-page .about--home .about-text{
+    max-width:42ch;
+    margin:0 auto 18px;
+    font-size:clamp(.88rem,3.7vw,.96rem);
+    line-height:1.68;
+    text-align:center;
+    text-wrap:pretty;
+  }
+  .home-page .about--home .about-metrics--tabs{
+    width:100%;
+    margin:0 auto 16px;
+  }
+  .home-page .about--home .about-metrics-tabs{
+    justify-content:center;
+    gap:6px;
+  }
+  .home-page .about--home .about-metrics-tabs button{
+    min-height:40px;
+    padding-inline:clamp(9px,3vw,14px);
+    font-size:clamp(.62rem,2.8vw,.72rem);
+  }
+  .home-page .about--home .about-metrics-panel{
+    padding:13px 15px;
+    font-size:.84rem;
+    line-height:1.6;
+    text-align:center;
+  }
+  .home-page .about--home .about-actions{
+    justify-content:center;
+    width:100%;
+  }
+  .home-page .about--home .about-home-cta{
+    min-height:44px;
+    justify-content:center;
+  }
+
+  .home-page .home-services{
+    padding:58px 0 50px;
+  }
+  .home-page .home-services-inner{
+    width:calc(100% - 32px);
+  }
+  .home-page .home-services-header{
+    margin:0 auto 18px;
+    text-align:center;
+  }
+  .home-page .home-services-header .eyebrow{
+    justify-content:center;
+    margin-bottom:12px;
+    font-size:.62rem;
+    letter-spacing:.16em;
+  }
+  .home-page .home-services-header h2{
+    max-width:15ch;
+    font-size:clamp(2rem,8.3vw,2.65rem);
+    line-height:1.04;
+    text-align:center;
+    text-wrap:balance;
+  }
+  .home-page .home-services-header>p:last-child{
+    max-width:38ch;
+    margin:12px auto 0;
+    font-size:.86rem;
+    line-height:1.6;
+    text-align:center;
+  }
+  .home-page .home-services-stage{
+    height:350px;
+  }
+  .home-page .home-service-card{
+    width:min(86vw,340px);
+    height:304px!important;
+    padding:16px;
+    border-radius:22px;
+  }
+  .home-page .home-service-image img{
+    opacity:.56;
+    filter:brightness(.96) saturate(1.02);
+  }
+  .home-page .home-service-card.is-active .home-service-image img{
+    opacity:.62;
+    filter:brightness(1) saturate(1.05);
+  }
+  .home-page .home-service-number{
+    font-size:.65rem;
+  }
+  .home-page .home-service-icon{
+    width:58px;
+    height:58px;
+    margin:9px 0 10px;
+    border-radius:18px;
+  }
+  .home-page .home-service-icon svg{
+    width:32px;
+    height:32px;
+  }
+  .home-page .home-service-card h3{
+    font-size:1.16rem;
+    line-height:1.2;
+  }
+  .home-page .home-service-card p{
+    max-width:35ch;
+    margin:8px 0 10px;
+    font-size:.78rem;
+    line-height:1.48;
+  }
+  .home-page .home-service-link{
+    min-height:36px;
+    padding:7px 13px;
+    font-size:.66rem;
+  }
+  .home-page .home-services-controls{
+    gap:12px;
+    margin-top:14px;
+  }
+  .home-page .home-services-controls>.home-services-prev,
+  .home-page .home-services-controls>.home-services-next{
+    width:42px;
+    height:42px;
+  }
+  .home-page .home-services-dots{
+    gap:7px;
+    margin-top:7px;
+  }
+
+  .home-page .home-projects-heading,
+  .home-page .home-projects-heading>div,
+  .home-page .home-project-card,
+  .home-page .home-project-card h3,
+  .home-page .home-project-category{
+    text-align:center;
+  }
+  .home-page .home-project-card h3{
+    max-width:32ch;
+    margin-inline:auto;
+    line-height:1.35;
+  }
+  .home-page .home-project-meta{
+    justify-content:center;
+  }
+  .home-page .home-project-meta svg{
+    display:none;
+  }
+  .home-page .reviews-copy,
+  .home-page .reviews-copy h2,
+  .home-page .reviews-description{
+    text-align:center;
+  }
+  .home-page .reviews-eyebrow,
+  .home-page .reviews-cta-block{
+    justify-content:center;
+    text-align:center;
+  }
+  .home-page .reviews-description{
+    max-width:40ch;
+    margin-inline:auto;
+    line-height:1.65;
+  }
+}
+
+@media(max-width:380px){
+  .home-page .home-services-stage{height:334px}
+  .home-page .home-service-card{width:min(88vw,320px);height:292px!important;padding:13px}
+  .home-page .home-service-card p{font-size:.74rem}
+}
+
+@media(max-width:760px) and (prefers-reduced-motion:reduce){
+  .home-page .home-service-card,
+  .home-page .home-service-image img,
+  .home-page .home-services-dots button,
+  .home-page .home-service-link,
+  .home-page .home-project-card{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+/* Keep section eyebrows and vertical rhythm consistent across the mobile Home page. */
+@media(max-width:760px){
+  .home-page .about--home,
+  .home-page .home-services,
+  .home-page .why-choose--orbit,
+  .home-page .home-projects,
+  .home-page .client-reviews{
+    padding-block:32px;
+  }
+  .home-page .our-clients{
+    padding-block:24px;
+  }
+  .home-page .common-questions{
+    margin-block:4px;
+    padding-block:24px;
+  }
+  .home-page .about--home .about-container{
+    padding-block:0;
+  }
+
+  .home-page .about--home .about-content>.eyebrow,
+  .home-page .our-clients__eyebrow,
+  .home-page .home-services-header>.eyebrow,
+  .home-page .why-choose-eyebrow,
+  .home-page .home-projects-eyebrow,
+  .home-page .reviews-eyebrow{
+    display:flex;
+    width:max-content;
+    max-width:100%;
+    min-height:25px;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:0 auto 10px;
+    padding:3px 10px;
+    border:1px solid rgba(91,177,226,.24);
+    border-radius:999px;
+    background:linear-gradient(110deg,rgba(6,205,231,.07),rgba(175,48,211,.08));
+    color:#cad9ee;
+    font-size:.56rem;
+    font-weight:750;
+    line-height:1.2;
+    letter-spacing:.15em;
+    text-align:center;
+    text-transform:uppercase;
+  }
+  .home-page .about--home .about-content>.eyebrow span,
+  .home-page .our-clients__eyebrow span,
+  .home-page .why-choose-eyebrow i,
+  .home-page .home-projects-eyebrow i,
+  .home-page .reviews-eyebrow i{
+    width:17px;
+    height:1px;
+    flex:0 0 17px;
+    margin:0;
+    background:linear-gradient(90deg,#17d8ed,#b342e7,#ee39c6);
+    box-shadow:0 0 8px rgba(64,190,245,.35);
+  }
+  .home-page .home-services-header>.eyebrow::before,
+  .home-page .home-services-header>.eyebrow::after{
+    width:17px;
+    height:1px;
+    flex:0 0 17px;
+    background:linear-gradient(90deg,#17d8ed,#b342e7,#ee39c6);
+  }
+  .home-page .our-clients__heading,
+  .home-page .home-services-header,
+  .home-page .home-projects-heading{
+    margin-bottom:16px;
+  }
+  .home-page .why-choose-eyebrow{margin-bottom:12px}
+  .home-page .reviews-eyebrow{margin-bottom:10px}
+  .home-page .common-questions-heading h2,
+  .home-page .common-questions-hint{
+    text-align:center;
+  }
+}
+
+/* Shorter mobile hero bands across the main inner pages. */
+@media(max-width:760px){
+  .about-page .page-hero--about,
+  .services-page .page-hero--services,
+  .portfolio-page .portfolio-hero,
+  .careers-page .careers-hero,
+  .blog-page .blog-hero,
+  .contact-page.contact-design .contact-design-hero{
+    min-height:clamp(250px,34svh,300px);
+  }
+
+  .about-page .page-hero--about .about-hero-copy,
+  .services-page .page-hero--services .services-hero-layout,
+  .portfolio-page .portfolio-hero .portfolio-hero-content,
+  .careers-page .careers-hero .careers-hero-inner,
+  .blog-page .blog-hero .container{
+    padding-block:30px;
+  }
+}
+
+@media(max-width:480px){
+  .about-page .page-hero--about,
+  .services-page .page-hero--services,
+  .portfolio-page .portfolio-hero,
+  .careers-page .careers-hero,
+  .blog-page .blog-hero,
+  .contact-page.contact-design .contact-design-hero{
+    min-height:245px;
+  }
+}
+
+/* Show the contact form before the map on mobile screens. */
+@media(max-width:760px){
+  .contact-page.contact-design .contact-main-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .contact-page.contact-design .contact-main-grid > .contact-form-panel{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  .contact-page.contact-design .contact-main-grid > .contact-map-panel{
+    grid-column:1;
+    grid-row:2;
+  }
+}
+
+/* Compact the message field and resume upload area in the Careers form. */
+.careers-page .careers-application .careers-message-field{
+  min-height:76px;
+  padding-top:8px;
+}
+
+.careers-page .careers-application .careers-message-field textarea{
+  height:58px;
+  min-height:58px;
+}
+
+.careers-page .careers-application .careers-resume{
+  gap:10px;
+  padding:10px 13px;
+}
+
+.careers-page .careers-application .careers-resume p{
+  margin-block:3px;
+  line-height:1.4;
+}
+
+@media(max-width:760px){
+  .careers-page .careers-application .careers-resume{
+    gap:8px;
+    padding:9px 11px;
+  }
+
+  .careers-page .careers-application .careers-resume p{
+    margin-block:2px;
+    line-height:1.35;
+  }
+
+  .careers-page .careers-application .careers-resume small{
+    line-height:1.25;
+  }
+}
+
+/* Center the Home hero on phones; keep its intro full-height and bright before dimming the background video. */
+@media(max-width:760px){
+  .home-page .sage-hero.sage-hero--mobile-intro{
+    position:fixed!important;
+    z-index:2147483000!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    height:100dvh!important;
+    min-height:0!important;
+    max-height:100dvh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    box-sizing:border-box;
+  }
+  .home-page .sage-hero--mobile-intro > :not(.sage-hero-boy-wrap){display:none!important}
+
+  html.mobile-sage-intro-active .navbar{
+    display:none!important;
+  }
+
+  .home-page .sage-hero-copy,
+  .home-page .sage-hero h1,
+  .home-page .sage-hero-description,
+  .home-page .sage-hero-stats,
+  .home-page .sage-hero-stats .sage-hero-stat,
+  .home-page .sage-hero-stats .sage-hero-stat>span:last-child{
+    text-align:center;
+  }
+  .home-page .sage-hero-copy{margin-inline:auto}
+  .home-page .sage-hero-eyebrow,
+  .home-page .sage-hero-actions,
+  .home-page .sage-hero-stats .sage-hero-stat-value{
+    justify-content:center;
+  }
+  .home-page .sage-hero-actions{align-items:center}
+  .home-page .sage-hero--mobile-intro::before{background:rgba(3,5,15,.04)}
+  .home-page .sage-hero-boy-wrap.is-intro{
+    position:absolute!important;
+    z-index:1!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-height:100%!important;
+    margin:0!important;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:#050914;
+    opacity:1!important;
+    transform:none!important;
+  }
+  .home-page .sage-hero-boy-wrap.is-intro video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    aspect-ratio:auto;
+    object-fit:contain;
+    object-position:center;
+    filter:brightness(1.2) saturate(1.12) contrast(1.04);
+    opacity:1;
+    mix-blend-mode:normal;
+    transform:none;
+  }
+  .home-page .sage-hero-boy-wrap:not(.is-intro)::after{
+    background:linear-gradient(180deg,rgba(3,6,16,.34),rgba(3,6,16,.54))
+  }
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video{
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    aspect-ratio:auto;
+    object-fit:cover;
+    object-position:center;
+    opacity:.72;
+    filter:brightness(.7) saturate(.68);
+    transform:none;
+  }
+}
+
+/* Clean up the Home service cards on phones: dark art, bright copy, and fewer ornaments. */
+@media(max-width:760px){
+  .home-page .home-services .home-service-card{
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:linear-gradient(145deg,#030813 0%,#050a17 58%,#080615 100%);
+    text-align:center;
+  }
+  .home-page .home-services .home-service-card::before{
+    display:none;
+  }
+  .home-page .home-services .home-service-card::after{
+    background:linear-gradient(180deg,rgba(1,4,12,.52),rgba(1,4,12,.78));
+  }
+  .home-page .home-services .home-service-card .home-service-number,
+  .home-page .home-services .home-service-card .home-service-icon{
+    display:none;
+  }
+  .home-page .home-services .home-service-card .home-service-image img{
+    opacity:.24;
+    filter:brightness(.38) saturate(.55) contrast(1.08);
+  }
+  .home-page .home-services .home-service-card.is-active h3{
+    color:#fff;
+    font-size:1.25rem;
+    line-height:1.25;
+    text-shadow:0 2px 16px rgba(0,0,0,.8),0 0 16px rgba(77,209,255,.2);
+  }
+  .home-page .home-services .home-service-card.is-active p{
+    max-width:34ch;
+    color:#edf4ff;
+    font-size:.82rem;
+    line-height:1.55;
+    text-shadow:0 1px 8px rgba(0,0,0,.85);
+  }
+  .home-page .home-services .home-service-card.is-active .home-service-link{
+    min-height:40px;
+    padding:8px 16px;
+    border:1px solid rgba(212,249,255,.52);
+    background:linear-gradient(100deg,#00e9f5,#3479ff 52%,#ed28dc);
+    box-shadow:0 0 24px rgba(0,205,255,.5),0 0 32px rgba(208,37,232,.3);
+    color:#fff;
+    font-size:.7rem;
+    text-shadow:0 1px 5px rgba(0,0,0,.35);
+  }
+  .home-page .home-services .home-service-card .home-service-number,
+  .home-page .home-services .home-service-card .home-service-icon,
+  .home-page .home-services .home-service-card h3,
+  .home-page .home-services .home-service-card p,
+  .home-page .home-services .home-service-card .home-service-link{
+    z-index:2;
+  }
+}
+
+/* Reuse each service's own icon as a quiet visual anchor and pin its CTA to the card base. */
+@media(max-width:760px){
+  .home-page .home-services .home-service-card{
+    justify-content:flex-start;
+  }
+  .home-page .home-services .home-service-card .home-service-icon{
+    display:grid;
+    width:62px;
+    height:62px;
+    flex:0 0 62px;
+    margin:2px 0 4px;
+    border-color:rgba(105,212,255,.5);
+    border-radius:19px;
+    background:radial-gradient(circle at 50% 45%,rgba(10,205,244,.24),rgba(30,65,154,.15) 58%,rgba(5,10,28,.72));
+    box-shadow:0 0 24px rgba(22,174,244,.18),inset 0 0 15px rgba(117,87,245,.12);
+    color:#86efff;
+  }
+  .home-page .home-services .home-service-card .home-service-icon svg{
+    width:31px;
+    height:31px;
+    filter:drop-shadow(0 0 7px rgba(27,210,255,.48));
+  }
+  .home-page .home-services .home-service-card.is-active .home-service-link{
+    align-self:center;
+    margin-top:auto;
+    min-width:138px;
+  }
+}
+
+/* Add two useful service details and preserve room for the bottom CTA on phones. */
+@media(max-width:760px){
+  .home-page .home-services-stage{
+    height:386px;
+  }
+  .home-page .home-services .home-service-card{
+    height:354px!important;
+    padding:14px 16px;
+    gap:7px;
+  }
+  .home-page .home-services .home-service-card .home-service-icon{
+    width:52px;
+    height:52px;
+    flex-basis:52px;
+    margin:0 0 2px;
+  }
+  .home-page .home-services .home-service-card h3{
+    margin:0;
+  }
+  .home-page .home-services .home-service-card p{
+    display:-webkit-box;
+    max-width:35ch;
+    margin:0;
+    overflow:hidden;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    line-clamp:2;
+  }
+  .home-page .home-services .home-service-highlights{
+    position:relative;
+    z-index:2;
+    display:block;
+    width:100%;
+    margin:2px 0 0;
+    padding:0;
+    list-style:none;
+    color:#d6e6f8;
+    font-size:.64rem;
+    line-height:1.65;
+    letter-spacing:.01em;
+    text-align:center;
+  }
+  .home-page .home-services .home-service-highlights li{
+    display:inline;
+    color:inherit;
+    font:inherit;
+    line-height:inherit;
+    white-space:normal;
+  }
+  .home-page .home-services .home-service-highlights li:not(:last-child)::after{
+    margin-inline:6px;
+    color:#4bd8f0;
+    content:"·";
+    font-weight:800;
+  }
+  .home-page .home-services .home-service-card.is-active .home-service-link{
+    min-height:40px;
+    margin-top:auto;
+    margin-bottom:5px;
+  }
+}
+@media(max-width:380px){
+  .home-page .home-services-stage{height:374px}
+  .home-page .home-services .home-service-card{height:342px!important;padding-inline:12px}
+  .home-page .home-services .home-service-highlights{font-size:.6rem;line-height:1.58}
+}
+
+/* Show the full Home service copy without decorative clutter or clipping. */
+.home-page .home-services .home-service-card{
+  height:430px!important;
+}
+.home-page .home-services .home-service-card p{
+  display:block;
+  max-width:100%;
+  overflow:visible;
+  -webkit-line-clamp:unset;
+  line-clamp:unset;
+}
+@media(min-width:701px) and (max-width:1000px){
+  .home-page .home-services-stage{height:430px}
+  .home-page .home-services .home-service-card{height:390px!important}
+}
+@media(max-width:700px){
+  .home-page .home-services-stage{height:452px}
+  .home-page .home-services .home-service-card{
+    height:420px!important;
+    justify-content:flex-start;
+  }
+  .home-page .home-services .home-service-card .home-service-number,
+  .home-page .home-services .home-service-card .home-service-icon{
+    display:none;
+  }
+  .home-page .home-services .home-service-highlights{
+    font-size:.62rem;
+    line-height:1.55;
+  }
+  .home-page .home-services .home-service-card.is-active .home-service-link{
+    margin-top:auto;
+    margin-bottom:7px;
+  }
+}
+@media(max-width:380px){
+  .home-page .home-services-stage{height:436px}
+  .home-page .home-services .home-service-card{height:404px!important}
+}
+
+/* Keep the Sage AI launcher easy to see and tap at every screen size. */
+.sage-ai-widget{
+  width:104px!important;
+  height:104px!important;
+  transform:none!important;
+}
+.sage-ai-launcher{
+  width:92px!important;
+  height:92px!important;
+  min-height:92px!important;
+}
+@media(max-width:760px){
+  .sage-ai-widget{
+    width:94px!important;
+    height:94px!important;
+  }
+  .sage-ai-launcher{
+    width:82px!important;
+    height:82px!important;
+    min-height:82px!important;
+  }
+}
+
+/* Keep the home service artwork behind high contrast copy, with pagination clear of the card. */
+.home-page .home-services .home-service-card .home-service-image img,
+.home-page .home-services .home-service-card.is-active .home-service-image img,
+.home-page .home-services .home-service-card.is-active:hover .home-service-image img{
+  opacity:.28!important;
+  filter:brightness(.38) saturate(.68) contrast(1.04)!important;
+}
+.home-page .home-services .home-service-card::after{
+  z-index:1;
+  background:linear-gradient(180deg,rgba(1,4,12,.42),rgba(1,4,12,.72))!important;
+}
+.home-page .home-services .home-service-card.is-active .home-service-number,
+.home-page .home-services .home-service-card.is-active .home-service-number i{color:#fff!important;opacity:1!important}
+.home-page .home-services.is-entered .home-service-card.is-active{
+  opacity:1!important;
+  filter:none!important;
+}
+.home-page .home-services .home-service-card.is-active h3,
+.home-page .home-services .home-service-card.is-active p,
+.home-page .home-services .home-service-card.is-active .home-service-highlights li{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff;
+  opacity:1!important;
+  text-shadow:0 2px 14px rgba(0,0,0,.98),0 0 10px rgba(14,190,255,.2);
+}
+.home-page .home-services .home-service-card.is-active h3{font-weight:750}
+.home-page .home-services .home-service-card.is-active p{font-weight:550}
+.home-page .home-services .home-services-stage{height:470px!important}
+.home-page .home-services .home-services-controls{margin-top:14px!important}
+@media(min-width:701px) and (max-width:1000px){
+  .home-page .home-services .home-services-stage{height:430px!important}
+}
+@media(max-width:700px){
+  .home-page .home-services .home-services-stage{height:452px!important}
+  .home-page .home-services .home-services-controls{margin-top:18px!important}
+  .home-page .home-services .home-services-dots{margin-top:8px}
+}
+@media(max-width:380px){
+  .home-page .home-services .home-services-stage{height:436px!important}
+}
+
+/* Use one readable navigation scale on every route, including the contact page variant. */
+.navbar .navbar-link,
+body:has(.contact-design) .navbar .navbar-link{
+  font-size:.96rem!important;
+  font-weight:600!important;
+  letter-spacing:.01em!important;
+  text-transform:none!important;
+}
+.navbar .mobile-nav-link,
+body:has(.contact-design) .navbar .mobile-nav-link{
+  font-size:1.18rem!important;
+  font-weight:600!important;
+}
+
+/* Lift the small copy and bright CTA across every slide in the Home services carousel. */
+.home-page .home-services .home-service-card h3{font-size:clamp(1.45rem,2.1vw,1.72rem)}
+.home-page .home-services .home-service-card p{font-size:.94rem;line-height:1.58}
+.home-page .home-services .home-service-card .home-service-link{
+  min-height:42px;
+  padding:10px 17px;
+  border-color:rgba(224,252,255,.58)!important;
+  background:linear-gradient(100deg,#00efff 0%,#347eff 52%,#f12de8 100%)!important;
+  box-shadow:0 0 20px rgba(0,224,255,.58),0 0 34px rgba(220,35,239,.42),inset 0 1px rgba(255,255,255,.45)!important;
+  color:#fff!important;
+  font-size:.78rem;
+  font-weight:800;
+  text-shadow:0 1px 5px rgba(0,0,0,.55);
+}
+.home-page .home-services .home-service-card .home-service-link:hover,
+.home-page .home-services .home-service-card .home-service-link:focus-visible{
+  filter:brightness(1.2)!important;
+  box-shadow:0 0 28px rgba(0,232,255,.72),0 0 42px rgba(225,35,244,.56)!important;
+}
+@media(max-width:700px){
+  .home-page .home-services .home-service-card h3,
+  .home-page .home-services .home-service-card.is-active h3{font-size:1.3rem}
+  .home-page .home-services .home-service-card p,
+  .home-page .home-services .home-service-card.is-active p{font-size:.88rem;line-height:1.52}
+  .home-page .home-services .home-service-card .home-service-link,
+  .home-page .home-services .home-service-card.is-active .home-service-link{font-size:.74rem}
+  .home-page .home-services .home-service-highlights{font-size:.7rem;line-height:1.5}
+}
+
+/* Use clean black hero panels across routes; retain the Home hero video as its only artwork. */
+.page-hero,
+.portfolio-page .portfolio-hero,
+.careers-page .careers-hero,
+.blog-page .blog-hero,
+.contact-page.contact-design .contact-design-hero,
+.service-detail-page .service-detail-hero{
+  min-height:clamp(220px,28svh,300px)!important;
+  height:auto!important;
+  padding:36px 24px!important;
+  background:#000!important;
+  background-image:none!important;
+  background-attachment:initial!important;
+  text-align:center!important;
+}
+.home-page .sage-hero{
+  min-height:min(680px,calc(100svh - 62px))!important;
+  background:#000!important;
+  background-image:none!important;
+  text-align:center!important;
+}
+.home-page .sage-hero-orbit{display:none!important}
+.home-page .sage-hero-copy{
+  width:min(100%,780px)!important;
+  max-width:780px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.home-page .sage-hero h1,
+.home-page .sage-hero-description{text-align:center!important}
+.home-page .sage-hero-actions,
+.home-page .sage-hero-stats{justify-content:center!important;margin-inline:auto!important}
+.home-page .sage-hero-boy-wrap{z-index:0!important;opacity:.62}
+.home-page .sage-hero-inner{position:relative;z-index:2;width:100%}
+
+/* Keep the Home hero copy flush left beside the brighter video visual. */
+.home-page .sage-hero,
+.home-page .sage-hero-copy,
+.home-page .sage-hero h1,
+.home-page .sage-hero-description,
+.home-page .sage-hero-stats,
+.home-page .sage-hero-stats .sage-hero-stat,
+.home-page .sage-hero-stats .sage-hero-stat>span:last-child{
+  text-align:left!important;
+}
+.home-page .sage-hero-inner{justify-items:start!important}
+.home-page .sage-hero-copy{
+  width:min(100%,780px)!important;
+  max-width:780px!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+}
+.home-page .sage-hero-eyebrow,
+.home-page .sage-hero-actions,
+.home-page .sage-hero-stats,
+.home-page .sage-hero-stats .sage-hero-stat-value{
+  justify-content:flex-start!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+}
+.home-page .sage-hero-actions{align-items:flex-start!important}
+.home-page .sage-hero-boy-wrap.is-ready{opacity:1!important}
+.home-page .sage-hero-boy-wrap.is-intro{opacity:1!important}
+.home-page .sage-hero-boy-wrap video{filter:brightness(1.8) saturate(1.18) contrast(1.05)!important;opacity:1!important}
+@media(min-width:761px){
+  .home-page .sage-hero-boy-wrap:not(.is-intro){
+    top:0!important;
+    right:0!important;
+    bottom:0!important;
+    width:min(56vw,840px)!important;
+    height:100%!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    overflow:hidden!important;
+  }
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video{
+    width:auto!important;
+    height:100%!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    object-position:right center!important;
+    mix-blend-mode:screen!important;
+  }
+}
+@media(max-width:760px){
+  .home-page .sage-hero-boy-wrap:not(.is-intro)::after{background:linear-gradient(180deg,rgba(3,6,16,.18),rgba(3,6,16,.3))!important}
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video{filter:brightness(1.35) saturate(1.12) contrast(1.04)!important;opacity:.94!important}
+  .home-page .sage-hero-boy-wrap.is-intro video{filter:brightness(1.45) saturate(1.14) contrast(1.04)!important}
+}
+
+/* Remove decorative photo layers from every non-Home hero. */
+.about-page .about-hero-stage,
+.services-page .services-hero-stage,
+.services-page .services-hero-topline,
+.portfolio-page .portfolio-hero-visual,
+.careers-page .careers-hero-background,
+.blog-page .blog-hero-art,
+.contact-page.contact-design .contact-hero-image{
+  display:none!important;
+}
+.about-page .page-hero--about .about-hero-layout,
+.services-page .page-hero--services .services-hero-layout,
+.portfolio-page .portfolio-hero-content,
+.careers-page .careers-hero-inner,
+.blog-page .blog-hero .container,
+.contact-page.contact-design .contact-breadcrumb,
+.service-detail-page .service-detail-hero-content{
+  width:min(100%,900px)!important;
+  max-width:900px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.about-page .about-hero-copy,
+.services-page .services-hero-copy,
+.portfolio-page .portfolio-hero-content,
+.careers-page .careers-hero-inner,
+.blog-page .blog-hero .container,
+.service-detail-page .service-detail-hero-content{
+  text-align:center!important;
+}
+.contact-page.contact-design .contact-kicker,
+.contact-page.contact-design .contact-breadcrumb h2{justify-content:center!important;text-align:center!important}
+.home-page .sage-hero h1,
+.page-hero-title,
+.portfolio-page .portfolio-hero h1,
+.careers-page .careers-hero h1,
+.blog-page .blog-hero h1,
+.service-detail-page .service-detail-hero h1{
+  max-width:100%!important;
+  overflow:visible!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+.home-page .sage-hero-description,
+.page-hero-subtitle,
+.careers-page .careers-hero-copy,
+.service-detail-page .service-detail-summary{
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+@media(max-width:760px){
+  .page-hero,
+  .portfolio-page .portfolio-hero,
+  .careers-page .careers-hero,
+  .blog-page .blog-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero{
+    min-height:210px!important;
+    padding:28px 18px!important;
+  }
+  .home-page .sage-hero{min-height:0!important}
+  .home-page .sage-hero-inner{padding:30px 18px 24px!important}
+  .home-page .sage-hero-boy-wrap{opacity:.48}
+}
+
+/* Balanced type scale: comfortable body copy with a modest step up for key headings. */
+:root{
+  --type-body:1rem;
+  --type-supporting:.9rem;
+  --type-label:.76rem;
+}
+body{font-size:var(--type-body)}
+.home-page .sage-hero h1{
+  font-size:clamp(2.6rem,5vw,4.1rem)!important;
+  line-height:1.08!important;
+}
+.page-hero-title,
+.portfolio-page .portfolio-hero h1,
+.careers-page .careers-hero h1,
+.blog-page .blog-hero h1,
+.service-detail-page .service-detail-hero h1{
+  font-size:clamp(2.2rem,4.2vw,3.35rem)!important;
+  line-height:1.1!important;
+}
+.home-page .sage-hero-description,
+.page-hero-subtitle,
+.careers-page .careers-hero-copy,
+.service-detail-page .service-detail-summary{
+  font-size:var(--type-body)!important;
+  line-height:1.58!important;
+}
+.home-page .home-services .home-service-card h3{font-size:clamp(1.28rem,1.7vw,1.48rem)!important}
+.home-page .home-services .home-service-card p{font-size:var(--type-supporting)!important;line-height:1.55!important}
+.home-page .home-services .home-service-card .home-service-link{font-size:var(--type-label)!important}
+@media(max-width:760px){
+  .home-page .sage-hero h1{font-size:clamp(2.05rem,8vw,2.7rem)!important}
+  .page-hero-title,
+  .portfolio-page .portfolio-hero h1,
+  .careers-page .careers-hero h1,
+  .blog-page .blog-hero h1,
+  .service-detail-page .service-detail-hero h1{font-size:clamp(2rem,7.6vw,2.7rem)!important}
+  .home-page .sage-hero-description,
+  .page-hero-subtitle,
+  .careers-page .careers-hero-copy,
+  .service-detail-page .service-detail-summary{font-size:.94rem!important}
+  .home-page .home-services .home-service-card h3,
+  .home-page .home-services .home-service-card.is-active h3{font-size:1.2rem!important}
+  .home-page .home-services .home-service-card p,
+  .home-page .home-services .home-service-card.is-active p{font-size:.85rem!important}
+  .home-page .home-services .home-service-card .home-service-link,
+  .home-page .home-services .home-service-card.is-active .home-service-link{font-size:.72rem!important}
+}
+
+/* Apply the same moderate reading scale to body copy and section headings on every route and viewport. */
+body{font-size:1rem!important}
+body :where(p,li){font-size:max(.82rem,.95em)!important;line-height:1.58}
+body :where(small){font-size:max(.74rem,.92em)!important}
+body :where(h2){font-size:clamp(1.55rem,2.65vw,2.3rem)!important;line-height:1.16!important}
+body :where(h3){font-size:clamp(1.18rem,1.75vw,1.5rem)!important;line-height:1.22!important}
+@media(max-width:760px){
+  body :where(h2){font-size:clamp(1.45rem,6vw,2rem)!important}
+  body :where(h3){font-size:clamp(1.15rem,4.8vw,1.4rem)!important}
+}
+
+/* Shared page structure for wide, tablet, and phone layouts. */
+:root{
+  --layout-max:1240px;
+  --layout-gutter:clamp(18px,4vw,52px);
+}
+html,body,#root,.site-wrapper,.main-content{width:100%;max-width:100%;min-width:0}
+body{overflow-x:clip}
+main,.main-content,section,article,aside,header,footer,.container{min-width:0}
+.main-content .container,
+.site-wrapper .container{
+  width:min(100%,var(--layout-max));
+  margin-inline:auto;
+  padding-inline:var(--layout-gutter);
+}
+.main-content p,
+.main-content li,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4{overflow-wrap:anywhere}
+.main-content p{max-width:72ch}
+.main-content img,.main-content video,.main-content iframe{max-width:100%}
+.contact-main-grid,
+.contact-details-grid,
+.careers-content,
+.careers-form,
+.service-detail-content-inner,
+.services-catalog-grid,
+.services-page-grid,
+.website-project-grid,
+.seo-client-grid,
+.about-team__grid,
+.about-team__leadership,
+.about-team__manager,
+.about-team__grid--two,
+.portfolio-category-panel,
+.home-projects-grid,
+.about-container,
+.about-content{min-width:0}
+
+@media(min-width:1200px){
+  .main-content .container,.site-wrapper .container{--layout-gutter:clamp(36px,4vw,58px)}
+}
+@media(max-width:1024px){
+  :root{--layout-gutter:clamp(22px,4vw,34px)}
+  .services-catalog-grid,
+  .services-page-grid,
+  .website-project-grid,
+  .seo-client-grid,
+  .about-team__grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-main-grid,
+  .careers-content,
+  .service-detail-content-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .careers-content{gap:clamp(24px,4vw,42px)}
+  .home-page .home-services-inner{width:100%}
+}
+@media(max-width:760px){
+  :root{--layout-gutter:18px}
+  .main-content .container,.site-wrapper .container{padding-inline:var(--layout-gutter)}
+  .services-catalog-grid,
+  .services-page-grid,
+  .website-project-grid,
+  .seo-client-grid,
+  .about-team__grid--two,
+  .contact-main-grid,
+  .careers-content,
+  .service-detail-content-inner{grid-template-columns:minmax(0,1fr)}
+  .contact-main-grid,.careers-content,.service-detail-content-inner{gap:22px}
+  .home-page .home-projects-grid{grid-template-columns:minmax(0,1fr)}
+  .main-content p{max-width:68ch}
+  .main-content .container{overflow-wrap:anywhere}
+  .page-section,.page-section-alt{padding-block:clamp(42px,9vw,64px)}
+}
+@media(max-width:480px){
+  :root{--layout-gutter:16px}
+  .main-content .container,.site-wrapper .container{padding-inline:var(--layout-gutter)}
+  .contact-details-grid{grid-template-columns:minmax(0,1fr)}
+  .main-content p,.main-content li{line-height:1.55}
+}
+
+/* Home hero: keep the message first, with the animated mascot as a supporting visual. */
+@media(min-width:901px){
+  .home-page .sage-hero{
+    height:clamp(600px,calc(100svh - 110px),680px)!important;
+    min-height:600px!important;
+  }
+  .home-page .sage-hero-inner{
+    width:min(1240px,100%)!important;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
+    gap:clamp(28px,4vw,56px)!important;
+    padding:34px clamp(30px,5vw,68px)!important;
+  }
+  .home-page .sage-hero-copy{max-width:660px!important}
+  .home-page .sage-hero h1{
+    max-width:100%!important;
+    margin-inline:auto!important;
+    font-size:clamp(2.7rem,4vw,3.4rem)!important;
+    line-height:1.08!important;
+    letter-spacing:-.045em!important;
+  }
+  .home-page .sage-hero-description{
+    max-width:56ch!important;
+    margin:18px auto 22px!important;
+    font-size:1rem!important;
+    line-height:1.58!important;
+  }
+  .home-page .sage-hero-actions{justify-content:center!important;gap:12px!important}
+  .home-page .sage-hero-stats{
+    width:min(100%,560px)!important;
+    margin:26px auto 0!important;
+    gap:10px!important;
+  }
+  .home-page .sage-hero-stats .sage-hero-stat{
+    align-items:center!important;
+    min-height:78px!important;
+    padding:12px 10px!important;
+    text-align:center!important;
+  }
+  .home-page .sage-hero-stats .sage-hero-stat-value{justify-content:center!important}
+  .home-page .sage-hero-stats .sage-hero-stat>span:last-child{
+    font-size:.72rem!important;
+    line-height:1.3!important;
+    text-align:center!important;
+  }
+  .home-page .sage-hero-boy-wrap{opacity:.4!important}
+}
+@media(min-width:901px) and (max-width:1100px){
+  .home-page .sage-hero{height:auto!important;min-height:660px!important}
+  .home-page .sage-hero-inner{grid-template-columns:minmax(0,1fr)!important;padding:38px 8% 0!important}
+  .home-page .sage-hero-copy{max-width:700px!important;margin-inline:auto!important}
+  .home-page .sage-hero h1{font-size:clamp(2.55rem,4vw,3.1rem)!important}
+  .home-page .sage-hero-description{max-width:58ch!important}
+  .home-page .sage-hero-boy-wrap{opacity:.32!important}
+}
+@media(min-width:761px) and (max-width:900px){
+  .home-page .sage-hero{height:auto!important;min-height:640px!important}
+  .home-page .sage-hero-inner{padding:38px 30px 0!important}
+  .home-page .sage-hero-copy{margin-inline:auto!important}
+  .home-page .sage-hero h1{max-width:15ch!important;font-size:clamp(2.55rem,5.2vw,3.3rem)!important;line-height:1.08!important}
+  .home-page .sage-hero-boy-wrap{opacity:.38!important}
+}
+@media(max-width:760px){
+  .home-page .sage-hero{height:auto!important;min-height:0!important}
+  .home-page .sage-hero h1{
+    max-width:15ch!important;
+    margin-inline:auto!important;
+    font-size:clamp(2.05rem,7.4vw,2.65rem)!important;
+    line-height:1.1!important;
+    letter-spacing:-.045em!important;
+  }
+  .home-page .sage-hero-description{
+    max-width:54ch!important;
+    margin:15px auto 19px!important;
+    font-size:.94rem!important;
+    line-height:1.58!important;
+  }
+  .home-page .sage-hero-actions{justify-content:center!important;gap:10px!important}
+  .home-page .sage-hero-stats{margin-top:22px!important}
+  .home-page .sage-hero-stats .sage-hero-stat{align-items:center!important;text-align:center!important}
+  .home-page .sage-hero-stats .sage-hero-stat-value{justify-content:center!important}
+  .home-page .sage-hero-boy-wrap{opacity:.3!important}
+}
+
+/* Final home hero alignment and video brightness overrides. */
+.home-page .sage-hero,
+.home-page .sage-hero-copy,
+.home-page .sage-hero h1,
+.home-page .sage-hero-description,
+.home-page .sage-hero-stats,
+.home-page .sage-hero-stats .sage-hero-stat,
+.home-page .sage-hero-stats .sage-hero-stat>span:last-child{ text-align:left!important }
+.home-page .sage-hero-inner{justify-items:start!important}
+.home-page .sage-hero-copy{margin-left:0!important;margin-right:auto!important}
+.home-page .sage-hero-eyebrow,
+.home-page .sage-hero-actions,
+.home-page .sage-hero-stats,
+.home-page .sage-hero-stats .sage-hero-stat-value{justify-content:flex-start!important;margin-left:0!important;margin-right:auto!important}
+.home-page .sage-hero-actions{align-items:flex-start!important}
+.home-page .sage-hero-boy-wrap{opacity:1!important}
+.home-page .sage-hero-boy-wrap video{filter:brightness(1.8) saturate(1.18) contrast(1.05)!important;opacity:1!important}
+@media(max-width:760px){
+  .home-page .sage-hero h1{margin-left:0!important;margin-right:auto!important}
+  .home-page .sage-hero-description{margin-left:0!important;margin-right:auto!important}
+  .home-page .sage-hero-stats .sage-hero-stat{align-items:flex-start!important}
+  .home-page .sage-hero-boy-wrap:not(.is-intro)::after{background:linear-gradient(180deg,rgba(3,6,16,.18),rgba(3,6,16,.3))!important}
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video{filter:brightness(1.35) saturate(1.12) contrast(1.04)!important;opacity:.94!important}
+  .home-page .sage-hero-boy-wrap.is-intro video{filter:brightness(1.45) saturate(1.14) contrast(1.04)!important}
+}
+/* Enlarge only the desktop Home hero video; the hero section keeps its existing height. */
+@media (min-width: 761px) {
+  .home-page .sage-hero-boy-wrap:not(.is-intro) video {
+    width: auto !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    transform: scaleY(1.12) !important;
+  }
+}
+
+/* 3D tactile press state for the Home hero's primary action. */
+.sage-hero .sage-hero-primary.tactile-button{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid transparent!important;
+  border-radius:10px!important;
+  background:linear-gradient(105deg,#e627c6,#8d3ce8 55%,#0bc8e9)!important;
+  color:#fff!important;
+  box-shadow:0 6px 0 #39205e,0 9px 16px rgba(0,0,0,.25)!important;
+  transform:translateY(0);
+  transition:transform 140ms ease,box-shadow 140ms ease,border-radius 280ms ease,border-color 280ms ease!important;
+  -webkit-tap-highlight-color:transparent;
+}
+.sage-hero .sage-hero-primary.tactile-button.morphing-pill-button::before{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  width:auto;
+  border-radius:10px;
+  content:"";
+  transform:none;
+  background:#fff;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 280ms ease,border-radius 280ms ease;
+}
+.sage-hero .sage-hero-primary.tactile-button:hover{
+  border-color:#34d8e7!important;
+  border-radius:999px!important;
+  color:#5630b7!important;
+  box-shadow:0 8px 0 #39205e,0 12px 19px rgba(0,0,0,.28)!important;
+  transform:translateY(-2px);
+}
+.sage-hero .sage-hero-primary.tactile-button.morphing-pill-button:hover::before,
+.sage-hero .sage-hero-primary.tactile-button.morphing-pill-button:focus-visible::before{border-radius:999px;opacity:1}
+.sage-hero .sage-hero-primary.tactile-button.morphing-pill-button:focus-visible{
+  border-color:#34d8e7!important;
+  border-radius:999px!important;
+  color:#5630b7!important;
+  outline:3px solid #fff!important;
+  outline-offset:4px;
+}
+.sage-hero .sage-hero-primary.tactile-button:active{
+  box-shadow:0 1px 0 #39205e,0 2px 5px rgba(0,0,0,.22)!important;
+  transform:translateY(5px);
+}
+.sage-hero .sage-hero-primary.tactile-button svg{transition:transform 220ms ease}
+.sage-hero .sage-hero-primary.tactile-button:hover svg,
+.sage-hero .sage-hero-primary.tactile-button:focus-visible svg{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){
+  .sage-hero .sage-hero-primary.tactile-button,
+  .sage-hero .sage-hero-primary.tactile-button::before,
+  .sage-hero .sage-hero-primary.tactile-button svg,
+  .sage-hero .sage-hero-primary.tactile-button:hover,
+  .sage-hero .sage-hero-primary.tactile-button:active{transition:none!important;transform:none}
+}
+
+/* Keep home service descriptions at regular weight across active and side cards. */
+.home-page .home-services .home-service-card p,
+.home-page .home-services .home-service-card.is-active p{
+  font-weight:400!important;
+}
+
+/* Keep About page content readable if scroll reveal observers fail to fire. */
+.about-page .reveal-on-scroll,
+.about-page .scroll-motion{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+
+/* Keep every non-Home page hero at 40% of the desktop viewport height. */
+.page-hero:not(.sage-hero),
+.about-page .page-hero--about,
+.services-page .page-hero--services,
+.portfolio-page .portfolio-hero,
+.careers-page .careers-hero,
+.blog-page .blog-hero,
+.contact-page.contact-design .contact-design-hero,
+.service-detail-page .service-detail-hero,
+.case-studies-page-hero,
+.clients-page-hero{
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:40svh!important;
+  min-height:40svh!important;
+}
+
+@media(max-width:760px){
+  .page-hero:not(.sage-hero),
+  .about-page .page-hero--about,
+  .services-page .page-hero--services,
+  .portfolio-page .portfolio-hero,
+  .careers-page .careers-hero,
+  .blog-page .blog-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .case-studies-page-hero,
+  .clients-page-hero{
+    min-height:0!important;
+    height:auto!important;
+  }
+}
+
+/* Give the Contact hero a consistent, deliberate gap below the sticky navbar. */
+.contact-page.contact-design { padding-top: 14px !important; }
+.contact-page.contact-design .contact-design-hero {
+  box-sizing: border-box !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 40svh !important;
+  min-height: 40svh !important;
+  margin-top: 0 !important;
+  margin-right: 0 !important;
+  margin-left: calc(50% - 50vw) !important;
+}
+
+@media (max-width: 760px) {
+  .contact-page.contact-design .contact-design-hero {
+    height: 40svh !important;
+    min-height: 40svh !important;
   }
 }

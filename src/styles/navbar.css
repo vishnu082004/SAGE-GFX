@@ -250,3 +250,121 @@
     line-height: 1.5;
   }
 }
+
+
+/* Hover-triggered services mega menu. */
+.navbar-services-item{display:flex;align-items:center}
+.navbar-services-trigger{display:inline-flex;align-items:center;gap:5px}
+.navbar-services-trigger>svg{width:13px;height:13px;transition:transform .22s ease}
+.navbar-services-item.is-open .navbar-services-trigger>svg{transform:rotate(180deg)}
+.services-mega-menu{
+  position:absolute;
+  top:100%;
+  left:50%;
+  z-index:1002;
+  width:min(1120px,calc(100vw - 48px));
+  max-height:min(76vh,680px);
+  padding-top:10px;
+  overflow-y:auto;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translate(-50%,12px) scale(.985);
+  transform-origin:top center;
+  transition:opacity .22s ease,transform .28s cubic-bezier(.2,.75,.25,1),visibility 0s linear .28s;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(39,205,231,.4) transparent;
+}
+.navbar-services-item.is-open .services-mega-menu{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translate(-50%,0) scale(1);
+  transition:opacity .22s ease,transform .28s cubic-bezier(.2,.75,.25,1),visibility 0s;
+}
+.services-mega-columns{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(16px,2vw,28px);
+  padding:26px clamp(22px,2.2vw,34px) 24px;
+  border:1px solid rgba(65,171,221,.18);
+  border-bottom:0;
+  border-radius:20px 20px 0 0;
+  background:linear-gradient(145deg,rgba(10,21,41,.985),rgba(5,12,26,.99));
+  box-shadow:0 24px 65px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035);
+  backdrop-filter:blur(20px);
+}
+.services-mega-group{min-width:0}
+.services-mega-group>h4{margin:0 0 15px;color:#31d7e9;font:750 .66rem/1.3 var(--font-heading);letter-spacing:.12em}
+.services-mega-group:nth-child(2)>h4{color:#c483f4}
+.services-mega-group:nth-child(3)>h4{color:#e77ad2}
+.services-mega-group:nth-child(4)>h4{color:#7cc5ff}
+.services-mega-list{display:grid;gap:5px}
+.services-mega-link{display:grid;grid-template-columns:38px minmax(0,1fr);align-items:start;gap:12px;min-width:0;padding:9px;border:1px solid transparent;border-radius:12px;color:#edf4ff;text-decoration:none;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.services-mega-link:hover,.services-mega-link:focus-visible{border-color:rgba(64,201,228,.2);background:rgba(22,47,75,.66);transform:translateY(-1px);outline:none}
+.services-mega-icon{display:grid;width:38px;height:38px;place-items:center;border:1px solid rgba(51,193,230,.15);border-radius:11px;background:linear-gradient(145deg,rgba(27,107,161,.24),rgba(16,30,62,.92));color:#52d9ee;font-size:1rem}
+.services-mega-group:nth-child(2) .services-mega-icon{border-color:rgba(169,106,232,.17);color:#ce9af3}
+.services-mega-group:nth-child(3) .services-mega-icon{border-color:rgba(220,91,197,.16);color:#ec9dda}
+.services-mega-copy{display:grid;gap:4px;min-width:0}
+.services-mega-copy h4{color:#f2f6ff;font:650 .82rem/1.35 var(--font-heading)}
+.services-mega-copy p{display:-webkit-box;overflow:hidden;color:#9eafc8;font-size:.7rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.services-mega-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px clamp(22px,2.2vw,34px);border:1px solid rgba(65,171,221,.18);border-top:1px solid rgba(90,134,184,.16);border-radius:0 0 20px 20px;background:linear-gradient(100deg,rgba(12,27,50,.99),rgba(9,17,36,.99));color:#9fb1c9;font-size:.78rem}
+.services-mega-footer>a{display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:.77rem;font-weight:700;text-decoration:none;transition:color .2s ease,gap .2s ease}
+.services-mega-footer>a svg{color:#3bd4e9}
+.services-mega-footer>a:hover{gap:13px;color:#78e7f2}
+@media(max-width:1100px) and (min-width:901px){
+  .services-mega-menu{width:min(940px,calc(100vw - 32px))}
+  .services-mega-columns{gap:12px;padding-inline:16px}
+  .services-mega-link{grid-template-columns:32px minmax(0,1fr);gap:9px;padding:7px}
+  .services-mega-icon{width:32px;height:32px}
+  .services-mega-copy h4{font-size:.75rem}
+  .services-mega-copy p{font-size:.65rem}
+}
+@media(max-width:900px){.services-mega-menu{display:none}}
+@media(prefers-reduced-motion:reduce){
+  .services-mega-menu,.services-mega-link,.navbar-services-trigger>svg,.services-mega-footer>a{transition:none}
+  .navbar-services-item.is-open .services-mega-menu{transform:translate(-50%,0)}
+}
+
+/* Align the three service groups and keep each title above its description. */
+.services-mega-menu{width:min(1280px,calc(100vw - 48px))}
+.services-mega-columns{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
+.services-mega-group{min-width:0}
+.services-mega-group>h4{min-height:1.3em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.services-mega-link{align-items:start}
+.services-mega-copy{display:grid;grid-template-rows:auto 1fr;align-content:start;gap:4px;min-width:0;width:100%}
+.services-mega-copy h4{display:block;overflow:hidden;font-size:.78rem;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+.services-mega-copy p{width:100%;font-size:.68rem;line-height:1.45;-webkit-line-clamp:3}
+@media(max-width:1100px) and (min-width:901px){
+  .services-mega-menu{width:min(940px,calc(100vw - 32px))}
+  .services-mega-copy h4{font-size:.72rem}
+  .services-mega-copy p{font-size:.63rem}
+}
+
+.services-mega-group>h4{
+  margin:0 0 14px;
+  padding:0 0 9px;
+  border-bottom:1px solid rgba(68,190,225,.22);
+  font-family:var(--font-heading);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.24em;
+  line-height:1.35;
+  text-transform:uppercase;
+}
+.services-mega-group:nth-child(2)>h4{border-color:rgba(174,111,235,.24)}
+.services-mega-group:nth-child(3)>h4{border-color:rgba(225,103,202,.24)}
+.services-mega-group:nth-child(4)>h4{border-color:rgba(85,173,239,.24)}
+
+.services-mega-copy h4{font-size:.72rem}
+.services-mega-copy p{font-size:.64rem}
+@media(max-width:1100px) and (min-width:901px){
+  .services-mega-copy h4{font-size:.68rem}
+  .services-mega-copy p{font-size:.6rem}
+}
+
+.services-mega-group>h4{text-align:center}
+.services-mega-copy h4{font-size:.82rem}
+@media(max-width:1100px) and (min-width:901px){
+  .services-mega-copy h4{font-size:.72rem}
+}

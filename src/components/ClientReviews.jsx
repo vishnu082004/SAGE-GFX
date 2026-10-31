@@ -46,7 +46,7 @@ function GoogleMark({ className = '' }) {
 function ReviewCard({ review, index }) {
   return <article className={`review-card review-card--${index + 1}`} style={{ '--review-index': index }} aria-label={`Five-star Google review by ${review.name}`}>
     <div className="review-card-top">
-      <span className="review-avatar" aria-hidden="true"><img src={review.avatar} alt="" loading="lazy" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none' }}/><span>{review.initials}</span></span>
+      <span className="review-avatar" aria-hidden="true"><img src={review.avatar} alt="" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none' }}/><span>{review.initials}</span></span>
       <div className="review-author"><strong>{review.name}</strong><span>{review.date}</span></div>
       <a className="review-card-google-link" href={review.url} target="_blank" rel="noopener noreferrer" aria-label={`Read ${review.name}’s original Google review`}><GoogleMark className="review-card-google" /></a>
     </div>
@@ -62,45 +62,61 @@ function ClientReviews() {
   const [isVisible, setIsVisible] = useState(false)
   const [reviewPage, setReviewPage] = useState(0)
   const [isCarouselPaused, setIsCarouselPaused] = useState(false)
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true)
+  const [reduceMotion, setReduceMotion] = useState(false)
 
   useEffect(() => {
     const section = sectionRef.current
-    if (!section || !('IntersectionObserver' in window)) {
+    if (!section) return undefined
+    if (!('IntersectionObserver' in window)) {
       setIsVisible(true)
-      return undefined
     }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true)
-        observer.disconnect()
-      }
-    }, { threshold: .12 })
-    observer.observe(section)
-    return () => observer.disconnect()
+    const observer = 'IntersectionObserver' in window
+      ? new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: .12 })
+      : null
+    observer?.observe(section)
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotion = () => setReduceMotion(motionPreference.matches)
+    const updateDocumentVisibility = () => setIsDocumentVisible(document.visibilityState !== 'hidden')
+    updateMotion()
+    updateDocumentVisibility()
+    if (motionPreference.addEventListener) motionPreference.addEventListener('change', updateMotion)
+    else motionPreference.addListener?.(updateMotion)
+    document.addEventListener('visibilitychange', updateDocumentVisibility)
+    return () => {
+      observer?.disconnect()
+      if (motionPreference.removeEventListener) motionPreference.removeEventListener('change', updateMotion)
+      else motionPreference.removeListener?.(updateMotion)
+      document.removeEventListener('visibilitychange', updateDocumentVisibility)
+    }
   }, [])
 
   useEffect(() => {
-    if (!isVisible || isCarouselPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    if (!isVisible || !isDocumentVisible || isCarouselPaused || reduceMotion) return undefined
     const interval = window.setInterval(() => {
       setReviewPage((currentPage) => (currentPage + 1) % reviewPageCount)
     }, 2000)
     return () => window.clearInterval(interval)
-  }, [isVisible, isCarouselPaused])
+  }, [isVisible, isDocumentVisible, isCarouselPaused, reduceMotion])
 
   useEffect(() => {
     const visual = visualRef.current
-    if (!visual || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return undefined
+    if (!visual || reduceMotion || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return undefined
     const layers = [...visual.querySelectorAll('[data-depth]')]
     const move = (event) => {
-      const bounds = visual.getBoundingClientRect()
-      const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width) * 2 - 1))
-      const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height) * 2 - 1))
+      const clientX = event.clientX
+      const clientY = event.clientY
       cancelAnimationFrame(frameRef.current)
-      frameRef.current = requestAnimationFrame(() => layers.forEach((layer) => {
-        const depth = Number(layer.dataset.depth || 0)
-        layer.style.setProperty('--review-parallax-x', `${x * depth * -1}px`)
-        layer.style.setProperty('--review-parallax-y', `${y * depth * -1}px`)
-      }))
+      frameRef.current = requestAnimationFrame(() => {
+        const bounds = visual.getBoundingClientRect()
+        const x = Math.max(-1, Math.min(1, ((clientX - bounds.left) / bounds.width) * 2 - 1))
+        const y = Math.max(-1, Math.min(1, ((clientY - bounds.top) / bounds.height) * 2 - 1))
+        layers.forEach((layer) => {
+          const depth = Number(layer.dataset.depth || 0)
+          layer.style.setProperty('--review-parallax-x', `${x * depth * -1}px`)
+          layer.style.setProperty('--review-parallax-y', `${y * depth * -1}px`)
+        })
+      })
     }
     const reset = () => {
       cancelAnimationFrame(frameRef.current)
@@ -116,21 +132,21 @@ function ClientReviews() {
       visual.removeEventListener('pointerleave', reset)
       cancelAnimationFrame(frameRef.current)
     }
-  }, [])
+  }, [reduceMotion])
 
   return <section ref={sectionRef} className={`client-reviews${isVisible ? ' is-visible' : ''}`} aria-labelledby="client-reviews-heading">
     <div className="client-reviews-grid" aria-hidden="true" />
     <div className="client-reviews-inner">
       <div className="reviews-copy">
         <p className="reviews-eyebrow"><i/> Client reviews</p>
-        <h2 id="client-reviews-heading">Why Clients Trust<br/><span>Sage GFX</span></h2>
+        <h2 id="client-reviews-heading">What Our<span> Clients Say</span></h2>
         {/* <p className="reviews-description">Our success is built on the trust and satisfaction of our clients. See what they have to say about their experience working with Sage GFX. We take pride in delivering creative, reliable, and result-driven solutions that make a real impact.</p> */}
         {/* <div className="reviews-stats" aria-label="Sage GFX Google review summary">
           {metrics.map(({ value, label, Icon }) => <div className="reviews-stat" key={label}><Icon aria-hidden="true"/><strong>{value}</strong><span>{label}</span></div>)}
         </div> */}
 
         <div className="reviews-cta-block">
-          <p className="reviews-cta-label">Loved working with us?</p>
+          {/* <p className="reviews-cta-label">Loved working with us?</p> */}
           {/* <p className="reviews-cta-note">Your feedback helps us grow and serve you better!</p> */}
         </div>
       </div>

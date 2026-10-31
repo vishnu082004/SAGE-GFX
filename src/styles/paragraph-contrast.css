@@ -1,0 +1,4 @@
+/* Shared high-contrast paragraph color for readable copy across the site. */
+.site-wrapper p {
+  color: #edf4ff !important;
+}

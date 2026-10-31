@@ -137,8 +137,9 @@
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
-  margin: 2px 0 1px;
+  margin: 18px 0 8px;
   color: #e9d8ff;
   font: 700 .92rem/1.2 var(--font-heading);
   letter-spacing: .02em;
@@ -152,7 +153,7 @@
 }
 
 .about-team__leadership-title span {
-  margin-left: auto;
+  margin-left: 5px;
   color: #a9bbd4;
   font: 600 .65rem/1 var(--font-base);
   letter-spacing: .1em;
@@ -226,12 +227,14 @@
   height: 100%;
   object-fit: cover;
   object-position: center 24%;
-  transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  filter: brightness(1.13) saturate(1.1) contrast(1.03);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .35s ease;
 }
 
 .about-team-card:hover .about-team-card__portrait img,
 .about-team-card:focus-visible .about-team-card__portrait img {
   transform: scale(1.1);
+  filter: brightness(1.2) saturate(1.16) contrast(1.04);
 }
 
 .about-team-card--empty .about-team-card__portrait {
@@ -375,6 +378,11 @@
 .about-team__grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+}
+
+.about-team__group--camera .about-team__grid {
+  grid-template-columns: minmax(0, 310px);
+  justify-content: center;
 }
 
 .about-team__grid--two {

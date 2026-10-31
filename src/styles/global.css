@@ -269,3 +269,11 @@ ul, ol {
     scroll-behavior: auto !important;
   }
 }
+
+.route-loading {
+  display: grid;
+  min-height: 55vh;
+  place-items: center;
+  color: #b9c8dc;
+  font-size: .9rem;
+}

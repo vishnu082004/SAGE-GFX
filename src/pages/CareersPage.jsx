@@ -1,201 +1,153 @@
-import { useRef, useState } from 'react'
-import { FiArrowRight, FiBarChart2, FiBriefcase, FiCheckCircle, FiCode, FiExternalLink, FiLayers, FiMail, FiPenTool, FiPhone, FiSend, FiShare2, FiUploadCloud, FiUser, FiVideo, FiX } from 'react-icons/fi'
+import { useState } from 'react'
+import { FiArrowRight, FiBarChart2, FiCheck, FiCode, FiPenTool, FiSearch, FiUploadCloud } from 'react-icons/fi'
 import { contactEmail, contactPhone } from '../data/contactInfo'
-import designBrandingImage from '../assets/images/Crad_img/Crad_img/Design&branding.webp'
-import websiteAppImage from '../assets/images/Crad_img/Crad_img/webapp_dev.webp'
-import digitalMarketingImage from '../assets/images/Crad_img/Crad_img/digital-marketing.webp'
-import socialMediaImage from '../assets/images/Crad_img/Crad_img/digital_media-marketing.webp'
-import videoContentImage from '../assets/images/Crad_img/Crad_img/vdo-cont.webp'
-import uxDesignImage from '../assets/images/Crad_img/Crad_img/ui-ux.webp'
+import seoImage from '../assets/images/seo 1.jpeg'
+import smmImage from '../assets/images/smm image.png'
+import websiteImage from '../assets/images/website image.png'
+import designVideoImage from '../assets/images/graphic design.png'
 
-const teams = [
-  { name: 'Design & Branding', description: 'Join our creative team to craft memorable brand identities, compelling visuals, and designs that bring ideas to life.', roles: ['Graphic Designer', 'UI/UX Designer', 'Brand Identity Designer'], image: designBrandingImage, accent: '#16d8ea', Icon: FiPenTool },
-  { name: 'Web & App Development', description: 'Build modern websites and digital experiences with a team passionate about clean code, creative problem-solving, and innovation.', roles: ['React Developer', 'Frontend Developer', 'Full-Stack Developer', 'UI Developer'], image: websiteAppImage, accent: '#4b9cff', Icon: FiCode },
-  { name: 'Digital Marketing', description: 'Help brands grow through creative campaigns, audience research, performance analysis, and data-driven marketing strategies.', roles: ['Digital Marketing Executive', 'Performance Marketing Specialist', 'Google Ads Specialist'], image: digitalMarketingImage, accent: '#a56aff', Icon: FiBarChart2 },
-  { name: 'Social Media Management', description: 'Create engaging social content, plan digital campaigns, and help brands build meaningful connections with their audiences.', roles: ['Social Media Manager', 'Social Media Executive', 'Social Media Strategist'], image: socialMediaImage, accent: '#ed55ce', Icon: FiShare2 },
-  { name: 'Video & Content Creation', description: 'Turn ideas into compelling stories through video editing, motion graphics, photography, and creative content production.', roles: ['Video Editor', 'Motion Graphics Designer', 'Content Creator', 'Videographer'], image: videoContentImage, accent: '#ff9b55', Icon: FiVideo },
-  { name: 'Search Engine Optimization', description: 'Help websites grow organically through keyword research, technical SEO, content optimization, and search performance analysis.', roles: ['SEO Executive', 'SEO Specialist', 'Technical SEO Analyst', 'SEO Content Writer'], image: uxDesignImage, accent: '#54d6a8', Icon: FiLayers },
+const careerRoles = [
+  { id: 'seo', title: 'SEO Specialist', category: 'SEO', department: 'Search Engine Optimization', role: 'SEO Specialist', image: seoImage, Icon: FiSearch, summary: 'Help brands become easier to find through thoughtful search strategy, useful content and strong technical foundations.', responsibilities: ['Plan and implement on-page, off-page and technical SEO improvements.', 'Research keywords and build content recommendations around real search intent.', 'Improve local SEO, including Google Business Profile visibility.', 'Run website audits and identify issues affecting search visibility.', 'Optimize page titles, headings, internal links and structured data.', 'Track rankings, organic traffic and conversions; share clear performance reports.'] },
+  { id: 'smm', title: 'Social Media Manager', category: 'SMM', department: 'Social Media Management', role: 'Social Media Manager', image: smmImage, Icon: FiBarChart2, summary: 'Build a consistent social presence that gives audiences a reason to follow, engage and remember the brands we work with.', responsibilities: ['Plan platform-specific content calendars and campaign ideas.', 'Coordinate post copy, creative assets, publishing and community responses.', 'Track reach, engagement and campaign results across social channels.', 'Create and schedule engaging posts, stories and short-form video.', 'Respond to comments and messages in each brand’s tone of voice.', 'Use audience insights and platform trends to improve the content strategy.'] },
+  { id: 'website-development', title: 'Website Developer', category: 'Website Development', department: 'Web & App Development', role: 'React Developer', image: websiteImage, Icon: FiCode, summary: 'Create responsive, accessible websites that feel polished, load quickly and help businesses reach their goals.', responsibilities: ['Build and maintain responsive web pages and reusable components.', 'Turn design concepts into accessible, working interfaces.', 'Test across devices and browsers; fix performance and usability issues.', 'Connect forms, APIs and interactive features to support site requirements.', 'Improve load speed, accessibility and search-friendly page structure.', 'Work with design and marketing teammates from brief through launch.'] },
+  { id: 'graphic-design-video-editing', title: 'Graphic Designer & Video Editor', category: 'Graphic Design & Video Editing', department: 'Design & Branding', role: 'Graphic Designer & Video Editor', image: designVideoImage, Icon: FiPenTool, summary: 'Create cohesive visual work across graphic design and video, bringing each brand’s ideas to life across digital channels.', responsibilities: ['Design social, web and campaign graphics that follow each brand system.', 'Edit short-form and promotional videos for social and digital campaigns.', 'Prepare clean exports and organized source files for different platforms.', 'Create visual concepts, layouts and storyboards from campaign briefs.', 'Add captions, transitions, music and finishing touches to video edits.', 'Collaborate with content and marketing teams on concepts and revisions.'] },
 ]
 
-const allowedExtensions = ['pdf', 'doc', 'docx']
-const allowedMimeTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/octet-stream']
-const maxResumeBytes = 5 * 1024 * 1024
-const statusCopy = {
-  loading: { heading: 'Submitting your application...', message: 'Please wait while we process your details. Do not close this page.' },
-  success: { heading: 'Application submitted successfully!', message: 'Thank you for your interest in Sage GFX. Your application has been received.' },
-  error: { heading: 'Unable to submit your application', message: 'Something went wrong. Please check your details and try again.' },
+const filters = ['All', 'SEO', 'SMM', 'Website Development', 'Graphic Design & Video Editing']
+const titleHighlights = {
+  seo: 'Specialist',
+  smm: 'Manager',
+  'website-development': 'Developer',
+  'graphic-design-video-editing': 'Video Editor',
 }
+const roleOptions = {
+  seo: ['Junior SEO', 'SEO Specialist', 'SEO Content Writer'],
+  smm: ['Junior SMM', 'SMM Specialist'],
+  'website-development': ['Website Design', 'Frontend Development', 'Backend Development', 'Full Stack Development'],
+  'graphic-design-video-editing': ['Graphic Designer & Video Editor'],
+}
+const hiringSteps = [
+  { number: '01', title: 'Apply', description: 'Send your CV and links to work you are proud of. A human reads every application, usually within three working days.' },
+  { number: '02', title: 'Screen', description: 'A relaxed 30-minute call with our talent team about your experience, ambitions and what you want from your next role.' },
+  { number: '03', title: 'Interview', description: 'Meet your future team lead, talk through a short practical scenario from a real account and ask us the hard questions.' },
+  { number: '04', title: 'Offer', description: 'A clear offer with salary, growth track and start date, typically within a week of your final round. No ghosting, ever.' },
+]
 
-function CareersPage() {
+function CareerApplicationForm({ job }) {
   const [status, setStatus] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-  const [selectedTeam, setSelectedTeam] = useState(0)
-  const [activeTeam, setActiveTeam] = useState(0)
-  const [department, setDepartment] = useState('')
-  const [position, setPosition] = useState('')
-  const [resume, setResume] = useState(null)
+  const [busy, setBusy] = useState(false)
   const [resumeError, setResumeError] = useState('')
-  const [dragging, setDragging] = useState(false)
-  const [errors, setErrors] = useState({})
-  const teamRefs = useRef([])
-  const fileInputRef = useRef(null)
-
-  function selectTeam(index) {
-    setSelectedTeam(index)
-    setActiveTeam(index)
-    setDepartment(teams[index].name)
-    setPosition('')
-  }
-
-  function selectSuggestedRole(index, role) {
-    setSelectedTeam(index)
-    setActiveTeam(index)
-    setDepartment(teams[index].name)
-    setPosition(role)
-    setErrors((current) => ({ ...current, department: '', position: '' }))
-  }
-
-  function handleTeamKeyDown(event, index) {
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-      event.preventDefault(); teamRefs.current[(index + 1) % teams.length]?.focus()
-    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-      event.preventDefault(); teamRefs.current[(index - 1 + teams.length) % teams.length]?.focus()
-    } else if ((event.key === 'Enter' || event.key === ' ') && event.target === event.currentTarget) {
-      event.preventDefault(); selectTeam(index)
-    }
-  }
-
-  function validateResume(file) {
-    if (!file) { setResume(null); setResumeError(''); return }
-    const extension = file.name.split('.').pop()?.toLowerCase()
-    if (!allowedExtensions.includes(extension) || !allowedMimeTypes.includes(file.type || 'application/octet-stream')) {
-      setResumeError('Choose a PDF, DOC, or DOCX resume.'); setResume(null); return
-    }
-    if (file.size > maxResumeBytes) {
-      setResumeError('Your resume must be 5 MB or smaller.'); setResume(null); return
-    }
-    setResume(file); setResumeError('')
-  }
-
-  function validateForm(form) {
-    const formData = new FormData(form)
-    const nextErrors = {}
-    for (const key of ['name', 'email', 'phone', 'department', 'portfolio']) {
-      if (!String(formData.get(key) || '').trim()) nextErrors[key] = 'This field is required.'
-    }
-    const email = String(formData.get('email') || '').trim()
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = 'Enter a valid email address.'
-    const portfolio = String(formData.get('portfolio') || '').trim()
-    try { const url = new URL(portfolio); if (!['http:', 'https:'].includes(url.protocol)) throw new Error() }
-    catch { nextErrors.portfolio = 'Enter a valid URL beginning with https://.' }
-    const team = teams.find((item) => item.name === department)
-    if (position && (!team || !team.roles.includes(position))) nextErrors.position = 'Choose a role from the selected department.'
-    if (resumeError) nextErrors.resume = resumeError
-    else if (!resume) nextErrors.resume = 'Please upload your resume.'
-    setErrors(nextErrors)
-    return Object.keys(nextErrors).length === 0
-  }
+  const [resumeName, setResumeName] = useState('')
 
   async function submitApplication(event) {
     event.preventDefault()
-    if (submitting) return
+    if (busy) return
     const form = event.currentTarget
-    if (!validateForm(form)) {
-      setStatus('error')
-      const invalidField = form.querySelector('[aria-invalid="true"]')
-      if (invalidField?.name === 'resume') form.querySelector('.careers-resume button[type="button"]')?.focus()
-      else invalidField?.focus()
+    const resume = form.elements.resume.files?.[0]
+    const extension = resume?.name.split('.').pop()?.toLowerCase()
+    if (!resume || !['pdf', 'doc', 'docx'].includes(extension)) {
+      setResumeError('Please attach a PDF, DOC or DOCX resume.')
       return
     }
+    if (resume.size > 5 * 1024 * 1024) {
+      setResumeError('Your resume must be 5 MB or smaller.')
+      return
+    }
+    setResumeError('')
     const formData = new FormData(form)
-    if (resume) formData.set('resume', resume)
-    formData.set('_subject', `Career application: ${position || department}`)
-    setSubmitting(true); setStatus('loading')
+    formData.set('_subject', `Career application: ${formData.get('position')}`)
+    setBusy(true)
+    setStatus('Submitting your application…')
     try {
       const response = await fetch('/api/careers', { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
       const result = await response.json().catch(() => ({}))
       if (!response.ok || !result.success) throw new Error(result.message || 'Application service unavailable')
-      form.reset(); setDepartment(''); setPosition(''); setResume(null); setResumeError(''); setErrors({}); setStatus('success')
+      form.reset()
+      setResumeName('')
+      setStatus('Application received. Thank you for your interest in Sage GFX!')
     } catch {
-      setStatus('error')
-    } finally { setSubmitting(false) }
+      setStatus(`We couldn’t submit your application. Contact ${contactEmail} or ${contactPhone} for help.`)
+    } finally {
+      setBusy(false)
+    }
   }
 
-  const currentStatus = statusCopy[status]
-  const fieldError = (name) => errors[name] ? <span className="careers-field-error" id={`${name}-error`}>{errors[name]}</span> : null
+  return <form className="careers-ref-form" onSubmit={submitApplication}>
+    <input type="hidden" name="department" value={job.department} />
+    <div className="careers-ref-form-intro"><span className="careers-ref-form-mark"><job.Icon aria-hidden="true" /></span><div><span>APPLICATION FORM</span><strong>{job.title}</strong></div></div>
+    <div className="careers-ref-form-fields">
+      <label className="careers-ref-field"><span>Full name <i>*</i></span><input name="name" placeholder="Your name" autoComplete="name" required /></label>
+      <label className="careers-ref-field"><span>Email address <i>*</i></span><input name="email" type="email" placeholder="you@example.com" autoComplete="email" required /></label>
+      <label className="careers-ref-field"><span>Phone number <i>*</i></span><input name="phone" type="tel" placeholder="Your phone number" autoComplete="tel" required /></label>
+      <label className="careers-ref-field"><span>Portfolio or LinkedIn <i>*</i></span><input name="portfolio" type="url" placeholder="https://" required /></label>
+      <label className="careers-ref-field"><span>Role <i>*</i></span><select name="position" defaultValue={job.role} required>{roleOptions[job.id].map((role) => <option key={role} value={role}>{role}</option>)}</select></label>
+    </div>
+    <label className="careers-ref-field careers-ref-message"><span>Note to the hiring team <small>Optional</small></span><textarea name="message" rows="3" placeholder="Tell us briefly why this role interests you." /></label>
+    <label className="careers-ref-resume"><span className="careers-ref-file-heading">Resume <i>*</i></span><span className="careers-ref-file-drop"><FiUploadCloud aria-hidden="true" /><span><strong>{resumeName || 'Choose your resume'}</strong><small>PDF, DOC or DOCX · up to 5 MB</small></span><input type="file" name="resume" required accept=".pdf,.doc,.docx" onChange={(event) => { setResumeError(''); setResumeName(event.target.files?.[0]?.name || '') }} /></span>{resumeError && <small role="alert">{resumeError}</small>}</label>
+    <label className="careers-honeypot" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabIndex={-1} autoComplete="off" /></label>
+    <button className="careers-ref-submit" type="submit" disabled={busy}>{busy ? 'Sending application…' : 'Submit application'} {!busy && <FiArrowRight aria-hidden="true" />}</button>
+    <p className={`careers-ref-status${status.includes('received') ? ' is-success' : ''}`} role="status" aria-live="polite">{status && (status.includes('received') ? <FiCheck aria-hidden="true" /> : null)}{status}</p>
+  </form>
+}
 
-  return <main className="careers-page">
-    <section className="careers-hero" aria-labelledby="careers-title">
-      <div className="careers-hero-background" aria-hidden="true"><img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" /></div>
-      <div className="careers-hero-inner">
-        {/* <p className="careers-eyebrow"><span /> CAREERS / JOIN OUR TEAM</p> */}
-        <h1 id="careers-title">Careers <span>at Sage GFX.</span></h1>
-        {/* <p className="careers-hero-copy">Join a collaborative team of creative thinkers and problem solvers building meaningful digital work.</p> */}
-        {/* <a className="careers-hero-link" href="#apply">Explore Careers <span><FiArrowRight aria-hidden="true" /></span></a> */}
-      </div>
+function CareerTitle({ job }) {
+  const highlight = titleHighlights[job.id]
+  const start = job.title.lastIndexOf(highlight)
+  return <>{job.title.slice(0, start)}<span>{highlight}</span>{job.title.slice(start + highlight.length)}</>
+}
+
+function CareersPage() {
+  const [activeFilter, setActiveFilter] = useState('All')
+  const visibleRoles = activeFilter === 'All' ? careerRoles : careerRoles.filter((job) => job.category === activeFilter)
+
+  return <main className="careers-page careers-reference">
+    <section className="careers-ref-hero" aria-labelledby="careers-title">
+      <div className="careers-ref-hero-inner"><h1 id="careers-title">Careers</h1><p><a href="/">Home</a><span aria-hidden="true">›</span> Careers</p></div>
     </section>
-    <section className="careers-content" aria-label="Careers at Sage GFX">
-      <section className="careers-teams" aria-labelledby="careers-teams-title">
-        <p className="careers-section-label"><span/> SAGE GFX CAREERS</p>
-        <h2 id="careers-teams-title">Create. Innovate.<br/><span>Grow Together.</span></h2>
-        <p className="careers-teams-intro">At Sage GFX, we believe great work happens when talented people come together. We&apos;re looking for creative thinkers, skilled professionals, and passionate individuals who want to make an impact in the digital world.</p>
-        <div className="careers-benefits" aria-label="Why work with us">
-          <article><FiPenTool aria-hidden="true"/><h3>Creative Freedom</h3><p>Bring your ideas to life.</p></article>
-          <article><FiShare2 aria-hidden="true"/><h3>Collaborative Team</h3><p>Learn and grow together.</p></article>
-          <article><FiArrowRight aria-hidden="true"/><h3>Room to Grow</h3><p>Build your future with us.</p></article>
-        </div>
-        <div className="careers-team-heading"><p className="careers-section-label"><span/> FIND YOUR PLACE</p><h2>Explore our <span>teams.</span></h2></div>
-        <div className="careers-team-carousel" onMouseLeave={() => setActiveTeam(selectedTeam)}>
-          {teams.map(({ name, description, roles, image, accent, Icon }, index) => {
-            const expanded = activeTeam === index
-            return <article key={name} ref={(node) => { teamRefs.current[index] = node }} className={`careers-team-card${index === 1 ? ' careers-team-card--development' : ''}${expanded ? ' is-expanded' : ''}${selectedTeam === index ? ' is-selected' : ''}`} style={{ '--team-accent': accent, '--team-image': `url("${image}")` }} tabIndex={0} aria-label={`${name} team. Press Enter to select, or use arrow keys to explore teams.`} aria-current={selectedTeam === index ? 'true' : undefined} onMouseEnter={() => setActiveTeam(index)} onFocus={() => setActiveTeam(index)} onClick={() => selectTeam(index)} onKeyDown={(event) => handleTeamKeyDown(event, index)}>
-              <img className="careers-team-image" src={image} alt="" loading={index < 2 ? 'eager' : 'lazy'} />
-              <div className="careers-team-shade" aria-hidden="true" />
-              <h3 className="careers-team-vertical-title" aria-hidden={expanded}>{name}</h3>
-              <span className="careers-team-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <div className="careers-team-details" aria-hidden={!expanded}>
-                <span className="careers-team-icon"><Icon aria-hidden="true"/></span><h3>{name}</h3><p>{description}</p>
-                <div className="careers-suggested-roles">
-                  <p><strong>Suggested roles Â· not confirmed openings</strong></p>
-                  <div className="careers-role-chip-list">
-                    {roles.map((role) => <button className="careers-role-chip" type="button" key={role} tabIndex={expanded ? 0 : -1} onClick={(event) => { event.stopPropagation(); selectSuggestedRole(index, role) }}>{role}</button>)}
-                  </div>
-                </div>
-                <button type="button" tabIndex={expanded ? 0 : -1} onClick={(event) => { event.stopPropagation(); selectTeam(index) }}>Explore Roles <FiArrowRight aria-hidden="true"/></button>
-              </div>
-            </article>
-          })}
-        </div>
-        <p className="careers-team-hint">Role suggestions only â€” current vacancies may vary.</p>
-      </section>
-      <section className="careers-application" id="apply" aria-labelledby="apply-title">
-        <p className="careers-section-label"><span/> BUILD YOUR FUTURE WITH US</p>
-        <h2 id="apply-title">Let&apos;s create something great together!</h2>
-        <p className="careers-form-intro">Fields marked * are required. Role and message are optional.</p>
-        <form className="careers-form" onSubmit={submitApplication} noValidate>
-          <label className="careers-field"><FiUser aria-hidden="true"/><span className="sr-only">Full name *</span><input name="name" placeholder="Full name *" autoComplete="name" required aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'name-error' : undefined} />{fieldError('name')}</label>
-          <label className="careers-field"><FiMail aria-hidden="true"/><span className="sr-only">Email address *</span><input name="email" type="email" placeholder="Email address *" autoComplete="email" required aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? 'email-error' : undefined} />{fieldError('email')}</label>
-          <label className="careers-field"><FiPhone aria-hidden="true"/><span className="sr-only">Phone number *</span><input name="phone" type="tel" placeholder="Phone number *" autoComplete="tel" required aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? 'phone-error' : undefined} />{fieldError('phone')}</label>
-          <label className="careers-field careers-role-field"><FiBriefcase aria-hidden="true"/><span className="sr-only">Department *</span><select name="department" value={department} onChange={(event) => { setDepartment(event.target.value); setPosition(''); setErrors((current) => ({ ...current, department: '', position: '' })) }} required aria-invalid={Boolean(errors.department)} aria-describedby={errors.department ? 'department-error' : undefined}><option value="">Department *</option>{teams.map((team) => <option key={team.name} value={team.name}>{team.name}</option>)}</select>{fieldError('department')}</label>
-          <label className="careers-field careers-role-field"><FiBriefcase aria-hidden="true"/><span className="sr-only">Role (optional)</span><select name="position" value={position} onChange={(event) => { setPosition(event.target.value); setErrors((current) => ({ ...current, position: '' })) }} disabled={!department} aria-invalid={Boolean(errors.position)} aria-describedby={errors.position ? 'position-error' : undefined}><option value="">Role (optional)</option>{teams.find((team) => team.name === department)?.roles.map((role) => <option value={role} key={role}>{role}</option>)}</select>{fieldError('position')}</label>
-          <label className="careers-field careers-url-field"><FiExternalLink aria-hidden="true"/><span className="sr-only">Portfolio, LinkedIn, or website URL *</span><input name="portfolio" type="url" placeholder="Portfolio, LinkedIn, or website URL *" required aria-invalid={Boolean(errors.portfolio)} aria-describedby={errors.portfolio ? 'portfolio-error' : undefined} />{fieldError('portfolio')}</label>
-          <label className="careers-field careers-message-field"><span className="sr-only">Tell us about yourself (optional)</span><textarea name="message" rows="4" placeholder="Tell us about yourself (optional)" aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? 'message-error' : undefined} />{fieldError('message')}</label>
-          <label className="careers-honeypot" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabIndex={-1} autoComplete="off" /></label>
-          <div className={`careers-resume${dragging ? ' is-dragging' : ''}`} onDragOver={(event) => { event.preventDefault(); setDragging(true) }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setDragging(false) }} onDrop={(event) => { event.preventDefault(); setDragging(false); validateResume(event.dataTransfer.files?.[0]) }}>
-            <input ref={fileInputRef} className="careers-resume-input" type="file" name="resume" required aria-required="true" aria-label="Resume file, required" aria-invalid={Boolean(errors.resume || resumeError)} aria-describedby={errors.resume || resumeError ? 'resume-error' : undefined} accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={(event) => validateResume(event.target.files?.[0])} />
-            <FiUploadCloud aria-hidden="true"/><div><strong>Upload your resume *</strong><p>Drag and drop your resume here, or <button type="button" onClick={() => fileInputRef.current?.click()}>click to browse</button>.</p><small>PDF, DOC, DOCX (maximum 5 MB). Required.</small>
-              {resume && <p className="careers-resume-success" role="status">Resume attached successfully.<span>{resume.name} Â· {(resume.size / (1024 * 1024)).toFixed(2)} MB</span></p>}
-              {(resumeError || errors.resume) && <p className="careers-field-error" id="resume-error" role="alert">{resumeError || errors.resume}</p>}
+    <section className="careers-ref-intro" aria-label="Explore career roles">
+      <h2>Build what&apos;s <span>next.</span></h2>
+      <nav className="careers-ref-categories" aria-label="Filter career roles">
+        {filters.map((filter) => <button type="button" key={filter} className={activeFilter === filter ? 'is-active' : ''} aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
+      </nav>
+    </section>
+    <div className="careers-ref-list">
+      {visibleRoles.map((job) => <article className="careers-ref-job" id={job.id} key={job.id}>
+        <div className="careers-ref-top">
+          <div className="careers-ref-left">
+            <div className={`careers-ref-visual careers-ref-visual--${job.id}`}>
+              <img src={job.image} alt={`${job.title} role artwork`} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.parentElement.classList.add('is-image-missing') }} />
+              <span className="careers-ref-visual-icon" aria-hidden="true"><job.Icon /></span>
+              <span className="careers-ref-visual-label">SAGE GFX / {job.category.toUpperCase()}</span>
             </div>
-            {resume && <button className="careers-resume-remove" type="button" aria-label="Remove resume" onClick={() => { setResume(null); setResumeError(''); if (fileInputRef.current) fileInputRef.current.value = '' }}><FiX aria-hidden="true"/></button>}
+            <section className="careers-ref-responsibilities" aria-labelledby={`${job.id}-responsibilities`}>
+              <p className="careers-ref-kicker">THE ROLE</p><h3 id={`${job.id}-responsibilities`}>Key responsibilities</h3>
+              <ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul>
+            </section>
           </div>
-          <button className="careers-submit" type="submit" disabled={submitting}><FiSend aria-hidden="true"/>{submitting ? 'SENDING...' : 'SEND YOUR APPLICATION'}</button>
-          <p className="careers-status careers-status--live" role="status" aria-live="polite" aria-atomic="true">{currentStatus && <><strong>{currentStatus.heading}</strong><span>{currentStatus.message}</span>{status === 'error' && <span>If the problem continues, contact <a href={`mailto:${contactEmail}`}>{contactEmail}</a> or call <a href={`tel:${contactPhone.replaceAll(' ', '')}`}>{contactPhone}</a>.</span>}</>}</p>
-        </form>
-      </section>
+          <section className="careers-ref-application" aria-label={`Apply for ${job.title}`}>
+            <h2><CareerTitle job={job} /></h2><p className="careers-ref-summary">{job.summary}</p>
+            <h3>Job Information</h3><p className="careers-ref-experience">Experience: Relevant experience preferred</p>
+            <h3 className="careers-ref-apply-heading">Apply Now</h3>
+            <CareerApplicationForm job={job} />
+          </section>
+        </div>
+      </article>)}
+    </div>
+    <section className="careers-ref-process" aria-labelledby="careers-process-title">
+      <div className="careers-ref-process-inner">
+        <p className="careers-ref-process-kicker"><span aria-hidden="true" /> HOW HIRING WORKS</p>
+        <h2 id="careers-process-title">Four steps, <span>two weeks</span>, zero ghosting</h2>
+        <p className="careers-ref-process-intro">We hire the way we run campaigns: a clear process, fast feedback and<br className="careers-process-break" /> respect for your time at every stage.</p>
+        <ol className="careers-ref-steps">
+          {hiringSteps.map((step, index) => <li className="careers-ref-step" key={step.number}>
+            <span className={`careers-ref-step-number careers-ref-step-number--${index + 1}`}>{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </li>)}
+        </ol>
+      </div>
     </section>
   </main>
 }
 
 export default CareersPage
-

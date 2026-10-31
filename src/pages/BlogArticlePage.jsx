@@ -2,6 +2,15 @@ import { FiArrowLeft, FiArrowRight, FiClock } from 'react-icons/fi'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import blogArticles from '../data/blogArticles'
 
+function renderLinkedText(text) {
+  return text.split(/(\[[^\]]+\]\(https?:\/\/[^)]+\))/g).map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/)
+    return match
+      ? <a key={`${match[2]}-${index}`} href={match[2]} target="_blank" rel="noreferrer">{match[1]}</a>
+      : part
+  })
+}
+
 function BlogArticlePage() {
   const { slug } = useParams()
   const article = blogArticles.find((item) => item.slug === slug)
@@ -23,7 +32,9 @@ function BlogArticlePage() {
     <article className="blog-article-body">
       {article.sections.map((section) => <section key={section.heading}>
         <h2>{section.heading}</h2>
-        {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        {section.paragraphs?.map((paragraph, index) => <p key={`${section.heading}-paragraph-${index}`}>{renderLinkedText(paragraph)}</p>)}
+        {section.bullets?.length > 0 && <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
+        {section.faqs?.map(({ question, answer }) => <div className="blog-article-faq" key={question}><h3>{question}</h3><p>{renderLinkedText(answer)}</p></div>)}
       </section>)}
     </article>
     <aside className="blog-article-cta">

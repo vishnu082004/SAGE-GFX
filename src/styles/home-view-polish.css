@@ -1,0 +1,86 @@
+/* Keep the desktop header and homepage hero composed at laptop widths. */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .navbar-container {
+    gap: 20px;
+    padding-inline: 24px;
+  }
+
+  .navbar-logo,
+  .navbar-nav,
+  .navbar-actions {
+    flex: 0 0 auto;
+  }
+
+  .navbar-logo .navbar-brand-image {
+    width: 116px;
+    max-height: 76px;
+  }
+
+  .navbar-nav {
+    gap: clamp(12px, 1.45vw, 18px);
+  }
+
+  .navbar-link {
+    white-space: nowrap;
+    font-size: .76rem;
+  }
+
+  .navbar-actions .navbar-cta {
+    min-height: 44px;
+    gap: 7px;
+    padding-inline: 15px;
+    white-space: nowrap;
+  }
+
+  .home-page .sage-hero::before {
+    background:
+      linear-gradient(90deg, #050914 0%, rgba(5, 9, 20, .97) 39%, rgba(5, 9, 20, .82) 57%, rgba(5, 9, 20, .22) 82%, rgba(5, 9, 20, .1) 100%),
+      linear-gradient(180deg, rgba(3, 5, 15, .2), rgba(3, 5, 15, .06) 40%, rgba(3, 5, 15, .34));
+  }
+
+  .home-page .sage-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+    padding-inline: clamp(42px, 8vw, 96px);
+  }
+
+  .home-page .sage-hero-copy {
+    grid-area: auto;
+    max-width: 570px;
+  }
+
+  .home-page .sage-hero h1 {
+    max-width: 570px;
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+  }
+
+  .home-page .sage-hero-description {
+    max-width: 510px;
+  }
+
+  .home-page .sage-hero-boy-wrap {
+    right: -7%;
+    width: 52vw;
+  }
+
+  .home-page .sage-hero-boy-wrap video {
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 70px);
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page .sage-hero-boy-wrap video {
+    width: min(100%, 620px);
+    height: auto;
+    max-height: 100%;
+  }
+}
+
+@media (min-width: 901px) {
+  .home-page .sage-hero-copy {
+    transform: translateX(-12px);
+  }
+}

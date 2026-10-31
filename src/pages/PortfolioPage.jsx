@@ -1,80 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { FiArrowUpRight } from 'react-icons/fi'
-import kofeetekLogo from '../assets/images/logo (2)/3.webp'
-import twbcLogo from '../assets/images/logo (2)/13.webp'
-import simbaLogo from '../assets/images/logo (2)/23.webp'
-
-const categories = [
-  { id: 'websites', label: 'Websites' },
-  { id: 'smm', label: 'SMM' },
-  { id: 'seo', label: 'SEO' },
-]
-
-export const seoClientLogos = [
-  '/images/clients/seo/nexxora.webp',
-  '/images/clients/seo/safe-science.webp',
-  '/images/clients/seo/shape-wellness.webp',
-  '/images/clients/seo/siddha-clinic.webp',
-  '/images/clients/seo/optic-care.webp',
-  '/images/clients/seo/rg-academy.webp',
-  '/images/clients/seo/jeni-construction.webp',
-  '/images/clients/seo/kofeeteck.webp',
-  '/images/clients/seo/tuber-buddy.webp',
-]
-
-export const smmClientLogos = [
-  '/images/clients/smm/16d.webp',
-  '/images/clients/smm/jeni.webp',
-  '/images/clients/smm/kofeetek.webp',
-  '/images/clients/smm/makon-solution.webp',
-  '/images/clients/smm/optic-care.webp',
-  '/images/clients/smm/peel.webp',
-  '/images/clients/smm/rg.webp',
-  '/images/clients/smm/safe-science.webp',
-  '/images/clients/smm/shape-wellness.webp',
-  '/images/clients/smm/siddha.webp',
-  '/images/clients/smm/twc.webp',
-]
-
-export const websiteProjects = [
-  ['mareprints.com', 'https://mareprints.com', 'mareprints'],
-  ['kvhomecare.com', 'https://kvhomecare.com', 'kvhomecare'],
-  ['baitambaram.com', 'https://baitambaram.com', 'baitambaram'],
-  ['powergenco.in', 'https://powergenco.in', 'powergenco'],
-  ['16dimensions.com', 'https://16dimensions.com', '16dimensions'],
-  ['fourspaces.in', 'https://fourspaces.in', 'fourspaces'],
-  ['sreesakthijutebags.in', 'https://sreesakthijutebags.in', 'sreesakthijutebags'],
-  ['shopelroi.in', 'https://shopelroi.in', 'shopelroi'],
-  ['jananielectricals.com', 'https://jananielectricals.com', 'jananielectricals'],
-  ['ambujamscans.com', 'https://ambujamscans.com', 'ambujamscans'],
-  ['zeal-solutions.com', 'https://zeal-solutions.com', 'zeal-solutions'],
-  ['smartviewinterior.com', 'https://smartviewinterior.com', 'smartviewinterior'],
-  ['gangaiproperties.com', 'https://gangaiproperties.com', 'gangaiproperties'],
-  ['tulirdesignstudio.com', 'https://tulirdesignstudio.com', 'tulirdesignstudio'],
-  ['fcprintchennai.in', 'https://fcprintchennai.in', 'fcprintchennai'],
-  ['tuberbuddy.com', 'https://tuberbuddy.com', 'tuberbuddy'],
-  ['jeniconstructions.com', 'https://jeniconstructions.com', 'jeniconstructions'],
-  ['nnacas.in', 'https://nnacas.in', 'nnacas'],
-  ['rgacademy.net/blog/', 'https://rgacademy.net/blog/', 'rgacademy'],
-  ['kofeetek.in', 'https://kofeetek.in', null, 'Connection refused', kofeetekLogo],
-  ['nmgreenscricketground.com', 'https://nmgreenscricketground.com', null, 'Preview capture timed out'],
-  ['tbwctrust.com', 'https://tbwctrust.com', null, 'SSL connection error', twbcLogo],
-  ['simbaads.com', 'https://simbaads.com', null, 'Domain not found', simbaLogo],
-]
-
-const categoryContent = {
-  websites: {
-    eyebrow: 'WEB DESIGN & DEVELOPMENT',
-    title: 'Digital experiences built to move business forward.',
-    description: 'Explore how thoughtful design and dependable development give brands a stronger place to grow online.',
-  },
-  smm: {
-    eyebrow: 'SOCIAL MEDIA MARKETING',
-    title: 'Make every conversation count.',
-    description: 'Social strategy and creative content help brands show up consistently and build lasting connections.',
-  },
-}
+import { categories, categoryContent, seoClientLogos, smmClientLogos, websiteProjects } from '../data/portfolio'
 
 function PortfolioPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -123,21 +50,24 @@ function PortfolioPage() {
           <div className="portfolio-category-panel" id="portfolio-panel" role="tabpanel" aria-labelledby={`portfolio-tab-${activeCategory}`} tabIndex={0}>
             {activeCategory === 'websites' ? (
               <div className="website-project-grid" aria-label="Website client projects">
-                {websiteProjects.map(([domain, href, preview, previewStatus, logo], index) => (
-                  <a className={`website-project-card${previewStatus ? ' website-project-card--logo' : ''}`} href={href} key={domain} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${domain}`}>
-                    {previewStatus ? (
-                      <div className="website-project-logo-art">{logo ? <img src={logo} alt={`${domain} logo`} loading="lazy" /> : <span className="website-project-wordmark">NM<span>GREENS</span></span>}<span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
+                {websiteProjects.map(([domain, href, preview, logo], index) => (
+                  <a className={`website-project-card${!preview ? ' website-project-card--logo' : ''}`} href={href} key={domain} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${domain}`}>
+                    {!preview ? (
+                      <div className="website-project-logo-art">{logo ? <img src={logo} alt={`${domain} logo`} loading="lazy" decoding="async" /> : <span className="website-project-wordmark">NM<span>GREENS</span></span>}<span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
                     ) : (
-                      <div className="website-project-preview"><img src={`/images/clients/websites/${preview}.webp`} alt={`${domain} homepage preview`} loading={index < 6 ? 'eager' : 'lazy'} /><span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
+                      <div className="website-project-preview"><img src={`/images/clients/websites/${preview.endsWith('.png') ? preview : `${preview}.webp`}`} alt={`${domain} homepage preview`} loading={index < 6 ? 'eager' : 'lazy'} decoding="async" /><span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
                     )}
-                    <div className="website-project-meta"><span className="website-project-index">{String(index + 1).padStart(2, '0')}</span><div className="website-project-details"><h3>{domain}</h3>{previewStatus && <span className="website-project-status">{previewStatus}</span>}</div><FiArrowUpRight aria-hidden="true" /></div>
+                    <div className="website-project-meta"><span className="website-project-index">{String(index + 1).padStart(2, '0')}</span><div className="website-project-details"><h3>{domain}</h3></div><FiArrowUpRight aria-hidden="true" /></div>
                   </a>
                 ))}
               </div>
             ) : activeCategory === 'seo' || activeCategory === 'smm' ? (
-              <div className="seo-client-grid" aria-label={`${activeCategory.toUpperCase()} client logos`}>
-                {(activeCategory === 'seo' ? seoClientLogos : smmClientLogos).map((src) => <div className="seo-client-logo" key={src}><img src={src} alt="" loading="lazy" /></div>)}
-              </div>
+              <>
+                {activeCategory === 'seo' && <Link className="portfolio-case-study-link" to="/case-studies"><span><small>HEALTHCARE SEO CASE STUDY</small><strong>Siddha Clinic — Local Growth Success</strong><em>From zero visibility to 3,500 monthly organic visitors in five months</em></span><FiArrowUpRight aria-hidden="true" /></Link>}
+                <div className="seo-client-grid" aria-label={`${activeCategory.toUpperCase()} client logos`}>
+                  {(activeCategory === 'seo' ? seoClientLogos : smmClientLogos).map((src) => <div className="seo-client-logo" key={src}><img src={src} alt="" loading="lazy" decoding="async" /></div>)}
+                </div>
+              </>
             ) : (
               <div className="portfolio-category-copy">
                 <p className="portfolio-kicker">{categoryContent[activeCategory].eyebrow}</p>

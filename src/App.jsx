@@ -1,23 +1,28 @@
-import { useState, useEffect } from 'react'
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { lazy, Suspense, useState, useEffect } from 'react'
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
+import { FiPhone } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
+import blogArticles from './data/blogArticles'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
 import ScrollReveal from './components/ScrollReveal'
-import SageAI from './components/SageAI'
+const SageAI = lazy(() => import('./components/SageAI'))
 
-import Home from './pages/Home'
-import AboutPage from './pages/AboutPage'
-import ServicesPage from './pages/ServicesPage'
-import ContactPage from './pages/ContactPage'
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
-import CareersPage from './pages/CareersPage'
-import PortfolioPage from './pages/PortfolioPage'
-import BlogPage from './pages/BlogPage'
-import BlogArticlePage from './pages/BlogArticlePage'
-import blogArticles from './data/blogArticles'
-import TermsPage from './pages/TermsPage'
-import SitemapPage from './pages/SitemapPage'
+const Home = lazy(() => import('./pages/Home'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
+const CareersPage = lazy(() => import('./pages/CareersPage'))
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
+const ClientsPage = lazy(() => import('./pages/ClientsPage'))
+const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const SitemapPage = lazy(() => import('./pages/SitemapPage'))
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'))
 
 // Modular stylesheets
 import './styles/global.css'
@@ -51,6 +56,7 @@ import './styles/sitewide-creative-motion.css'
 import './styles/premium-home-motion.css'
 import './styles/footer-minimal.css'
 import './styles/careers-teams.css'
+import './styles/careers-reference.css'
 import './styles/blog-pages.css'
 import './styles/portfolio-page.css'
 import './styles/services-page.css'
@@ -61,6 +67,14 @@ import './styles/hero-brightness.css'
 import './styles/hero-height-tuning.css'
 import './styles/home-hero-background.css'
 import './styles/mobile-audit.css'
+import './styles/site-buttons.css'
+import './styles/page-hero-centering.css'
+import './styles/home-copy-reveal.css'
+import './styles/home-view-polish.css'
+import './styles/card-icon-feedback.css'
+import './styles/contact-body-guide.css'
+import './styles/contact-quick-actions.css'
+import './styles/paragraph-contrast.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -85,11 +99,13 @@ function RouteDocumentTitle() {
 
   useEffect(() => {
     const pages = {
-      '/': ['Sage GFX Digital Studio | Web Design, SEO & Digital Marketing in Chennai', 'Sage GFX is a Chennai digital studio for website development, SEO, branding and digital marketing. Build a stronger online presence with a team in Tambaram, Chennai.'],
+      '/': ['Digital Marketing Agency in Chennai | Sage GFX Digital Solutions', 'Sage GFX is a results-driven digital marketing agency in Chennai offering SEO, Google Ads, social media marketing and web solutions to grow your business online.'],
       '/about': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
       '/about-us': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
       '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],
       '/portfolio': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
+      '/clients': ['Our Clients | SAGE GFX', 'Meet some of the ambitious brands Sage GFX works alongside across creative, web, and digital marketing projects.'],
+      '/case-studies': ['Siddha Clinic Case Study | Sage GFX', 'Explore how Sage GFX combined SEO, local search, and performance marketing to grow Siddha Clinic’s organic visibility and patient enquiries.'],
       '/careers': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
       '/blog': ['Studio Journal | Sage GFX Digital Studio', 'Ideas and practical notes on branding, technology and growing well online.'],
       '/contact': ['Contact | Sage GFX Digital Studio', 'Tell Sage GFX about your next idea and start a conversation with our digital studio.'],
@@ -158,8 +174,14 @@ function NotFoundPage() {
   return <section className="page-hero"><div className="container"><p className="page-hero-eyebrow">404 / PAGE NOT FOUND</p><h1 className="page-hero-title">This page took<br/><span className="gradient-text">a wrong turn.</span></h1><Link className="button button-gradient" to="/">Back to home</Link></div></section>
 }
 
+function RouteLoadingFallback() {
+  return <div className="route-loading" role="status" aria-live="polite">Loading page…</div>
+}
+
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null)
+  const { pathname } = useLocation()
+  const isContactPage = pathname === '/contact' || pathname === '/contact-us'
 
   const openLightbox = (img) => setLightboxImage(img)
   const closeLightbox = () => setLightboxImage(null)
@@ -173,26 +195,38 @@ function App() {
       <Navbar />
 
       <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home openLightbox={openLightbox} />} />
-          <Route path="/about" element={<AboutPage openLightbox={openLightbox} />} />
-          <Route path="/about-us" element={<AboutPage openLightbox={openLightbox} />} />
-          <Route path="/services" element={<ServicesPage openLightbox={openLightbox} />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogArticlePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/contact-us" element={<ContactPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms-of-service" element={<TermsPage />} />
-          <Route path="/sitemap" element={<SitemapPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={<RouteLoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Home openLightbox={openLightbox} />} />
+            <Route path="/about" element={<AboutPage openLightbox={openLightbox} />} />
+            <Route path="/about-us" element={<AboutPage openLightbox={openLightbox} />} />
+            <Route path="/services" element={<ServicesPage openLightbox={openLightbox} />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/clients" element={<ClientsPage />} />
+            <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/case-studies/wea-clinic" element={<Navigate replace to="/case-studies" />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogArticlePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-service" element={<TermsPage />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />
-      <SageAI />
+      <Suspense fallback={null}>
+        {!isContactPage && <SageAI />}
+      </Suspense>
+      {isContactPage && <div className="contact-quick-actions" aria-label="Quick contact">
+        <a className="contact-quick-action contact-quick-action--phone" href="tel:+918778914009" aria-label="Call Sage GFX"><FiPhone aria-hidden="true" /></a>
+        <a className="contact-quick-action contact-quick-action--whatsapp" href="https://wa.me/918778914009" target="_blank" rel="noreferrer" aria-label="Chat with Sage GFX on WhatsApp"><FaWhatsapp aria-hidden="true" /></a>
+      </div>}
 
       {/* Global Image Lightbox Modal */}
       <Lightbox image={lightboxImage} onClose={closeLightbox} />

@@ -1,0 +1,168 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Hero.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c0bf90ad"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=c0bf90ad";
+import __vite__cjsImport4_react from "/node_modules/.vite/deps/react.js?v=c0bf90ad"; const useEffect = __vite__cjsImport4_react["useEffect"]; const useRef = __vite__cjsImport4_react["useRef"]; const useState = __vite__cjsImport4_react["useState"];
+import { FiArrowRight, FiPlay } from "/node_modules/.vite/deps/react-icons_fi.js?v=c0bf90ad";
+import heroVideo from "/src/assets/images/home hero video.mp4?import";
+function Hero({ onVideoReady }) {
+  _s();
+  const videoRef = useRef(null);
+  const [introActive, setIntroActive] = useState(true);
+  const [videoReady, setVideoReady] = useState(false);
+  const videoStarted = useRef(false);
+  const introFinished = useRef(false);
+  const finishHeroIntro = () => {
+    if (introFinished.current) return;
+    introFinished.current = true;
+    setIntroActive(false);
+    setVideoReady(true);
+    onVideoReady?.();
+  };
+  useEffect(() => {
+    const introFallback = window.setTimeout(finishHeroIntro, 2500);
+    return () => window.clearTimeout(introFallback);
+  }, []);
+  const startHeroVideo = () => {
+    if (videoStarted.current) return;
+    videoStarted.current = true;
+    setVideoReady(true);
+    videoRef.current?.play().catch(finishHeroIntro);
+    if (!window.matchMedia("(max-width: 760px)").matches) finishHeroIntro();
+  };
+  return /* @__PURE__ */ jsxDEV("section", { className: `sage-hero${introActive ? " sage-hero--mobile-intro" : " sage-hero--revealed"}`, id: "home", "aria-labelledby": "home-heading", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "sage-hero-orbit", "aria-hidden": "true" }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+      lineNumber: 54,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "sage-hero-inner", children: /* @__PURE__ */ jsxDEV("div", { className: "sage-hero-copy", children: [
+      /* @__PURE__ */ jsxDEV("h1", { id: "home-heading", children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-heading-line", children: "Grow Your Brand" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 59,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-heading-line sage-hero-heading-accent", children: "with a Results-Driven" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 60,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-heading-line sage-hero-heading-accent", children: "Digital Marketing" }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 61,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-heading-line", children: "Agency in Chennai." }, void 0, false, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 62,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+        lineNumber: 58,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { className: "sage-hero-description", children: "Sage GFX Digital Solutions is a trusted digital marketing company in Chennai. We combine SEO, Google Ads, social media marketing, content, and web solutions to strengthen your online presence, reach the right audience, and drive long-term business growth." }, void 0, false, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+        lineNumber: 64,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "sage-hero-actions", children: [
+        /* @__PURE__ */ jsxDEV(Link, { to: "/contact", className: "sage-hero-primary tactile-button morphing-pill-button", children: [
+          /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-primary-label--desktop", children: "LET'S GROW YOUR BUSINESS" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+            lineNumber: 66,
+            columnNumber: 99
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { className: "sage-hero-primary-label--mobile", children: "Grow your business" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+            lineNumber: 66,
+            columnNumber: 186
+          }, this),
+          /* @__PURE__ */ jsxDEV(FiArrowRight, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+            lineNumber: 66,
+            columnNumber: 261
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 66,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(Link, { to: "/services", className: "sage-hero-secondary", children: [
+          /* @__PURE__ */ jsxDEV(FiPlay, { "aria-hidden": "true" }, void 0, false, {
+            fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+            lineNumber: 67,
+            columnNumber: 66
+          }, this),
+          " Explore our services"
+        ] }, void 0, true, {
+          fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+          lineNumber: 67,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+        lineNumber: 65,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+      lineNumber: 56,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+      lineNumber: 55,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: `sage-hero-boy-wrap${videoReady ? " is-ready" : ""}${introActive ? " is-intro" : ""}`, "aria-hidden": "true", children: /* @__PURE__ */ jsxDEV("video", { ref: videoRef, src: heroVideo, autoPlay: true, muted: true, playsInline: true, preload: "auto", onCanPlay: startHeroVideo, onEnded: finishHeroIntro, onError: finishHeroIntro }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+      lineNumber: 72,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+      lineNumber: 71,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx",
+    lineNumber: 53,
+    columnNumber: 5
+  }, this);
+}
+_s(Hero, "PemSOk4+YCLASVhWu27kuMbCdzk=");
+_c = Hero;
+export default Hero;
+var _c;
+$RefreshReg$(_c, "Hero");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/vishn/OneDrive/Desktop/sage gfxdigital studio/src/components/Hero.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QTtBQUFBO0FBQUEsZUFBdUc7QUFBQSxXQUZ6RztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBR0E7QUFBQSxTQVpGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FhQSxLQWRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FlQTtBQUFBLElBQ0EsdUJBQUMsU0FBSSxXQUFXLHFCQUFxQkUsYUFBYSxjQUFjLEVBQUUsR0FBR0YsY0FBYyxjQUFjLEVBQUUsSUFBSSxlQUFZLFFBQ2pILGlDQUFDLFdBQU0sS0FBS0QsVUFBVSxLQUFLSixXQUFXLFVBQVEsTUFBQyxPQUFLLE1BQUMsYUFBVyxNQUFDLFNBQVEsUUFBTyxXQUFXaUIsZ0JBQWdCLFNBQVNOLGlCQUFpQixTQUFTQSxtQkFBOUk7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUE4SixLQURoSztBQUFBO0FBQUE7QUFBQTtBQUFBLFdBRUE7QUFBQSxPQXBCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBcUJBO0FBRUo7QUFBQ1IsR0FuRFFGLE1BQUk7QUFBQSxLQUFKQTtBQXFEVCxlQUFlQTtBQUFJLElBQUFxQjtBQUFBLGFBQUFBLElBQUEiLCJuYW1lcyI6WyJMaW5rIiwidXNlRWZmZWN0IiwidXNlUmVmIiwidXNlU3RhdGUiLCJGaUFycm93UmlnaHQiLCJGaVBsYXkiLCJoZXJvVmlkZW8iLCJIZXJvIiwib25WaWRlb1JlYWR5IiwiX3MiLCJ2aWRlb1JlZiIsImludHJvQWN0aXZlIiwic2V0SW50cm9BY3RpdmUiLCJ2aWRlb1JlYWR5Iiwic2V0VmlkZW9SZWFkeSIsInZpZGVvU3RhcnRlZCIsImludHJvRmluaXNoZWQiLCJmaW5pc2hIZXJvSW50cm8iLCJjdXJyZW50IiwiaW50cm9GYWxsYmFjayIsIndpbmRvdyIsInNldFRpbWVvdXQiLCJjbGVhclRpbWVvdXQiLCJzdGFydEhlcm9WaWRlbyIsInBsYXkiLCJjYXRjaCIsIm1hdGNoTWVkaWEiLCJtYXRjaGVzIiwiX2MiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiSGVyby5qc3giXSwic291cmNlc0NvbnRlbnQiOlsi77u/aW1wb3J0IHsgTGluayB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nXG5pbXBvcnQgeyB1c2VFZmZlY3QsIHVzZVJlZiwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7IEZpQXJyb3dSaWdodCwgRmlQbGF5IH0gZnJvbSAncmVhY3QtaWNvbnMvZmknXG5pbXBvcnQgaGVyb1ZpZGVvIGZyb20gJy4uL2Fzc2V0cy9pbWFnZXMvaG9tZSBoZXJvIHZpZGVvLm1wNCdcblxuZnVuY3Rpb24gSGVybyh7IG9uVmlkZW9SZWFkeSB9KSB7XG4gIGNvbnN0IHZpZGVvUmVmID0gdXNlUmVmKG51bGwpXG4gIGNvbnN0IFtpbnRyb0FjdGl2ZSwgc2V0SW50cm9BY3RpdmVdID0gdXNlU3RhdGUodHJ1ZSlcbiAgY29uc3QgW3ZpZGVvUmVhZHksIHNldFZpZGVvUmVhZHldID0gdXNlU3RhdGUoZmFsc2UpXG4gIGNvbnN0IHZpZGVvU3RhcnRlZCA9IHVzZVJlZihmYWxzZSlcbiAgY29uc3QgaW50cm9GaW5pc2hlZCA9IHVzZVJlZihmYWxzZSlcblxuICBjb25zdCBmaW5pc2hIZXJvSW50cm8gPSAoKSA9PiB7XG4gICAgaWYgKGludHJvRmluaXNoZWQuY3VycmVudCkgcmV0dXJuXG4gICAgaW50cm9GaW5pc2hlZC5jdXJyZW50ID0gdHJ1ZVxuICAgIHNldEludHJvQWN0aXZlKGZhbHNlKVxuICAgIHNldFZpZGVvUmVhZHkodHJ1ZSlcbiAgICBvblZpZGVvUmVhZHk/LigpXG4gIH1cblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGNvbnN0IGludHJvRmFsbGJhY2sgPSB3aW5kb3cuc2V0VGltZW91dChmaW5pc2hIZXJvSW50cm8sIDI1MDApXG4gICAgcmV0dXJuICgpID0+IHdpbmRvdy5jbGVhclRpbWVvdXQoaW50cm9GYWxsYmFjaylcbiAgfSwgW10pXG5cbiAgY29uc3Qgc3RhcnRIZXJvVmlkZW8gPSAoKSA9PiB7XG4gICAgaWYgKHZpZGVvU3RhcnRlZC5jdXJyZW50KSByZXR1cm5cbiAgICB2aWRlb1N0YXJ0ZWQuY3VycmVudCA9IHRydWVcbiAgICBzZXRWaWRlb1JlYWR5KHRydWUpXG4gICAgdmlkZW9SZWYuY3VycmVudD8ucGxheSgpLmNhdGNoKGZpbmlzaEhlcm9JbnRybylcbiAgICBpZiAoIXdpbmRvdy5tYXRjaE1lZGlhKCcobWF4LXdpZHRoOiA3NjBweCknKS5tYXRjaGVzKSBmaW5pc2hIZXJvSW50cm8oKVxuICB9XG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gY2xhc3NOYW1lPXtgc2FnZS1oZXJvJHtpbnRyb0FjdGl2ZSA/ICcgc2FnZS1oZXJvLS1tb2JpbGUtaW50cm8nIDogJyBzYWdlLWhlcm8tLXJldmVhbGVkJ31gfSBpZD1cImhvbWVcIiBhcmlhLWxhYmVsbGVkYnk9XCJob21lLWhlYWRpbmdcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2FnZS1oZXJvLW9yYml0XCIgYXJpYS1oaWRkZW49XCJ0cnVlXCIgLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2FnZS1oZXJvLWlubmVyXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2FnZS1oZXJvLWNvcHlcIj5cbiAgICAgICAgICB7LyogPHAgY2xhc3NOYW1lPVwic2FnZS1oZXJvLWV5ZWJyb3dcIj5TQUdFIEdGWCA8c3BhbiBhcmlhLWhpZGRlbj1cInRydWVcIiAvPiBDSEVOTkFJIMK3IFNUUkFURUdZIC8gREVTSUdOIC8gRElHSVRBTDwvcD4gKi99XG4gICAgICAgICAgPGgxIGlkPVwiaG9tZS1oZWFkaW5nXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJzYWdlLWhlcm8taGVhZGluZy1saW5lXCI+R3JvdyBZb3VyIEJyYW5kPC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwic2FnZS1oZXJvLWhlYWRpbmctbGluZSBzYWdlLWhlcm8taGVhZGluZy1hY2NlbnRcIj53aXRoIGEgUmVzdWx0cy1Ecml2ZW48L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJzYWdlLWhlcm8taGVhZGluZy1saW5lIHNhZ2UtaGVyby1oZWFkaW5nLWFjY2VudFwiPkRpZ2l0YWwgTWFya2V0aW5nPC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwic2FnZS1oZXJvLWhlYWRpbmctbGluZVwiPkFnZW5jeSBpbiBDaGVubmFpLjwvc3Bhbj5cbiAgICAgICAgICA8L2gxPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInNhZ2UtaGVyby1kZXNjcmlwdGlvblwiPlNhZ2UgR0ZYIERpZ2l0YWwgU29sdXRpb25zIGlzIGEgdHJ1c3RlZCBkaWdpdGFsIG1hcmtldGluZyBjb21wYW55IGluIENoZW5uYWkuIFdlIGNvbWJpbmUgU0VPLCBHb29nbGUgQWRzLCBzb2NpYWwgbWVkaWEgbWFya2V0aW5nLCBjb250ZW50LCBhbmQgd2ViIHNvbHV0aW9ucyB0byBzdHJlbmd0aGVuIHlvdXIgb25saW5lIHByZXNlbmNlLCByZWFjaCB0aGUgcmlnaHQgYXVkaWVuY2UsIGFuZCBkcml2ZSBsb25nLXRlcm0gYnVzaW5lc3MgZ3Jvd3RoLjwvcD5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNhZ2UtaGVyby1hY3Rpb25zXCI+XG4gICAgICAgICAgICA8TGluayB0bz1cIi9jb250YWN0XCIgY2xhc3NOYW1lPVwic2FnZS1oZXJvLXByaW1hcnkgdGFjdGlsZS1idXR0b24gbW9ycGhpbmctcGlsbC1idXR0b25cIj48c3BhbiBjbGFzc05hbWU9XCJzYWdlLWhlcm8tcHJpbWFyeS1sYWJlbC0tZGVza3RvcFwiPkxFVCZhcG9zO1MgR1JPVyBZT1VSIEJVU0lORVNTPC9zcGFuPjxzcGFuIGNsYXNzTmFtZT1cInNhZ2UtaGVyby1wcmltYXJ5LWxhYmVsLS1tb2JpbGVcIj5Hcm93IHlvdXIgYnVzaW5lc3M8L3NwYW4+PEZpQXJyb3dSaWdodCBhcmlhLWhpZGRlbj1cInRydWVcIiAvPjwvTGluaz5cbiAgICAgICAgICAgIDxMaW5rIHRvPVwiL3NlcnZpY2VzXCIgY2xhc3NOYW1lPVwic2FnZS1oZXJvLXNlY29uZGFyeVwiPjxGaVBsYXkgYXJpYS1oaWRkZW49XCJ0cnVlXCIgLz4gRXhwbG9yZSBvdXIgc2VydmljZXM8L0xpbms+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT17YHNhZ2UtaGVyby1ib3ktd3JhcCR7dmlkZW9SZWFkeSA/ICcgaXMtcmVhZHknIDogJyd9JHtpbnRyb0FjdGl2ZSA/ICcgaXMtaW50cm8nIDogJyd9YH0gYXJpYS1oaWRkZW49XCJ0cnVlXCI+XG4gICAgICAgIDx2aWRlbyByZWY9e3ZpZGVvUmVmfSBzcmM9e2hlcm9WaWRlb30gYXV0b1BsYXkgbXV0ZWQgcGxheXNJbmxpbmUgcHJlbG9hZD1cImF1dG9cIiBvbkNhblBsYXk9e3N0YXJ0SGVyb1ZpZGVvfSBvbkVuZGVkPXtmaW5pc2hIZXJvSW50cm99IG9uRXJyb3I9e2ZpbmlzaEhlcm9JbnRyb30gLz5cbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKVxufVxuXG5leHBvcnQgZGVmYXVsdCBIZXJvXG5cblxuIl0sImZpbGUiOiJDOi9Vc2Vycy92aXNobi9PbmVEcml2ZS9EZXNrdG9wL3NhZ2UgZ2Z4ZGlnaXRhbCBzdHVkaW8vc3JjL2NvbXBvbmVudHMvSGVyby5qc3gifQ==

@@ -16,7 +16,7 @@ const projects = [
 ]
 
 function ProjectArtwork({ image, imageAlt, type }) {
-  return <div className="home-project-art home-project-art--image"><img src={image} alt={imageAlt} loading="lazy" /><span className="home-project-image-label">{type}</span></div>
+  return <div className="home-project-art home-project-art--image"><img src={image} alt={imageAlt} loading="lazy" decoding="async" /><span className="home-project-image-label">{type}</span></div>
 }
 
 function HomeProjects() {
@@ -44,7 +44,6 @@ function HomeProjects() {
     <div className="home-projects-inner">
       <header className="home-projects-heading">
         <div><p className="home-projects-eyebrow"><i/> SELECTED WORK</p><h2 id="home-projects-title">Our <span>Projects</span></h2><p className="home-projects-intro">A glimpse of the ideas, identities and digital experiences we bring to life.</p></div>
-        <Link className="home-projects-all" to="/portfolio">Explore all projects <FiArrowUpRight aria-hidden="true"/></Link>
       </header>
       <div className="home-projects-grid" ref={trackRef}>
         {projects.map((project) => <Link className="home-project-card" to={project.destination} key={project.number}>
@@ -53,6 +52,9 @@ function HomeProjects() {
           <h3>{project.title}</h3>
           <span className="home-project-category">{project.category}</span>
         </Link>)}
+      </div>
+      <div className="home-projects-footer">
+        <Link className="home-projects-all" to="/portfolio">Explore all projects <FiArrowUpRight aria-hidden="true"/></Link>
       </div>
     </div>
   </section>

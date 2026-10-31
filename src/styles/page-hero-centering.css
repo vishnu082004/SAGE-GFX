@@ -1,0 +1,320 @@
+/* Keep all non-home page heroes the same responsive height. */
+:is(
+  .main-content > .page-hero:not(.page-hero--contact),
+  .about-page .page-hero--about,
+  .services-page .page-hero--services,
+  .privacy-page .page-hero,
+  .terms-page .page-hero,
+  .sitemap-page .page-hero,
+  .blog-page .blog-hero,
+  .portfolio-hero,
+  .careers-page .careers-hero,
+  .service-detail-hero,
+  .contact-page .contact-design-hero
+) {
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(460px, 68svh, 700px);
+  min-height: clamp(460px, 68svh, 700px);
+}
+
+/* Use the About hero's studio image throughout the site, except on Home. */
+:is(
+  .main-content > .page-hero:not(.page-hero--contact),
+  .privacy-page .page-hero,
+  .terms-page .page-hero,
+  .sitemap-page .page-hero
+) {
+  background-image:
+    linear-gradient(rgba(5, 9, 20, .76), rgba(5, 9, 20, .82)),
+    url('/images/sage-gfx-services-background.webp');
+  background-position: center, center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Carry the About hero's dark dotted, diagonal and orbit treatment across page heroes. */
+:is(
+  .main-content > .page-hero:not(.page-hero--contact),
+  .privacy-page .page-hero,
+  .terms-page .page-hero,
+  .sitemap-page .page-hero,
+  .services-page .page-hero--services,
+  .blog-page .blog-hero,
+  .portfolio-hero,
+  .careers-page .careers-hero
+)::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(193, 220, 244, .2) .7px, transparent .7px),
+    linear-gradient(145deg, transparent 46%, rgba(23, 182, 228, .12) 46.15%, transparent 46.4%),
+    linear-gradient(28deg, transparent 67%, rgba(199, 44, 204, .11) 67.15%, transparent 67.4%),
+    radial-gradient(circle at 95% 12%, transparent 0 9.5rem, rgba(201, 43, 207, .1) 9.6rem 10.4rem, transparent 10.5rem 12rem, rgba(37, 186, 232, .09) 12.1rem 12.9rem, transparent 13rem);
+  background-size: 22px 22px, auto, auto, auto;
+  mask-image: linear-gradient(90deg, #000, transparent 82%);
+}
+
+.main-content > .page-hero:not(.page-hero--contact) > .container,
+.privacy-page .page-hero > .container,
+.terms-page .page-hero > .container,
+.sitemap-page .page-hero > .container,
+.service-detail-hero-content { position: relative; z-index: 2; }
+
+.service-detail-hero::before {
+  background-image:
+    radial-gradient(rgba(193, 220, 244, .2) .7px, transparent .7px),
+    linear-gradient(145deg, transparent 46%, rgba(23, 182, 228, .12) 46.15%, transparent 46.4%),
+    linear-gradient(28deg, transparent 67%, rgba(199, 44, 204, .11) 67.15%, transparent 67.4%),
+    radial-gradient(circle at 95% 12%, transparent 0 9.5rem, rgba(201, 43, 207, .1) 9.6rem 10.4rem, transparent 10.5rem 12rem, rgba(37, 186, 232, .09) 12.1rem 12.9rem, transparent 13rem),
+    linear-gradient(rgba(5, 9, 20, .76), rgba(5, 9, 20, .82)),
+    url('/images/sage-gfx-services-background.webp');
+  background-size: 22px 22px, auto, auto, auto, cover, cover;
+}
+
+.contact-page.contact-design .contact-design-hero::before {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  background-image:
+    radial-gradient(rgba(193, 220, 244, .2) .7px, transparent .7px),
+    linear-gradient(145deg, transparent 46%, rgba(23, 182, 228, .12) 46.15%, transparent 46.4%),
+    linear-gradient(28deg, transparent 67%, rgba(199, 44, 204, .11) 67.15%, transparent 67.4%),
+    radial-gradient(circle at 95% 12%, transparent 0 9.5rem, rgba(201, 43, 207, .1) 9.6rem 10.4rem, transparent 10.5rem 12rem, rgba(37, 186, 232, .09) 12.1rem 12.9rem, transparent 13rem),
+    radial-gradient(ellipse at 76% 48%, rgba(64, 44, 207, .22), transparent 37%),
+    radial-gradient(ellipse at 12% 100%, rgba(0, 173, 228, .12), transparent 40%);
+  background-size: 22px 22px, auto, auto, auto, auto, auto;
+  mask-image: none;
+}
+
+.main-content > .page-hero:not(.page-hero--contact) { text-align: center; }
+
+.main-content > .page-hero:not(.page-hero--contact) > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.2vw, 24px);
+  padding: clamp(48px, 8vh, 82px) clamp(22px, 5vw, 64px);
+}
+
+.main-content > .page-hero:not(.page-hero--contact) .page-hero-title { margin: 0; }
+
+.about-page .page-hero--about .about-hero-layout {
+  position: relative;
+  display: flex;
+  min-height: inherit;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(54px, 8vh, 88px) clamp(24px, 6vw, 80px);
+  text-align: center;
+}
+
+.about-page .about-hero-copy {
+  width: min(100%, 760px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.about-page .about-hero-copy .page-hero-title { margin: 0; }
+
+.about-page .about-hero-copy .button { margin: 0; }
+
+.about-page .about-hero-stage {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  min-height: 0;
+  opacity: .34;
+  pointer-events: none;
+}
+
+.about-page .about-hero-photo { object-position: center 34%; }
+
+.services-page .page-hero--services .services-hero-layout {
+  justify-content: center;
+  padding: clamp(48px, 8vh, 88px) clamp(24px, 6vw, 88px);
+  text-align: center;
+}
+
+.services-page .services-hero-copy {
+  width: min(100%, 760px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.services-page .services-hero-copy .page-hero-title,
+.services-page .services-hero-actions { margin: 0; }
+
+.services-page .services-hero-actions { justify-content: center; gap: 14px; }
+
+.blog-page .blog-hero .container {
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: clamp(48px, 8vh, 82px) clamp(22px, 5vw, 64px);
+  text-align: center;
+}
+
+.blog-page .blog-hero .page-hero-title,
+.blog-page .blog-hero .page-hero-subtitle {
+  margin: 0 auto;
+}
+
+.blog-page .blog-hero .page-hero-eyebrow { margin: 0; }
+
+.portfolio-hero .portfolio-hero-content {
+  width: min(calc(100% - 48px), 760px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.portfolio-hero .page-hero-eyebrow,
+.portfolio-hero .portfolio-hero-link { justify-content: center; }
+
+.portfolio-hero .page-hero-title,
+.portfolio-hero .portfolio-hero-link { margin: 0; }
+
+.portfolio-hero .page-hero-subtitle { margin: 0 auto; }
+
+.careers-hero .careers-hero-inner {
+  width: min(calc(100% - 48px), 900px);
+  margin-inline: auto;
+  padding: clamp(44px, 8vh, 80px) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.careers-hero .careers-hero-inner h1 { margin: 0; }
+
+.service-detail-hero .service-detail-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-block: clamp(44px, 8vh, 80px);
+  text-align: center;
+}
+
+.service-detail-hero .service-detail-back,
+.service-detail-hero .service-detail-cta { justify-content: center; margin: 0; }
+
+.service-detail-hero .service-detail-back { margin: 0; }
+
+.service-detail-hero .service-detail-eyebrow,
+.service-detail-hero h1,
+.service-detail-hero .service-detail-summary { margin-top: 0; }
+
+.service-detail-hero .service-detail-eyebrow { margin-bottom: 0; }
+
+.service-detail-hero h1 { margin-bottom: 0; }
+
+.service-detail-hero .service-detail-summary { margin-bottom: 0; }
+
+.service-detail-hero h1,
+.service-detail-hero .service-detail-summary { margin-inline: auto; }
+
+/* Keep interior hero actions compact and consistent. */
+.about-page .about-hero-copy .button {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: .76rem;
+}
+
+.services-page .services-hero-actions a,
+.portfolio-hero .portfolio-hero-link,
+.careers-hero .careers-hero-link {
+  min-height: 32px;
+  gap: 8px;
+  font-size: .68rem;
+}
+
+.portfolio-hero .portfolio-hero-link span {
+  width: 23px;
+  height: 23px;
+}
+
+.service-detail-hero .service-detail-cta {
+  min-height: 32px;
+  padding: 7px 11px;
+  font-size: .68rem;
+}
+
+.main-content > .page-hero:not(.page-hero--contact) .button {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: .76rem;
+}
+
+/* Remove call-to-action buttons from every non-home hero. */
+.about-page .about-hero-copy > .button,
+.services-page .services-hero-actions,
+.portfolio-hero .portfolio-hero-link,
+.careers-page .careers-hero-link,
+.service-detail-hero .service-detail-cta,
+.main-content > .page-hero:not(.page-hero--contact) .button {
+  display: none !important;
+}
+
+/* The Careers hero is intentionally text only. */
+.careers-page .careers-hero {
+  justify-content: center;
+  background: transparent;
+}
+
+.careers-page .careers-hero-inner {
+  margin-inline: auto;
+  justify-content: center;
+  text-align: center;
+  transform: none;
+}
+
+.careers-page .careers-hero h1 {
+  margin: 0;
+  color: #f2f6ff;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 4.1vw, 5rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: .98;
+  letter-spacing: -.07em;
+  text-align: center;
+}
+
+.careers-page .careers-hero h1 .gradient-text {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  background: linear-gradient(100deg, #ff20ae 5%, #a43cff 48%, #00d9f5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.careers-page .careers-hero::before,
+.careers-page .careers-hero::after,
+.careers-page .careers-hero-background {
+  display: none !important;
+}
