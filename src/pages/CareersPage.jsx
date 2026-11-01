@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { FiArrowRight, FiBarChart2, FiCheck, FiCode, FiPenTool, FiSearch, FiUploadCloud } from 'react-icons/fi'
 import { contactEmail, contactPhone } from '../data/contactInfo'
-import seoImage from '../assets/images/seo 1.jpeg'
-import smmImage from '../assets/images/smm image.png'
-import websiteImage from '../assets/images/website image.png'
-import designVideoImage from '../assets/images/graphic design.png'
+import seoImage from '../assets/images/seo 1.webp'
+import smmImage from '../assets/images/carerr 3.webp'
+import websiteImage from '../assets/images/carrer 3.webp'
+import designVideoImage from '../assets/images/carrer 2.webp'
 
 const careerRoles = [
   { id: 'seo', title: 'SEO Specialist', category: 'SEO', department: 'Search Engine Optimization', role: 'SEO Specialist', image: seoImage, Icon: FiSearch, summary: 'Help brands become easier to find through thoughtful search strategy, useful content and strong technical foundations.', responsibilities: ['Plan and implement on-page, off-page and technical SEO improvements.', 'Research keywords and build content recommendations around real search intent.', 'Improve local SEO, including Google Business Profile visibility.', 'Run website audits and identify issues affecting search visibility.', 'Optimize page titles, headings, internal links and structured data.', 'Track rankings, organic traffic and conversions; share clear performance reports.'] },

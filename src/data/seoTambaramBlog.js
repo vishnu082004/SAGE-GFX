@@ -1,4 +1,4 @@
-import blogImageTwo from '../assets/images/blog-img/blog-img/blogs 2.jpeg'
+import blogImageTwo from '../assets/images/blog-img/blog-img/blogs 2.webp'
 
 const seoTambaramBlog = {
   slug: 'business-website-converts',

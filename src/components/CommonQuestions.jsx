@@ -50,7 +50,6 @@ function CommonQuestions() {
     <div className="common-questions-intro">
       <FAQArtwork />
       <div className="common-questions-heading">
-        <p className="common-questions-eyebrow">FAQ</p>
         <h2>Frequently Asked <br/><span>Questions</span></h2>
         <p className="common-questions-hint">Tap a question to hear the answer, or ask Sage AI for more.</p>
       </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { FiArrowRight, FiChevronLeft, FiChevronRight, FiStar, FiUsers } from 'react-icons/fi'
+import { FiArrowRight, FiStar, FiUsers } from 'react-icons/fi'
 
 const GOOGLE_REVIEW_URL = 'https://www.google.com/search?q=sage+gfx+reviews#lrd=0x3a52f5d1087b538d:0xe7e603ebe92848af,3,,,,'
 const metrics = [
@@ -164,12 +164,6 @@ function ClientReviews() {
         </div>
         <div className="reviews-card-orbit" key={reviewPage} aria-live="off">{reviews.slice(reviewPage * reviewsPerPage, (reviewPage + 1) * reviewsPerPage).map((review, index) => <ReviewCard key={`${review.name}-${reviewPage}`} review={review} index={index}/>)}</div>
         <div className="reviews-bottom-actions">
-          <div className="reviews-carousel-controls" aria-label="Review pages">
-            <button type="button" onClick={() => setReviewPage((page) => (page - 1 + reviewPageCount) % reviewPageCount)} aria-label="Show previous reviews"><FiChevronLeft aria-hidden="true"/></button>
-            <span>{reviewPage + 1} / {reviewPageCount}</span>
-            {Array.from({ length: reviewPageCount }, (_, index) => <button className="reviews-carousel-dot" key={index} type="button" onClick={() => setReviewPage(index)} aria-label={`Show review group ${index + 1}`} aria-pressed={reviewPage === index}/>) }
-            <button type="button" onClick={() => setReviewPage((page) => (page + 1) % reviewPageCount)} aria-label="Show next reviews"><FiChevronRight aria-hidden="true"/></button>
-          </div>
           <a className="reviews-cta" href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer"><GoogleMark/> Leave us a Google Review <FiArrowRight aria-hidden="true"/></a>
         </div>
       </div>

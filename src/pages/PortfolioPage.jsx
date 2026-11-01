@@ -29,7 +29,7 @@ function PortfolioPage() {
       <section className="portfolio-work" id="portfolio-work" aria-label="Explore our work">
         <div className="container">
           <div className="portfolio-work-heading">
-            <div><p className="portfolio-kicker">A CLOSER LOOK</p><h2>Work that works.</h2></div>
+            <div><h2>Work that works.</h2></div>
             <p>Choose a discipline to explore.</p>
           </div>
 
@@ -55,15 +55,14 @@ function PortfolioPage() {
                     {!preview ? (
                       <div className="website-project-logo-art">{logo ? <img src={logo} alt={`${domain} logo`} loading="lazy" decoding="async" /> : <span className="website-project-wordmark">NM<span>GREENS</span></span>}<span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
                     ) : (
-                      <div className="website-project-preview"><img src={`/images/clients/websites/${preview.endsWith('.png') ? preview : `${preview}.webp`}`} alt={`${domain} homepage preview`} loading={index < 6 ? 'eager' : 'lazy'} decoding="async" /><span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
+                      <div className="website-project-preview"><img src={`/images/clients/websites/${preview.endsWith('.webp') ? preview : `${preview}.webp`}`} alt={`${domain} homepage preview`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" /><span className="website-preview-action">Visit live site <FiArrowUpRight aria-hidden="true" /></span></div>
                     )}
-                    <div className="website-project-meta"><span className="website-project-index">{String(index + 1).padStart(2, '0')}</span><div className="website-project-details"><h3>{domain}</h3></div><FiArrowUpRight aria-hidden="true" /></div>
+                    <div className="website-project-meta"><span className="website-project-index">{String(index + 1).padStart(2, '0')}</span><div className="website-project-details"><h4>{domain}</h4></div><FiArrowUpRight aria-hidden="true" /></div>
                   </a>
                 ))}
               </div>
             ) : activeCategory === 'seo' || activeCategory === 'smm' ? (
               <>
-                {activeCategory === 'seo' && <Link className="portfolio-case-study-link" to="/case-studies"><span><small>HEALTHCARE SEO CASE STUDY</small><strong>Siddha Clinic — Local Growth Success</strong><em>From zero visibility to 3,500 monthly organic visitors in five months</em></span><FiArrowUpRight aria-hidden="true" /></Link>}
                 <div className="seo-client-grid" aria-label={`${activeCategory.toUpperCase()} client logos`}>
                   {(activeCategory === 'seo' ? seoClientLogos : smmClientLogos).map((src) => <div className="seo-client-logo" key={src}><img src={src} alt="" loading="lazy" decoding="async" /></div>)}
                 </div>

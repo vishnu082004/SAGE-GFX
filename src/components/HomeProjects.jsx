@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom'
 import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import websiteProjectImage from '../assets/images/our project/our project/website.webp'
 import smmProjectImage from '../assets/images/our project/our project/SMM.webp'
 import seoProjectImage from '../assets/images/our project/our project/SEO.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
-  { number: '01', type: 'WEBSITE', title: 'Websites designed to move your business forward', category: 'Web design and development', image: websiteProjectImage, imageAlt: 'Website design illustration with homepage, content, design, and web hosting icons', destination: '/portfolio?category=websites#portfolio-work' },
+  { number: '01', type: 'WEBSITE', title: 'KofeeTek', category: 'Website design and development', image: '/images/clients/websites/kofeetek-home.webp', imageAlt: 'KofeeTek website homepage for workplace coffee and tea vending solutions', destination: '/portfolio?category=websites#portfolio-work' },
   { number: '02', type: 'SMM', title: 'Make every conversation count', category: 'Social media marketing', image: smmProjectImage, imageAlt: 'Social media marketing illustration with social platform icons', destination: '/portfolio?category=smm#portfolio-work' },
   { number: '03', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', image: seoProjectImage, imageAlt: 'SEO illustration showing backlinks, analysis, traffic, indexing, and ranking', destination: '/portfolio?category=seo#portfolio-work' },
 ]
@@ -49,7 +48,7 @@ function HomeProjects() {
         {projects.map((project) => <Link className="home-project-card" to={project.destination} key={project.number}>
           <ProjectArtwork image={project.image} imageAlt={project.imageAlt} type={project.type}/>
           <div className="home-project-meta"><span>{project.number} / {project.type}</span><FiArrowUpRight aria-hidden="true"/></div>
-          <h3>{project.title}</h3>
+          <h4>{project.title}</h4>
           <span className="home-project-category">{project.category}</span>
         </Link>)}
       </div>

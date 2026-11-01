@@ -25,7 +25,7 @@ function ClientsPage() {
           <div className="clients-page-grid" aria-label={`${clientLogoFiles.length} client brands`}>
             {clientLogoFiles.map((logo, index) => (
               <div className="clients-page-logo" key={logo}>
-                <img src={logo} alt={`Client brand ${index + 1}`} loading={index < 12 ? 'eager' : 'lazy'} decoding="async" />
+                <img src={logo} alt={`Client brand ${index + 1}`} loading={index < 6 ? 'eager' : 'lazy'} decoding="async" />
               </div>
             ))}
           </div>

@@ -18,7 +18,7 @@ import developerPortrait3 from '../assets/images/team/developer 3.webp'
 import developerPortrait4 from '../assets/images/team/developer-4.webp'
 import developerPortrait5 from '../assets/images/team/developer-5.webp'
 import developerPortrait6 from '../assets/images/team/developer-6.webp'
-import cameraPortrait1 from '../assets/images/team/camera team 1.png'
+import cameraPortrait1 from '../assets/images/team/camera team 1.webp'
 import '../styles/about-team.css'
 
 const profile = (url) => url ? (url.startsWith('http') ? url : `https://${url}`) : undefined

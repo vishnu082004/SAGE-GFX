@@ -1,4 +1,4 @@
-import { FiArrowRight, FiClock } from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import blogArticles from '../data/blogArticles'
 
@@ -25,13 +25,10 @@ function BlogPage() {
         >
           <div className="blog-art">
             <img src={article.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
-            <span>SAGE GFX / JOURNAL</span>
-            <strong>{String(index + 1).padStart(2, '0')}</strong>
-            <i aria-hidden="true" />
           </div>
           <div className="blog-card-copy">
-            <p className="project-type">{article.category} <span><FiClock aria-hidden="true"/> {article.readTime}</span></p>
-            <h2>{article.title}</h2>
+            <p className="project-type">{article.category}</p>
+            <h3>{article.title}</h3>
             <p className="blog-card-summary">{article.summary}</p>
             <span className="blog-card-action">Read article <FiArrowRight aria-hidden="true"/></span>
           </div>

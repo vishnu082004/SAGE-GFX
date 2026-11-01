@@ -20,7 +20,7 @@ export const categories = [
 
 export const seoClientLogos = [
   '/images/clients/seo/nexxora.webp',
-  '/images/clients/seo/powergen-logo.png',
+  '/images/clients/seo/powergen-logo.webp',
   '/images/clients/seo/kofeeteck.webp',
   '/images/clients/seo/safe-science.webp',
   '/images/clients/seo/shape-wellness.webp',
@@ -46,7 +46,7 @@ export const smmClientLogos = [
 ]
 
 export const websiteProjects = [
-  ['kofeetek.in', 'https://www.kofeetek.in', 'kofeetek-home.png'],
+  ['kofeetek.in', 'https://www.kofeetek.in', 'kofeetek-home.webp'],
   ['mareprints.com', 'https://mareprints.com', 'mareprints'],
   ['baitambaram.com', 'https://baitambaram.com', 'baitambaram'],
   ['jeniconstructions.com', 'https://jeniconstructions.com', 'jeniconstructions'],

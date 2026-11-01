@@ -1,26 +1,26 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  FiArrowRight, FiCheck, FiGlobe, FiHeart, FiMessageCircle,
-  FiSearch, FiTrendingUp, FiUsers,
+  FiArrowRight, FiBarChart2, FiCheck, FiGlobe, FiMapPin, FiMessageCircle,
+  FiTarget, FiTrendingUp, FiUsers,
 } from 'react-icons/fi'
 import '../styles/case-studies.css'
-import julyCallsImage from '../assets/images/case studies 1.png'
-import augustCallsImage from '../assets/images/case studies 2.png'
-import septemberCallsImage from '../assets/images/case studies 3.png'
-import octoberCallsImage from '../assets/images/case studies 4.png'
+import julyCallsImage from '../assets/images/case studies 1.webp'
+import augustCallsImage from '../assets/images/case studies 2.webp'
+import septemberCallsImage from '../assets/images/case studies 3.webp'
+import octoberCallsImage from '../assets/images/case studies 4.webp'
 
 const milestones = [
-  { number: '01', title: 'Starting point', detail: 'Low search visibility, but with a chance to establish a better digital presence', Icon: FiGlobe },
-  { number: '02', title: 'Local SEO Plan', detail: 'Improving local search signals and Google My Business visibility to enable the clinic to reach out to users looking for Siddha medicine locally.', Icon: FiSearch },
-  { number: '03', title: 'Visibility', detail: 'Increase in visibility from the website and localized search through relevant Siddha healthcare searches.', Icon: FiTrendingUp },
-  { number: '04', title: 'Impact on Business', detail: 'Increased digital presence that is geared towards better discoverability and creating genuine connections.', Icon: FiHeart },
+  { title: 'Starting point', detail: 'Low search visibility, but with a chance to establish a better digital presence', Icon: FiTarget },
+  { title: 'Local SEO Plan', detail: 'Improving local search signals and Google My Business visibility to enable the clinic to reach out to users looking for Siddha medicine locally.', Icon: FiMapPin },
+  { title: 'Visibility', detail: 'Increase in visibility from the website and localized search through relevant Siddha healthcare searches.', Icon: FiBarChart2 },
+  { title: 'Impact on Business', detail: 'Increased digital presence that is geared towards better discoverability and creating genuine connections.', Icon: FiUsers },
 ]
 
 const results = [
-  { label: 'Organic traffic', value: 3500, prefix: '0 → ', suffix: '', note: 'Increased from 0 to 3,500 monthly visitors', Icon: FiTrendingUp },
-  { label: 'Organic enquiries', value: 40, suffix: '+', note: 'Increased from 0 to 40+ enquiries per month', Icon: FiMessageCircle },
-  { label: 'Patient walk-ins', value: 30, suffix: '+', note: 'Increased to 30+ walk-ins every month', Icon: FiUsers },
+  { label: 'Business profile visitors', value: 1500, suffix: '+', Icon: FiGlobe },
+  { label: 'Organic Leads', value: 60, suffix: '+ Calls', Icon: FiMessageCircle },
+  { label: 'Growth', value: 75, suffix: '%', Icon: FiTrendingUp },
 ]
 
 const monthlyCallReports = [
@@ -94,12 +94,12 @@ function CaseStudiesPage() {
         <div className="wea-container">
           <div className="wea-hero-main">
             <div className="wea-hero-copy">
-              <h1 id="wea-title">From Limited Online Presence to<br /><span>Improved Digital Visibility</span></h1>
+              <h1 id="wea-title"><span className="wea-hero-eyebrow">From Limited Online Presence to</span><span className="wea-hero-title-highlight">Improved Digital Visibility</span></h1>
               <p className="wea-hero-description">SEO and Local SEO marketing campaign that helped turn online visibility into actual patients for their practice.</p>
             </div>
           </div>
           <div className="wea-milestones" aria-label="Campaign milestones">
-            {milestones.map(({ number, title, detail, Icon }) => <article className="wea-milestone wea-card" key={number}><div className="wea-icon"><Icon aria-hidden="true"/></div><div className="wea-milestone-copy"><span className="wea-number">{number}</span><h3>{title}</h3><p>{detail}</p></div></article>)}
+            {milestones.map(({ title, detail, Icon }) => <article className="wea-milestone wea-card" key={title}><div className="wea-milestone-copy"><div className="wea-milestone-heading"><span className="wea-milestone-icon"><Icon aria-hidden="true"/></span><h3>{title}</h3></div><span className="wea-milestone-accent" aria-hidden="true"/><p>{detail}</p></div></article>)}
           </div>
         </div>
       </section>
@@ -120,18 +120,18 @@ function CaseStudiesPage() {
               </figure>)}
             </div>
             <div className="wea-results-grid">
-              {results.map((metric, index) => {const Icon=metric.Icon;return <article className={`wea-result-card wea-card wea-result-card--${index % 2 ? 'violet' : 'cyan'}`} key={metric.label}><div className="wea-result-top"><span className="wea-icon"><Icon aria-hidden="true"/></span><span className="wea-number">0{index + 1}</span></div><p>{metric.label}</p><CountMetric metric={metric}/><small>{metric.note}</small></article>})}
+              {results.map((metric, index) => {const Icon=metric.Icon;return <article className={`wea-result-card wea-card wea-result-card--${index % 2 ? 'violet' : 'cyan'}`} key={metric.label}><div className="wea-result-top"><span className="wea-icon"><Icon aria-hidden="true"/></span></div><p>{metric.label}</p><CountMetric metric={metric}/>{metric.note && <small>{metric.note}</small>}</article>})}
             </div>
           </div>
         </section>
 
-        <section className="wea-section" aria-labelledby="wea-timeline-title"><div className="wea-container"><SectionHeading eyebrow="02 / THE JOURNEY" title="Growth Timeline" intro="Five months of focused work, steady optimization, and measurable progress." id="wea-timeline-title"/><div className="wea-timeline">{months.map(({ month, title, items }, index) => <article className={`wea-timeline-item${index % 2 ? ' is-right' : ' is-left'}`} key={month}><div className="wea-timeline-node"><span>{String(index + 1).padStart(2, '0')}</span></div><div className="wea-timeline-card wea-card"><p className="wea-number">{month}</p><h3>{title}</h3><ul>{items.map((item) => <li key={item}><FiCheck aria-hidden="true"/>{item}</li>)}</ul></div></article>)}</div></div></section>
+        <section className="wea-section" aria-labelledby="wea-timeline-title"><div className="wea-container"><SectionHeading eyebrow="02 / THE JOURNEY" title="Growth Timeline" intro="Five months of focused work, steady optimization, and measurable progress." id="wea-timeline-title"/><div className="wea-timeline">{months.map(({ title, items }, index) => <article className={`wea-timeline-item${index % 2 ? ' is-right' : ' is-left'}`} key={title}><div className="wea-timeline-node" aria-hidden="true"/><div className="wea-timeline-card wea-card"><h3>{title}</h3><ul>{items.map((item) => <li key={item}><FiCheck aria-hidden="true"/>{item}</li>)}</ul></div></article>)}</div></div></section>
 
         <section className="wea-closing" aria-labelledby="wea-closing-title">
           <div className="wea-closing-card">
             <div className="wea-closing-copy">
-              <h2 id="wea-closing-title">Start Your Next Level of <span>Growth With Us</span></h2>
-              <p>Every company has its own story, unique challenge, and vision. At Sage GFX, we combine creativity, strategy, and technology to take your visions into success.</p>
+              <h2 id="wea-closing-title">Ready to Build Your Next Digital <span>Growth Story?</span></h2>
+              <p>Every business has its own goals, challenges and opportunities. At Sage GFX, we bring strategy, creativity and digital expertise together to create solutions that move your business forward.</p>
               <Link to="/contact" className="wea-closing-button">Let&rsquo;s grow your business <FiArrowRight aria-hidden="true" /></Link>
             </div>
           </div>

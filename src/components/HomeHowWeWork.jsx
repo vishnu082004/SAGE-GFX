@@ -1,4 +1,4 @@
-import { FiArrowRight, FiBarChart2, FiSearch, FiTarget, FiTrendingUp } from 'react-icons/fi'
+import { FiBarChart2, FiSearch, FiTarget, FiTrendingUp } from 'react-icons/fi'
 import '../styles/home-new-sections.css'
 
 const steps = [
@@ -23,7 +23,6 @@ function HomeHowWeWork() {
             <h3>{title}</h3>
             <p>{text}</p>
           </div>
-          <FiArrowRight className="home-process-arrow" aria-hidden="true" />
         </li>)}
       </ol>
     </div>

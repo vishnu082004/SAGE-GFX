@@ -377,17 +377,21 @@
     aspect-ratio: auto !important;
     object-fit: cover !important;
     object-position: center !important;
-    filter: brightness(1.15) saturate(1.08) contrast(1.03) !important;
+    filter: brightness(.55) saturate(.82) contrast(1.04) !important;
     opacity: 1 !important;
     mix-blend-mode: normal !important;
     transform: none !important;
   }
   .home-page .sage-hero-boy-wrap:not(.is-intro)::after {
-    background: linear-gradient(180deg, rgba(3, 6, 16, .58), rgba(3, 6, 16, .72)) !important;
+    background: linear-gradient(180deg, rgba(3, 6, 16, .45), rgba(3, 6, 16, .62)) !important;
   }
   .home-page .sage-hero-boy-wrap:not(.is-intro) video {
-    filter: brightness(.48) saturate(.78) contrast(1.04) !important;
+    filter: brightness(.55) saturate(.82) contrast(1.04) !important;
     opacity: .82 !important;
+  }
+  .home-page .sage-hero-boy-wrap.is-playing video {
+    filter: brightness(1.45) saturate(1.12) contrast(1.04) !important;
+    opacity: 1 !important;
   }
 }
 
@@ -415,10 +419,10 @@
     object-position: center !important;
   }
   .home-page .sage-hero-boy-wrap:not(.is-intro)::after {
-    background: linear-gradient(180deg, rgba(3, 6, 16, .58), rgba(3, 6, 16, .72)) !important;
+    background: linear-gradient(180deg, rgba(3, 6, 16, .45), rgba(3, 6, 16, .62)) !important;
   }
   .home-page .sage-hero-boy-wrap:not(.is-intro) video {
-    filter: brightness(.48) saturate(.78) contrast(1.04) !important;
+    filter: brightness(.55) saturate(.82) contrast(1.04) !important;
     opacity: .82 !important;
   }
   .home-page .sage-hero.sage-hero--revealed h1 span {

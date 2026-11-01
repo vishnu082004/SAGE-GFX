@@ -4,7 +4,7 @@ import { memo, useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import BrandMark from './BrandMark'
 import founderPortrait from '../assets/images/team/founder.webp'
-import aboutSectionImage from '../assets/images/about image 2.png'
+import aboutSectionImage from '../assets/images/about image 2.webp'
 import '../styles/about-home-redesign.css'
 
 const homeStatement = 'Your Digital Future, Our Expertise: Sage GFX Excellence.'

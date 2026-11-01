@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import services from '../data/services'
 import {
-  FiCamera, FiCode, FiCpu, FiHelpCircle,
+  FiArrowUpRight, FiCamera, FiCode, FiCpu, FiHelpCircle,
   FiPenTool, FiSearch, FiShare2, FiTarget,
 } from 'react-icons/fi'
 import '../styles/home-services-carousel.css'
@@ -160,7 +161,7 @@ function HomeServicesCarousel() {
 
       <div className="home-services-carousel" role="region" aria-roledescription="carousel" aria-label="Sage GFX services" aria-live="off" onPointerEnter={interact}>
         <div className="home-services-stage">
-          {services.map(({ title, description, details, iconIndex }, index) => {
+          {services.map(({ title, description, details, iconIndex, slug }, index) => {
             const ServiceIcon = serviceIcons[iconIndex] || FiTarget
             const offset = wrapOffset(index, activeIndex)
             const isActive = offset === 0
@@ -177,6 +178,14 @@ function HomeServicesCarousel() {
               <ul className="home-service-highlights" aria-label={`${title} service highlights`}>
                 {details.map((detail) => <li key={detail}>{detail}</li>)}
               </ul>
+              <Link
+                className="home-service-detail-arrow"
+                to={`/services/${slug.trim()}`}
+                aria-label={`View ${title} service details`}
+                tabIndex={isActive ? 0 : -1}
+                onFocus={() => { setActiveIndex(index); pauseForCardHover() }}
+                onBlur={resumeAfterCardHover}
+              ><FiArrowUpRight aria-hidden="true" /></Link>
             </article>
           })}
         </div>

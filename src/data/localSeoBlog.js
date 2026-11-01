@@ -1,4 +1,4 @@
-import blogImageOne from '../assets/images/blog-img/blog-img/blogs 1.jpeg'
+import blogImageOne from '../assets/images/blog-img/blog-img/blogs 1.webp'
 
 const localSeoBlog = {
   slug: 'brand-people-remember',

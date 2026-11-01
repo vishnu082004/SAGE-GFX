@@ -1,0 +1,148 @@
+/* Shared tablet refinements for 761px–1024px viewports. */
+@media (min-width: 761px) and (max-width: 1024px) {
+  .main-content {
+    min-width: 0;
+  }
+
+  .main-content img,
+  .main-content video,
+  .main-content iframe {
+    max-width: 100%;
+  }
+
+  .service-detail-hero h1 {
+    max-width: 14ch;
+    font-size: clamp(3rem, 6.2vw, 4.5rem);
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .service-detail-content-inner {
+    width: min(820px, calc(100% - 56px));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .service-detail-content-inner > :first-child {
+    max-width: 70ch;
+  }
+
+  .portfolio-project {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+  }
+
+  .portfolio-project-copy {
+    min-width: 0;
+    padding: clamp(24px, 3.2vw, 38px);
+  }
+
+  .portfolio-project-copy h3 {
+    font-size: clamp(1.45rem, 2.8vw, 2rem);
+  }
+
+  .main-content .about-team__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .main-content .about-journey__panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .main-content .about-journey__intro {
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(76, 115, 190, .28);
+    text-align: center;
+  }
+
+  .main-content .about-journey__eyebrow {
+    justify-content: center;
+  }
+
+  .main-content .about-journey__intro > p:last-of-type {
+    margin-inline: auto;
+  }
+
+  .main-content .about-journey__stroke {
+    margin-inline: auto;
+  }
+
+  .main-content .about-journey__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 0;
+  }
+
+  .main-content .about-journey__metric {
+    justify-content: flex-start;
+    padding: 10px 16px;
+  }
+
+  .main-content .about-journey__metric + .about-journey__metric {
+    border-left: 0;
+  }
+
+  .main-content .about-journey__metric:nth-child(even) {
+    border-left: 1px solid rgba(93, 119, 184, .35);
+  }
+}
+.portfolio-page .portfolio-hero .portfolio-hero-content {
+  width: min(calc(100% - 48px), 900px);
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.portfolio-page .portfolio-hero .page-hero-title,
+.portfolio-page .portfolio-hero .portfolio-hero-link {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.portfolio-page .portfolio-hero .portfolio-hero-link {
+  justify-content: center;
+}
+
+.portfolio-page,
+.portfolio-page .portfolio-work,
+.portfolio-page .portfolio-category-panel {
+  text-align: center;
+}
+
+.portfolio-page .portfolio-work-heading {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.portfolio-page .portfolio-work-heading > div,
+.portfolio-page .portfolio-work-heading > p,
+.portfolio-page .portfolio-project-copy,
+.portfolio-page .portfolio-project-copy h3,
+.portfolio-page .portfolio-project-copy > p,
+.portfolio-page .portfolio-project-copy > a,
+.portfolio-page .website-project-meta,
+.portfolio-page .website-project-details,
+.portfolio-page .website-project-meta h4,
+.portfolio-page .portfolio-case-study-link > span {
+  text-align: center;
+}
+
+.portfolio-page .portfolio-project-copy {
+  align-items: center;
+}
+
+.portfolio-page .portfolio-project-copy > a,
+.portfolio-page .portfolio-category-copy > a {
+  justify-content: center;
+}
+
+.portfolio-page .website-project-meta {
+  justify-content: center;
+}
+
+.portfolio-page .website-project-details {
+  flex: 0 1 auto;
+}

@@ -32,7 +32,7 @@
   border: 0;
   color: #f5f7fc;
   background-image: radial-gradient(ellipse at 50% 44%, rgba(9, 91, 133, .2), transparent 48%), radial-gradient(ellipse at 87% 25%, rgba(88, 39, 145, .16), transparent 38%), linear-gradient(180deg, #050a15, #030714);
-  background-attachment: fixed, fixed, fixed;
+  background-attachment: scroll, scroll, scroll;
   background-size: cover;
 }
 

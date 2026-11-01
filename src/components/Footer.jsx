@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import { FiArrowRight, FiBookOpen, FiBriefcase, FiFacebook, FiGrid, FiHome, FiInstagram, FiLinkedin, FiMail, FiMapPin, FiShield, FiUser, FiYoutube } from 'react-icons/fi'
 import { studioAddress, studioMapUrl } from '../data/contactInfo'
 import footerVideo from '../assets/images/footer video.mp4'
@@ -15,8 +16,23 @@ const quickLinks = [
 ]
 
 function Footer() {
+  const footerVideoRef = useRef(null)
+
+  useEffect(() => {
+    const video = footerVideoRef.current
+    if (!video || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) video.play().catch(() => {})
+      else video.pause()
+    }, { rootMargin: '120px 0px' })
+
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
+
   return <footer className="footer footer-premium footer-minimal">
-    <video className="footer-background-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1}>
+    <video ref={footerVideoRef} className="footer-background-video" muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1}>
       <source src={footerVideo} type="video/mp4" />
     </video>
     <div className="footer-minimal-inner">

@@ -1,4 +1,4 @@
-import blogImageThree from '../assets/images/blog-img/blog-img/blogs 3.jpeg'
+import blogImageThree from '../assets/images/blog-img/blog-img/blogs 3.webp'
 
 const videoMarketingBlog = {
   slug: 'digital-marketing-that-converts',

@@ -2,7 +2,7 @@ import Principles from '../components/Principles'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi'
 import AboutTeam from '../components/AboutTeam'
-import aboutStoryImage from '../assets/images/about image 2.png'
+import aboutStoryImage from '../assets/images/about image 2.webp'
 import '../styles/about-page-refresh.css'
 
 function AboutPage() {

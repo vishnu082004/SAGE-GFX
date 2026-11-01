@@ -24,7 +24,12 @@
 .home-process-icon svg{width:24px;height:24px}
 .home-process-card h3{margin:20px 0 8px;color:#f4f7ff;font:650 1.13rem/1.25 var(--font-heading)}
 .home-process-card p{max-width:32ch;margin:0;color:#aebcd0;font-size:.83rem;line-height:1.65}
-.home-process-arrow{position:absolute;right:20px;bottom:20px;color:#b759e7}
+.home-process-arrow{display:none}
+.home-process-card{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:start;column-gap:14px}
+.home-process-icon{grid-column:1;grid-row:1}
+.home-process-copy{grid-column:2;grid-row:1;min-width:0}
+.home-process-copy h3{margin:7px 0 8px}
+.home-process-copy p{max-width:none}
 .home-journal{padding:clamp(62px,7vw,92px) 0;background:#070b16;color:#f5f7ff}
 .home-journal-heading{display:flex;max-width:none;align-items:flex-end;justify-content:space-between;gap:24px;text-align:left}
 .home-journal-heading>div{max-width:700px}

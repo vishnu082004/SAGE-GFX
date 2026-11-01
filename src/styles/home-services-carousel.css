@@ -1228,6 +1228,42 @@
     transform: none !important;
 }
 
+.home-services .home-service-card .home-service-detail-arrow {
+  position: absolute;
+  z-index: 4;
+  right: 20px;
+  bottom: 12px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(87, 139, 240, .52);
+  border-radius: 50%;
+  background: rgba(7, 20, 47, .92);
+  color: #d9b8ff;
+  text-decoration: none;
+  transform: translateZ(44px);
+  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.home-services .home-service-card .home-service-detail-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.home-services .home-service-card .home-service-detail-arrow:hover,
+.home-services .home-service-card .home-service-detail-arrow:focus-visible {
+  border-color: #44d8f2;
+  background: rgba(24, 74, 137, .92);
+  color: #fff;
+  transform: translate(2px, -2px) translateZ(44px);
+}
+
+.home-services .home-service-card .home-service-detail-arrow:focus-visible {
+  outline: 2px solid #8be7ff;
+  outline-offset: 4px;
+}
+
 .home-services .home-service-card .home-service-link svg {
     width: 14px;
     height: 14px;

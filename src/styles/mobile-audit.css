@@ -1219,11 +1219,11 @@
   .home-page .home-projects-heading,
   .home-page .home-projects-heading>div,
   .home-page .home-project-card,
-  .home-page .home-project-card h3,
+  .home-page .home-project-card h4,
   .home-page .home-project-category{
     text-align:center;
   }
-  .home-page .home-project-card h3{
+  .home-page .home-project-card h4{
     max-width:32ch;
     margin-inline:auto;
     line-height:1.35;

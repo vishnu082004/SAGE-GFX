@@ -88,7 +88,7 @@
 .website-project-meta{display:flex;min-height:62px;align-items:center;gap:12px;padding:13px 15px}
 .website-project-index{color:#43d6ef;font-size:.61rem;font-weight:700;letter-spacing:.09em}
 .website-project-details{flex:1;min-width:0}
-.website-project-meta h3{overflow-wrap:anywhere;margin:0;color:#eff5ff;font:600 clamp(.77rem,1.1vw,.94rem)/1.3 var(--font-heading)}
+.website-project-meta h4{overflow-wrap:anywhere;margin:0;color:#eff5ff;font:600 clamp(.77rem,1.1vw,.94rem)/1.3 var(--font-heading)}
 .website-project-meta>svg{flex:none;color:#43d6ef;font-size:1rem;transition:transform .2s}
 .website-project-card:hover .website-project-meta>svg{transform:translate(2px,-2px)}
 .website-project-preview--unavailable>img{filter:saturate(.75)}
@@ -98,7 +98,7 @@
 .website-project-wordmark{display:flex;align-items:center;gap:8px;color:#15794a;font:800 clamp(1.3rem,4vw,2.5rem)/1 var(--font-heading);letter-spacing:-.04em}
 .website-project-wordmark span{color:#313e4e;font-size:.48em;letter-spacing:.12em}
 @media(max-width:900px){.website-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.website-project-grid{gap:12px}.website-project-card{border-radius:9px}.website-project-meta{min-height:55px;gap:7px;padding:10px}.website-project-index{font-size:.55rem}.website-project-meta h3{font-size:.72rem}.website-project-status{font-size:.52rem}.website-preview-action{right:7px;bottom:7px;padding:7px;font-size:.58rem}}
+@media(max-width:520px){.website-project-grid{gap:12px}.website-project-card{border-radius:9px}.website-project-meta{min-height:55px;gap:7px;padding:10px}.website-project-index{font-size:.55rem}.website-project-meta h4{font-size:.72rem}.website-project-status{font-size:.52rem}.website-preview-action{right:7px;bottom:7px;padding:7px;font-size:.58rem}}
 @media(max-width:420px){.website-project-logo-art{padding:12px}}
 @media(prefers-reduced-motion:reduce){.website-project-card,.website-project-preview>img,.website-preview-action,.website-project-meta>svg{animation:none;transition:none}}
 .portfolio-client-logos{width:100%;margin-top:18px;padding-top:14px;border-top:1px solid rgba(134,168,208,.16)}
