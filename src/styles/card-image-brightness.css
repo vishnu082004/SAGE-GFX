@@ -1,0 +1,17 @@
+/* Keep image-led cards bright throughout the site, while preserving Careers imagery. */
+body:not(:has(.careers-page)) [class*="card"] img,
+body:not(:has(.careers-page)) [class*="Card"] img,
+body:not(:has(.careers-page)) .service-index-image img,
+body:not(:has(.careers-page)) .services-catalog-image img,
+body:not(:has(.careers-page)) .services-page-card-art img,
+body:not(:has(.careers-page)) .website-project-preview img,
+body:not(:has(.careers-page)) .seo-client-logo img,
+body:not(:has(.careers-page)) .our-clients__logo img,
+body:not(:has(.careers-page)) .home-journal-image img,
+body:not(:has(.careers-page)) .blog-art img,
+body:not(:has(.careers-page)) .home-page .home-services .home-service-card .home-service-image img,
+body:not(:has(.careers-page)) .home-page .home-services .home-service-card.is-active .home-service-image img,
+body:not(:has(.careers-page)) .home-page .home-services .home-service-card.is-active:hover .home-service-image img {
+  filter: brightness(1.16) saturate(1.1) contrast(1.02) !important;
+  opacity: 1 !important;
+}

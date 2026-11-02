@@ -2352,3 +2352,10 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
     min-height: 40svh !important;
   }
 }
+
+/* Match the desktop service card copy on phones; the highlights are desktop-hidden extras. */
+@media (max-width: 700px) {
+  .home-page .home-services .home-service-highlights {
+    display: none !important;
+  }
+}

@@ -1218,3 +1218,32 @@
     transform: translateX(8px)
   }
 }
+
+/* Keep the founder company label clear of the adjacent Read More button. */
+.about--home-redesign .about-founder-card {
+  column-gap: 10px;
+}
+
+.about--home-redesign .about-founder-details {
+  min-width: 0;
+  transform: none;
+}
+
+.about--home-redesign .about-founder-details em {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media(max-width:520px) {
+  .about--home-redesign .about-founder-card {
+    column-gap: 8px;
+    padding-inline: 12px;
+  }
+}
+
+@media(max-width:360px) {
+  .about--home-redesign .about-founder-card {
+    padding-inline: 10px;
+  }
+}

@@ -559,3 +559,29 @@
   }
 }
 
+/* Keep the opening headline prominent on phones while letting both lines wrap. */
+@media (max-width: 700px) {
+  .wea-case-study .wea-hero-copy h1 {
+    font-size: clamp(1.9rem, 8.2vw, 2.75rem);
+    line-height: 1.08;
+    gap: 8px;
+    text-wrap: balance;
+  }
+
+  .wea-case-study .wea-hero-copy h1 .wea-hero-eyebrow,
+  .wea-case-study .wea-hero-copy h1 .wea-hero-title-highlight {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .wea-case-study .wea-hero-copy h1 .wea-hero-eyebrow {
+    font-size: 1em !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    text-transform: none !important;
+  }
+}
+

@@ -7,14 +7,26 @@ function Hero({ onVideoReady }) {
   const videoRef = useRef(null)
   const [videoReady, setVideoReady] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(false)
+  const isMobileIntro = window.matchMedia('(max-width: 760px)').matches
+  const [introComplete, setIntroComplete] = useState(() => !isMobileIntro)
   const videoStarted = useRef(false)
   const readyNotified = useRef(false)
+  const fallbackTimer = useRef(0)
 
-  const markVideoReady = () => {
+  const notifyReady = () => {
     if (readyNotified.current) return
     readyNotified.current = true
-    setVideoReady(true)
     onVideoReady?.()
+  }
+
+  const markVideoReady = () => {
+    setVideoReady(true)
+    if (!isMobileIntro || introComplete) notifyReady()
+  }
+
+  const completeIntro = () => {
+    setIntroComplete(true)
+    if (isMobileIntro || videoReady || readyNotified.current) notifyReady()
   }
 
   useEffect(() => {
@@ -29,11 +41,16 @@ function Hero({ onVideoReady }) {
     } else {
       loadTimer = window.setTimeout(loadVideo, 350)
     }
-    const readyFallback = window.setTimeout(markVideoReady, 1400)
+    fallbackTimer.current = window.setTimeout(() => {
+      if (videoStarted.current) return
+      videoStarted.current = true
+      markVideoReady()
+      completeIntro()
+    }, 10000)
 
     return () => {
       window.clearTimeout(loadTimer)
-      window.clearTimeout(readyFallback)
+      window.clearTimeout(fallbackTimer.current)
       if (idleCallback) window.cancelIdleCallback(idleCallback)
     }
   }, [])
@@ -41,11 +58,18 @@ function Hero({ onVideoReady }) {
   const startHeroVideo = () => {
     if (videoStarted.current) return
     videoStarted.current = true
+    window.clearTimeout(fallbackTimer.current)
     markVideoReady()
-    videoRef.current?.play().catch(() => {})
+    videoRef.current?.play().catch(completeIntro)
   }
+
+  const handleVideoError = () => {
+    markVideoReady()
+    completeIntro()
+  }
+
   return (
-    <section className="sage-hero sage-hero--revealed" id="home" aria-labelledby="home-heading">
+    <section className={`sage-hero${introComplete ? ' sage-hero--revealed' : ' sage-hero--intro'}${isMobileIntro && !introComplete ? ' sage-hero--mobile-video-intro' : ''}`} id="home" aria-labelledby="home-heading">
       <div className="sage-hero-orbit" aria-hidden="true" />
       <div className="sage-hero-inner">
         <div className="sage-hero-copy">
@@ -64,7 +88,7 @@ function Hero({ onVideoReady }) {
         </div>
       </div>
       <div className={`sage-hero-boy-wrap${videoReady ? ' is-ready' : ''}${videoPlaying ? ' is-playing' : ''}`} aria-hidden="true">
-        <video ref={videoRef} src={heroVideo} muted playsInline preload="none" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onError={markVideoReady} />
+        <video ref={videoRef} src={heroVideo} muted playsInline loop={false} preload="none" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onEnded={completeIntro} onError={handleVideoError} />
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect } from 'react'
+import { lazy, Suspense, useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
 import { FiPhone } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -78,6 +78,9 @@ import './styles/paragraph-contrast.css'
 import './styles/tablet-optimization.css'
 import './styles/aeo-service.css'
 import './styles/blog-body-redesign.css'
+import './styles/home-hero-final.css'
+import './styles/card-image-brightness.css'
+import './styles/services-page-mobile-final.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -184,6 +187,8 @@ function RouteLoadingFallback() {
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null)
   const { pathname } = useLocation()
+  const showInitialHomeInquiryRef = useRef(typeof window !== 'undefined' && window.location.pathname === '/')
+  if (pathname !== '/') showInitialHomeInquiryRef.current = false
   const isContactPage = pathname === '/contact' || pathname === '/contact-us'
 
   const openLightbox = (img) => setLightboxImage(img)
@@ -200,7 +205,7 @@ function App() {
       <main className="main-content">
         <Suspense fallback={<RouteLoadingFallback />}>
           <Routes>
-            <Route path="/" element={<Home openLightbox={openLightbox} />} />
+            <Route path="/" element={<Home openLightbox={openLightbox} showInitialHomeInquiry={showInitialHomeInquiryRef.current} />} />
             <Route path="/about" element={<AboutPage openLightbox={openLightbox} />} />
             <Route path="/about-us" element={<AboutPage openLightbox={openLightbox} />} />
             <Route path="/services" element={<ServicesPage openLightbox={openLightbox} />} />

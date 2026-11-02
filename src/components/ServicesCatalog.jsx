@@ -27,7 +27,7 @@ function ServicesCatalog() {
                   <span className="services-catalog-arrow"><FiArrowUpRight aria-hidden="true" /></span>
                 </span>
                 <span className="services-catalog-copy">
-                  <strong>{service.title}</strong>
+                  <h3>{service.title}</h3>
                   <span>{service.description}</span>
                   <span className="services-catalog-link">Explore service <FiArrowUpRight aria-hidden="true" /></span>
                 </span>

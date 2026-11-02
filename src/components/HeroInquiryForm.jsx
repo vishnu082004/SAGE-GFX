@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { FiArrowRight, FiCheckCircle, FiSend, FiX } from 'react-icons/fi'
 import { submitContactForm } from '../data/contactInfo'
 
-function HeroInquiryForm({ videoReady }) {
+function HeroInquiryForm({ videoReady, showInitial }) {
   const [form, setForm] = useState({ name: '', email: '', mobile: '', service: '', message: '' })
   const [status, setStatus] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -11,10 +11,10 @@ function HeroInquiryForm({ videoReady }) {
   const dialogRef = useRef(null)
 
   useEffect(() => {
-    if (!videoReady) return undefined
+    if (!videoReady || !showInitial) return undefined
     const timer = window.setTimeout(() => setPopupOpen(true), 3000)
     return () => window.clearTimeout(timer)
-  }, [videoReady])
+  }, [showInitial, videoReady])
 
   useEffect(() => {
     if (!popupOpen) return undefined

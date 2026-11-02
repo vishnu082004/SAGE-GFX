@@ -1,0 +1,312 @@
+
+/* ==========================================
+   SAGE GFX HOME HERO — DESKTOP DESIGN
+   Reference: 1920 x 780 screenshot
+   ========================================== */
+
+@media (min-width: 761px) {
+
+  /* Main hero */
+  .home-page .sage-hero {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr) !important;
+    column-gap: clamp(14px, 1.5vw, 30px) !important;
+    width: 100% !important;
+    height: clamp(580px, calc(100svh - 115px), 680px) !important;
+    min-height: 580px !important;
+    max-height: 680px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #000 !important;
+    border-bottom: 1px solid rgba(17, 173, 232, .62) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Two-column hero container */
+  .home-page .sage-hero-inner {
+    position: relative !important;
+    z-index: 4 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 25px clamp(12px, 1.2vw, 24px) 25px clamp(32px, 13vw, 250px) !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* LEFT COLUMN — HERO TEXT */
+  .home-page .sage-hero-copy {
+    position: relative !important;
+    z-index: 5 !important;
+
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 710px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  /* Heading */
+  .home-page .sage-hero h1 {
+    width: 100% !important;
+    max-width: 710px !important;
+
+    margin: 0 !important;
+
+    font-size: clamp(40px, 3.35vw, 64px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.045em !important;
+    font-weight: 800 !important;
+  }
+
+  /* Description */
+  .home-page .sage-hero-description {
+    width: 100% !important;
+    max-width: 690px !important;
+
+    margin: 23px 0 25px !important;
+
+    font-size: clamp(16px, 1.04vw, 20px) !important;
+    line-height: 1.58 !important;
+    font-weight: 400 !important;
+  }
+
+  /* CTA buttons */
+  .home-page .sage-hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 16px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .home-page .sage-hero-actions a,
+  .home-page .sage-hero-actions button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-height: clamp(50px, 3.4vw, 65px) !important;
+    padding: 0 clamp(10px, 1.3vw, 25px) !important;
+    font-size: clamp(11px, .9vw, 17px) !important;
+
+    white-space: nowrap !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  /* RIGHT COLUMN — MASCOT VIDEO */
+  .home-page .sage-hero-boy-wrap,
+  .home-page .sage-hero-boy-wrap.is-ready {
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: stretch !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: min(130%, 1180px) !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    justify-self: end !important;
+    z-index: 1 !important;
+  }
+
+  /* Fade the video into the black background at the text-side edge. */
+  .home-page .sage-hero-boy-wrap::after {
+    position: absolute !important;
+    z-index: 1 !important;
+    inset: 0 !important;
+    content: "" !important;
+    pointer-events: none !important;
+    background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .88) 12%, rgba(0, 0, 0, .42) 31%, transparent 56%) !important;
+  }
+
+  /* Actual video */
+  .home-page .sage-hero-boy-wrap video {
+    position: relative !important;
+    inset: auto !important;
+
+    display: block !important;
+    z-index: 0 !important;
+
+    width: 100% !important;
+    height: 50% !important;
+
+    max-width: 100% !important;
+    max-height: 50% !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    filter: brightness(1.5) saturate(1.1) contrast(1.05) !important;
+    mix-blend-mode: screen !important;
+
+    animation: sage-hero-boy-float 5s ease-in-out infinite !important;
+
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  /* Keep desktop intro and revealed content visible */
+  .home-page .sage-hero--intro .sage-hero-copy,
+  .home-page .sage-hero--revealed .sage-hero-copy,
+  .home-page .sage-hero--intro h1 .sage-hero-heading-line,
+  .home-page .sage-hero--revealed h1 .sage-hero-heading-line,
+  .home-page .sage-hero--intro .sage-hero-description,
+  .home-page .sage-hero--revealed .sage-hero-description,
+  .home-page .sage-hero--intro .sage-hero-actions,
+  .home-page .sage-hero--revealed .sage-hero-actions {
+    visibility: visible !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  .home-page .sage-hero--revealed .sage-hero-boy-wrap {
+    display: flex !important;
+  }
+
+}
+
+@media (min-width: 1600px) {
+  .home-page .sage-hero-actions a,
+  .home-page .sage-hero-actions button {
+    padding-inline: 34px !important;
+    font-size: 18px !important;
+  }
+}
+
+/* Compact two-column treatment for laptop and tablet widths. */
+@media (min-width: 761px) and (max-width: 1200px) {
+  .home-page .sage-hero {
+    grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr) !important;
+    column-gap: clamp(12px, 1.5vw, 18px) !important;
+  }
+
+  .home-page .sage-hero-inner {
+    padding: 22px 12px 22px clamp(28px, 4vw, 48px) !important;
+  }
+
+  .home-page .sage-hero h1 {
+    font-size: clamp(36px, 3.55vw, 43px) !important;
+    line-height: 1.06 !important;
+  }
+
+  .home-page .sage-hero-description {
+    font-size: clamp(14px, 1.45vw, 16px) !important;
+    line-height: 1.5 !important;
+    margin: 18px 0 !important;
+  }
+
+  .home-page .sage-hero-actions {
+    gap: 9px !important;
+  }
+
+  .home-page .sage-hero-actions a,
+  .home-page .sage-hero-actions button {
+    min-height: 48px !important;
+    padding: 0 clamp(7px, 1.1vw, 13px) !important;
+    font-size: clamp(8.5px, .95vw, 11px) !important;
+  }
+}
+
+/* On mobile, show the video as a centered intro on black, then reveal the copy. */
+@media (max-width: 760px) {
+  .home-page .sage-hero {
+    position: relative !important;
+    background: #000 !important;
+  }
+
+  .home-page .sage-hero--mobile-video-intro .sage-hero-copy {
+    visibility: hidden !important;
+  }
+
+  .home-page .sage-hero--mobile-video-intro .sage-hero-orbit {
+    display: none !important;
+  }
+
+  .home-page .sage-hero--mobile-video-intro .sage-hero-boy-wrap {
+    position: absolute !important;
+    z-index: 3 !important;
+    inset: 0 !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    background: #000 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-page .sage-hero--mobile-video-intro .sage-hero-boy-wrap::after {
+    content: none !important;
+  }
+
+  .home-page .sage-hero--mobile-video-intro .sage-hero-boy-wrap video {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    background: #000 !important;
+    mix-blend-mode: normal !important;
+    filter: brightness(1.8) saturate(1.15) contrast(1.04) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-page .sage-hero.sage-hero--revealed {
+    background-color: #000 !important;
+  }
+
+  .home-page .sage-hero--revealed .sage-hero-boy-wrap {
+    display: none !important;
+  }
+}
+

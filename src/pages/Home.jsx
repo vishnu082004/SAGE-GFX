@@ -12,13 +12,13 @@ import HomeHowWeWork from '../components/HomeHowWeWork'
 import HomeBlog from '../components/HomeBlog'
 import HomeContact from '../components/HomeContact'
 
-function Home({ openLightbox }) {
+function Home({ openLightbox, showInitialHomeInquiry }) {
   const [heroVideoReady, setHeroVideoReady] = useState(false)
   return (
     <div className="home-page">
       {/* 1. Hero Section */}
       <Hero onVideoReady={() => setHeroVideoReady(true)} />
-      <HeroInquiryForm videoReady={heroVideoReady} />
+      <HeroInquiryForm videoReady={heroVideoReady} showInitial={showInitialHomeInquiry} />
 
       {/* Homepage sections follow the visitor journey. */}
       <OurClients />

@@ -24,6 +24,8 @@ function HomeServicesCarousel() {
   const timerRef = useRef(0)
   const rafRef = useRef(0)
   const dragRef = useRef(null)
+  const suppressClickRef = useRef(false)
+  const clickTimerRef = useRef(0)
   const wheelLockRef = useRef(false)
   const wheelTimerRef = useRef(0)
   const isHoveringCardRef = useRef(false)
@@ -79,6 +81,7 @@ function HomeServicesCarousel() {
       document.removeEventListener('visibilitychange', updateDocumentVisibility)
       window.clearTimeout(timerRef.current)
       window.clearTimeout(wheelTimerRef.current)
+      window.clearTimeout(clickTimerRef.current)
       window.cancelAnimationFrame(rafRef.current)
     }
   }, [])
@@ -138,7 +141,12 @@ function HomeServicesCarousel() {
     if (!drag || drag.id !== event.pointerId) return
     const dx = event.clientX - drag.x
     const dy = event.clientY - drag.y
-    if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.15) move(dx < 0 ? 1 : -1)
+    if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+      move(dx < 0 ? 1 : -1)
+      suppressClickRef.current = true
+      window.clearTimeout(clickTimerRef.current)
+      clickTimerRef.current = window.setTimeout(() => { suppressClickRef.current = false }, 500)
+    }
     dragRef.current = null
     interact()
   }
@@ -150,7 +158,15 @@ function HomeServicesCarousel() {
     interact()
   }
 
-  return <section ref={sectionRef} id="services" className={`home-services${hasEntered ? ' is-entered' : ''}${reduceMotion ? ' is-reduced-motion' : ''}`} aria-labelledby="home-services-heading" onPointerMove={trackPointer} onPointerEnter={interact} onPointerDown={beginDrag} onPointerUp={finishDrag} onPointerCancel={() => { dragRef.current = null }} onKeyDown={onKeyDown} onFocusCapture={interact} onMouseLeave={() => { sectionRef.current?.style.setProperty('--pointer-x', '50%'); sectionRef.current?.style.setProperty('--pointer-y', '45%') }}>
+  const suppressDraggedClick = (event) => {
+    if (!suppressClickRef.current) return
+    event.preventDefault()
+    event.stopPropagation()
+    suppressClickRef.current = false
+    window.clearTimeout(clickTimerRef.current)
+  }
+
+  return <section ref={sectionRef} id="services" className={`home-services${hasEntered ? ' is-entered' : ''}${reduceMotion ? ' is-reduced-motion' : ''}`} aria-labelledby="home-services-heading" onPointerMove={trackPointer} onPointerEnter={interact} onPointerDown={beginDrag} onPointerUp={finishDrag} onPointerCancel={() => { dragRef.current = null }} onClickCapture={suppressDraggedClick} onKeyDown={onKeyDown} onFocusCapture={interact} onMouseLeave={() => { sectionRef.current?.style.setProperty('--pointer-x', '50%'); sectionRef.current?.style.setProperty('--pointer-y', '45%') }}>
     <div className="home-services-ambience" aria-hidden="true"><span /><i /><b /></div>
     <div className="container home-services-inner">
       <header className="home-services-header">

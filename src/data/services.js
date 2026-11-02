@@ -36,7 +36,7 @@ const servicesData = [
     ],
     detailExpansions: [
       'We prioritize realistic opportunities for your market and map each term to a useful page.',
-      'We keep language natural, align copy with intent, and strengthen each page’s relevance.',
+      'We keep language natural, align copy with intent, and strengthen each page?s relevance.',
       'Findings include prioritized recommendations so fixes can be handled in manageable steps.',
       'Every recommendation supports a clear audience need instead of adding content for its own sake.',
       'We check categories, service areas, contact details, and customer-facing information for consistency.',
@@ -128,7 +128,7 @@ const servicesData = [
     slug: 'social-media-marketing',
     title: 'Social Media Marketing',
     description:
-      'Social media marketing involves more than just posting on a regular basis; it’s all about creating content that gives people a reason to engage with and pay attention to your brand. Sage GFX offers strategic social media marketing services and creative content that represents your brand and resonates with your target audience.',
+      'Social media marketing involves more than just posting on a regular basis; it\'s all about creating content that gives people a reason to engage with and pay attention to your brand. Sage GFX offers strategic social media marketing services and creative content that represents your brand and resonates with your target audience.',
     details: [
       'Social media strategy',
       'Content calendar planning',
@@ -197,36 +197,18 @@ const servicesData = [
     slug: 'website-development',
     title: 'Website Development',
     description:
-      'The website is usually the first contact point where users get Well-informed with your brand. We design clean, responsive and functional websites that have a clear navigation system, represent your brand and enable the visitors to take the next step. In terms of structure, design, performance and functionality, we design websites that help you achieve your marketing objectives.',
+      'The website is usually the first contact point where users get well-informed about your brand. We design clean, responsive and functional websites that have a clear navigation system, represent your brand and enable visitors to take the next step. In terms of structure, design, performance and functionality, we design websites that help you achieve your marketing objectives.',
     details: [
       'Business and corporate websites',
       'Custom website development',
-      'React website development',
-      'WordPress website development',
-      'Landing pages and portfolios',
-      'Responsive mobile-first design',
-      'Website speed optimization',
-      'Website maintenance and support',
     ],
     detailDescriptions: [
       'We create clear websites for companies that need to explain services and build confidence. Structure and calls to action guide visitors toward useful next steps.',
       'We build custom interfaces and functionality around your requirements. Reusable components and a considered structure make the site easier to grow.',
-      'We develop React experiences with responsive layouts and interactive features. Maintainable components support a consistent experience across pages.',
-      'We build and configure WordPress websites that teams can update with confidence. Flexible page structures make common content changes straightforward.',
-      'We design focused pages and portfolios that present one offer or body of work clearly. Strong hierarchy helps visitors understand value quickly.',
-      'We adapt layouts and interactions for phones, tablets, and desktop screens. Mobile-first decisions keep content readable and controls comfortable to use.',
-      'We address loading bottlenecks in images, code, and page delivery. Faster experiences make it easier for visitors to browse and complete actions.',
-      'We provide updates, troubleshooting, and ongoing care after launch. Regular maintenance helps keep the site reliable as your needs change.',
     ],
     detailExpansions: [
       'We organize service information, proof points, and contact paths around the needs of your visitors.',
       'Planning covers page structure, content requirements, and the interactions needed for your workflow.',
-      'We consider accessibility, performance, and maintainability alongside the interface design.',
-      'We configure themes and plugins carefully, keeping editing needs and future updates in mind.',
-      'Focused messaging and a clear next step help each page support its intended purpose.',
-      'We check layouts, typography, images, and controls across common screen sizes.',
-      'Image and asset optimization supports quicker page loads without losing visual clarity.',
-      'Support can include routine updates, backups, and fixes for issues that arise after launch.',
     ],
     image: websiteDevelopmentImage,
     iconIndex: 5,
@@ -271,9 +253,9 @@ const servicesData = [
   {
     id: 8,
     slug: 'videography',
-    title: 'Video Graphy',
+    title: 'Videography',
     description:
-      'Great video is more than good visuals — it should make people feel something and remember your brand. We create purposeful video content that captures your people, products and ideas in a natural and engaging way. From brand stories and promotional videos to social media content, we help you communicate your message through visuals that connect',
+      'Great video is more than good visuals \u2014 it should make people feel something and remember your brand. We create purposeful video content that captures your people, products and ideas in a natural and engaging way. From brand stories and promotional videos to social media content, we help you communicate your message through visuals that connect.',
     details: [
       'Social media post designs',
       'Logo and brand identity design',

@@ -1355,6 +1355,40 @@
   .home-page .home-stat { width: clamp(220px, 68vw, 280px); flex-basis: clamp(220px, 68vw, 280px); }
 }
 
+/* Fit the complete service description and reserve a clear corner for its arrow. */
+.home-page .home-services .home-service-card {
+  height: auto !important;
+  min-height: 390px !important;
+  padding-bottom: 24px !important;
+}
+
+.home-page .home-services .home-service-card p {
+  display: block !important;
+  width: 100% !important;
+  overflow: visible !important;
+  margin: 13px 0 0 !important;
+  text-align: center !important;
+  -webkit-box-orient: initial !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+}
+
+.home-page .home-services .home-service-card .home-service-detail-arrow {
+  position: relative !important;
+  inset: auto !important;
+  align-self: flex-end;
+  margin: 8px 0 0 auto;
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 700px) {
+  .home-page .home-services .home-service-card {
+    min-height: 0 !important;
+    padding-bottom: 24px !important;
+  }
+}
+
 .home-stats-marquee { width: 100%; overflow: hidden; mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%); }
 .home-stats-track { display: flex; width: max-content; animation: homeStatsRight 42s linear infinite; will-change: transform; }
 .home-stats-marquee:hover .home-stats-track { animation-play-state: paused; }
