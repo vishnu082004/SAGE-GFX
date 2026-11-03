@@ -31,11 +31,9 @@ const monthlyCallReports = [
 ]
 
 const months = [
-  { month: 'Month 1', title: 'Set the foundation', items: ['Technical SEO completed', 'Keyword research finalized', 'Google Business Profile created', 'Meta Ads launched'] },
-  { month: 'Month 2', title: 'Build and publish', items: ['Website optimization completed', 'Blog publishing started', 'First paid leads generated'] },
-  { month: 'Month 3', title: 'Early visibility', items: ['Keywords started ranking', 'First organic enquiries received', 'Google Maps visibility improved'] },
-  { month: 'Month 4', title: 'Organic growth', items: ['Organic traffic crossed 1,200 visitors', 'Increase in Google Business Profile calls', 'Organic enquiries grew consistently'] },
-  { month: 'Month 5', title: 'Measurable outcomes', items: ['3,500 monthly organic visitors', '40+ organic enquiries', '30+ clinic walk-ins', 'Stable cost per lead of ₹185'] },
+  { month: 'Month 1', title: 'Build the Local Foundation', items: ['Local SEO audit, keyword research, Google Business Profile optimisation and the right primary category setup.'] },
+  { month: 'Month 2', title: 'Strengthen Visibility', items: ['Service optimisation, localized keyword use, profile improvement and frequent Google Business Profile updates.'] },
+  { month: 'Month 3', title: 'Generate Local Enquiries', items: ['Continuous optimisation, regular profile activity and performance tracking helped generate 60+ calls in just three months.'] },
 ]
 
 function CountMetric({ metric }) {
@@ -111,7 +109,7 @@ function CaseStudiesPage() {
         <section className="wea-section" aria-labelledby="wea-results-title">
           <div className="wea-container">
             <header className="wea-section-heading">
-              <h2 id="wea-results-title">Results <span>Achieved in 5 Months</span></h2>
+              <h2 id="wea-results-title">Results <span>Achieved in 3 Months</span></h2>
             </header>
             <div className="wea-monthly-performance" aria-label="Monthly Google Business Profile call performance">
               {monthlyCallReports.map(({ month, calls, image }) => <figure className="wea-monthly-report" key={month}>
@@ -125,7 +123,7 @@ function CaseStudiesPage() {
           </div>
         </section>
 
-        <section className="wea-section" aria-labelledby="wea-timeline-title"><div className="wea-container"><SectionHeading eyebrow="02 / THE JOURNEY" title="Growth Timeline" intro="Five months of focused work, steady optimization, and measurable progress." id="wea-timeline-title"/><div className="wea-timeline">{months.map(({ title, items }, index) => <article className={`wea-timeline-item${index % 2 ? ' is-right' : ' is-left'}`} key={title}><div className="wea-timeline-node" aria-hidden="true"/><div className="wea-timeline-card wea-card"><h3>{title}</h3><ul>{items.map((item) => <li key={item}><FiCheck aria-hidden="true"/>{item}</li>)}</ul></div></article>)}</div></div></section>
+        <section className="wea-section" aria-labelledby="wea-timeline-title"><div className="wea-container"><header className="wea-section-heading wea-timeline-heading"><h2 id="wea-timeline-title">Local SEO Growth Timeline</h2><p className="wea-section-intro">Three months of focused optimisation to strengthen search visibility, improve local discovery and build a stronger digital presence for Dr. M. Kolappa Pillai Siddha Clinic.</p></header><div className="wea-timeline">{months.map(({ month, title, items }, index) => <article className={`wea-timeline-item${index % 2 ? ' is-right' : ' is-left'}`} key={month}><div className="wea-timeline-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div><div className="wea-timeline-card wea-card"><div className="wea-timeline-month" aria-label={month}><span>MONTH</span><strong>{index + 1}</strong></div><div className="wea-timeline-copy"><h3>{title}</h3><ul>{items.map((item) => <li key={item}><FiCheck aria-hidden="true"/>{item}</li>)}</ul></div></div></article>)}</div></div></section>
 
         <section className="wea-closing" aria-labelledby="wea-closing-title">
           <div className="wea-closing-card">

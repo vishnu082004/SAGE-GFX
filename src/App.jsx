@@ -15,7 +15,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const CareersPage = lazy(() => import('./pages/CareersPage'))
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
+const OurProjectsPage = lazy(() => import('./pages/OurProjectsPage'))
 const ClientsPage = lazy(() => import('./pages/ClientsPage'))
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
@@ -58,7 +58,7 @@ import './styles/footer-minimal.css'
 import './styles/careers-teams.css'
 import './styles/careers-reference.css'
 import './styles/blog-pages.css'
-import './styles/portfolio-page.css'
+import './styles/our-projects-page.css'
 import './styles/services-page.css'
 import './styles/mobile-polish.css'
 import './styles/contact-page-finishing.css'
@@ -81,6 +81,7 @@ import './styles/blog-body-redesign.css'
 import './styles/home-hero-final.css'
 import './styles/card-image-brightness.css'
 import './styles/services-page-mobile-final.css'
+import './styles/ipad-views.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -110,6 +111,7 @@ function RouteDocumentTitle() {
       '/about-us': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
       '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],
       '/portfolio': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
+      '/our-projects': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
       '/clients': ['Our Clients | SAGE GFX', 'Meet some of the ambitious brands Sage GFX works alongside across creative, web, and digital marketing projects.'],
       '/case-studies': ['Siddha Clinic Case Study | Sage GFX', 'Explore how Sage GFX combined SEO, local search, and performance marketing to grow Siddha Clinic’s organic visibility and patient enquiries.'],
       '/careers': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
@@ -210,7 +212,8 @@ function App() {
             <Route path="/about-us" element={<AboutPage openLightbox={openLightbox} />} />
             <Route path="/services" element={<ServicesPage openLightbox={openLightbox} />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/portfolio" element={<OurProjectsPage />} />
+            <Route path="/our-projects" element={<OurProjectsPage />} />
             <Route path="/clients" element={<ClientsPage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
             <Route path="/case-studies/wea-clinic" element={<Navigate replace to="/case-studies" />} />

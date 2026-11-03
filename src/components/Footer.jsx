@@ -8,7 +8,7 @@ const quickLinks = [
   ['Home', '/', FiHome],
   ['About', '/about', FiUser],
   ['Services', '/services', FiGrid],
-  ['Our Projects', '/portfolio', FiBriefcase],
+  ['Our Projects', '/our-projects', FiBriefcase],
   ['Case Studies', '/case-studies', FiBriefcase],
   ['Blog', '/blog', FiBookOpen],
   ['Careers', '/careers', FiBriefcase],

@@ -11,7 +11,7 @@ function ClientsPage() {
           <p className="page-hero-eyebrow">CASE STUDIES / 47 BRANDS</p>
           <h1 id="clients-page-title" className="page-hero-title">Good work grows<br /><span className="gradient-text">together.</span></h1>
           <p className="page-hero-subtitle">We work alongside ambitious teams to build brands, digital experiences, and lasting momentum.</p>
-          <Link className="clients-page-hero-link" to="/portfolio">Explore selected projects <FiArrowRight aria-hidden="true" /></Link>
+          <Link className="clients-page-hero-link" to="/our-projects">Explore selected projects <FiArrowRight aria-hidden="true" /></Link>
         </div>
       </section>
 

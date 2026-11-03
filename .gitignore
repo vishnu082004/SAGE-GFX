@@ -29,3 +29,9 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Local profiles and generated artifacts
+temp-*-profile*/
+mobile-screenshot-profile*/
+artifacts/
+*_files/

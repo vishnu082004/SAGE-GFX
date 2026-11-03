@@ -33,14 +33,8 @@ function Hero({ onVideoReady }) {
     const video = videoRef.current
     if (!video) return undefined
 
-    const loadVideo = () => video.load()
-    let idleCallback
-    let loadTimer
-    if ('requestIdleCallback' in window) {
-      idleCallback = window.requestIdleCallback(loadVideo, { timeout: 900 })
-    } else {
-      loadTimer = window.setTimeout(loadVideo, 350)
-    }
+    video.preload = 'auto'
+    video.load()
     fallbackTimer.current = window.setTimeout(() => {
       if (videoStarted.current) return
       videoStarted.current = true
@@ -49,9 +43,7 @@ function Hero({ onVideoReady }) {
     }, 10000)
 
     return () => {
-      window.clearTimeout(loadTimer)
       window.clearTimeout(fallbackTimer.current)
-      if (idleCallback) window.cancelIdleCallback(idleCallback)
     }
   }, [])
 
@@ -88,7 +80,7 @@ function Hero({ onVideoReady }) {
         </div>
       </div>
       <div className={`sage-hero-boy-wrap${videoReady ? ' is-ready' : ''}${videoPlaying ? ' is-playing' : ''}`} aria-hidden="true">
-        <video ref={videoRef} src={heroVideo} muted playsInline loop={false} preload="none" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onEnded={completeIntro} onError={handleVideoError} />
+        <video ref={videoRef} src={heroVideo} muted playsInline loop={false} preload="auto" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onEnded={completeIntro} onError={handleVideoError} />
       </div>
     </section>
   )

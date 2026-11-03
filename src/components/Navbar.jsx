@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FiMenu, FiX, FiArrowRight, FiChevronDown, FiSearch, FiHelpCircle, FiCpu, FiShare2, FiTarget, FiCode, FiPenTool, FiCamera } from 'react-icons/fi'
 import brandLogo from '../assets/images/sage-gfx-navbar.webp'
@@ -110,7 +110,7 @@ function Navbar() {
     { label: 'Home', path: '/', hash: '#home' },
     { label: 'About', path: '/about', hash: '#about' },
     { label: 'Services', path: '/services', hash: '#services' },
-    { label: 'Our Projects', path: '/portfolio' },
+    { label: 'Our Projects', path: '/our-projects' },
     { label: 'Case Studies', path: '/case-studies' },
     { label: 'Careers', path: '/careers' },
     { label: 'Blog', path: '/blog' },

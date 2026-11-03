@@ -6,6 +6,19 @@
 
 @media (min-width: 761px) {
 
+  /* Add breathing room around the home page service cards on desktop. */
+  .home-page .home-services {
+    padding-bottom: clamp(56px, 6vw, 84px) !important;
+  }
+
+  .home-page .home-services-header > p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .home-page .home-services-carousel {
+    margin-top: clamp(48px, 5vw, 76px) !important;
+  }
+
   /* Main hero */
   .home-page .sage-hero {
     position: relative !important;

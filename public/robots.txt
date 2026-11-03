@@ -1,5 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+# Robots exclusion file for Sage GFX Digital Studio
+# Website: https://sagegfx.com
+
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /api
 
+# Host
+Host: https://sagegfx.com
+
+# Sitemaps
 Sitemap: https://sagegfx.com/sitemap.xml

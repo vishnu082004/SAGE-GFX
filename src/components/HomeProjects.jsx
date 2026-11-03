@@ -9,9 +9,9 @@ import seoProjectImage from '../assets/images/our project/our project/SEO.webp'
 gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
-  { number: '01', type: 'WEBSITE', title: 'KofeeTek', category: 'Website design and development', image: '/images/clients/websites/kofeetek-home.webp', imageAlt: 'KofeeTek website homepage for workplace coffee and tea vending solutions', destination: '/portfolio?category=websites#portfolio-work' },
-  { number: '02', type: 'SMM', title: 'Make every conversation count', category: 'Social media marketing', image: smmProjectImage, imageAlt: 'Social media marketing illustration with social platform icons', destination: '/portfolio?category=smm#portfolio-work' },
-  { number: '03', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', image: seoProjectImage, imageAlt: 'SEO illustration showing backlinks, analysis, traffic, indexing, and ranking', destination: '/portfolio?category=seo#portfolio-work' },
+  { number: '01', type: 'WEBSITE', title: 'KofeeTek', category: 'Website design and development', image: '/images/clients/websites/kofeetek-home.webp', imageAlt: 'KofeeTek website homepage for workplace coffee and tea vending solutions', destination: '/our-projects?category=websites#our-projects-work' },
+  { number: '02', type: 'SMM', title: 'Make every conversation count', category: 'Social media marketing', image: smmProjectImage, imageAlt: 'Social media marketing illustration with social platform icons', destination: '/our-projects?category=smm#our-projects-work' },
+  { number: '03', type: 'SEO', title: 'Help the right people find your brand', category: 'Search engine optimization', image: seoProjectImage, imageAlt: 'SEO illustration showing backlinks, analysis, traffic, indexing, and ranking', destination: '/our-projects?category=seo#our-projects-work' },
 ]
 
 function ProjectArtwork({ image, imageAlt, type }) {
@@ -53,7 +53,7 @@ function HomeProjects() {
         </Link>)}
       </div>
       <div className="home-projects-footer">
-        <Link className="home-projects-all" to="/portfolio">Explore all projects <FiArrowUpRight aria-hidden="true"/></Link>
+        <Link className="home-projects-all" to="/our-projects">Explore all projects <FiArrowUpRight aria-hidden="true"/></Link>
       </div>
     </div>
   </section>

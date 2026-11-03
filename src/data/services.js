@@ -158,7 +158,7 @@ const servicesData = [
   },
   {
     id: 5,
-    slug: 'performance-marketing ',
+    slug: 'performance-marketing',
     title: 'Performance Marketing ',
     description:
       'We create strategic campaigns on Google Ads and Meta Ads which will help you reach your target audience. In campaign creation and continuous optimisation, our priority lies in improving targeting and growth. From strategic ad copy to landing pages, we take care of everything which is required for your campaign.',
