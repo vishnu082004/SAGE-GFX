@@ -381,7 +381,7 @@ function SageAI() {
       </section>
     </div>, document.body)}
     <button className="sage-ai-launcher" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-haspopup="dialog">
-      {open ? <FiX aria-hidden="true"/> : <img src={sageGfxLogo} alt="Sage GFX logo"/>}<span>{open ? 'Close Sage AI' : 'Sage AI'}</span><i aria-hidden="true"/>
+      {open ? <FiX aria-hidden="true"/> : <img src="/images/sage-gfx-infinity-watermark.webp" alt="Sage GFX logo"/>}<span>{open ? 'Close Sage AI' : 'Sage AI'}</span><i aria-hidden="true"/>
     </button>
     </div>
   </>

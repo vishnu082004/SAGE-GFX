@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect, useRef } from 'react'
+﻿import { lazy, Suspense, useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
 import { FiPhone } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -55,7 +55,6 @@ import './styles/home-hero-visual.css'
 import './styles/sitewide-creative-motion.css'
 import './styles/premium-home-motion.css'
 import './styles/footer-minimal.css'
-import './styles/careers-teams.css'
 import './styles/careers-reference.css'
 import './styles/blog-pages.css'
 import './styles/our-projects-page.css'
@@ -82,6 +81,9 @@ import './styles/home-hero-final.css'
 import './styles/card-image-brightness.css'
 import './styles/services-page-mobile-final.css'
 import './styles/ipad-views.css'
+import './styles/viewport-fit.css'
+import './styles/interior-page-heroes.css'
+import './styles/contact-luxe.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -246,3 +248,4 @@ function App() {
 }
 
 export default App
+

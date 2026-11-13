@@ -81,3 +81,31 @@
   }
   .contact-body-guide-card .contact-body-guide-icon { transition: none; }
 }
+
+/* Shared hover feedback for icons across navigation, buttons, links, and content. */
+body svg {
+  transition: color .26s ease, filter .26s ease, transform .26s ease;
+}
+body :is(a, button, [role="button"]):is(:hover, :focus-visible) svg,
+body svg:is(:hover, :focus-visible) {
+  color: #fff;
+  filter: drop-shadow(0 0 4px rgba(8, 217, 236, .9))
+    drop-shadow(0 0 8px rgba(23, 107, 239, .72))
+    drop-shadow(0 0 12px rgba(206, 22, 231, .5));
+  transform: translateY(-2px) scale(1.08);
+}
+body :is([class*="icon"], [class*="Icon"]):not(svg):is(:hover, :focus-visible) {
+  border-color: rgba(123, 171, 255, .78);
+  background: linear-gradient(105deg, #08d9ec, #176bef 48%, #ce16e7);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(24, 112, 255, .3);
+  filter: none;
+  transform: translateY(-2px) scale(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+  body svg,
+  body :is([class*="icon"], [class*="Icon"]):not(svg) { transition: none; }
+  body :is(a, button, [role="button"]):is(:hover, :focus-visible) svg,
+  body svg:is(:hover, :focus-visible),
+  body :is([class*="icon"], [class*="Icon"]):not(svg):is(:hover, :focus-visible) { transform: none; }
+}

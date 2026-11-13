@@ -39,23 +39,21 @@ The production build is written to `dist/`.
 
 The active pages use the images in `public/images/`. No GLB or GLTF model file is currently included.
 
-## Careers application endpoint
+## Form submissions
 
-Career applications are accepted by the Node serverless function in `api/careers.js`. It checks required fields, confirms the selected position belongs to its department, and validates the resume's file signature before emailing the application with its attachment through Resend. The browser's file picker is only local selection; the page reports success only after Resend returns a message ID.
+The Contact page, home inquiry forms, and Careers applications submit to FormSubmit and send to `sagegraphics2021@gmail.com`. Text forms use FormSubmit's AJAX endpoint. Career applications open FormSubmit's response in a new tab. FormSubmit may send an activation email the first time; confirm the inbox before expecting submissions to be delivered. These site forms do not require Resend environment variables.
 
-Configure these server-side environment variables before running or deploying the site:
+The Express app (`server.js`) serves the Vite build from `dist/`; `GET /health` is available for health checks.
 
-- `RESEND_API_KEY` — a private Resend API key.
-- `CAREERS_FROM_EMAIL` — a sender address on a domain verified in Resend.
-- `CAREERS_TO_EMAIL` — optional; defaults to `sagegraphics2021@gmail.com`.
+### Hostinger Business Node.js Web App deployment
 
-For local PowerShell development:
+Create a Node.js Web App in Hostinger and deploy the project root (the folder containing `package.json`). Set:
 
-```powershell
-$env:RESEND_API_KEY = 're_...'
-$env:CAREERS_FROM_EMAIL = 'careers@your-verified-domain.com'
-$env:CAREERS_TO_EMAIL = 'sagegraphics2021@gmail.com'
-npm run dev
-```
+- Node.js version: 20 or 22
+- Build command: `npm run build`
+- Output directory: `dist`
+- Start command: `npm start` (entry file: `server.js`)
 
-For Vercel, add the same variables in the project's Environment Variables settings and redeploy. Until the required variables are configured, submissions return an error and the form keeps its values. Resumes are restricted to 5 MB by this site.
+The server listens on Hostinger's `PORT`; do not set a custom port. The forms send to FormSubmit directly, so no email API keys need to be added to Hostinger for form delivery.
+
+After deployment, open `https://your-domain/health` and expect `{"status":"ok"}`. Submit each form and confirm delivery in the destination inbox. Hostinger's Node.js app setup supports configuring the build command, output directory, and entry file ([Hostinger deployment guide](https://www.hostinger.com/support/how-to-deploy-a-nodejs-website-in-hostinger/)).

@@ -36,9 +36,11 @@ function ContactPage() {
     <div className="contact-page contact-design" id="contact">
       <div className="contact-design-glow" aria-hidden="true" />
       <section className="contact-design-hero" aria-labelledby="contact-title">
-        {/* <h1 id="contact-title">Contact</h1> */}
-        {/* <p className="contact-hero-copy">A good project starts with a conversation. Tell us what you’re planning and we’ll help you find the right next step.</p> */}
-        <nav className="contact-breadcrumb" aria-label="Breadcrumb"><h2 id="contact-title"><a href="/">Home</a><FiArrowRight aria-hidden="true"/><span className="contact-breadcrumb-current">Contact</span></h2></nav>
+        <div className="contact-hero-copy">
+          <h1 id="contact-title">Contact</h1>
+          <p className="contact-hero-intro">Let&apos;s talk about what your business can become.</p>
+          <nav className="contact-breadcrumb" aria-label="Breadcrumb"><p className="contact-breadcrumb-trail"><a href="/">Home</a><FiArrowRight aria-hidden="true"/><span className="contact-breadcrumb-current">Contact</span></p></nav>
+        </div>
         <div className="contact-hero-image" aria-hidden="true">
           <img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
         </div>

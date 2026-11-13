@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { FiArrowRight, FiBarChart2, FiCheck, FiCode, FiPenTool, FiSearch, FiUploadCloud } from 'react-icons/fi'
-import { contactEmail, contactPhone } from '../data/contactInfo'
+import { FiArrowRight, FiBarChart2, FiCode, FiPenTool, FiSearch } from 'react-icons/fi'
 import seoImage from '../assets/images/seo 1.webp'
 import smmImage from '../assets/images/carerr 3.webp'
 import websiteImage from '../assets/images/carrer 3.webp'
@@ -20,14 +19,8 @@ const titleHighlights = {
   'website-development': 'Developer',
   'graphic-design-video-editing': 'Video Editor',
 }
-const roleOptions = {
-  seo: ['Junior SEO', 'SEO Specialist', 'SEO Content Writer'],
-  smm: ['Junior SMM', 'SMM Specialist'],
-  'website-development': ['Website Design', 'Frontend Development', 'Backend Development', 'Full Stack Development'],
-  'graphic-design-video-editing': ['Graphic Designer & Video Editor'],
-}
 const hiringSteps = [
-  { number: '01', title: 'Apply', description: 'Send your CV and links to work you are proud of. A human reads every application, usually within three working days.' },
+  { number: '01', title: 'Apply', description: 'Tell us about yourself and share links to work you are proud of. A human reads every application, usually within three working days.' },
   { number: '02', title: 'Screen', description: 'A relaxed 30-minute call with our talent team about your experience, ambitions and what you want from your next role.' },
   { number: '03', title: 'Interview', description: 'Meet your future team lead, talk through a short practical scenario from a real account and ask us the hard questions.' },
   { number: '04', title: 'Offer', description: 'A clear offer with salary, growth track and start date, typically within a week of your final round. No ghosting, ever.' },
@@ -35,40 +28,31 @@ const hiringSteps = [
 
 function CareerApplicationForm({ job }) {
   const [status, setStatus] = useState('')
-  const [busy, setBusy] = useState(false)
-  const [resumeError, setResumeError] = useState('')
-  const [resumeName, setResumeName] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   async function submitApplication(event) {
     event.preventDefault()
-    if (busy) return
+    if (isSubmitting) return
+
     const form = event.currentTarget
-    const resume = form.elements.resume.files?.[0]
-    const extension = resume?.name.split('.').pop()?.toLowerCase()
-    if (!resume || !['pdf', 'doc', 'docx'].includes(extension)) {
-      setResumeError('Please attach a PDF, DOC or DOCX resume.')
-      return
-    }
-    if (resume.size > 5 * 1024 * 1024) {
-      setResumeError('Your resume must be 5 MB or smaller.')
-      return
-    }
-    setResumeError('')
-    const formData = new FormData(form)
-    formData.set('_subject', `Career application: ${formData.get('position')}`)
-    setBusy(true)
-    setStatus('Submitting your application…')
+    setIsSubmitting(true)
+    setStatus('Sending your application…')
+    const fields = Object.fromEntries(new FormData(form).entries())
+
     try {
-      const response = await fetch('/api/careers', { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
-      const result = await response.json().catch(() => ({}))
-      if (!response.ok || !result.success) throw new Error(result.message || 'Application service unavailable')
+      const response = await fetch('/api/careers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      })
+      const result = await response.json()
+      if (!response.ok || !result.success) throw new Error(result.message || 'We could not send your application. Please try again.')
+      setStatus('Thank you! Your application was sent successfully. We’ll be in touch soon.')
       form.reset()
-      setResumeName('')
-      setStatus('Application received. Thank you for your interest in Sage GFX!')
-    } catch {
-      setStatus(`We couldn’t submit your application. Contact ${contactEmail} or ${contactPhone} for help.`)
+    } catch (error) {
+      setStatus(error.message || 'We could not send your application. Please try again.')
     } finally {
-      setBusy(false)
+      setIsSubmitting(false)
     }
   }
 
@@ -80,16 +64,13 @@ function CareerApplicationForm({ job }) {
       <label className="careers-ref-field"><span>Email address <i>*</i></span><input name="email" type="email" placeholder="you@example.com" autoComplete="email" required /></label>
       <label className="careers-ref-field"><span>Phone number <i>*</i></span><input name="phone" type="tel" placeholder="Your phone number" autoComplete="tel" required /></label>
       <label className="careers-ref-field"><span>Portfolio or LinkedIn <i>*</i></span><input name="portfolio" type="url" placeholder="https://" required /></label>
-      <label className="careers-ref-field"><span>Role <i>*</i></span><select name="position" defaultValue={job.role} required>{roleOptions[job.id].map((role) => <option key={role} value={role}>{role}</option>)}</select></label>
+      <label className="careers-ref-field"><span>Role <i>*</i></span><select name="position" defaultValue={job.role} required><option value={job.role}>{job.title}</option></select></label>
     </div>
     <label className="careers-ref-field careers-ref-message"><span>Note to the hiring team <small>Optional</small></span><textarea name="message" rows="3" placeholder="Tell us briefly why this role interests you." /></label>
-    <label className="careers-ref-resume"><span className="careers-ref-file-heading">Resume <i>*</i></span><span className="careers-ref-file-drop"><FiUploadCloud aria-hidden="true" /><span><strong>{resumeName || 'Choose your resume'}</strong><small>PDF, DOC or DOCX · up to 5 MB</small></span><input type="file" name="resume" required accept=".pdf,.doc,.docx" onChange={(event) => { setResumeError(''); setResumeName(event.target.files?.[0]?.name || '') }} /></span>{resumeError && <small role="alert">{resumeError}</small>}</label>
-    <label className="careers-honeypot" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabIndex={-1} autoComplete="off" /></label>
-    <button className="careers-ref-submit" type="submit" disabled={busy}>{busy ? 'Sending application…' : 'Submit application'} {!busy && <FiArrowRight aria-hidden="true" />}</button>
-    <p className={`careers-ref-status${status.includes('received') ? ' is-success' : ''}`} role="status" aria-live="polite">{status && (status.includes('received') ? <FiCheck aria-hidden="true" /> : null)}{status}</p>
+    <button className="careers-ref-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? 'Sending…' : 'Submit application'} {!isSubmitting && <FiArrowRight aria-hidden="true" />}</button>
+    <p className={`careers-ref-status${status.startsWith('Thank you!') ? ' is-success' : ''}`} role="status" aria-live="polite">{status}</p>
   </form>
 }
-
 function CareerTitle({ job }) {
   const highlight = titleHighlights[job.id]
   const start = job.title.lastIndexOf(highlight)
@@ -124,7 +105,7 @@ function CareersPage() {
               <ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul>
             </section>
           </div>
-          <section className="careers-ref-application" aria-label={`Apply for ${job.title}`}>
+          <section className="careers-ref-application" aria-label={`${job.title} role details`}>
             <h2><CareerTitle job={job} /></h2><p className="careers-ref-summary">{job.summary}</p>
             <h3>Job Information</h3><p className="careers-ref-experience">Experience: Relevant experience preferred</p>
             <h3 className="careers-ref-apply-heading">Apply Now</h3>

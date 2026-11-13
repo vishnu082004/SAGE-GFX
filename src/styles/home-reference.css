@@ -2,7 +2,7 @@
 .navbar,.navbar.scrolled{background:rgba(4,7,16,.94);border-bottom:1px solid rgba(98,141,190,.17);box-shadow:0 8px 28px rgba(0,0,0,.16)}
 .navbar-container{min-height:62px;padding-top:4px;padding-bottom:4px}
 .brand-name{color:#f1f5ff}
-.navbar-link{color:#d6dff0;font-size:.68rem;letter-spacing:.04em}
+.navbar-link{color:#d6dff0;font-size:.81rem;letter-spacing:0;white-space:normal}
 .navbar-link::after{background:linear-gradient(90deg,#ed20bd,#a550f4,#09d5ef)}
 .navbar-link:hover,.navbar-link.active{color:#fff}
 .navbar-actions .navbar-cta{padding:8px 17px;border:1px solid transparent;background:linear-gradient(110deg,#e51cba,#a23be8 55%,#00bfe9);font-size:.66rem}

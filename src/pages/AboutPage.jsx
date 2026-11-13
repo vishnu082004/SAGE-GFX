@@ -2,7 +2,7 @@ import Principles from '../components/Principles'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi'
 import AboutTeam from '../components/AboutTeam'
-import aboutStoryImage from '../assets/images/about image 2.webp'
+import aboutMarketingArtwork from '../assets/images/about image 2.webp'
 import '../styles/about-page-refresh.css'
 
 function AboutPage() {
@@ -12,6 +12,7 @@ function AboutPage() {
         <div className="container about-hero-layout">
           <div className="about-hero-copy">
           <h1 className="page-hero-title">About <span className="gradient-text"> Us.</span></h1>
+            <p className="about-hero-breadcrumb"><Link to="/">Home</Link><span aria-hidden="true">›</span><span aria-current="page">About Us</span></p>
             {/* <h1 className="">About <span >Us.</span></h1> */}
             {/* <p className="about-hero-deck">We are a Chennai-based creative digital agency helping brands grow through thoughtful design, clear strategy, and effective digital marketing.</p> */}
             <Link to="/contact" className="button button-gradient">Let's build your brand <FiArrowRight aria-hidden="true"/></Link>
@@ -23,7 +24,7 @@ function AboutPage() {
             <li><b>04</b><span>Web Design &amp; Development<small>Modern. Fast. Responsive.</small></span></li>
           </ul> */}
           <div className="about-hero-stage">
-            <img className="about-hero-photo" src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
+            <img className="about-hero-photo" src="/images/sage-about-marketing.png" alt="" fetchPriority="high" />
           </div>
         </div>
       </section>
@@ -40,7 +41,7 @@ function AboutPage() {
             {/* <p className="about-story__body">From the first conversation to the final detail, our team builds thoughtful digital experiences around real business goals. We work collaboratively, keep the process clear, and make every part of the work feel connected.</p> */}
           </div>
           <figure className="about-story__visual">
-            <img src={aboutStoryImage} alt="Digital marketing campaign illustration with analytics, ads, and a creative team" loading="lazy" decoding="async" />
+            <img src={aboutMarketingArtwork} alt="Digital marketing campaign illustration with analytics, ads, and a creative team" loading="lazy" decoding="async" />
           </figure>
         </div>
       </section>

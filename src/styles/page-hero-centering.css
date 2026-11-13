@@ -1,22 +1,4 @@
 /* Keep all non-home page heroes the same responsive height. */
-:is(
-  .main-content > .page-hero:not(.page-hero--contact),
-  .about-page .page-hero--about,
-  .services-page .page-hero--services,
-  .privacy-page .page-hero,
-  .terms-page .page-hero,
-  .sitemap-page .page-hero,
-  .blog-page .blog-hero,
-  .portfolio-hero,
-  .careers-page .careers-hero,
-  .service-detail-hero,
-  .contact-page .contact-design-hero
-) {
-  box-sizing: border-box;
-  width: 100%;
-  height: clamp(460px, 68svh, 700px);
-  min-height: clamp(460px, 68svh, 700px);
-}
 
 /* Use the About hero's studio image throughout the site, except on Home. */
 :is(
@@ -34,29 +16,6 @@
 }
 
 /* Carry the About hero's dark dotted, diagonal and orbit treatment across page heroes. */
-:is(
-  .main-content > .page-hero:not(.page-hero--contact),
-  .privacy-page .page-hero,
-  .terms-page .page-hero,
-  .sitemap-page .page-hero,
-  .services-page .page-hero--services,
-  .blog-page .blog-hero,
-  .portfolio-hero,
-  .careers-page .careers-hero
-)::before {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  content: '';
-  pointer-events: none;
-  background-image:
-    radial-gradient(rgba(193, 220, 244, .2) .7px, transparent .7px),
-    linear-gradient(145deg, transparent 46%, rgba(23, 182, 228, .12) 46.15%, transparent 46.4%),
-    linear-gradient(28deg, transparent 67%, rgba(199, 44, 204, .11) 67.15%, transparent 67.4%),
-    radial-gradient(circle at 95% 12%, transparent 0 9.5rem, rgba(201, 43, 207, .1) 9.6rem 10.4rem, transparent 10.5rem 12rem, rgba(37, 186, 232, .09) 12.1rem 12.9rem, transparent 13rem);
-  background-size: 22px 22px, auto, auto, auto;
-  mask-image: linear-gradient(90deg, #000, transparent 82%);
-}
 
 .main-content > .page-hero:not(.page-hero--contact) > .container,
 .privacy-page .page-hero > .container,
@@ -193,19 +152,6 @@
 
 .portfolio-hero .page-hero-subtitle { margin: 0 auto; }
 
-.careers-hero .careers-hero-inner {
-  width: min(calc(100% - 48px), 900px);
-  margin-inline: auto;
-  padding: clamp(44px, 8vh, 80px) 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-}
-
-.careers-hero .careers-hero-inner h1 { margin: 0; }
-
 .service-detail-hero .service-detail-hero-content {
   display: flex;
   flex-direction: column;
@@ -241,8 +187,7 @@
 }
 
 .services-page .services-hero-actions a,
-.portfolio-hero .portfolio-hero-link,
-.careers-hero .careers-hero-link {
+.portfolio-hero .portfolio-hero-link {
   min-height: 32px;
   gap: 8px;
   font-size: .68rem;
@@ -269,52 +214,9 @@
 .about-page .about-hero-copy > .button,
 .services-page .services-hero-actions,
 .portfolio-hero .portfolio-hero-link,
-.careers-page .careers-hero-link,
 .service-detail-hero .service-detail-cta,
 .main-content > .page-hero:not(.page-hero--contact) .button {
   display: none !important;
 }
 
 /* The Careers hero is intentionally text only. */
-.careers-page .careers-hero {
-  justify-content: center;
-  background: transparent;
-}
-
-.careers-page .careers-hero-inner {
-  margin-inline: auto;
-  justify-content: center;
-  text-align: center;
-  transform: none;
-}
-
-.careers-page .careers-hero h1 {
-  margin: 0;
-  color: #f2f6ff;
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 4.1vw, 5rem);
-  font-style: normal;
-  font-weight: 600;
-  line-height: .98;
-  letter-spacing: -.07em;
-  text-align: center;
-}
-
-.careers-page .careers-hero h1 .gradient-text {
-  display: inline;
-  margin: 0;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  background: linear-gradient(100deg, #ff20ae 5%, #a43cff 48%, #00d9f5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-.careers-page .careers-hero::before,
-.careers-page .careers-hero::after,
-.careers-page .careers-hero-background {
-  display: none !important;
-}

@@ -1,7 +1,6 @@
 /* Final mobile layout pass: keep content readable and inside the viewport. */
 .about-page .page-hero--about,
 .portfolio-page .portfolio-hero,
-.careers-page .careers-hero,
 .blog-page .blog-hero,
 .contact-page.contact-design .contact-design-hero {
   min-height: clamp(340px, 44svh, 460px);
@@ -18,7 +17,6 @@
   .about-page .about-hero-copy,
   .services-page .services-hero-copy,
   .portfolio-hero-content,
-  .careers-page .careers-hero-inner,
   .blog-page .blog-hero .container,
   .contact-page.contact-design .contact-design-hero {
     text-align: center;
@@ -28,14 +26,12 @@
   .about-page .about-hero-copy,
   .services-page .services-hero-copy,
   .portfolio-hero-content,
-  .careers-page .careers-hero-inner,
   .blog-page .blog-hero .container > * {
     margin-inline: auto;
   }
 
   .home-page .sage-hero-eyebrow,
-  .services-page .page-hero--services .page-hero-eyebrow,
-  .careers-page .careers-hero .careers-eyebrow {
+  .services-page .page-hero--services .page-hero-eyebrow {
     justify-content: center;
     margin-inline: auto;
   }
@@ -43,7 +39,6 @@
   .home-page .sage-hero-description,
   .services-page .page-hero--services .page-hero-subtitle,
   .portfolio-hero .page-hero-subtitle,
-  .careers-page .careers-hero-copy,
   .blog-page .blog-hero .page-hero-subtitle {
     margin-inline: auto;
     text-align: center;
@@ -56,14 +51,12 @@
     margin-inline: auto;
   }
 
-  .careers-page .careers-hero-link,
   .portfolio-hero-link {
     justify-content: center;
   }
 
   .about-page .page-hero--about,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero {
     min-height: clamp(300px, 45svh, 380px);
@@ -146,7 +139,6 @@
   .services-page .page-hero--services .page-hero-title,
   .portfolio-hero .page-hero-title,
   .blog-page .blog-hero .page-hero-title,
-  .careers-page .careers-hero h1,
   .contact-page.contact-design .contact-breadcrumb h2 {
     max-width: 100%;
     font-size: clamp(2.45rem, 9.5vw, 3.5rem);
@@ -160,7 +152,6 @@
   .about-page .page-hero--about .about-hero-layout,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container {
     min-width: 0;
     padding-inline: clamp(18px, 5.5vw, 26px);
@@ -169,7 +160,6 @@
   .about-page .about-hero-copy,
   .services-page .services-hero-copy,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container > * {
     width: 100%;
     max-width: 560px;
@@ -179,7 +169,6 @@
   .about-page .page-hero--about .about-hero-photo,
   .services-page .services-hero-stage img,
   .portfolio-hero .portfolio-hero-visual img,
-  .careers-page .careers-hero-background img,
   .blog-page .blog-hero-art img,
   .contact-page.contact-design .contact-hero-image img {
     object-position: 58% center;
@@ -188,7 +177,6 @@
   .about-page .page-hero--about .about-hero-stage,
   .services-page .page-hero--services .services-hero-stage,
   .portfolio-hero .portfolio-hero-visual,
-  .careers-page .careers-hero-background,
   .blog-page .blog-hero-art,
   .contact-page.contact-design .contact-hero-image {
     height: clamp(220px, 62vw, 340px);
@@ -200,7 +188,6 @@
   .home-projects-grid,
   .about-team__leadership,
   .about-team__manager,
-  .careers-form,
   .contact-main-grid,
   .contact-details-grid {
     min-width: 0;
@@ -208,23 +195,14 @@
 
   .about-team__leadership { grid-template-columns: minmax(0, 1fr); }
   .about-team__leadership .about-team-card { width: 100%; max-width: 380px; margin-inline: auto; }
-  .careers-form { grid-template-columns: minmax(0, 1fr); }
-  .careers-url-field,
-  .careers-message-field,
-  .careers-submit,
-  .careers-status { grid-column: 1; }
 
   .contact-page.contact-design .contact-form-panel,
-  .careers-application,
   .hero-inquiry-form,
   .contact-design-form { width: 100%; min-width: 0; }
   .contact-page.contact-design .contact-field,
   .contact-page.contact-design .contact-field input,
   .contact-page.contact-design .contact-field select,
-  .contact-page.contact-design .contact-field textarea,
-  .careers-field input,
-  .careers-field select,
-  .careers-field textarea { min-width: 0; max-width: 100%; font-size: 16px; }
+  .contact-page.contact-design .contact-field textarea { min-width: 0; max-width: 100%; font-size: 16px; }
 
   .button,
   button[type="submit"],
@@ -235,7 +213,6 @@
   .reviews-carousel-controls > button,
   .services-hero-secondary,
   .portfolio-hero-link,
-  .careers-submit,
   .reviews-cta,
   .common-question-toggle { min-height: 44px; }
 
@@ -263,7 +240,6 @@
 @media (max-width: 700px) {
   .about-page .page-hero--about,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero {
     min-height: 0;
@@ -289,7 +265,6 @@
   .privacy-copy a,
   .sitemap-links a,
   .blog-article-body a,
-  .careers-status a,
   .website-project-meta h3 { overflow-wrap: anywhere; }
 }
 
@@ -298,7 +273,6 @@
   .about-page .page-hero--about,
   .services-page .page-hero--services,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero {
     display: flex;
@@ -313,7 +287,6 @@
   .about-page .page-hero--about .about-hero-layout,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container {
     order: 1;
     display: flex;
@@ -337,13 +310,11 @@
   .about-page .about-hero-copy,
   .services-page .services-hero-copy,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container > * { width: 100%; max-width: 560px; min-width: 0; }
 
   .about-page .page-hero--about .about-hero-stage,
   .services-page .page-hero--services .services-hero-stage,
   .portfolio-hero .portfolio-hero-visual,
-  .careers-page .careers-hero-background,
   .blog-page .blog-hero-art,
   .contact-page.contact-design .contact-hero-image {
     position: relative;
@@ -358,7 +329,6 @@
   .about-page .page-hero--about .about-hero-photo,
   .services-page .services-hero-stage img,
   .portfolio-hero .portfolio-hero-visual img,
-  .careers-page .careers-hero-background img,
   .blog-page .blog-hero-art img,
   .contact-page.contact-design .contact-hero-image img {
     position: absolute;
@@ -373,7 +343,6 @@
   .about-page .page-hero--about .about-hero-stage::after,
   .services-page .page-hero--services .services-hero-stage::after,
   .portfolio-hero .portfolio-hero-visual::after,
-  .careers-page .careers-hero::after,
   .blog-page .blog-hero::after,
   .contact-page.contact-design .contact-hero-image::after {
     background: linear-gradient(180deg, rgba(5,9,20,.04), transparent 42%, rgba(5,9,20,.24));
@@ -382,8 +351,7 @@
   .about-page .page-hero--about .about-hero-copy .page-hero-title,
   .services-page .page-hero--services .page-hero-title,
   .portfolio-hero .page-hero-title,
-  .blog-page .blog-hero .page-hero-title,
-  .careers-page .careers-hero h1 {
+  .blog-page .blog-hero .page-hero-title {
     font-size: clamp(2.45rem, 10vw, 3.5rem);
     line-height: 1.02;
     letter-spacing: -.06em;
@@ -392,7 +360,6 @@
   .about-page .page-hero--about .about-hero-copy .button,
   .services-page .services-hero-actions,
   .portfolio-hero-link { margin-top: 18px; }
-  .careers-page .careers-hero h1 span { display: block; margin-top: .08em; }
 
   .contact-page.contact-design .contact-kicker,
   .contact-page.contact-design .contact-breadcrumb {
@@ -411,21 +378,18 @@
   .about-page .about-hero-copy,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container { padding-inline: 18px; }
   .about-page .page-hero--about .about-hero-layout { padding-inline: 0; }
   .about-page .about-hero-copy { padding-inline: 18px; }
   .about-page .page-hero--about .about-hero-layout,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-hero-content,
-  .careers-hero-inner,
   .blog-page .blog-hero .container { padding-top: 56px; padding-bottom: 26px; }
   .contact-page.contact-design .contact-kicker { padding: 56px 18px 0; }
   .contact-page.contact-design .contact-breadcrumb { padding-inline: 18px; }
   .about-page .page-hero--about .about-hero-stage,
   .services-page .page-hero--services .services-hero-stage,
   .portfolio-hero .portfolio-hero-visual,
-  .careers-page .careers-hero-background,
   .blog-page .blog-hero-art,
   .contact-page.contact-design .contact-hero-image { height: clamp(205px, 61vw, 280px); }
 }
@@ -437,7 +401,6 @@
   .about-page .page-hero--about,
   .services-page .page-hero--services,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero {
     position: relative;
@@ -461,7 +424,6 @@
   .about-page .page-hero--about .about-hero-stage,
   .services-page .page-hero--services .services-hero-stage,
   .portfolio-page .portfolio-hero .portfolio-hero-visual,
-  .careers-page .careers-hero .careers-hero-background,
   .blog-page .blog-hero .blog-hero-art,
   .contact-page.contact-design .contact-design-hero .contact-hero-image {
     position: absolute;
@@ -476,7 +438,6 @@
   .about-page .page-hero--about .about-hero-photo,
   .services-page .page-hero--services .services-hero-stage img,
   .portfolio-page .portfolio-hero .portfolio-hero-visual img,
-  .careers-page .careers-hero .careers-hero-background img,
   .blog-page .blog-hero .blog-hero-art img,
   .contact-page.contact-design .contact-design-hero .contact-hero-image img {
     position: absolute;
@@ -493,7 +454,6 @@
   .about-page .page-hero--about .about-hero-stage::after,
   .services-page .page-hero--services .services-hero-stage::after,
   .portfolio-page .portfolio-hero::after,
-  .careers-page .careers-hero::after,
   .blog-page .blog-hero::after,
   .contact-page.contact-design .contact-design-hero .contact-hero-image::after {
     position: absolute;
@@ -512,7 +472,6 @@
   .about-page .page-hero--about .about-hero-copy,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-page .portfolio-hero .portfolio-hero-content,
-  .careers-page .careers-hero .careers-hero-inner,
   .blog-page .blog-hero .container,
   .contact-page.contact-design .contact-design-hero > .contact-kicker,
   .contact-page.contact-design .contact-design-hero > .contact-breadcrumb {
@@ -534,8 +493,7 @@
   .about-page .page-hero--about .about-hero-copy { padding-inline: 22px; }
   .about-page .page-hero--about .about-hero-copy .button,
   .services-page .page-hero--services .services-hero-actions,
-  .portfolio-page .portfolio-hero .portfolio-hero-link,
-  .careers-page .careers-hero .careers-hero-link { margin-top: 18px; }
+  .portfolio-page .portfolio-hero .portfolio-hero-link { margin-top: 18px; }
 
   .contact-page.contact-design .contact-design-hero > .contact-kicker { padding-bottom: 8px; }
   .contact-page.contact-design .contact-design-hero > .contact-breadcrumb { padding-top: 0; }
@@ -584,7 +542,6 @@
 @media (max-width: 480px) {
   .about-page .page-hero--about,
   .services-page .page-hero--services,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero {
     min-height: clamp(280px, 40svh, 330px);
@@ -593,7 +550,6 @@
   .about-page .page-hero--about .about-hero-copy,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-page .portfolio-hero .portfolio-hero-content,
-  .careers-page .careers-hero .careers-hero-inner,
   .blog-page .blog-hero .container,
   .contact-page.contact-design .contact-design-hero > .contact-kicker,
   .contact-page.contact-design .contact-design-hero > .contact-breadcrumb { padding-inline: 18px; }
@@ -693,7 +649,6 @@
   .services-page .services-hero-copy,
   .portfolio-page .portfolio-hero-content,
   .blog-page .blog-hero .container,
-  .careers-page .careers-hero-inner,
   .contact-page.contact-design .contact-design-hero {
     text-align: center;
   }
@@ -701,8 +656,7 @@
   .about-page .about-hero-copy,
   .services-page .services-hero-copy,
   .portfolio-page .portfolio-hero-content,
-  .blog-page .blog-hero .container,
-  .careers-page .careers-hero-inner {
+  .blog-page .blog-hero .container {
     margin-inline: auto;
   }
 
@@ -714,7 +668,6 @@
 
   .page-hero-eyebrow,
   .page-hero-subtitle,
-  .careers-hero-copy,
   .contact-page .contact-hero-copy {
     margin-inline: auto;
   }
@@ -730,9 +683,7 @@
   .blog-card--interactive .blog-art img,
   .portfolio-project-art img,
   .about-team-card img,
-  .about-journey__image img,
-  .career-role-card img,
-  .careers-team-card img {
+  .about-journey__image img {
     filter: brightness(.62) saturate(.82);
   }
 
@@ -745,8 +696,6 @@
   .portfolio-project,
   .about-team-card,
   .about-journey__step,
-  .career-role-card,
-  .careers-team-card,
   .principle-card,
   .review-card,
   .contact-detail-card {
@@ -760,9 +709,7 @@
   .project-card p,
   .blog-card-summary,
   .portfolio-project-copy > p:not(.portfolio-kicker),
-  .about-team-card p,
-  .career-role-card p,
-  .careers-team-card p {
+  .about-team-card p {
     color: #d5deec;
   }
 }
@@ -841,50 +788,22 @@
   .blog-card--interactive .blog-art img,
   .portfolio-project-art img,
   .about-team-card img,
-  .about-journey__image img,
-  .career-role-card img,
-  .careers-team-card img {
+  .about-journey__image img {
     filter: brightness(.48) saturate(.76);
   }
 }
 
 /* Keep careers teams and their application form in a clear mobile sequence. */
 @media(max-width:760px){
-  .careers-page .careers-content{display:flex;flex-direction:column;align-items:stretch;gap:30px}
-  .careers-page .careers-teams{order:0;width:100%;margin:0}
-  .careers-page .careers-team-carousel{height:auto;overflow:visible}
-  .careers-page .careers-application{order:1;position:relative;z-index:1;align-self:stretch;width:100%;max-width:none;margin:18px 0 0;padding:24px 20px;border:1px solid rgba(61,203,231,.38);border-radius:18px;background:radial-gradient(ellipse at 100% 0,rgba(64,103,217,.16),transparent 42%),linear-gradient(145deg,rgba(10,22,45,.98),rgba(6,12,28,.99));box-shadow:0 18px 44px rgba(0,0,0,.28),0 0 26px rgba(28,166,216,.1),inset 0 1px rgba(255,255,255,.06)}
-  .careers-page .careers-benefits{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:17px 0 25px}
-  .careers-page .careers-benefits article{display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 5px;text-align:center}
-  .careers-page .careers-benefits article>svg{width:15px;height:15px;flex:none}
-  .careers-page .careers-benefits h3{margin:0;font-size:.62rem;line-height:1.2}
-  .careers-page .careers-benefits p{font-size:.53rem;line-height:1.25}
 }
 
 @media(max-width:380px){
-  .careers-page .careers-benefits{gap:5px}
-  .careers-page .careers-benefits article{padding:9px 3px}
-  .careers-page .careers-benefits h3{font-size:.57rem}
-  .careers-page .careers-benefits p{font-size:.49rem}
-  .careers-page .careers-application{padding:21px 15px}
 }
 
 @media(max-width:760px){
-  .careers-page .careers-teams>.careers-section-label,
-  .careers-page .careers-teams>h2,
-  .careers-page .careers-teams-intro,
-  .careers-page .careers-team-heading{text-align:center}
-  .careers-page .careers-teams>.careers-section-label,
-  .careers-page .careers-team-heading .careers-section-label{justify-content:center}
-  .careers-page .careers-teams>h2{max-width:none;margin-inline:auto;font-size:clamp(1.85rem,7.5vw,2.25rem);line-height:1.12;letter-spacing:-.045em}
-  .careers-page .careers-teams-intro{max-width:52ch;margin:12px auto 18px;font-size:.83rem;line-height:1.58;letter-spacing:.005em}
-  .careers-page .careers-team-heading{margin-bottom:14px}
-  .careers-page .careers-team-heading h2{line-height:1.15;letter-spacing:-.035em}
 }
 
 @media(max-width:380px){
-  .careers-page .careers-teams>h2{font-size:1.82rem;line-height:1.14}
-  .careers-page .careers-teams-intro{margin-top:10px;font-size:.79rem;line-height:1.55}
 }
 
 /* Mobile home intro: play the Sage boy video as a full-screen opening, then reveal the hero. */
@@ -910,7 +829,6 @@
 @media(max-width:760px){
   .about-page .page-hero--about .about-hero-copy,
   .portfolio-page .portfolio-hero .portfolio-hero-content,
-  .careers-page .careers-hero .careers-hero-inner,
   .contact-page.contact-design .contact-design-hero > .contact-kicker,
   .contact-page.contact-design .contact-design-hero > .contact-breadcrumb{
     align-items:center;
@@ -920,8 +838,7 @@
   }
 
   .about-page .page-hero--about .about-hero-copy,
-  .portfolio-page .portfolio-hero .portfolio-hero-content,
-  .careers-page .careers-hero .careers-hero-inner{
+  .portfolio-page .portfolio-hero .portfolio-hero-content{
     width:100%;
     max-width:100%;
     padding-inline:18px;
@@ -934,7 +851,6 @@
     margin-inline:auto;
   }
 
-  .careers-page .careers-hero h1,
   .portfolio-page .portfolio-hero .page-hero-title,
   .about-page .page-hero--about .page-hero-title{
     margin-inline:auto;
@@ -1351,7 +1267,6 @@
   .about-page .page-hero--about,
   .services-page .page-hero--services,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero{
     min-height:clamp(250px,34svh,300px);
@@ -1360,7 +1275,6 @@
   .about-page .page-hero--about .about-hero-copy,
   .services-page .page-hero--services .services-hero-layout,
   .portfolio-page .portfolio-hero .portfolio-hero-content,
-  .careers-page .careers-hero .careers-hero-inner,
   .blog-page .blog-hero .container{
     padding-block:30px;
   }
@@ -1370,7 +1284,6 @@
   .about-page .page-hero--about,
   .services-page .page-hero--services,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero{
     min-height:245px;
@@ -1391,43 +1304,6 @@
   .contact-page.contact-design .contact-main-grid > .contact-map-panel{
     grid-column:1;
     grid-row:2;
-  }
-}
-
-/* Compact the message field and resume upload area in the Careers form. */
-.careers-page .careers-application .careers-message-field{
-  min-height:76px;
-  padding-top:8px;
-}
-
-.careers-page .careers-application .careers-message-field textarea{
-  height:58px;
-  min-height:58px;
-}
-
-.careers-page .careers-application .careers-resume{
-  gap:10px;
-  padding:10px 13px;
-}
-
-.careers-page .careers-application .careers-resume p{
-  margin-block:3px;
-  line-height:1.4;
-}
-
-@media(max-width:760px){
-  .careers-page .careers-application .careers-resume{
-    gap:8px;
-    padding:9px 11px;
-  }
-
-  .careers-page .careers-application .careers-resume p{
-    margin-block:2px;
-    line-height:1.35;
-  }
-
-  .careers-page .careers-application .careers-resume small{
-    line-height:1.25;
   }
 }
 
@@ -1816,7 +1692,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 /* Use clean black hero panels across routes; retain the Home hero video as its only artwork. */
 .page-hero,
 .portfolio-page .portfolio-hero,
-.careers-page .careers-hero,
 .blog-page .blog-hero,
 .contact-page.contact-design .contact-design-hero,
 .service-detail-page .service-detail-hero{
@@ -1908,7 +1783,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 .services-page .services-hero-stage,
 .services-page .services-hero-topline,
 .portfolio-page .portfolio-hero-visual,
-.careers-page .careers-hero-background,
 .blog-page .blog-hero-art,
 .contact-page.contact-design .contact-hero-image{
   display:none!important;
@@ -1916,7 +1790,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 .about-page .page-hero--about .about-hero-layout,
 .services-page .page-hero--services .services-hero-layout,
 .portfolio-page .portfolio-hero-content,
-.careers-page .careers-hero-inner,
 .blog-page .blog-hero .container,
 .contact-page.contact-design .contact-breadcrumb,
 .service-detail-page .service-detail-hero-content{
@@ -1930,7 +1803,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 .about-page .about-hero-copy,
 .services-page .services-hero-copy,
 .portfolio-page .portfolio-hero-content,
-.careers-page .careers-hero-inner,
 .blog-page .blog-hero .container,
 .service-detail-page .service-detail-hero-content{
   text-align:center!important;
@@ -1940,7 +1812,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 .home-page .sage-hero h1,
 .page-hero-title,
 .portfolio-page .portfolio-hero h1,
-.careers-page .careers-hero h1,
 .blog-page .blog-hero h1,
 .service-detail-page .service-detail-hero h1{
   max-width:100%!important;
@@ -1950,7 +1821,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 }
 .home-page .sage-hero-description,
 .page-hero-subtitle,
-.careers-page .careers-hero-copy,
 .service-detail-page .service-detail-summary{
   margin-inline:auto!important;
   text-align:center!important;
@@ -1958,7 +1828,6 @@ body:has(.contact-design) .navbar .mobile-nav-link{
 @media(max-width:760px){
   .page-hero,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero,
   .service-detail-page .service-detail-hero{
@@ -1983,7 +1852,6 @@ body{font-size:var(--type-body)}
 }
 .page-hero-title,
 .portfolio-page .portfolio-hero h1,
-.careers-page .careers-hero h1,
 .blog-page .blog-hero h1,
 .service-detail-page .service-detail-hero h1{
   font-size:clamp(2.2rem,4.2vw,3.35rem)!important;
@@ -1991,7 +1859,6 @@ body{font-size:var(--type-body)}
 }
 .home-page .sage-hero-description,
 .page-hero-subtitle,
-.careers-page .careers-hero-copy,
 .service-detail-page .service-detail-summary{
   font-size:var(--type-body)!important;
   line-height:1.58!important;
@@ -2003,12 +1870,10 @@ body{font-size:var(--type-body)}
   .home-page .sage-hero h1{font-size:clamp(2.05rem,8vw,2.7rem)!important}
   .page-hero-title,
   .portfolio-page .portfolio-hero h1,
-  .careers-page .careers-hero h1,
   .blog-page .blog-hero h1,
   .service-detail-page .service-detail-hero h1{font-size:clamp(2rem,7.6vw,2.7rem)!important}
   .home-page .sage-hero-description,
   .page-hero-subtitle,
-  .careers-page .careers-hero-copy,
   .service-detail-page .service-detail-summary{font-size:.94rem!important}
   .home-page .home-services .home-service-card h3,
   .home-page .home-services .home-service-card.is-active h3{font-size:1.2rem!important}
@@ -2053,8 +1918,6 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
 .main-content img,.main-content video,.main-content iframe{max-width:100%}
 .contact-main-grid,
 .contact-details-grid,
-.careers-content,
-.careers-form,
 .service-detail-content-inner,
 .services-catalog-grid,
 .services-page-grid,
@@ -2080,9 +1943,7 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
   .seo-client-grid,
   .about-team__grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact-main-grid,
-  .careers-content,
   .service-detail-content-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .careers-content{gap:clamp(24px,4vw,42px)}
   .home-page .home-services-inner{width:100%}
 }
 @media(max-width:760px){
@@ -2094,9 +1955,8 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
   .seo-client-grid,
   .about-team__grid--two,
   .contact-main-grid,
-  .careers-content,
   .service-detail-content-inner{grid-template-columns:minmax(0,1fr)}
-  .contact-main-grid,.careers-content,.service-detail-content-inner{gap:22px}
+  .contact-main-grid,.service-detail-content-inner{gap:22px}
   .home-page .home-projects-grid{grid-template-columns:minmax(0,1fr)}
   .main-content p{max-width:68ch}
   .main-content .container{overflow-wrap:anywhere}
@@ -2305,7 +2165,6 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
 .about-page .page-hero--about,
 .services-page .page-hero--services,
 .portfolio-page .portfolio-hero,
-.careers-page .careers-hero,
 .blog-page .blog-hero,
 .contact-page.contact-design .contact-design-hero,
 .service-detail-page .service-detail-hero,
@@ -2322,7 +2181,6 @@ main,.main-content,section,article,aside,header,footer,.container{min-width:0}
   .about-page .page-hero--about,
   .services-page .page-hero--services,
   .portfolio-page .portfolio-hero,
-  .careers-page .careers-hero,
   .blog-page .blog-hero,
   .contact-page.contact-design .contact-design-hero,
   .service-detail-page .service-detail-hero,

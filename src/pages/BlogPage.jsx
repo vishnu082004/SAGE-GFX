@@ -11,6 +11,7 @@ function BlogPage() {
       <div className="container">
         {/* <p className="page-hero-eyebrow"><span aria-hidden="true" /> OUR BLOG / NOTES FROM THE STUDIO</p> */}
         <h1 className="page-hero-title">Our <span className="gradient-text">Blog.</span></h1>
+        <p className="blog-hero-breadcrumb"><Link to="/">Home</Link><span aria-hidden="true">›</span><span aria-current="page">Blog</span></p>
         {/* <p className="page-hero-subtitle">Find practical ideas on branding, design, technology, and growing your business online.</p> */}
       </div>
     </section>

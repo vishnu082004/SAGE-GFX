@@ -1212,3 +1212,19 @@
   }
 }
 
+/* Keep the mobile About hero to 30% of the screen height. */
+@media (max-width: 700px) {
+  .about-page .page-hero.page-hero--about {
+    box-sizing: border-box;
+    height: 30svh !important;
+    min-height: 30svh !important;
+    padding: 10px 16px !important;
+  }
+
+  .about-page .page-hero--about .about-hero-layout {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: 0 !important;
+  }
+}
+

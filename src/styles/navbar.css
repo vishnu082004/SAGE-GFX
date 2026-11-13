@@ -306,8 +306,8 @@
 .services-mega-group:nth-child(2) .services-mega-icon{border-color:rgba(169,106,232,.17);color:#ce9af3}
 .services-mega-group:nth-child(3) .services-mega-icon{border-color:rgba(220,91,197,.16);color:#ec9dda}
 .services-mega-copy{display:grid;gap:4px;min-width:0}
-.services-mega-copy h4{color:#f2f6ff;font:650 .82rem/1.35 var(--font-heading)}
-.services-mega-copy p{display:-webkit-box;overflow:hidden;color:#9eafc8;font-size:.7rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.services-mega-copy h4{color:#f2f6ff;font:700 .82rem/1.35 var(--font-heading)}
+.services-mega-copy p{display:-webkit-box;overflow:hidden;color:#9eafc8;font-size:.7rem;font-weight:400;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:3}
 .services-mega-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px clamp(22px,2.2vw,34px);border:1px solid rgba(65,171,221,.18);border-top:1px solid rgba(90,134,184,.16);border-radius:0 0 20px 20px;background:linear-gradient(100deg,rgba(12,27,50,.99),rgba(9,17,36,.99));color:#9fb1c9;font-size:.78rem}
 .services-mega-footer>a{display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:.77rem;font-weight:700;text-decoration:none;transition:color .2s ease,gap .2s ease}
 .services-mega-footer>a svg{color:#3bd4e9}
@@ -328,7 +328,7 @@
 
 /* Align the three service groups and keep each title above its description. */
 .services-mega-menu{width:min(1280px,calc(100vw - 48px))}
-.services-mega-columns{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
+.services-mega-columns{grid-template-columns:repeat(5,minmax(0,1fr));align-items:start}
 .services-mega-group{min-width:0}
 .services-mega-group>h4{min-height:1.3em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .services-mega-link{align-items:start}
@@ -355,6 +355,7 @@
 .services-mega-group:nth-child(2)>h4{border-color:rgba(174,111,235,.24)}
 .services-mega-group:nth-child(3)>h4{border-color:rgba(225,103,202,.24)}
 .services-mega-group:nth-child(4)>h4{border-color:rgba(85,173,239,.24)}
+.services-mega-group:nth-child(4)>h4{min-height:2.7em;overflow:visible;text-overflow:clip;white-space:normal;letter-spacing:.12em;line-height:1.25}
 
 .services-mega-copy h4{font-size:.72rem}
 .services-mega-copy p{font-size:.64rem}
@@ -367,4 +368,51 @@
 .services-mega-copy h4{font-size:.82rem}
 @media(max-width:1100px) and (min-width:901px){
   .services-mega-copy h4{font-size:.72rem}
+}
+
+/* Five service columns with distinct accents for each category. */
+.services-mega-column{display:grid;align-content:start;gap:22px;min-width:0}
+.services-mega-group--seo>h4{color:#36d9ea;border-color:rgba(54,217,234,.3)}
+.services-mega-group--smm>h4{color:#c58af2;border-color:rgba(197,138,242,.3)}
+.services-mega-group--performance>h4{color:#f1ad62;border-color:rgba(241,173,98,.3)}
+.services-mega-group--web>h4{color:#ed86cf;border-color:rgba(237,134,207,.3)}
+.services-mega-group--creative>h4{color:#82c8ff;border-color:rgba(130,200,255,.3);min-height:2.7em;overflow:visible;text-overflow:clip;white-space:normal;letter-spacing:.12em;line-height:1.25}
+.services-mega-group--smm .services-mega-icon{border-color:rgba(197,138,242,.22);color:#d6a8f5}
+.services-mega-group--performance .services-mega-icon{border-color:rgba(241,173,98,.22);color:#f1b673}
+.services-mega-group--web .services-mega-icon{border-color:rgba(237,134,207,.22);color:#f0a4d8}
+.services-mega-group--creative .services-mega-icon{border-color:rgba(130,200,255,.22);color:#8cd2ff}
+.services-mega-columns{grid-template-columns:repeat(5,minmax(0,1fr))}
+.services-mega-group>h4{min-height:3.6em;overflow:visible;text-overflow:clip;white-space:normal;letter-spacing:.1em;line-height:1.25}
+.services-mega-columns{border-bottom:1px solid rgba(65,171,221,.18);border-radius:20px;padding-bottom:26px}
+.services-mega-copy{grid-template-rows:auto;align-content:start}
+.services-mega-copy h4{overflow:visible;text-overflow:clip;white-space:normal;overflow-wrap:anywhere;line-height:1.4}
+.services-mega-acronym--geo{color:#4ce1ee;font-weight:800;text-shadow:0 0 12px rgba(76,225,238,.3)}
+.services-mega-acronym--aeo{color:#d39aff;font-weight:800;text-shadow:0 0 12px rgba(211,154,255,.28)}
+.services-mega-acronym-separator{color:#8ba2bd;font-weight:500}
+.services-mega-link{position:relative}
+.services-mega-link:hover,.services-mega-link:focus-visible{transform:translateY(-3px) scale(1.015);border-color:rgba(64,201,228,.42);box-shadow:0 8px 22px rgba(12,205,231,.16),0 0 16px rgba(12,205,231,.1)}
+@media(max-width:1100px) and (min-width:901px){
+  .services-mega-menu{width:calc(100vw - 32px)}
+  .services-mega-columns{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding-inline:12px}
+  .services-mega-group>h4{font-size:.62rem;letter-spacing:.06em}
+}
+
+@media(max-width:900px){
+  .mobile-menu{width:min(500px,92vw)}
+  .mobile-services-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:transparent;cursor:pointer}
+  .mobile-services-trigger svg{flex:0 0 auto;transition:transform .2s ease}
+  .mobile-services-accordion.is-open .mobile-services-trigger svg{transform:rotate(180deg)}
+  .mobile-services-panel{margin-left:8px;padding:2px 0 10px 11px;border-left:1px solid rgba(113,143,179,.28)}
+  .mobile-services-list{display:flex;flex-direction:column;gap:5px}
+  .mobile-service-link{display:block;padding:11px 7px;border-radius:6px;color:#aebdd1;font-size:1.08rem;font-weight:400;line-height:1.5;text-align:left;text-decoration:none;white-space:normal;overflow-wrap:anywhere;transition:background .18s ease,color .18s ease}
+  .mobile-service-link p{margin:0;font:inherit;text-align:left;white-space:normal;overflow-wrap:anywhere}
+  .mobile-service-link:hover,.mobile-service-link:focus-visible{transform:translateX(4px);background:rgba(54,217,234,.1);box-shadow:0 0 14px rgba(54,217,234,.12);color:#fff;text-shadow:0 0 10px rgba(92,222,239,.35)}
+}
+
+@media(min-width:901px) and (max-width:1100px){
+  .services-mega-group>h4{font-size:.72rem;letter-spacing:.1em}
+  .services-mega-copy h4{font-size:.82rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .mobile-services-trigger svg{transition:none}
 }

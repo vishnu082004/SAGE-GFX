@@ -1,0 +1,729 @@
+/* SAGE GFX color system. This layer changes color values only. */
+:root {
+  color-scheme: light;
+  --sage-cyan: #00c8e8;
+  --sage-blue: #2586ff;
+  --sage-magenta: #a43bfa;
+  --sage-navy: #0b1532;
+  --sage-white: #ffffff;
+  --sage-black: #10182e;
+  --sage-gray: #3d4862;
+  --sage-border: #e8eef8;
+  --sage-shadow: 0 10px 30px rgba(18, 38, 76, .07);
+  --sage-gradient: linear-gradient(105deg, #00c8e8 0%, #2586ff 56%, #8c42f5 100%);
+
+  --color-bg: #ffffff;
+  --color-bg-white: #ffffff;
+  --color-bg-light: #ffffff;
+  --color-bg-subtle: #ffffff;
+  --color-dark: #090d2b;
+  --color-dark-surface: #ffffff;
+  --color-dark-card: #ffffff;
+  --color-primary: #00bfff;
+  --color-primary-hover: #2878ff;
+  --color-primary-dark: #1756c8;
+  --color-primary-light: #72d9ff;
+  --color-primary-glow: rgba(0, 191, 255, .2);
+  --color-heading: #111111;
+  --color-heading-gold: #2878ff;
+  --color-body: #444444;
+  --color-body-dark: #111111;
+  --color-muted: #444444;
+  --color-white: #ffffff;
+  --color-border: #e8edf5;
+  --color-border-light: #e8edf5;
+  --color-border-gold: rgba(40, 120, 255, .2);
+  --shadow-sm: 0 2px 8px rgba(15, 25, 55, .04);
+  --shadow-md: 0 8px 24px rgba(15, 25, 55, .08);
+  --shadow-lg: 0 16px 40px rgba(15, 25, 55, .08);
+  --shadow-card: 0 10px 30px rgba(15, 25, 55, .08);
+  --shadow-gold: 0 10px 25px rgba(0, 191, 255, .18);
+  color: #111111;
+}
+
+html,
+body,
+.site-wrapper,
+.main-content {
+  background-color: #ffffff;
+  color: #444444;
+}
+
+/* White page surfaces. These color-only declarations leave image layers intact. */
+
+/* White card interiors and light separators. */
+
+/* Main and card headings use black; supporting copy uses dark gray. */
+.site-wrapper :is(
+  h1, h2, h3, h4, h5, h6, .section-heading, .page-hero-title,
+  .service-title, .value-card-title, .project-card h2, .blog-card h2,
+  .principle-title, .portfolio-project-copy h3
+) {
+  color: #111111 !important;
+}
+
+.site-wrapper :is(
+  p, li, .service-description, .value-card-desc, .page-hero-subtitle,
+  .portfolio-project-copy > p, .about-text, .footer-description
+) {
+  color: #444444 !important;
+}
+
+/* Brand labels, icons, links, and active navigation. */
+.site-wrapper :is(
+  .eyebrow, .section-eyebrow, .page-hero-eyebrow, .sage-hero-eyebrow,
+  .service-index-number, .project-type, .about-story__eyebrow,
+  .about-closing__eyebrow, .footer-details svg
+) {
+  color: #00bfff !important;
+}
+
+.site-wrapper :is(a:not(.navbar-logo), .navbar-link.active, .navbar-link:hover, .story-link:hover) {
+  color: #2878ff !important;
+}
+
+.site-wrapper .gradient-text,
+.site-wrapper :is(.about-principles-heading h2 span, .about-closing__title span, .principle-title, .principle-title-gradient) {
+  color: transparent !important;
+  background: var(--sage-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Branded primary controls. */
+.site-wrapper :is(
+  .button-gradient, .btn-primary, .btn-gold, .form-submit-btn,
+  .navbar-cta, .hero-enquiry-submit, .sage-hero-primary,
+  .about-closing__button, .service-detail-cta
+) {
+  background: var(--sage-gradient) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(15, 25, 55, .08);
+}
+
+.site-wrapper :is(
+  .button-gradient, .btn-primary, .btn-gold, .form-submit-btn,
+  .navbar-cta, .hero-enquiry-submit, .sage-hero-primary,
+  .about-closing__button, .service-detail-cta
+):hover {
+  color: #ffffff !important;
+  box-shadow: 0 10px 28px rgba(0, 191, 255, .2), 0 6px 24px rgba(240, 0, 168, .12);
+}
+
+/* White secondary controls with a subtle SAGE GFX gradient border. */
+.site-wrapper :is(.button-ghost, .button-outline, .btn-outline-gold, .sage-hero-secondary) {
+  background: linear-gradient(#ffffff, #ffffff) padding-box, var(--sage-gradient) border-box !important;
+  border-color: transparent !important;
+  color: #111111 !important;
+}
+
+.site-wrapper :is(input, select, textarea) {
+  background-color: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #111111 !important;
+}
+
+.site-wrapper :is(input, select, textarea)::placeholder { color: #666666 !important; }
+
+/* Header/footer surfaces and understated separators. */
+.navbar,
+.navbar.scrolled,
+.mobile-menu,
+.footer,
+.footer-premium,
+.footer-minimal {
+  background-color: #ffffff;
+  border-color: #e8edf5;
+}
+
+.navbar-link, .mobile-nav-link { color: #111111; }
+
+/* Restore white behind the home video without replacing its video or blend treatment. */
+.home-page .sage-hero,
+.home-page .sage-hero--revealed {
+  background-color: #ffffff;
+}
+
+/* Brand colored interactive states without changing transitions or geometry. */
+.site-wrapper :is(a, button, .service-card, .review-card, .home-project-card):hover {
+  border-color: rgba(0, 191, 255, .42);
+}
+
+.site-wrapper :focus-visible {
+  outline-color: #00bfff;
+}
+
+/* Final cascade for legacy page rules that set colors with high specificity. */
+#root .site-wrapper :is(h1, h2, h3, h4, h5, h6, .section-heading, .page-hero-title, .principle-title) {
+  color: #111111 !important;
+}
+
+#root .site-wrapper :is(p, li, blockquote, figcaption, .service-description, .value-card-desc, .page-hero-subtitle, .portfolio-project-copy > p) {
+  color: #444444 !important;
+}
+
+#root .site-wrapper :is(.eyebrow, .section-eyebrow, .page-hero-eyebrow, .sage-hero-eyebrow, .project-type, .service-index-number) {
+  color: #00bfff !important;
+}
+
+#root .site-wrapper a:not(.navbar-logo):not(.button-gradient):not(.sage-hero-primary):not(.navbar-cta):not(.form-submit-btn) {
+  color: #2878ff !important;
+}
+
+#root .site-wrapper :is(.gradient-text, .principle-title, .about-principles-heading h2 span, .about-closing__title span) {
+  color: transparent !important;
+  background: var(--sage-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* Section gradients are recolored white; photographic/video hero media is retained. */
+
+/* Keep these existing decorative photographs, with a clean white brand wash. */
+.home-page .about--home {
+  background-image: linear-gradient(rgba(255, 255, 255, .92), rgba(255, 255, 255, .92)), url('/images/sage-analytics-hero.webp');
+}
+
+.home-page .services--home {
+  background-image: linear-gradient(rgba(255, 255, 255, .94), rgba(255, 255, 255, .94)), url('/images/section-background-cityscape.webp');
+}
+
+.home-page .services--home::before {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, .93), rgba(255, 255, 255, .86) 53%, rgba(255, 255, 255, .9)),
+    linear-gradient(0deg, rgba(255, 255, 255, .88), transparent 55%),
+    url('/images/section-background-cityscape.webp');
+}
+
+.site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta),
+.site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta) :is(span, svg) {
+  color: #ffffff !important;
+}
+
+.site-wrapper :is(.button-ghost, .button-outline, .btn-outline-gold, .sage-hero-secondary),
+.site-wrapper :is(.button-ghost, .button-outline, .btn-outline-gold, .sage-hero-secondary) :is(span, svg) {
+  color: #111111 !important;
+}
+
+.site-wrapper svg { color: #2878ff !important; }
+.site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta) svg { color: #ffffff !important; }
+
+#root .site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta),
+#root .site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta) :is(span, svg) {
+  color: #ffffff !important;
+}
+
+#root .site-wrapper :is(.button-ghost, .button-outline, .btn-outline-gold, .sage-hero-secondary),
+#root .site-wrapper :is(.button-ghost, .button-outline, .btn-outline-gold, .sage-hero-secondary) :is(span, svg) {
+  color: #111111 !important;
+}
+
+#root .home-page .sage-hero,
+#root .home-page .sage-hero--revealed {
+  background-color: #ffffff !important;
+}
+
+#root .navbar,
+#root .navbar.scrolled,
+#root .mobile-menu,
+#root .footer,
+#root .footer-premium,
+#root .footer-minimal {
+  background-color: #ffffff !important;
+  border-color: #e8edf5 !important;
+}
+
+/* Final palette pass based on the supplied reference: white, navy, cyan, and violet. */
+html,
+body,
+#root,
+#root .site-wrapper,
+#root .main-content,
+#root .home-page,
+#root .home-page :is(.sage-hero, .sage-hero--revealed, .about--home-redesign, .home-services, .home-stats, .home-process, .why-choose--orbit, .client-reviews, .common-questions, .home-journal, .home-contact, .our-clients) {
+  background-color: #ffffff !important;
+  color: #10182e !important;
+}
+
+#root .site-wrapper *:not(svg):not(svg *) {
+  color: #10182e !important;
+  -webkit-text-fill-color: #10182e !important;
+}
+
+#root .site-wrapper :is(p, li, blockquote, figcaption, .service-description, .page-hero-subtitle, .about-text, .home-stat-copy > span, .review-card p) {
+  color: #3d4862 !important;
+  -webkit-text-fill-color: #3d4862 !important;
+}
+
+#root .site-wrapper :is(.gradient-text, .sage-hero-heading-accent, .about-statement > span, .about-statement span, .home-new-section-heading h2 span, .home-contact-copy h2 span, .why-choose-copy h2 span, .home-projects-heading h2 span, .common-questions-heading h2 span, .about-principles-heading h2 span, .principle-title-gradient) {
+  color: transparent !important;
+  background: var(--sage-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+#root .site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta, .reviews-cta, .home-contact-cta) {
+  background: var(--sage-gradient) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+#root .site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta, .reviews-cta, .home-contact-cta) :is(span, svg) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+#root .site-wrapper :is(a:not(.navbar-logo), .navbar-link.active, .navbar-link:hover, .story-link:hover) {
+  color: #2586ff !important;
+  -webkit-text-fill-color: #2586ff !important;
+}
+
+#root .site-wrapper svg { color: #2586ff !important; }
+
+/* The reference keeps the footer as the one dark navy area. */
+#root .footer-premium.footer-minimal {
+  background: linear-gradient(115deg, #07132d 0%, #0b1a3b 58%, #101b43 100%) !important;
+  border-top-color: #d8e8fa !important;
+  color: #ffffff !important;
+}
+
+#root .footer-premium.footer-minimal::after {
+  background: radial-gradient(ellipse at 5% 100%, rgba(0, 200, 232, .14), transparent 35%), radial-gradient(ellipse at 98% 100%, rgba(140, 66, 245, .16), transparent 36%) !important;
+}
+
+#root .footer-premium.footer-minimal .footer-minimal-links a,
+#root .footer-premium.footer-minimal .footer-minimal-links a:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+#root .footer-premium.footer-minimal :is(.footer-signature-wordmark, .footer-signature-wordmark b, .footer-signature-wordmark i, .footer-minimal-copyright, .footer-minimal-privacy, .footer-minimal-bottom a, .footer-minimal-socials a) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+#root .footer-premium.footer-minimal svg { color: #ffffff !important; }
+
+/* Home page: white canvas and card interiors, with brand color kept in accents. */
+#root .home-page :is(
+  .home-process, .home-stats, .home-projects, .home-journal,
+  .client-reviews, .our-clients, .common-questions, .home-contact,
+  .home-services, .why-choose--orbit
+) {
+  background: #ffffff !important;
+  color: #444444 !important;
+}
+
+#root .home-page :is(
+  .home-process-card, .home-stat, .home-project-card, .home-journal-card,
+  .review-card, .our-clients__logo, .home-contact-inner, .home-contact-details,
+  .why-service-card, .home-service-card, .common-question, .about-founder-card
+) {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #444444 !important;
+  box-shadow: var(--sage-shadow) !important;
+}
+
+#root .home-page :is(.home-process, .home-stats, .home-projects, .home-journal, .client-reviews, .our-clients, .common-questions, .home-contact, .home-services, .why-choose--orbit)::before,
+#root .home-page :is(.home-process, .home-stats, .home-projects, .home-journal, .client-reviews, .our-clients, .common-questions, .home-contact, .home-services, .why-choose--orbit)::after {
+  background-color: transparent;
+  border-color: rgba(0, 191, 255, .12);
+}
+
+#root .home-page :is(.home-process, .home-stats, .home-projects, .home-journal, .client-reviews, .common-questions, .home-services)::before,
+#root .home-page :is(.home-process, .home-stats, .home-projects, .home-journal, .client-reviews, .common-questions, .home-services)::after {
+  background-image: none !important;
+  box-shadow: none;
+}
+
+/* Keep actual homepage imagery and the video, while giving surrounding fades a white base. */
+#root .home-page .sage-hero::before {
+  background: linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,0)), linear-gradient(180deg, rgba(255,255,255,.08), transparent 45%, rgba(255,255,255,.12)) !important;
+}
+
+#root .home-page .sage-hero-boy-wrap::after {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,.9) 12%, rgba(255,255,255,.38) 34%, transparent 58%) !important;
+}
+
+#root .home-page .home-new-section-heading h2,
+#root .home-page .home-contact-copy h2,
+#root .home-page .why-choose-copy h2,
+#root .home-page .home-projects-heading h2,
+#root .home-page .home-services-heading {
+  color: #111111 !important;
+}
+
+#root .home-page :is(.home-new-section-heading h2 span, .home-contact-copy h2 span, .why-choose-copy h2 span, .home-projects-heading h2 span) {
+  color: transparent !important;
+  background: var(--sage-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+#root .home-page :is(.home-process-card h3, .home-project-card h4, .home-journal-card > strong, .home-contact-details h3, .why-service-content > strong, .home-service-card h3) {
+  color: #111111 !important;
+}
+
+#root .home-page :is(.home-process-card p, .home-stat-copy > span, .home-project-category, .home-project-meta, .home-journal-meta, .home-contact-copy p, .home-contact-details > p, .why-service-content > p, .home-service-card p, .review-card p) {
+  color: #444444 !important;
+}
+
+#root .home-page :is(.home-process-icon, .home-stat-icon, .why-service-icon, .home-service-icon) {
+  border-color: rgba(0, 191, 255, .4) !important;
+  background: rgba(0, 191, 255, .09) !important;
+  color: #2878ff !important;
+  box-shadow: 0 0 16px rgba(0, 191, 255, .08) !important;
+}
+
+#root .home-page .home-process-grid > :nth-child(3n + 2) .home-process-icon svg,
+#root .home-page .why-service-card:nth-child(3n + 2) .why-service-icon svg,
+#root .home-page .home-stat:nth-child(3n + 2) .home-stat-icon svg {
+  color: #f000a8 !important;
+}
+
+#root .home-page .home-process-icon svg,
+#root .home-page .home-stat-icon svg,
+#root .home-page .why-service-icon svg,
+#root .home-page .home-service-icon svg { color: #2878ff !important; }
+
+#root .home-page .home-services::before,
+#root .home-page .home-services::after,
+#root .home-page .home-services-ambience span,
+#root .home-page .home-services-ambience i,
+#root .home-page .home-services-ambience b {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root .home-page .home-contact-form label { color: #111111 !important; }
+#root .home-page .home-contact-form input,
+#root .home-page .home-contact-form textarea { background-color: #ffffff !important; color: #111111 !important; border-color: #e8edf5 !important; }
+
+#root .home-page .about--home-redesign {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)), url('/images/sage-analytics-hero.webp') !important;
+}
+
+#root .home-page .about-text,
+#root .home-page .about-metrics-tabs,
+#root .home-page .about-metrics-panel,
+#root .home-page .reviews-stats,
+#root .home-page .common-question,
+#root .home-page .home-contact-details > a {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #444444 !important;
+  box-shadow: var(--sage-shadow) !important;
+}
+
+#root .home-page .about-founder-card,
+#root .home-page .about-metrics-panel,
+#root .home-page .about-metrics-tabs button {
+  background-color: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #111111 !important;
+}
+
+#root .home-page :is(.sage-hero-heading-accent, .home-process-card h3, .home-stat-copy strong, .home-contact-details strong, .about-founder-details strong) {
+  color: #111111 !important;
+}
+
+#root .home-page .sage-hero-heading-accent .gradient-text,
+#root .home-page .about-statement > span {
+  color: transparent !important;
+  background: var(--sage-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+#root .home-page .sage-hero-heading-accent {
+  color: transparent !important;
+  background: var(--sage-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+#root .home-page :is(.home-process-card, .home-stat, .why-service-card, .home-service-card, .home-project-card, .home-journal-card, .review-card) :is(svg, .home-project-meta svg) {
+  color: #2878ff !important;
+}
+
+#root .home-page .home-process-card:nth-child(3n) .home-process-icon svg,
+#root .home-page .home-stat:nth-child(3n) .home-stat-icon svg,
+#root .home-page .why-service-card:nth-child(3n) .why-service-icon svg {
+  color: #f000a8 !important;
+}
+
+#root .home-page .about--home-redesign::before,
+#root .home-page .about--home-redesign::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root .home-page .home-services-carousel :is(.home-service-card, .home-service-card.is-active) {
+  background-color: #ffffff !important;
+  border-color: #e8edf5 !important;
+  box-shadow: var(--sage-shadow) !important;
+}
+
+/* Carry the white and black palette through FAQ disclosures and their controls. */
+#root .home-page .common-questions :is(.common-question, .common-question.is-open, .common-question-answer-inner) {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #111111 !important;
+  box-shadow: var(--sage-shadow) !important;
+}
+
+#root .home-page .common-questions :is(.common-questions-heading h2, .common-questions-hint, .common-question-toggle span, .common-question-answer-inner > p) {
+  color: #111111 !important;
+}
+
+#root .home-page .common-questions :is(.common-questions-eyebrow, .common-question-toggle svg, .common-question-actions button svg) {
+  color: #2878ff !important;
+}
+
+#root .home-page .common-questions .common-question-toggle {
+  background-color: #ffffff !important;
+}
+
+#root .home-page .common-questions .common-question-actions button {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #111111 !important;
+}
+
+/* Keep homepage copy consistently black while retaining branded links and accents. */
+#root .home-page :is(p, li, figcaption, .home-stat-copy > span, .home-project-category, .home-project-meta, .home-journal-meta, .review-card p, .about-text, .home-contact-copy p, .home-contact-details > p) {
+  color: #111111 !important;
+}
+
+#root .home-page :is(.home-process, .home-stats, .home-projects, .home-journal, .client-reviews, .our-clients, .common-questions, .home-contact, .home-services, .why-choose--orbit, .about--home-redesign) {
+  background-color: #eceff4 !important;
+}
+
+/* Slightly soften the homepage canvas while keeping cards and controls white. */
+:root { --sage-canvas: #ffffff; }
+
+html,
+body,
+#root,
+.site-wrapper,
+.main-content,
+#root .home-page,
+#root .home-page .sage-hero,
+#root .home-page .sage-hero--revealed,
+#root .home-page .home-page-section {
+  background-color: var(--sage-canvas) !important;
+}
+
+#root .home-page .about--home-redesign {
+  background-image: linear-gradient(rgba(255,255,255,.96), rgba(255,255,255,.96)), url('/images/sage-analytics-hero.webp') !important;
+}
+
+/* Final typography pass: black text everywhere, including former gradient wordmarks. */
+#root .site-wrapper *:not(svg):not(svg *) {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+#root .site-wrapper svg { color: #2878ff !important; }
+
+/* White backing for media and its existing frames; media sizing and crops stay intact. */
+#root .site-wrapper :is(img, video) {
+  background-color: #ffffff !important;
+}
+
+#root .site-wrapper :is(
+  .sage-hero-boy-wrap, .about-home-visual, .about-hero-photo-wrap,
+  .home-service-image, .home-project-image, .home-journal-image,
+  .review-avatar, .website-project-preview, .website-project-logo-art,
+  .footer-video-wrap, .footer-premium, .blog-card-image,
+  .portfolio-project-image, .team-card-image, .career-image-wrap
+) {
+  background-color: #ffffff !important;
+}
+
+/* Keep the hero video backed by white without tinting or over-brightening the character. */
+#root .home-page .sage-hero-boy-wrap {
+  background-color: #ffffff !important;
+}
+
+#root .home-page .sage-hero-boy-wrap::after {
+  background: transparent !important;
+}
+
+#root .home-page .sage-hero-boy-wrap video {
+  background-color: #ffffff !important;
+  filter: none !important;
+}
+
+/* Plain service-card typography without the old glow and shadow effects. */
+#root .home-page .home-services-carousel .home-service-card :is(h3, p, a, .home-service-link) {
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+#root .home-page .home-services-carousel .home-service-card :is(h3, p) {
+  color: #111111 !important;
+}
+
+/* Keep the dark About artwork on its native background instead of a white image tile. */
+#root .home-page .about-home-visual,
+#root .about-page .about-story__visual {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#root .about-page .about-hero-stage,
+#root .about-page .about-page-image .about-floating-frame {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  box-shadow: var(--sage-shadow) !important;
+}
+
+#root .home-page .about-home-visual img,
+#root .about-page .about-story__visual img,
+#root .about-page .about-page-image .about-floating-frame img {
+  object-fit: contain !important;
+  object-position: center !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#root .home-page .about-home-visual {
+  aspect-ratio: 972 / 648 !important;
+}
+
+#root .home-page .about-home-visual > span,
+#root .about-page .about-page-image .about-floating-shade {
+  background: transparent !important;
+}
+
+/* White review score circle with a restrained border instead of a neon orb. */
+#root .home-page .reviews-rating-orb {
+  border-color: #e8edf5 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+#root .home-page .reviews-rating-orb::before {
+  border-color: #e8edf5 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root .home-page :is(.reviews-rating-orb::after, .review-card::before) {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+#root .home-page .reviews-rating-orb .reviews-orb-count {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  color: #111111 !important;
+}
+
+/* A clean footer surface and readable white navigation pills. */
+#root .footer-premium.footer-minimal {
+  background: #ffffff !important;
+  background-image: none !important;
+  border-top: 1px solid #e8edf5 !important;
+  color: #111111 !important;
+}
+
+#root .footer-premium.footer-minimal .footer-background-video {
+  opacity: 0 !important;
+}
+
+#root .footer-premium.footer-minimal .footer-signature-logo {
+  opacity: .08 !important;
+  mix-blend-mode: multiply !important;
+  filter: none !important;
+}
+
+#root .footer-premium.footer-minimal::after,
+#root .footer-premium.footer-minimal .footer-signature-display::before,
+#root .footer-premium.footer-minimal .footer-signature-display::after,
+#root .footer-premium.footer-minimal .footer-minimal-links::before {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+#root .footer-premium.footer-minimal .footer-minimal-links a,
+#root .footer-premium.footer-minimal .footer-minimal-links a:hover {
+  background: #ffffff !important;
+  border-color: #e8edf5 !important;
+  box-shadow: 0 6px 18px rgba(15, 25, 55, .08) !important;
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+#root .footer-premium.footer-minimal :is(.footer-minimal-copyright, .footer-minimal-privacy, .footer-minimal-bottom a) {
+  color: #111111 !important;
+}
+
+/* Light Sage AI launcher with the original cyan, blue, and magenta logo mark. */
+#root .site-wrapper .sage-ai-launcher,
+#root .site-wrapper .sage-ai-launcher:hover {
+  border-color: #e8edf5 !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(15, 25, 55, .12) !important;
+  color: #111111 !important;
+}
+
+#root .site-wrapper .sage-ai-launcher > img {
+  width: calc(100% - 14px) !important;
+  max-height: 48px !important;
+  background-color: transparent !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  object-fit: contain !important;
+}
+
+#root .site-wrapper .sage-ai-launcher > span {
+  border-color: #e8edf5 !important;
+  background: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(15, 25, 55, .1) !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+#root .site-wrapper .sage-ai-launcher > i {
+  border-color: #ffffff !important;
+  background: #00bfff !important;
+  box-shadow: 0 0 6px rgba(0, 191, 255, .28) !important;
+}
+
+#root .site-wrapper .sage-ai-widget::before {
+  border-color: rgba(0, 191, 255, .24) !important;
+}
+
+#root .site-wrapper .sage-ai-widget::after {
+  opacity: .42 !important;
+}
+
+.site-wrapper svg { color: #2878ff; }
+.site-wrapper :is(.button-gradient, .btn-primary, .btn-gold, .form-submit-btn, .navbar-cta, .hero-enquiry-submit, .sage-hero-primary, .about-closing__button, .service-detail-cta) svg { color: #ffffff; }
+
+/* White fills for section panels that previously used solid/gradient colors. */
+
+#root .navbar,
+#root .navbar.scrolled,
+#root .mobile-menu,
+#root .footer,
+#root .footer-premium,
+#root .footer-minimal {
+  background-color: #ffffff !important;
+  border-color: #e8edf5 !important;
+}

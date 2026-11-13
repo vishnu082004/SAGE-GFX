@@ -5,6 +5,17 @@
   color: #262626;
 }
 
+/* Keep deprecated resume upload markup out of every Careers form. */
+.careers-page.careers-reference .careers-ref-resume,
+.careers-page.careers-reference .careers-ref-form input[type="file"],
+.careers-page.careers-reference input[name="resume"],
+.careers-page.careers-reference input[name="attachment"],
+.careers-page.careers-reference label:has(input[type="file"]),
+.careers-page.careers-reference label:has(input[name="resume"]),
+.careers-page.careers-reference label:has(input[name="attachment"]) {
+  display: none !important;
+}
+
 .careers-reference::before {
   display: none;
 }
@@ -187,11 +198,11 @@
   gap: 8px;
 }
 
-.careers-ref-form>label:not(.careers-ref-resume) {
+.careers-ref-form>label {
   display: block;
 }
 
-.careers-ref-form input:not([type="file"]),
+.careers-ref-form input,
 .careers-ref-form textarea {
   display: block;
   width: 100%;
@@ -215,25 +226,6 @@
 .careers-ref-form textarea {
   min-height: 76px;
   resize: vertical;
-}
-
-.careers-ref-resume {
-  display: grid;
-  gap: 6px;
-  color: #555;
-  font-size: .74rem;
-}
-
-.careers-ref-resume input {
-  max-width: 100%;
-  color: #555;
-  font-size: .74rem;
-}
-
-.careers-ref-resume small,
-.careers-ref-error {
-  color: #b4233c;
-  font-size: .72rem;
 }
 
 .careers-ref-form>button {
@@ -458,7 +450,7 @@
   gap: 7px;
 }
 
-.careers-ref-form input:not([type="file"]) {
+.careers-ref-form input {
   min-height: 35px;
 }
 
@@ -624,9 +616,8 @@
 .careers-ref-experience,
 .careers-ref-responsibilities h3,
 .careers-ref-responsibilities li,
-.careers-ref-form input:not([type="file"]),
-.careers-ref-form textarea,
-.careers-ref-resume {
+.careers-ref-form input,
+.careers-ref-form textarea {
   color: #fff;
 }
 
@@ -694,7 +685,7 @@
   color: #d3d8e3;
 }
 
-.careers-ref-form input:not([type="file"]),
+.careers-ref-form input,
 .careers-ref-form textarea {
   border-color: rgba(173, 190, 221, .24);
   background: #0d121c;
@@ -723,14 +714,6 @@
 
 .careers-ref-responsibilities li::before {
   color: #70d9ed;
-}
-
-.careers-ref-resume input {
-  color: #fff;
-}
-
-.careers-ref-resume small {
-  color: #ff9caf;
 }
 
 .careers-ref-status {
@@ -951,7 +934,7 @@
   gap: 5px;
 }
 
-.careers-ref-form input:not([type="file"]) {
+.careers-ref-form input {
   min-height: 29px;
   padding: 5px 9px;
   border-color: rgba(104, 118, 218, .38);
@@ -962,16 +945,6 @@
 
 .careers-ref-form input::placeholder {
   color: #c2c9dc;
-}
-
-.careers-ref-resume {
-  gap: 4px;
-  color: #dce3f4;
-  font-size: .66rem;
-}
-
-.careers-ref-resume input {
-  font-size: .63rem;
 }
 
 .careers-ref-form>button {
@@ -1206,15 +1179,13 @@
   min-width: 0;
 }
 
-.careers-ref-field>span,
-.careers-ref-file-heading {
+.careers-ref-field>span {
   color: #f2f5ff;
   font-size: .69rem;
   font-weight: 650;
 }
 
-.careers-ref-field i,
-.careers-ref-file-heading i {
+.careers-ref-field i {
   color: #eb66dc;
   font-style: normal;
 }
@@ -1226,7 +1197,7 @@
   font-weight: 400;
 }
 
-.careers-ref-form .careers-ref-field input:not([type="file"]),
+.careers-ref-form .careers-ref-field input,
 .careers-ref-form .careers-ref-field select,
 .careers-ref-form .careers-ref-field textarea {
   min-height: 39px;
@@ -1263,64 +1234,6 @@
 .careers-ref-form .careers-ref-message textarea {
   min-height: 68px;
   resize: vertical;
-}
-
-.careers-ref-resume {
-  gap: 7px;
-  color: #dfe6f8;
-  font-size: .67rem;
-}
-
-.careers-ref-file-heading {
-  display: block;
-}
-
-.careers-ref-file-drop {
-  position: relative;
-  display: flex;
-  min-height: 62px;
-  align-items: center;
-  gap: 11px;
-  padding: 10px 12px;
-  overflow: hidden;
-  border: 1px dashed rgba(102, 153, 239, .54);
-  border-radius: 9px;
-  background: rgba(13, 27, 63, .53);
-  color: #80e0f4;
-}
-
-.careers-ref-file-drop>svg {
-  width: 21px;
-  height: 21px;
-  flex: none;
-}
-
-.careers-ref-file-drop>span {
-  display: grid;
-  gap: 3px;
-  min-width: 0;
-}
-
-.careers-ref-file-drop strong {
-  overflow: hidden;
-  color: #f5f7ff;
-  font-size: .68rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.careers-ref-file-drop small {
-  color: #98a8c6;
-  font-size: .59rem;
-}
-
-.careers-ref-file-drop input[type="file"] {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
 }
 
 .careers-ref-form .careers-ref-submit {
@@ -1798,8 +1711,7 @@
   color: #176f9f;
 }
 
-.careers-ref-field>span,
-.careers-ref-file-heading {
+.careers-ref-field>span {
   color: #2e3e57;
 }
 
@@ -1807,7 +1719,7 @@
   color: #687891;
 }
 
-.careers-ref-form .careers-ref-field input:not([type="file"]),
+.careers-ref-form .careers-ref-field input,
 .careers-ref-form .careers-ref-field select,
 .careers-ref-form .careers-ref-field textarea {
   border-color: #cbd6e5;
@@ -1818,20 +1730,6 @@
 .careers-ref-form .careers-ref-field input::placeholder,
 .careers-ref-form .careers-ref-field textarea::placeholder {
   color: #718096;
-}
-
-.careers-ref-file-drop {
-  border-color: #a8bdd8;
-  background: #f4f8fd;
-  color: #176f9f;
-}
-
-.careers-ref-file-drop strong {
-  color: #263953;
-}
-
-.careers-ref-file-drop small {
-  color: #687891;
 }
 
 .careers-ref-status.is-success {
@@ -1959,30 +1857,16 @@
 }
 
 .careers-page.careers-reference .careers-ref-form-intro strong,
-.careers-page.careers-reference .careers-ref-field>span,
-.careers-page.careers-reference .careers-ref-file-heading {
+.careers-page.careers-reference .careers-ref-field>span {
   color: #f2f5ff;
 }
 
-.careers-page.careers-reference .careers-ref-form .careers-ref-field input:not([type="file"]),
+.careers-page.careers-reference .careers-ref-form .careers-ref-field input,
 .careers-page.careers-reference .careers-ref-form .careers-ref-field select,
 .careers-page.careers-reference .careers-ref-form .careers-ref-field textarea {
   border-color: rgba(113, 133, 190, .4);
   background: #090f20;
   color: #fff;
-}
-
-.careers-page.careers-reference .careers-ref-file-drop {
-  border-color: rgba(102, 153, 239, .54);
-  background: #0d1b3f;
-}
-
-.careers-page.careers-reference .careers-ref-file-drop strong {
-  color: #f5f7ff;
-}
-
-.careers-page.careers-reference .careers-ref-file-drop small {
-  color: #aab9d3;
 }
 
 .careers-page.careers-reference .careers-ref-process {
@@ -2400,3 +2284,5 @@
     margin-top: 10px;
   }
 }
+
+

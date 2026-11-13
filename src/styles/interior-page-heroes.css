@@ -1,0 +1,318 @@
+﻿/* Use one centered, dark title treatment on interior pages. The home hero stays bespoke. */
+:is(
+  .page-hero,
+  .careers-page .careers-ref-hero,
+  .services-page .page-hero--services,
+  .about-page .page-hero--about,
+  .blog-page .blog-hero,
+  .our-projects-page .our-projects-hero,
+  .clients-page .clients-page-hero,
+  .wea-case-study .case-studies-page-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .blog-article-hero
+) {
+  position: relative;
+  display: flex;
+  height: auto !important;
+  min-height: clamp(260px, 34svh, 370px) !important;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 24px !important;
+  border-bottom: 1px solid rgba(101, 133, 190, .14);
+  background: linear-gradient(120deg, #080b12 0%, #10162a 58%, #17102a 100%) !important;
+  background-image: linear-gradient(120deg, #080b12 0%, #10162a 58%, #17102a 100%) !important;
+  background-attachment: scroll !important;
+  text-align: center;
+}
+
+:is(
+  .page-hero,
+  .careers-page .careers-ref-hero,
+  .services-page .page-hero--services,
+  .about-page .page-hero--about,
+  .blog-page .blog-hero,
+  .our-projects-page .our-projects-hero,
+  .clients-page .clients-page-hero,
+  .wea-case-study .case-studies-page-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .blog-article-hero
+)::before,
+:is(
+  .page-hero,
+  .careers-page .careers-ref-hero,
+  .services-page .page-hero--services,
+  .about-page .page-hero--about,
+  .blog-page .blog-hero,
+  .our-projects-page .our-projects-hero,
+  .clients-page .clients-page-hero,
+  .wea-case-study .case-studies-page-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .blog-article-hero
+)::after {
+  display: none !important;
+}
+
+:is(
+  .page-hero > .container,
+  .careers-page .careers-ref-hero-inner,
+  .services-page .services-hero-layout,
+  .about-page .about-hero-layout,
+  .blog-page .blog-hero > .container,
+  .our-projects-page .our-projects-hero-content,
+  .clients-page .clients-page-hero-inner,
+  .wea-case-study .case-studies-page-hero .wea-container,
+  .contact-page.contact-design .contact-breadcrumb,
+  .service-detail-page .service-detail-hero-content,
+  .blog-article-hero > :is(.container, .blog-article-inner)
+) {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 1120px);
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-inline: auto;
+  padding: 0;
+  text-align: center;
+}
+
+:is(
+  .page-hero,
+  .careers-page .careers-ref-hero,
+  .services-page .page-hero--services,
+  .about-page .page-hero--about,
+  .blog-page .blog-hero,
+  .our-projects-page .our-projects-hero,
+  .clients-page .clients-page-hero,
+  .wea-case-study .case-studies-page-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .blog-article-hero
+) :is(h1, h2, h3, .page-hero-title) {
+  max-width: min(100%, 900px);
+  margin: 0 auto;
+  color: #f4f6fb;
+  font-family: var(--font-heading), sans-serif !important;
+  font-size: clamp(2.15rem, 5vw, 3.3rem) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.045em !important;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.our-projects-page .our-projects-hero .our-projects-hero-title {
+  font-family: var(--font-heading), sans-serif !important;
+  font-size: clamp(2.15rem, 5vw, 3.3rem) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.045em !important;
+}
+
+:is(
+  .page-hero,
+  .careers-page .careers-ref-hero,
+  .services-page .page-hero--services,
+  .about-page .page-hero--about,
+  .blog-page .blog-hero,
+  .our-projects-page .our-projects-hero,
+  .clients-page .clients-page-hero,
+  .wea-case-study .case-studies-page-hero,
+  .contact-page.contact-design .contact-design-hero,
+  .service-detail-page .service-detail-hero,
+  .blog-article-hero
+) :is(p, .page-hero-subtitle, .service-detail-summary, .case-studies-page-subtitle) {
+  max-width: min(100%, 720px);
+  margin: 4px auto 0;
+  color: #c3ccdb;
+  font-size: .92rem;
+  font-family: var(--font-base), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+:is(
+  .careers-page .careers-ref-hero-inner a,
+  .services-page .services-hero-breadcrumb a,
+  .our-projects-page .our-projects-hero-breadcrumb a,
+  .about-page .about-hero-breadcrumb a,
+  .blog-page .blog-hero-breadcrumb a,
+  .contact-page.contact-design .contact-breadcrumb a
+) {
+  color: #f4f6fb;
+  text-decoration: none;
+}
+
+:is(
+  .careers-page .careers-ref-hero-inner p,
+  .services-page .services-hero-breadcrumb,
+  .our-projects-page .our-projects-hero-breadcrumb,
+  .about-page .about-hero-breadcrumb,
+  .blog-page .blog-hero-breadcrumb,
+  .contact-page.contact-design .contact-breadcrumb-trail
+) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2px 0 0;
+  color: #c4ccda;
+  font-size: .86rem;
+  font-family: var(--font-base), sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.services-page .services-hero-breadcrumb,
+.about-page .about-hero-breadcrumb,
+.blog-page .blog-hero-breadcrumb,
+.our-projects-page .our-projects-hero-breadcrumb {
+  width: 100%;
+}
+
+.our-projects-page .our-projects-hero-title,
+.our-projects-page .our-projects-hero-title .gradient-text,
+.our-projects-page .our-projects-hero-breadcrumb,
+.our-projects-page .our-projects-hero-breadcrumb a,
+.about-page .page-hero-title,
+.about-page .page-hero-title .gradient-text,
+.about-page .about-hero-breadcrumb,
+.about-page .about-hero-breadcrumb a,
+.blog-page .page-hero-title,
+.blog-page .page-hero-title .gradient-text,
+.blog-page .blog-hero-breadcrumb,
+.blog-page .blog-hero-breadcrumb a {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.about-page .page-hero-title .gradient-text,
+.blog-page .page-hero-title .gradient-text {
+  background: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.our-projects-page .our-projects-hero-title::after,
+.about-page .page-hero-title::after,
+.blog-page .page-hero-title::after {
+  display: none !important;
+}
+
+.services-page .page-hero--services .page-hero-title {
+  padding-bottom: 0 !important;
+}
+
+.services-page .services-hero-breadcrumb {
+  margin-top: 0 !important;
+}
+
+.about-page .about-hero-copy {
+  display: flex;
+  width: min(100%, 1120px);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-page.contact-design .contact-design-hero {
+  gap: 30px !important;
+}
+
+.contact-page.contact-design .contact-design-hero h1 {
+  margin: 0;
+}
+
+.contact-page.contact-design .contact-breadcrumb-trail {
+  margin-top: 0;
+  font-size: 1rem !important;
+}
+
+:is(.about-page .about-hero-stage, .blog-page .blog-hero-art) {
+  display: none !important;
+}
+
+:is(.about-page, .services-page) .page-hero-title::after {
+  display: none !important;
+}
+
+:is(
+  .clients-page .clients-page-hero-link,
+  .about-page .about-hero-copy > .button,
+  .our-projects-page .our-projects-hero-link,
+  .service-detail-page .service-detail-cta
+) {
+  margin: 12px auto 0;
+}
+
+@media (max-width: 700px) {
+  :is(
+    .page-hero,
+    .careers-page .careers-ref-hero,
+    .services-page .page-hero--services,
+    .about-page .page-hero--about,
+    .blog-page .blog-hero,
+    .our-projects-page .our-projects-hero,
+    .clients-page .clients-page-hero,
+    .wea-case-study .case-studies-page-hero,
+    .contact-page.contact-design .contact-design-hero,
+    .service-detail-page .service-detail-hero,
+    .blog-article-hero
+  ) {
+    height: auto !important;
+    min-height: 230px !important;
+    padding: 42px 20px !important;
+  }
+
+  :is(
+    .page-hero,
+    .careers-page .careers-ref-hero,
+    .services-page .page-hero--services,
+    .about-page .page-hero--about,
+    .blog-page .blog-hero,
+    .our-projects-page .our-projects-hero,
+    .clients-page .clients-page-hero,
+    .wea-case-study .case-studies-page-hero,
+    .contact-page.contact-design .contact-design-hero,
+    .service-detail-page .service-detail-hero,
+    .blog-article-hero
+  ) :is(h1, h2, h3, .page-hero-title) {
+    font-size: clamp(1.9rem, 8vw, 2.7rem) !important;
+  }
+
+  .our-projects-page .our-projects-hero .our-projects-hero-title {
+    font-size: clamp(1.9rem, 8vw, 2.7rem) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .page-hero,
+    .careers-page .careers-ref-hero,
+    .services-page .page-hero--services,
+    .about-page .page-hero--about,
+    .blog-page .blog-hero,
+    .our-projects-page .our-projects-hero,
+    .clients-page .clients-page-hero,
+    .wea-case-study .case-studies-page-hero,
+    .contact-page.contact-design .contact-design-hero,
+    .service-detail-page .service-detail-hero,
+    .blog-article-hero
+  ) :is(h1, h2, h3, .page-hero-title) {
+    animation: none !important;
+  }
+}
+

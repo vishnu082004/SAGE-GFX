@@ -8,7 +8,7 @@ import '../styles/case-studies.css'
 import julyCallsImage from '../assets/images/case studies 1.webp'
 import augustCallsImage from '../assets/images/case studies 2.webp'
 import septemberCallsImage from '../assets/images/case studies 3.webp'
-import octoberCallsImage from '../assets/images/case studies 4.webp'
+import octoberCallsImage from '../assets/images/case studies 4.png'
 
 const milestones = [
   { title: 'Starting point', detail: 'Low search visibility, but with a chance to establish a better digital presence', Icon: FiTarget },
@@ -27,7 +27,7 @@ const monthlyCallReports = [
   { month: 'July 2026', calls: 0, image: julyCallsImage },
   { month: 'August 2026', calls: 32, image: augustCallsImage },
   { month: 'September 2026', calls: 64, image: septemberCallsImage },
-  { month: 'October 2026', calls: 66, image: octoberCallsImage },
+  { month: 'October 2026', calls: 72, image: octoberCallsImage },
 ]
 
 const months = [

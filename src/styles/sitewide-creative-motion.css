@@ -26,12 +26,10 @@
 .blog-card .blog-art strong { transition: transform .32s var(--sage-motion-ease), text-shadow .32s ease; }
 
 .project-card>a span,
-.blog-card>a span,
-.careers-hero-link svg { transition: translate .22s var(--sage-motion-ease), rotate .22s var(--sage-motion-ease); }
+.blog-card>a span { transition: translate .22s var(--sage-motion-ease), rotate .22s var(--sage-motion-ease); }
 
 .project-card>a:hover span,
-.blog-card>a:hover span,
-.careers-hero-link:hover svg { translate: 3px 0; }
+.blog-card>a:hover span { translate: 3px 0; }
 
 .sitemap-links a { transition: color .22s ease, border-color .22s ease, translate .22s var(--sage-motion-ease); }
 .sitemap-links a:hover,
@@ -193,7 +191,6 @@
   .blog-card .blog-art strong,
   .project-card>a span,
   .blog-card>a span,
-  .careers-hero-link svg,
   .sitemap-links a { transition: none !important; }
 
   .project-card:hover,

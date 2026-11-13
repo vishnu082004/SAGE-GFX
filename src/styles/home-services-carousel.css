@@ -1485,3 +1485,19 @@
 @media (max-width: 700px) and (prefers-reduced-motion: reduce) {
   .home-page .home-stats-track { animation: none; transform: none; }
 }
+
+/* Let each Home service icon pick up the same gradient as its action button on hover. */
+.home-page .home-service-icon {
+  transition: color .28s ease, background .28s ease, border-color .28s ease, box-shadow .28s ease, transform .28s ease;
+}
+.home-page .home-service-card .home-service-icon:hover {
+  border-color: rgba(255, 255, 255, .48);
+  background: linear-gradient(105deg, #08d9ec, #176bef 48%, #ce16e7);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(24, 112, 255, .34);
+  transform: translateY(-3px) scale(1.04);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .home-service-icon { transition: none; }
+  .home-page .home-service-card .home-service-icon:hover { transform: none; }
+}

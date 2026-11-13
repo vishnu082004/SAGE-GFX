@@ -1247,3 +1247,19 @@
     padding-inline: 10px;
   }
 }
+
+/* Center the founder details and keep the card flush on its left edge. */
+.about--home-redesign .about-founder-card {
+  border-radius: 0 22px 22px 0;
+  column-gap: 65px;
+  padding-inline: 20px;
+}
+
+.about--home-redesign .about-founder-details {
+  justify-items: start;
+  text-align: left;
+}
+
+.about--home-redesign .about-founder-details em {
+  justify-self: start;
+}

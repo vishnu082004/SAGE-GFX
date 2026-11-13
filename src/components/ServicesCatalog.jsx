@@ -1,39 +1,21 @@
 import { Link } from 'react-router-dom'
-import { FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
 import servicesData from '../data/services'
+import '../styles/services-open-layout.css'
 
 function ServicesCatalog() {
   return (
-    <section className="services-catalog" id="services" aria-labelledby="services-catalog-title">
-      <div className="container">
-        <header className="services-catalog-heading">
-          <div>
-            {/* <p className="eyebrow"><span /> WHAT WE DO / 8 SERVICES</p> */}
-            <h2 id="services-catalog-title">Everything you need<br />to <span className="gradient-text">move forward.</span></h2>
-          </div>
-          <p>Choose a service to learn how our team can help your brand grow.</p>
-        </header>
-        <div className="services-catalog-grid">
-          {servicesData.map((service, index) => (
-            <article
-              className="services-catalog-card"
-              key={service.id}
-              style={{ '--catalog-delay': `${index * 45}ms`, '--catalog-accent': ['#3ed0e7', '#d971d7', '#8c9dff', '#58d6b0', '#f0a467'][index % 5] }}
-            >
-              <Link className="services-catalog-card-link" to={`/services/${service.slug}`} aria-label={`Learn more about ${service.title}`}>
-                <span className="services-catalog-image">
-                  <img src={service.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
-                  <span className="services-catalog-number">{String(index + 1).padStart(2, '0')} <i>/ 08</i></span>
-                  <span className="services-catalog-arrow"><FiArrowUpRight aria-hidden="true" /></span>
-                </span>
-                <span className="services-catalog-copy">
-                  <h3>{service.title}</h3>
-                  <span>{service.description}</span>
-                  <span className="services-catalog-link">Explore service <FiArrowUpRight aria-hidden="true" /></span>
-                </span>
-              </Link>
-            </article>
-          ))}
+    <section className="services-open" id="services" aria-label="Our services">
+      <div className="services-open-list">
+        {servicesData.map((service) => (
+          <Link className="services-open-section" key={service.id} to={`/services/${service.slug}`} aria-label={`View full details for ${service.title.trim()}`}>
+            <span className="services-open-card-arrow" aria-hidden="true"><FiArrowUpRight /></span>
+            <h2>{service.title.trim()}</h2>
+            <p className="services-open-description">{service.description}</p>
+          </Link>
+        ))}
+        <div className="services-open-cta-wrap">
+          <Link className="services-open-cta" to="/contact">Let&apos;s grow your business together <FiArrowRight aria-hidden="true" /></Link>
         </div>
       </div>
     </section>

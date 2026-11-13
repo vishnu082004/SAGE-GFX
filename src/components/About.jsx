@@ -4,8 +4,10 @@ import { memo, useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import BrandMark from './BrandMark'
 import founderPortrait from '../assets/images/team/founder.webp'
-import aboutSectionImage from '../assets/images/about image 2.webp'
+import aboutMarketingArtwork from '../assets/images/about image 2.webp'
 import '../styles/about-home-redesign.css'
+
+const aboutSectionImage = aboutMarketingArtwork
 
 const homeStatement = 'Your Digital Future, Our Expertise: Sage GFX Excellence.'
 const pageStatement = 'Your next chapter starts with a better digital presence.'
@@ -19,7 +21,7 @@ const FloatingAboutArtwork = memo(function FloatingAboutArtwork({ reduceMotion }
   const inView = useInView(artRef, { margin: '100px' })
   return <motion.div ref={artRef} className="about-art about-art--floating about-page-image" aria-hidden="true" animate={{ y: !reduceMotion && inView ? [0, -5, 0] : 0 }} transition={{ duration: 8, repeat: !reduceMotion && inView ? Infinity : 0, ease: 'easeInOut' }}>
     <div className="about-floating-frame">
-      <img src="/images/sage-analytics-hero.webp" alt="" />
+      <img src="/images/sage-about-marketing.png" alt="" />
       <div className="about-floating-shade" />
       <span className="about-floating-caption"><i /> STRATEGY / DESIGN / DIGITAL</span>
     </div>
@@ -84,7 +86,7 @@ function About({ pageVersion = false }) {
             <article className="about-founder-card" aria-label="Meet the founder of Sage GFX">
               <span className="about-founder-portrait"><img src={founderPortrait} alt="Saagar, founder of Sage GFX" loading="lazy" decoding="async" /></span>
               <span className="about-founder-details"><strong>Saagar</strong><small>Founder &amp; CEO</small><em>Sage GFX Digital Solutions</em></span>
-              <Link className="about-founder-link" to="/about"><span>Read More</span><FiArrowRight aria-hidden="true" /></Link>
+              <a className="about-founder-link" href="https://www.linkedin.com/in/saagar-u-sagegfxdigitalagency" target="_blank" rel="noreferrer noopener"><span>Read More</span><FiArrowRight aria-hidden="true" /></a>
             </article>
           </div>
         </div>

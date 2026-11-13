@@ -309,18 +309,44 @@
   color: #00d2ed
 }
 
+.footer-minimal-socials a svg,
+.footer-minimal-links a>svg:last-child {
+  transition:color .2s ease,filter .2s ease,transform .2s ease
+}
+.footer-minimal-socials a:nth-child(1):is(:hover,:focus-visible) svg,
+.footer-minimal-links a:nth-child(1):is(:hover,:focus-visible)>svg:last-child{color:#ff4e9b;filter:drop-shadow(0 0 7px rgba(255,78,155,.72))}
+.footer-minimal-socials a:nth-child(2):is(:hover,:focus-visible) svg,
+.footer-minimal-links a:nth-child(2):is(:hover,:focus-visible)>svg:last-child{color:#55aaff;filter:drop-shadow(0 0 7px rgba(85,170,255,.72))}
+.footer-minimal-socials a:nth-child(3):is(:hover,:focus-visible) svg,
+.footer-minimal-links a:nth-child(3):is(:hover,:focus-visible)>svg:last-child{color:#5798ff;filter:drop-shadow(0 0 7px rgba(87,152,255,.72))}
+.footer-minimal-socials a:nth-child(4):is(:hover,:focus-visible) svg,
+.footer-minimal-links a:nth-child(4):is(:hover,:focus-visible)>svg:last-child{color:#ff4b4b;filter:drop-shadow(0 0 7px rgba(255,75,75,.72))}
+.footer-minimal-socials a:nth-child(5):is(:hover,:focus-visible) svg,
+.footer-minimal-links a:nth-child(5):is(:hover,:focus-visible)>svg:last-child{color:#41d7bc;filter:drop-shadow(0 0 7px rgba(65,215,188,.72))}
+.footer-minimal-links a:nth-child(6):is(:hover,:focus-visible)>svg:last-child{color:#42d9ee;filter:drop-shadow(0 0 7px rgba(66,217,238,.72))}
+.footer-minimal-links a:nth-child(7):is(:hover,:focus-visible)>svg:last-child{color:#b28bff;filter:drop-shadow(0 0 7px rgba(178,139,255,.72))}
+.footer-minimal-links a:nth-child(8):is(:hover,:focus-visible)>svg:last-child{color:#ffc857;filter:drop-shadow(0 0 7px rgba(255,200,87,.72))}
+.footer-minimal-socials a:is(:hover,:focus-visible) svg{transform:scale(1.16)}
+
 .footer-minimal a:focus-visible {
   outline: 2px solid #61dcec;
   outline-offset: 5px
 }
 
 @media(min-width:721px) and (max-width:1000px) {
+  .footer-premium.footer-minimal{padding-top:22px}
+  .footer-premium.footer-minimal .footer-background-video{display:block;object-fit:cover;object-position:center 28%;opacity:.84}
   .footer-minimal-inner {
     width: calc(100% - 48px)
   }
 
   .footer-minimal-links {
-    gap: 10px
+    display:grid;
+    width:min(820px,100%);
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:10px;
+    align-self:center;
+    margin-top:18px
   }
 
   .footer-minimal-links a {
@@ -329,6 +355,8 @@
     padding-inline: 12px;
     font-size: .72rem
   }
+
+  .footer-signature-display{min-height:150px;flex:1}
 
   .footer-minimal-bottom {
     gap: 12px

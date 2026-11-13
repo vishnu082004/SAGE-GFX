@@ -17,6 +17,7 @@ function OurProjectsPage() {
       <section className="our-projects-hero">
         <div className="our-projects-hero-content">
           <h3 className="page-hero-title our-projects-hero-title">Our <span className="gradient-text">Projects.</span></h3>
+          <p className="our-projects-hero-breadcrumb"><Link to="/">Home</Link><span aria-hidden="true">›</span><span aria-current="page">Projects</span></p>
         </div>
       </section>
 

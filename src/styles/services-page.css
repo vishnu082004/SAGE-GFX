@@ -129,6 +129,21 @@
 @media(max-width:480px){.services-catalog-card,.services-catalog-card:nth-child(7),.services-catalog-card:nth-child(8){display:block;min-height:360px}.services-catalog-card-link{min-height:360px}}
 @media(prefers-reduced-motion:reduce){.services-catalog-card-link{transition:none}}
 
+/* Give service cards a clear blue hover state with a restrained lift. */
+.services-catalog-card-link{position:relative;isolation:isolate;transition:transform .34s cubic-bezier(.2,.8,.2,1),background .34s,border-color .34s,box-shadow .34s}
+.services-catalog-card-link .services-catalog-copy{transition:background .34s,color .34s}
+.services-catalog-card-link .services-catalog-copy h3,.services-catalog-card-link .services-catalog-copy>span:nth-child(2),.services-catalog-card-link .services-catalog-link{transition:color .3s,transform .3s}
+.services-catalog-card-link .services-catalog-image img{transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .35s,opacity .35s}
+@media(hover:hover) and (pointer:fine){
+  .services-catalog-card-link:hover,.services-catalog-card-link:focus-visible{transform:translateY(-7px);border-color:rgba(91,154,255,.9);background:linear-gradient(135deg,#1762ff,#4b82ff);box-shadow:0 24px 48px rgba(21,88,230,.28),0 0 0 1px rgba(91,154,255,.3)}
+  .services-catalog-card-link:hover .services-catalog-copy,.services-catalog-card-link:focus-visible .services-catalog-copy{background:linear-gradient(135deg,#1762ff,#4b82ff)}
+  .services-catalog-card-link:hover .services-catalog-copy h3,.services-catalog-card-link:focus-visible .services-catalog-copy h3,.services-catalog-card-link:hover .services-catalog-link,.services-catalog-card-link:focus-visible .services-catalog-link{color:#fff}
+  .services-catalog-card-link:hover .services-catalog-copy>span:nth-child(2),.services-catalog-card-link:focus-visible .services-catalog-copy>span:nth-child(2){color:rgba(255,255,255,.82)}
+  .services-catalog-card-link:hover .services-catalog-image img,.services-catalog-card-link:focus-visible .services-catalog-image img{transform:scale(1.055);filter:saturate(1.08) brightness(1.04);opacity:1}
+  .services-catalog-card-link:hover .services-catalog-arrow,.services-catalog-card-link:focus-visible .services-catalog-arrow{background:rgba(255,255,255,.18);color:#fff;transform:translate(2px,-2px)}
+}
+@media(prefers-reduced-motion:reduce){.services-catalog-card-link,.services-catalog-card-link .services-catalog-copy,.services-catalog-card-link .services-catalog-copy h3,.services-catalog-card-link .services-catalog-copy>span:nth-child(2),.services-catalog-card-link .services-catalog-link,.services-catalog-card-link .services-catalog-image img{transition:none}}
+
 .service-detail-hero{position:relative;isolation:isolate;display:flex;min-height:clamp(470px,58svh,650px);align-items:center;overflow:hidden;padding:70px 0;background:#060a13}
 .service-detail-hero::before{position:absolute;z-index:-1;inset:0;content:"";background-image:linear-gradient(90deg,rgba(5,10,22,.96),rgba(5,10,22,.82) 48%,rgba(5,10,22,.45)),var(--service-detail-image);background-position:center,center 45%;background-size:cover}
 .service-detail-hero-content{position:relative;width:min(1180px,calc(100% - 48px));margin:0 auto}

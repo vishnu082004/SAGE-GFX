@@ -1,0 +1,77 @@
+/* Keep every route inside the viewport while preserving media proportions. */
+html,
+body,
+#root,
+.site-wrapper,
+.main-content {
+  width: 100%;
+  min-width: 0;
+}
+
+body,
+.site-wrapper,
+.main-content {
+  overflow-x: clip;
+}
+
+.main-content *,
+.site-wrapper * {
+  min-width: 0;
+}
+
+.main-content img,
+.main-content video,
+.main-content iframe,
+.site-wrapper img,
+.site-wrapper video,
+.site-wrapper iframe {
+  max-width: 100%;
+}
+
+.main-content video,
+.main-content iframe {
+  display: block;
+}
+
+.main-content .container,
+.main-content [class*="-inner"] {
+  box-sizing: border-box;
+}
+
+/* Center shared section headings consistently without changing their type size. */
+
+@media (max-width: 760px) {
+  .container,
+  .main-content .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-content :is(
+    .home-services-inner,
+    .home-projects-grid,
+    .home-process-grid,
+    .home-journal-grid,
+    .services-page-grid,
+    .services-catalog-grid,
+    .portfolio-project,
+    .contact-main-grid,
+    .contact-details-grid,
+    .about-journey__panel
+  ) {
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main-content :is(img, video, iframe) {
+    max-width: 100%;
+  }
+
+  .main-content iframe {
+    width: 100%;
+  }
+
+  .main-content :is(.section-heading, .home-new-section-heading, .wea-section-heading) {
+    text-align: center;
+  }
+}
