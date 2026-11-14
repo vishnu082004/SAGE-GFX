@@ -37,18 +37,13 @@ function ContactPage() {
       <div className="contact-design-glow" aria-hidden="true" />
       <section className="contact-design-hero" aria-labelledby="contact-title">
         <div className="contact-hero-copy">
-          <h1 id="contact-title">Contact</h1>
-          <p className="contact-hero-intro">Let&apos;s talk about what your business can become.</p>
-          <nav className="contact-breadcrumb" aria-label="Breadcrumb"><p className="contact-breadcrumb-trail"><a href="/">Home</a><FiArrowRight aria-hidden="true"/><span className="contact-breadcrumb-current">Contact</span></p></nav>
-        </div>
-        <div className="contact-hero-image" aria-hidden="true">
-          <img src="/images/sage-gfx-services-background.webp" alt="" fetchPriority="high" />
+          <h3 id="contact-title">Contact</h3>
+          <p className="contact-breadcrumb-trail"><a href="/">Home</a><FiArrowRight aria-hidden="true"/><span className="contact-breadcrumb-current">Contact</span></p>
         </div>
       </section>
 
       <section className="contact-body-guide" aria-labelledby="contact-body-title">
         <div className="contact-body-guide-inner">
-          <p className="contact-body-guide-kicker"><span aria-hidden="true" /> LET&apos;S CONNECT</p>
           <h2 id="contact-body-title">Four ways to <span>reach us</span></h2>
           <p className="contact-body-guide-intro">Tell us about your goals. Our team will help you find the right digital marketing, design, or development support.</p>
           <div className="contact-body-layout">
