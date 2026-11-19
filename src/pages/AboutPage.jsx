@@ -24,15 +24,15 @@ function AboutPage() {
             <li><b>04</b><span>Web Design &amp; Development<small>Modern. Fast. Responsive.</small></span></li>
           </ul> */}
           <div className="about-hero-stage">
-            <img className="about-hero-photo" src="/images/sage-about-marketing.png" alt="" fetchPriority="high" />
+            <img className="about-hero-photo" src="/images/sage-about-marketing.webp" alt="" fetchPriority="high" />
           </div>
         </div>
       </section>
 
       <section className="about-story" aria-labelledby="about-story-title">
         <div className="about-story__inner">
+          <h1 id="about-story-title">We Help Brands Grow With <span>Digital Marketing.</span></h1>
           <div className="about-story__copy">
-            <h1 id="about-story-title">We Help Brands Grow With <span>Digital Marketing.</span></h1>
             <ul className="about-story__points">
               <li><FiCheckCircle aria-hidden="true" /><div><strong>Strategy based on your business objectives</strong><p>At Sage GFX, strategy, creativity, and technology come together to build a better digital presence. We take time to understand your business and market, identify opportunities, and create a strategy that fits your goals.</p></div></li>
               <li><FiCheckCircle aria-hidden="true" /><div><strong>Creative solutions based on digital knowledge</strong><p>From SEO, AEO, and GEO to social media and performance marketing, web development, graphic design, video editing, and videography, we create solutions suited to your objectives and audience.</p></div></li>

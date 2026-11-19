@@ -8,7 +8,7 @@ import '../styles/case-studies.css'
 import julyCallsImage from '../assets/images/case studies 1.webp'
 import augustCallsImage from '../assets/images/case studies 2.webp'
 import septemberCallsImage from '../assets/images/case studies 3.webp'
-import octoberCallsImage from '../assets/images/case studies 4.png'
+import octoberCallsImage from '../assets/images/case studies 4.webp'
 
 const milestones = [
   { title: 'Starting point', detail: 'Low search visibility, but with a chance to establish a better digital presence', Icon: FiTarget },
@@ -84,7 +84,7 @@ function CaseStudiesPage() {
     <main className="wea-case-study">
       <section className="case-studies-page-hero" aria-labelledby="case-studies-page-title">
         <div className="wea-container">
-          <h2 id="case-studies-page-title" className="page-hero-title">Dr. M. Kolappa Pillai Siddha Clinic <span className="gradient-text">- Local SEO Success</span></h2>
+          <h2 id="case-studies-page-title" className="page-hero-title"><span className="case-studies-clinic-title">Dr. M. Kolappa Pillai Siddha Clinic</span><span className="gradient-text"> - Local SEO Success</span></h2>
           <p className="case-studies-page-subtitle">How we Work Dr. M. Kolappa Pillai Siddha Clinic&rsquo;s organic traffic and increased leads from 0 to 60+ calls in just 3 months.</p>
         </div>
       </section>

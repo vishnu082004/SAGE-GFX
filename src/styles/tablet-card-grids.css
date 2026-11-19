@@ -1,0 +1,89 @@
+/* Keep card collections at two columns across iPad and tablet widths. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  #root .home-page :is(
+    .home-stats-grid,
+    .home-process-grid,
+    .home-projects-grid,
+    .home-journal-grid,
+    .home-work-grid,
+    .services-grid,
+    .why-service-cards
+  ),
+  #root :is(
+    .about-page .principles-grid,
+    .about-team__grid,
+    .about-team__leadership,
+    .about-team__manager,
+    .about-journey__steps,
+    .services-page .services-open-list,
+    .services-page .services-page-grid,
+    .services-page .services-catalog-grid,
+    .contact-page .contact-body-guide-grid,
+    .contact-page .contact-details-grid,
+    .blog-page .blog-grid,
+    .website-project-grid,
+    .seo-client-grid,
+    .clients-page-grid,
+    .service-detail-cards,
+    .wea-milestones,
+    .wea-strategy-grid,
+    .wea-results-grid,
+    .wea-success-grid,
+    .wea-final-results,
+    .about-story__pillars,
+    .about-principles-grid,
+    .home-process-grid,
+    .home-projects-grid,
+    .home-journal-grid,
+    .home-stats-grid
+  ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #root .services-page .services-open-section,
+  #root .services-page .services-open-section:nth-child(n) {
+    grid-column: auto !important;
+  }
+
+  #root .wea-case-study .wea-results-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  #root .about-page .principles-section--about .principles-grid .principle-card:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 8px);
+    justify-self: center;
+  }
+
+  #root .about-page .about-team__group:not(.about-team__group--camera) .about-team__grid > .about-team-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 9px);
+    justify-self: center;
+  }
+
+  #root .about-page .about-team__group--camera .about-team__grid {
+    grid-template-columns: minmax(0, 320px) !important;
+    justify-content: center;
+  }
+
+  #root .about-page .about-team__group--smm .about-team__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  #root .about-page .about-team__leadership,
+  #root .about-page .about-team__manager,
+  #root .about-page .about-team__grid,
+  #root .about-page .about-team__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    justify-content: center;
+  }
+
+  #root .about-page .about-team__manager .about-team-card {
+    grid-column: 1 / -1;
+  }
+
+  #root .about-page .about-team .about-team-card {
+    width: min(100%, 320px) !important;
+    aspect-ratio: 3 / 4;
+  }
+}

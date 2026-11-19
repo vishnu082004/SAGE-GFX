@@ -1,6 +1,6 @@
 import digitalMarketingImage from '../assets/images/Images_for_dep/Images_for_dep/Digital marketing.webp'
 import websiteDevelopmentImage from '../assets/images/Images_for_dep/Images_for_dep/web developmetn.webp'
-import seoImage from '../assets/images/Images_for_dep/Images_for_dep/SEO.webp'
+import seoImage from '../assets/images/seo image.webp'
 import socialMediaImage from '../assets/images/Images_for_dep/Images_for_dep/social_media.webp'
 import brandingImage from '../assets/images/Images_for_dep/Images_for_dep/Branding&identity.webp'
 import graphicDesignImage from '../assets/images/Images_for_dep/Images_for_dep/graphic_desgin.webp'

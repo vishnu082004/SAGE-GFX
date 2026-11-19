@@ -5,7 +5,7 @@ const sectionSelector = [
   '.page-hero', '.about', '.our-clients', '.home-services', '.home-stats', '.home-process',
   '.why-choose', '.client-reviews', '.common-questions', '.home-journal', '.home-contact',
   '.home-cta', '.services', '.mission-vision', '.contact', '.principles-section',
-  '.wea-hero', '.wea-section', '.footer',
+  '.wea-hero', '.wea-section', '.services-open', '.footer',
 ].join(', ')
 
 const motionGroups = [
@@ -14,7 +14,7 @@ const motionGroups = [
   { selector: '.about-team__header p, .page-hero-subtitle, .contact-hero-copy, .section-intro, .services-lead, .services-catalog-heading p, .home-projects-intro, .our-projects-work-heading > p, .portfolio-work-heading > p, .about-journey__intro, .blog-article-summary', direction: 'left' },
   { selector: '.about--home-redesign .about-statement, .about--home-redesign .about-text, .about--home-redesign .about-actions, .why-choose-copy, .reviews-copy, .home-contact-form-column, .services-hero-copy, .services-page-header, .about-hero-copy, .about-story__copy, .about-team__header p, .about-journey__intro, .contact-form-panel, .contact-design-copy, .wea-hero-copy, .home-contact-form label, .home-contact-form button, .contact-design-form .contact-field, .contact-design-form .contact-submit', direction: 'left' },
   { selector: '.about--home-redesign .about-home-visual, .why-choose-visual, .reviews-visual, .home-contact-details, .services-hero-stage, .services-page-visual, .services-page-card-art, .services-catalog-image, .about-hero-stage, .about-hero-photo, .about-page-image, .about-story__visual, .about-closing__visual, .contact-detail-card, .contact-map-panel, .contact-design-visual, .wea-hero-art', direction: 'right' },
-  { selector: '.about--home-redesign .about-founder-card, .about--home-redesign .about-metrics, .home-services-carousel, .home-stats-grid > .home-stat, .home-process-card, .our-clients__logo, .common-question, .home-journal-card, .home-journal-all-wrap, .home-contact-form .home-contact-status, .service-card, .why-service-card, .services-page-card, .services-catalog-card, .project-card, .portfolio-project, .website-project-card, .blog-card, .principle-card, .about-journey__step, .about-journey__metric, .about-story__pillars > *, .how-card, .review-card, .reviews-bottom-actions, .about-team__leadership, .about-team__manager, .about-team__group, .about-team-card, .footer-premium-grid > *, .footer-minimal-inner > *, .footer-minimal-links > a, .wea-milestone, .wea-strategy-card, .wea-result-card, .wea-timeline-item, .wea-highlight-card, .wea-success-card, .home-project-card, .about-closing__title', direction: 'bottom' },
+  { selector: '.about--home-redesign .about-founder-card, .about--home-redesign .about-metrics, .home-services-carousel, .home-stats-grid > .home-stat, .home-process-card, .our-clients__logo, .common-question, .home-journal-card, .home-journal-all-wrap, .home-contact-form .home-contact-status, .service-card, .why-service-card, .services-page-card, .services-catalog-card, .services-open-section, .services-open-cta-wrap, .project-card, .portfolio-project, .website-project-card, .blog-card, .principle-card, .about-journey__step, .about-journey__metric, .about-story__pillars > *, .how-card, .review-card, .reviews-bottom-actions, .about-team__leadership, .about-team__manager, .about-team__group, .about-team-card, .footer-premium-grid > *, .footer-minimal-inner > *, .footer-minimal-links > a, .wea-milestone, .wea-strategy-card, .wea-result-card, .wea-timeline-item, .wea-highlight-card, .wea-success-card, .home-project-card, .about-closing__title', direction: 'bottom' },
   { selector: '.home-journal-image, .home-project-card img, .project-card img, .portfolio-project img, .website-project-card img, .blog-card img, .services-page-card-art img', direction: 'left' },
   { selector: '.reviews-rating-orb', direction: 'scale' },
 ]
@@ -35,8 +35,17 @@ function ScrollReveal() {
       }, { threshold: 0.16, rootMargin: '0px 0px -48px 0px' })
       : null
 
-    const syncTargets = () => {
-      document.querySelectorAll(sectionSelector).forEach((section) => {
+    const findMatches = (root, selector) => {
+      const matches = []
+      if (root.nodeType === 1 && root.matches(selector)) matches.push(root)
+      if (typeof root.querySelectorAll === 'function') matches.push(...root.querySelectorAll(selector))
+      return matches
+    }
+
+    const syncTargets = (roots = [document]) => {
+      const sectionsToAdd = new Set()
+      roots.forEach((root) => findMatches(root, sectionSelector).forEach((section) => sectionsToAdd.add(section)))
+      sectionsToAdd.forEach((section) => {
         if (sections.has(section)) return
         sections.add(section)
         if (!intersectionObserver) {
@@ -50,14 +59,17 @@ function ScrollReveal() {
 
       const newItems = []
       motionGroups.forEach(({ selector, direction }) => {
-        document.querySelectorAll(selector).forEach((element) => {
+        const elements = new Set()
+        roots.forEach((root) => findMatches(root, selector).forEach((element) => elements.add(element)))
+        elements.forEach((element) => {
           if (element.closest('.sage-ai-panel, .hero-inquiry-modal') || motionItems.has(element)) return
           const logoSequence = selector.includes('.our-clients__logo')
+          const serviceSequence = selector.includes('.services-open-section')
           const item = {
             direction,
             stagger: direction !== 'scale',
-            staggerStep: logoSequence ? 14 : 32,
-            maxDelay: logoSequence ? 300 : direction === 'bottom' ? 220 : 120,
+            staggerStep: logoSequence ? 14 : serviceSequence ? 58 : 32,
+            maxDelay: logoSequence ? 300 : serviceSequence ? 406 : direction === 'bottom' ? 220 : 120,
           }
           motionItems.set(element, item)
           newItems.push([element, item])
@@ -77,11 +89,26 @@ function ScrollReveal() {
     }
 
     syncTargets()
-    const mutationObserver = new MutationObserver(syncTargets)
+    let syncFrame = 0
+    const pendingRoots = new Set()
+    const mutationObserver = new MutationObserver((records) => {
+      records.forEach((record) => record.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) pendingRoots.add(node)
+      }))
+      if (!pendingRoots.size || syncFrame) return
+      syncFrame = window.requestAnimationFrame(() => {
+        const roots = [...pendingRoots]
+        pendingRoots.clear()
+        syncFrame = 0
+        syncTargets(roots)
+      })
+    })
     mutationObserver.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       mutationObserver.disconnect()
+      if (syncFrame) window.cancelAnimationFrame(syncFrame)
+      pendingRoots.clear()
       intersectionObserver?.disconnect()
       sections.forEach((section) => section.classList.remove('reveal-on-scroll', 'is-revealed', 'scroll-motion-visible'))
       motionItems.forEach((_, element) => {

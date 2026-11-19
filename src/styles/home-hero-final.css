@@ -191,7 +191,7 @@
     opacity: 1 !important;
     visibility: visible !important;
 
-    filter: brightness(1.5) saturate(1.1) contrast(1.05) !important;
+    filter: brightness(1.85) saturate(1.12) contrast(1.05) !important;
     mix-blend-mode: screen !important;
 
     animation: sage-hero-boy-float 5s ease-in-out infinite !important;
@@ -219,6 +219,16 @@
     display: flex !important;
   }
 
+}
+
+@media (min-width: 1201px) {
+  .home-page .sage-hero-boy-wrap video {
+    filter: brightness(2.2) saturate(1.18) contrast(1.05) !important;
+  }
+
+  .home-page .sage-hero-boy-wrap::after {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .56) 12%, rgba(0, 0, 0, .24) 31%, transparent 56%) !important;
+  }
 }
 
 @media (min-width: 1600px) {

@@ -1,0 +1,62 @@
+/* Keep route changes quick while giving newly mounted pages a soft arrival. */
+.main-content {
+  animation: page-arrive 240ms cubic-bezier(.2, .75, .25, 1) both;
+}
+
+@keyframes page-arrive {
+  from { opacity: .72; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.route-loading {
+  display: grid;
+  min-height: clamp(320px, 55vh, 640px);
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  background: radial-gradient(ellipse at 50% 42%, rgba(35, 99, 157, .13), transparent 54%);
+}
+
+.route-loading__mark {
+  display: grid;
+  width: 54px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(100, 190, 238, .4);
+  border-radius: 17px;
+  background: linear-gradient(145deg, rgba(16, 34, 59, .96), rgba(7, 15, 29, .96));
+  box-shadow: 0 0 34px rgba(42, 160, 225, .16);
+  color: #eaf6ff;
+  font: 700 1.4rem/1 var(--font-heading);
+  animation: route-mark-pulse 1.15s ease-in-out infinite alternate;
+}
+
+.route-loading__track {
+  width: 96px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(119, 161, 197, .2);
+}
+
+.route-loading__track span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #28c8e8, #a84be8);
+  animation: route-loading-sweep .9s ease-in-out infinite alternate;
+}
+
+@keyframes route-loading-sweep {
+  from { transform: translateX(0); }
+  to { transform: translateX(140%); }
+}
+
+@keyframes route-mark-pulse {
+  to { transform: translateY(-3px); box-shadow: 0 0 42px rgba(42, 160, 225, .25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-content, .route-loading__mark, .route-loading__track span { animation: none; }
+}

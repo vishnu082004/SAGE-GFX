@@ -1,0 +1,72 @@
+/* Supporting services introduction, placed below the existing page hero. */
+.services-page .services-intro {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(42px, 6vw, 76px) 24px;
+  background:
+    radial-gradient(ellipse at 18% 55%, rgba(19, 153, 224, .13), transparent 43%),
+    radial-gradient(ellipse at 85% 20%, rgba(186, 48, 206, .08), transparent 35%),
+    linear-gradient(180deg, #070b15, #080d19);
+}
+.services-page .services-intro-inner {
+  display: grid;
+  width: min(100%, 1180px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: center;
+  gap: clamp(34px, 6vw, 82px);
+  margin-inline: auto;
+}
+.services-page .services-intro-visual {
+  position: relative;
+  overflow: visible;
+  aspect-ratio: 3 / 2;
+}
+.services-page .services-intro-visual::after { display: none; }
+.services-page .services-intro-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 20px 38px rgba(0, 0, 0, .28));
+}
+.services-page .services-intro-copy { min-width: 0; }
+.services-page .services-intro-eyebrow { margin: 0 0 16px; color: #67d9ef; font-size: .68rem; font-weight: 700; letter-spacing: .19em; }
+.services-page .services-intro-copy h2 { margin: 0; color: #f3f6ff; font-size: clamp(2.25rem, 4.3vw, 3.85rem); line-height: 1.04; letter-spacing: -.065em; text-wrap: balance; }
+.services-page .services-intro-copy > p:not(.services-intro-eyebrow) { max-width: 510px; margin: 20px 0 0; color: #b8c7db; font-size: clamp(.95rem, 1.4vw, 1.08rem); line-height: 1.75; }
+.services-page .services-intro-cta {
+  display: flex;
+  width: max-content;
+  min-height: 52px;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 5px 7px 5px 20px;
+  border: 1px solid rgba(92, 220, 239, .54);
+  border-radius: 999px;
+  background: linear-gradient(105deg, rgba(10, 178, 205, .24), rgba(93, 68, 184, .28) 58%, rgba(174, 49, 188, .2));
+  box-shadow: 0 9px 28px rgba(5, 180, 217, .13), inset 0 1px rgba(255, 255, 255, .1);
+  color: #f2fbff;
+  font-size: .82rem;
+  font-weight: 750;
+  letter-spacing: .015em;
+  text-decoration: none;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.services-page .services-intro-cta:hover { transform: translateY(-3px); border-color: rgba(118, 232, 247, .9); box-shadow: 0 13px 32px rgba(5, 180, 217, .22), 0 0 22px rgba(158, 71, 221, .18), inset 0 1px rgba(255, 255, 255, .14); }
+.services-page .services-intro-cta:focus-visible { outline: 2px solid #84efff; outline-offset: 4px; }
+.services-page .services-intro-cta span { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(170, 242, 255, .48); border-radius: 50%; background: linear-gradient(145deg, #21cde5, #7369e9 62%, #bb49cb); box-shadow: 0 0 18px rgba(49, 201, 232, .3); color: #fff; font-size: 1.15rem; line-height: 1; transition: transform .22s ease; }
+.services-page .services-intro-cta:hover span { transform: translateX(3px); }
+.services-page .services-catalog-heading { width:min(100%,900px); margin:0 auto 30px; text-align:center; }
+.services-page .services-catalog-heading > p { margin:0 0 10px; color:#63d8ed; font-size:.68rem; font-weight:750; letter-spacing:.18em; }
+.services-page .services-catalog-heading h2 { margin:0; color:#f2f5ff; font:650 clamp(1.9rem,4vw,3rem)/1.1 var(--font-heading); letter-spacing:-.05em; text-wrap:balance; }
+.services-page .services-catalog-heading > span { display:block; margin-top:12px; color:#aebbd0; font-size:.9rem; }
+.services-page .services-open-section { will-change:translate,opacity; }
+@media (max-width:760px) {
+  .services-page .services-intro { padding:36px 19px 44px; }
+  .services-page .services-intro-inner { grid-template-columns:minmax(0,1fr); gap:27px; }
+  .services-page .services-intro-visual { aspect-ratio:3/2; }
+  .services-page .services-intro-copy h2 { font-size:clamp(2.2rem,8.5vw,3.5rem); }
+  .services-page .services-intro-copy > p:not(.services-intro-eyebrow) { margin-top:14px; font-size:.91rem; }
+}
+@media (prefers-reduced-motion:reduce) { .services-page .services-intro-cta,.services-page .services-intro-cta span { transition:none; } }

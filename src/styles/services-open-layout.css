@@ -39,8 +39,8 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: stretch;
-  gap: 34px;
-  width: min(100%, 1200px);
+  gap: 10px;
+  width: min(100%, 1400px);
   margin-inline: auto;
   perspective: 1450px;
 }
@@ -65,28 +65,16 @@
   transition: transform .38s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .3s ease, background .3s ease;
 }
 
-.services-page .services-open-section:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.services-page .services-open-section:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
-.services-page .services-open-section:nth-child(6) {
-  grid-column: 1 / span 2;
+.services-page .services-open-section:nth-child(even) {
+  transform: rotateX(1.2deg) rotateY(1deg);
 }
 
 .services-page .services-open-section:nth-child(7) {
-  grid-column: 3 / span 2;
+  grid-column: 2 / span 2;
 }
 
 .services-page .services-open-section:nth-child(8) {
-  grid-column: 5 / span 2;
-}
-
-.services-page .services-open-section:nth-child(even) {
-  transform: rotateX(1.2deg) rotateY(1deg);
+  grid-column: 4 / span 2;
 }
 
 /* The angled edge faces make each card read like a small neon-lit cube. */
@@ -173,6 +161,34 @@
   text-wrap: balance;
   text-shadow: 0 0 28px rgba(81, 128, 255, .13);
   transform: translateZ(18px);
+}
+
+.services-page .services-open-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+  border: 1px solid rgba(67, 187, 224, .28);
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .26);
+}
+
+.services-page .services-open-image--muted {
+  filter: brightness(.78) saturate(.72);
+}
+
+.services-page .services-open-image--bright {
+  filter: brightness(1) saturate(1);
+}
+
+.services-page .services-open-image--seo-dim {
+  filter: brightness(.78) saturate(.9);
+}
+
+.services-page .services-open-image:not(.services-open-image--muted):not(.services-open-image--bright) {
+  filter: brightness(.9) saturate(.9);
 }
 
 .services-page .services-open-description {
@@ -323,7 +339,7 @@
 @media (max-width: 900px) {
   .services-page .services-open-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px;
+    gap: 18px;
   }
 
   .services-page .services-open-section,
@@ -439,5 +455,57 @@
   .services-page .services-open-section:focus-visible {
     transition: none;
     transform: none;
+  }
+}
+
+/* Present service links as open content rather than boxed cards. */
+.services-page .services-open-section,
+.services-page .services-open-section:nth-child(n) {
+  align-items: flex-start;
+  padding: 48px 14px 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-align: left;
+  transform: none;
+}
+.services-page .services-open-section:hover,
+.services-page .services-open-section:focus-visible {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none;
+}
+.services-page .services-open-section h2 {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+.services-page .services-open-description {
+  margin: 12px 0 0;
+  text-align: left;
+}
+.services-page .services-open-section h2,
+.services-page .services-open-description {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+}
+.services-page .services-open-description {
+  margin-top: 12px;
+}
+.services-page .services-open-image {
+  margin-bottom: 20px;
+}
+.services-page .services-open-card-arrow {
+  right: 12px;
+  left: auto;
+}
+@media (max-width: 700px) {
+  .services-page .services-open-section,
+  .services-page .services-open-section:nth-child(n) {
+    padding: 28px 8px 22px;
   }
 }

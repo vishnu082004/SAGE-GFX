@@ -385,6 +385,10 @@
   justify-content: center;
 }
 
+.about-team__group--smm .about-team__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .about-team__grid--two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: 565px;
@@ -413,6 +417,11 @@
 @media (max-width: 760px) {
   .about-team__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-team__group--smm .about-team__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .about-team__grid--two {
@@ -464,6 +473,11 @@
 
   .about-team__grid,
   .about-team__grid--two { grid-template-columns: 1fr; }
+
+  .about-team__group--smm .about-team__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
 }
 
 @media(max-width:360px) {

@@ -27,10 +27,23 @@
 }
 .wea-case-study .case-studies-page-hero .page-hero-title {
   width: 100%;
-  white-space: nowrap;
+  white-space: normal;
   font-size: clamp(1.45rem, 3vw, 3.25rem);
   letter-spacing: -.045em;
-  text-wrap: nowrap;
+  text-wrap: balance;
+}
+.wea-case-study .case-studies-page-hero .page-hero-title > span {
+  display: block;
+}
+@media (min-width: 1201px) {
+  .wea-case-study .case-studies-page-hero .page-hero-title {
+    white-space: nowrap;
+    text-wrap: nowrap;
+    font-size: clamp(1.4rem, 2.6vw, 3rem);
+  }
+  .wea-case-study .case-studies-page-hero .page-hero-title > span {
+    display: inline;
+  }
 }
 .wea-case-study .case-studies-page-hero .case-studies-page-subtitle {
   max-width: 1100px;
@@ -49,7 +62,8 @@
   .wea-case-study .case-studies-page-hero .page-hero-title {
     white-space: normal;
     text-wrap: balance;
-    font-size: clamp(1.65rem, 8vw, 2.5rem);
+    font-size: clamp(1.55rem, 7vw, 2.35rem);
+    line-height: 1.12;
   }
 }
 
@@ -606,15 +620,15 @@
 .wea-case-study .wea-hero-copy h1 .wea-hero-title-highlight{display:block;max-width:100%;padding-bottom:.08em;background:linear-gradient(100deg,#31d8ed 0%,#688cff 52%,#c43cf4 100%);background-clip:text;-webkit-background-clip:text;color:transparent;white-space:nowrap}
 .wea-case-study .wea-hero-description{max-width:1100px;margin:24px auto 0;text-align:center}
 .wea-case-study .wea-milestones{gap:clamp(18px,1.6vw,34px);margin-top:42px}
-.wea-case-study .wea-milestone{min-height:290px;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:24px clamp(22px,2vw,38px);border:1px solid transparent;border-radius:24px;background:linear-gradient(145deg,rgba(9,23,42,.97),rgba(4,12,27,.98)) padding-box,linear-gradient(135deg,#28d7f4 0%,#387dff 55%,#a62bed 100%) border-box}
-.wea-case-study .wea-milestone-icon{display:grid;width:58px;height:58px;flex:none;place-items:center;margin:0 0 10px;border:2px solid transparent;border-radius:50%;background:linear-gradient(#08172c,#08172c) padding-box,linear-gradient(135deg,#26ddf2,#8437ff) border-box;color:#d9faff}
+.wea-case-study .wea-milestone{min-height:220px;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:20px clamp(22px,2vw,38px) 16px;border:1px solid transparent;border-radius:24px;background:linear-gradient(145deg,rgba(9,23,42,.97),rgba(4,12,27,.98)) padding-box,linear-gradient(135deg,#28d7f4 0%,#387dff 55%,#a62bed 100%) border-box}
+.wea-case-study .wea-milestone-icon{display:grid;width:58px;height:58px;flex:none;place-items:center;margin:0;border:2px solid transparent;border-radius:50%;background:linear-gradient(#08172c,#08172c) padding-box,linear-gradient(135deg,#26ddf2,#8437ff) border-box;color:#d9faff}
 .wea-case-study .wea-milestone-icon svg{width:28px;height:28px;stroke-width:1.65}
 .wea-case-study .wea-milestone-copy{width:100%;min-width:0}
-.wea-case-study .wea-milestone-heading{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:10px}
+.wea-case-study .wea-milestone-heading{display:flex;flex-direction:row;align-items:center;gap:16px;margin-bottom:10px}
 .wea-case-study .wea-milestone-heading h3{display:block;margin:0;padding:0;border:0;font-size:clamp(1.25rem,1.8vw,2rem);line-height:1.25;text-align:left;white-space:normal}
 .wea-case-study .wea-milestone-accent{display:block;width:52px;height:5px;margin:0 0 23px;border-radius:5px;background:linear-gradient(90deg,#26d9f0,#b445f2)}
 .wea-case-study .wea-milestone-copy p{color:#edf1fa;font-size:clamp(.95rem,1.18vw,1.28rem);line-height:1.55;letter-spacing:0;text-align:left}
-@media(max-width:1000px){.wea-case-study .wea-milestone{min-height:260px}}
+@media(max-width:1000px){.wea-case-study .wea-milestone{min-height:210px}}
 @media(max-width:700px){
   .wea-case-study .wea-hero{padding:48px 0}
   .wea-case-study .wea-hero .wea-container{width:calc(100% - 32px)}

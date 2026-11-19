@@ -6,9 +6,9 @@ import managerPortrait from '../assets/images/team/manager.webp'
 import seoPortrait1 from '../assets/images/team/seo-1.webp'
 import seoPortrait2 from '../assets/images/team/seo 2.webp'
 import seoPortrait3 from '../assets/images/team/seo-3.webp'
-import smmPortrait1 from '../assets/images/team/smm 1.webp'
 import smmPortrait2 from '../assets/images/team/smm 2.webp'
 import smmPortrait3 from '../assets/images/team/smm-3.webp'
+import ramyaPortrait from '../assets/images/team/smm 3.webp'
 import designPortrait1 from '../assets/images/team/desinger 1.webp'
 import designPortrait2 from '../assets/images/team/desinger 2.webp'
 import designPortrait3 from '../assets/images/team/desinger 3.webp'
@@ -41,9 +41,9 @@ const teams = [
   {
     name: 'SMM Team', accent: 'magenta',
     members: [
-      { name: 'Rajavel P', role:  'SMM Specialist', image: smmPortrait1, profileUrl: profile('linkedin.com/in/rajavel-p-889536352') },
       { name: 'Sameem Fathima M', role: 'Meta Ads Expert', image: smmPortrait2, profileUrl: profile('linkedin.com/in/sameemfathima27') },
       { name: 'Monika N B', role:'Digital Marketing Executive', image: smmPortrait3, profileUrl: profile('linkedin.com/in/monika-nb-3bb1b6188') },
+      { name: 'Ramya Madhusudhan', role: 'Social Media Marketing', image: ramyaPortrait, profileUrl: profile('linkedin.com/in/ramya-m-67ib3z2') },
     ],
   },
   {
@@ -75,11 +75,12 @@ const teams = [
 
 function MemberCard({ name, role, image, profileUrl }) {
   const isLinkedIn = profileUrl?.includes('linkedin.com')
+  const initials = name.split(/\s+/).map((part) => part[0]).join('').slice(0, 2)
 
   return (
-    <article tabIndex={0} className="about-team-card">
+    <article tabIndex={0} className={`about-team-card${image ? '' : ' about-team-card--empty'}`}>
       <div className="about-team-card__portrait">
-        <img src={image} alt={`${name}, ${role} at Sage GFX`} loading="lazy" decoding="async" />
+        {image ? <img src={image} alt={`${name}, ${role} at Sage GFX`} loading="lazy" decoding="async" /> : <span className="about-team-card__empty-avatar" aria-hidden="true">{initials}</span>}
       </div>
       <div className="about-team-card__details">
         <span className="about-team-card__name">{name}</span>
@@ -116,7 +117,7 @@ function AboutTeam() {
         </div>
 
         {teams.map((team) => (
-          <section className={`about-team__group about-team__group--${team.accent}${team.name === 'Camera Team' ? ' about-team__group--camera' : ''}`} key={team.name} aria-label={team.name}>
+          <section className={`about-team__group about-team__group--${team.accent}${team.name === 'Camera Team' ? ' about-team__group--camera' : ''}${team.name === 'SMM Team' ? ' about-team__group--smm' : ''}`} key={team.name} aria-label={team.name}>
             <h3><span>{team.name}</span></h3>
             <div className="about-team__grid">
               {team.members.map((member) => <MemberCard key={member.name} {...member} />)}

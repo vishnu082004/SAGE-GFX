@@ -1,7 +1,8 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { FiArrowRight, FiPlay } from 'react-icons/fi'
-import heroVideo from '../assets/images/home hero video.mp4'
+
+const heroVideo = '/videos/home-hero.mp4'
 
 function Hero({ onVideoReady }) {
   const videoRef = useRef(null)
@@ -33,8 +34,6 @@ function Hero({ onVideoReady }) {
     const video = videoRef.current
     if (!video) return undefined
 
-    video.preload = 'auto'
-    video.load()
     fallbackTimer.current = window.setTimeout(() => {
       if (videoStarted.current) return
       videoStarted.current = true
@@ -42,9 +41,7 @@ function Hero({ onVideoReady }) {
       completeIntro()
     }, 10000)
 
-    return () => {
-      window.clearTimeout(fallbackTimer.current)
-    }
+    return () => window.clearTimeout(fallbackTimer.current)
   }, [])
 
   const startHeroVideo = () => {
@@ -87,5 +84,3 @@ function Hero({ onVideoReady }) {
 }
 
 export default Hero
-
-

@@ -264,12 +264,12 @@ function Navbar() {
               </button>
               {isMobileServicesOpen && <div id="mobile-services-groups" className="mobile-services-panel">
                 <div className="mobile-services-list">
-                  {serviceGroups.flatMap((group) => group.services.map((service) => <Link
-                    className={`mobile-service-link mobile-service-link--${group.theme}${service.menuTitle.startsWith('GEO -') ? ' mobile-service-link--geo' : ''}`}
-                    key={service.menuKey}
+                  {servicesData.map((service) => <Link
+                    className="mobile-service-link"
+                    key={service.id}
                     to={`/services/${service.slug.trim()}`}
                     onClick={closeMenu}
-                  ><p>{service.menuTitle}</p></Link>))}
+                  ><p>{service.title.trim()}</p></Link>)}
                 </div>
               </div>}
             </div>

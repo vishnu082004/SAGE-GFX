@@ -3,10 +3,10 @@ import { FiBriefcase, FiClock, FiUsers } from 'react-icons/fi'
 import '../styles/home-stats.css'
 
 const stats = [
-  { value: '75+', label: 'Happy clients', Icon: FiUsers },
-  { value: '50+', label: 'Projects completed', Icon: FiBriefcase },
-  { value: '10+', label: 'Years of experience', Icon: FiClock },
-  { value: '05+', label: 'Industries served', Icon: FiClock }
+  { value: '7+', label: 'Years of experience', Icon: FiClock },
+  { value: '150+', label: 'Projects completed', Icon: FiBriefcase },
+  { value: '10+', label: 'Industries served', Icon: FiClock },
+  { value: '100+', label: 'Happy clients', Icon: FiUsers }
 ]
 
 const parsedStats = stats.map(({ value }) => {

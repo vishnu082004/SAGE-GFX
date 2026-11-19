@@ -3,6 +3,7 @@ import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
 import { FiPhone } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import blogArticles from './data/blogArticles'
+import servicesData from './data/services'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
@@ -83,6 +84,13 @@ import './styles/services-page-mobile-final.css'
 import './styles/ipad-views.css'
 import './styles/viewport-fit.css'
 import './styles/interior-page-heroes.css'
+import './styles/tablet-card-grids.css'
+import './styles/page-transitions.css'
+import './styles/services-hero-refresh.css'
+import './styles/service-detail-structure.css'
+import './styles/services-ticker.css'
+import './styles/service-smm-hero.css'
+import './styles/global-typography.css'
 
 // Helper component to scroll to top on route change (unless hash anchor is present)
 function ScrollToTop() {
@@ -90,7 +98,11 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (!hash) {
+      const root = document.documentElement
+      const previousScrollBehavior = root.style.scrollBehavior
+      root.style.scrollBehavior = 'auto'
       window.scrollTo(0, 0)
+      root.style.scrollBehavior = previousScrollBehavior
     } else {
       const el = document.querySelector(hash)
       if (el) {
@@ -102,38 +114,132 @@ function ScrollToTop() {
   return null
 }
 
+const routePreloaders = [
+  [/^\/$/, () => import('./pages/Home')],
+  [/^\/(about|about-us)\/?$/, () => import('./pages/AboutPage')],
+  [/^\/services\/?$/, () => import('./pages/ServicesPage')],
+  [/^\/services\/[^/]+\/?$/, () => import('./pages/ServiceDetailPage')],
+  [/^\/(portfolio|our-projects)\/?$/, () => import('./pages/OurProjectsPage')],
+  [/^\/clients\/?$/, () => import('./pages/ClientsPage')],
+  [/^\/case-studies(?:\/wea-clinic)?\/?$/, () => import('./pages/CaseStudiesPage')],
+  [/^\/careers\/?$/, () => import('./pages/CareersPage')],
+  [/^\/blog\/?$/, () => import('./pages/BlogPage')],
+  [/^\/blog\/[^/]+\/?$/, () => import('./pages/BlogArticlePage')],
+  [/^\/(contact|contact-us)\/?$/, () => import('./pages/ContactPage')],
+  [/^\/privacy-policy\/?$/, () => import('./pages/PrivacyPolicyPage')],
+  [/^\/terms-of-service\/?$/, () => import('./pages/TermsPage')],
+  [/^\/sitemap\/?$/, () => import('./pages/SitemapPage')],
+]
+
+function RouteIntentPreloader() {
+  useEffect(() => {
+    const preloadFromLink = (event) => {
+      const link = event.target.closest('a[href]')
+      if (!link || link.target === '_blank' || event.relatedTarget && link.contains(event.relatedTarget)) return
+      const destination = new URL(link.href, window.location.href)
+      if (destination.origin !== window.location.origin) return
+      const preload = routePreloaders.find(([pattern]) => pattern.test(destination.pathname))?.[1]
+      if (preload) void preload().catch(() => {})
+    }
+
+    document.addEventListener('pointerover', preloadFromLink, { passive: true })
+    document.addEventListener('focusin', preloadFromLink)
+    return () => {
+      document.removeEventListener('pointerover', preloadFromLink)
+      document.removeEventListener('focusin', preloadFromLink)
+    }
+  }, [])
+
+  return null
+}
+
+const siteOrigin = 'https://sagegfx.com'
+const defaultShareImage = '/images/hero.webp'
+const pageMetadata = {
+  '/': ['Digital Marketing Agency in Chennai | Sage GFX', 'Sage GFX helps Chennai businesses grow with SEO, social media marketing, web development, branding and performance marketing.'],
+  '/about': ['About Sage GFX | Digital Studio in Chennai', 'Meet Sage GFX, a Chennai digital studio bringing strategy, design and technology together to help businesses grow online.'],
+  '/services': ['Digital Marketing Services in Chennai | Sage GFX', 'Explore SEO, social media, web development, branding, video and digital marketing services from Sage GFX in Chennai.'],
+  '/our-projects': ['Digital Projects & Portfolio | Sage GFX', 'Explore Sage GFX projects across web design, development, branding and digital marketing.'],
+  '/clients': ['Our Clients | Sage GFX Digital Studio', 'Meet the businesses and brands that work with Sage GFX on creative, web and digital marketing projects.'],
+  '/case-studies': ['Local SEO Case Study | Siddha Clinic | Sage GFX', 'See how Sage GFX improved local search visibility and helped a Siddha clinic generate more than 60 calls in three months.'],
+  '/careers': ['Careers at Sage GFX | Join Our Studio', 'Explore current opportunities and learn about the people, process and work culture at Sage GFX Digital Studio.'],
+  '/blog': ['Digital Marketing Insights | Sage GFX Journal', 'Read practical ideas from Sage GFX on SEO, branding, web design, social media and growing a business online.'],
+  '/contact': ['Contact Sage GFX | Chennai Digital Studio', 'Contact Sage GFX in Chennai to discuss SEO, design, web development or your next digital marketing project.'],
+  '/privacy-policy': ['Privacy Policy | Sage GFX', 'Read how Sage GFX collects, uses and protects information shared through this website.'],
+  '/terms-of-service': ['Terms of Service | Sage GFX', 'Review the terms that guide project scope, delivery, communication and fees for Sage GFX services.'],
+  '/sitemap': ['Sitemap | Sage GFX Digital Studio', 'Browse the pages, services, projects and articles available on the Sage GFX Digital Studio website.'],
+}
+const canonicalPaths = { '/about-us': '/about', '/portfolio': '/our-projects', '/contact-us': '/contact' }
+
+function setMetaContent(selector, attribute, value) {
+  let element = document.head.querySelector(selector)
+  if (!element) {
+    element = document.createElement('meta')
+    const [, key, content] = selector.match(/\[(name|property)="([^"]+)"\]/) || []
+    if (key && content) element.setAttribute(key, content)
+    document.head.append(element)
+  }
+  element.setAttribute(attribute, value)
+}
+
+function makeBrandedTitle(subject, brand) {
+  const suffix = ` | ${brand}`
+  const maxSubjectLength = 60 - suffix.length
+  const titleSubject = subject.length <= maxSubjectLength
+    ? subject
+    : `${subject.slice(0, maxSubjectLength - 1).replace(/\s+\S*$/, '')}…`
+  return `${titleSubject}${suffix}`
+}
+
 function RouteDocumentTitle() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const pages = {
-      '/': ['Digital Marketing Agency in Chennai | Sage GFX Digital Solutions', 'Sage GFX is a results-driven digital marketing agency in Chennai offering SEO, Google Ads, social media marketing and web solutions to grow your business online.'],
-      '/about': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
-      '/about-us': ['About SAGE GFX | Creative Digital Agency in Chennai', 'Discover SAGE GFX, a creative digital agency in Chennai specializing in branding, graphic design, SEO, social media marketing, and website development.'],
-      '/services': ['Services | Sage GFX Digital Studio', 'Explore Sage GFX services in web development, UI/UX design, branding, SEO and digital marketing.'],
-      '/portfolio': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
-      '/our-projects': ['Our Projects | SAGE GFX', 'Explore creative projects that bring brands to life through thoughtful design, strategic digital marketing, and modern technology.'],
-      '/clients': ['Our Clients | SAGE GFX', 'Meet some of the ambitious brands Sage GFX works alongside across creative, web, and digital marketing projects.'],
-      '/case-studies': ['Siddha Clinic Case Study | Sage GFX', 'Explore how Sage GFX combined SEO, local search, and performance marketing to grow Siddha Clinic’s organic visibility and patient enquiries.'],
-      '/careers': ['Careers | Sage GFX Digital Studio', 'Explore opportunities and apply to join the Sage GFX Digital Studio team.'],
-      '/blog': ['Studio Journal | Sage GFX Digital Studio', 'Ideas and practical notes on branding, technology and growing well online.'],
-      '/contact': ['Contact | Sage GFX Digital Studio', 'Tell Sage GFX about your next idea and start a conversation with our digital studio.'],
-      '/contact-us': ['Contact | Sage GFX Digital Studio', 'Tell Sage GFX about your next idea and start a conversation with our digital studio.'],
-      '/privacy-policy': ['Privacy Policy | Sage GFX Digital Studio', 'Learn how Sage GFX handles information shared through this website.'],
-      '/terms-of-service': ['Terms of Service | Sage GFX Digital Studio', 'Review how project scope, delivery schedules and fees are agreed with Sage GFX clients.'],
-      '/sitemap': ['Sitemap | Sage GFX Digital Studio', 'Browse all pages on the Sage GFX Digital Studio website.'],
-    }
-    const blogArticle = pathname.startsWith('/blog/') ? blogArticles.find((article) => pathname === `/blog/${article.slug}`) : null
-    const [title, description] = blogArticle
-      ? [`${blogArticle.title} | Sage GFX Journal`, blogArticle.summary]
-      : pages[pathname] || ['Page not found | Sage GFX Digital Studio', pages['/'][1]]
+    const route = pathname.replace(/\/$/, '') || '/'
+    const serviceSlug = route.match(/^\/services\/([^/]+)$/)?.[1]
+    const service = serviceSlug && servicesData.find((item) => item.slug === serviceSlug)
+    const blogArticle = route.startsWith('/blog/')
+      ? blogArticles.find((article) => route === `/blog/${article.slug}`)
+      : null
+    const isAlias = Object.hasOwn(canonicalPaths, route)
+    const canonicalPath = canonicalPaths[route] || route
+    const page = pageMetadata[canonicalPath]
+    const title = service
+      ? makeBrandedTitle(service.seoTitle || service.title, 'Sage GFX')
+      : blogArticle
+        ? makeBrandedTitle(blogArticle.seoTitle || blogArticle.title, 'Sage GFX Journal')
+        : page?.[0] || 'Page not found | Sage GFX Digital Studio'
+    const rawDescription = service?.metaDescription || service?.description || blogArticle?.metaDescription || blogArticle?.summary || page?.[1] || 'The requested page could not be found on the Sage GFX Digital Studio website.'
+    const cleanDescription = rawDescription.replace(/\s+/g, ' ').trim()
+    const description = cleanDescription.length <= 160
+      ? cleanDescription
+      : `${cleanDescription.slice(0, 157).replace(/\s+\S*$/, '')}…`
+    const shareImage = blogArticle?.image || service?.image || defaultShareImage
+    const absoluteImage = new URL(shareImage, siteOrigin).href
+    const canonicalUrl = new URL(canonicalPath, siteOrigin).href
+
     document.title = title
-    const meta = document.querySelector('meta[name="description"]')
-    if (meta) meta.content = description
-    const ogTitle = document.querySelector('meta[property="og:title"]')
-    if (ogTitle) ogTitle.content = title
-    const ogDescription = document.querySelector('meta[property="og:description"]')
-    if (ogDescription) ogDescription.content = description
+    setMetaContent('meta[name="description"]', 'content', description)
+    setMetaContent('meta[name="robots"]', 'content', isAlias ? 'noindex, follow' : (page || service || blogArticle ? 'index, follow, max-image-preview:large' : 'noindex, follow'))
+    setMetaContent('meta[property="og:title"]', 'content', title)
+    setMetaContent('meta[property="og:description"]', 'content', description)
+    setMetaContent('meta[property="og:type"]', 'content', blogArticle ? 'article' : 'website')
+    setMetaContent('meta[property="og:url"]', 'content', canonicalUrl)
+    setMetaContent('meta[property="og:image"]', 'content', absoluteImage)
+    setMetaContent('meta[property="og:image:alt"]', 'content', `${title} | Sage GFX Digital Studio`)
+    setMetaContent('meta[name="twitter:card"]', 'content', 'summary_large_image')
+    setMetaContent('meta[name="twitter:title"]', 'content', title)
+    setMetaContent('meta[name="twitter:description"]', 'content', description)
+    setMetaContent('meta[name="twitter:image"]', 'content', absoluteImage)
+    setMetaContent('meta[name="twitter:image:alt"]', 'content', `${title} | Sage GFX Digital Studio`)
+
+    let canonical = document.head.querySelector('link[rel="canonical"]')
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.append(canonical)
+    }
+    canonical.href = canonicalUrl
   }, [pathname])
 
   return null
@@ -184,7 +290,10 @@ function NotFoundPage() {
 }
 
 function RouteLoadingFallback() {
-  return <div className="route-loading" role="status" aria-live="polite">Loading page…</div>
+  return <div className="route-loading" role="status" aria-live="polite" aria-label="Loading page">
+    <span className="route-loading__mark" aria-hidden="true">S</span>
+    <span className="route-loading__track" aria-hidden="true"><span /></span>
+  </div>
 }
 
 function App() {
@@ -200,12 +309,13 @@ function App() {
   return (
     <div className="site-wrapper">
       <ScrollToTop />
+      <RouteIntentPreloader />
       <RouteDocumentTitle />
       <ScrollMotionManager />
       <ScrollReveal />
       <Navbar />
 
-      <main className="main-content">
+      <main className="main-content" key={pathname}>
         <Suspense fallback={<RouteLoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home openLightbox={openLightbox} showInitialHomeInquiry={showInitialHomeInquiryRef.current} />} />
