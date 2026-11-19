@@ -77,7 +77,7 @@ function Hero({ onVideoReady }) {
         </div>
       </div>
       <div className={`sage-hero-boy-wrap${videoReady ? ' is-ready' : ''}${videoPlaying ? ' is-playing' : ''}`} aria-hidden="true">
-        <video ref={videoRef} src={heroVideo} muted playsInline loop={false} preload="auto" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onEnded={completeIntro} onError={handleVideoError} />
+        <video ref={videoRef} src={heroVideo} autoPlay muted playsInline loop={false} preload="auto" onCanPlay={startHeroVideo} onPlay={() => setVideoPlaying(true)} onPause={() => setVideoPlaying(false)} onEnded={completeIntro} onError={handleVideoError} />
       </div>
     </section>
   )
